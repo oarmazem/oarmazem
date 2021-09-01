@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+/*******************************************************************************
+*                      Configuracao de table class="default"                   *
+*******************************************************************************/
+/*bordas colapsadas nas celulas*/
+table.default {
+  border-collapse: collapse;
+}
+
+/*titulo da tabela alinhado a esquerda*/
+table.default caption {
+  text-align: left;
+  font-size: 0.8em;
+}
+
+/*cabecalho da tabela*/
+table.default thead {
+  text-align: center;
+  border-style: double;
+}
+
+table.default th {
+  padding-left:3vw;
+  padding-right: 3.8vw;
+}
+
+/*tabela zebrada*/
+table.default tr:nth-child(even) {
+  background-color: #b4cee63a;
+}
+
+/*estilo de uma celula da tabela*/
+table.default td {
+  border: 1px solid;
+  text-align: center;
+}
+

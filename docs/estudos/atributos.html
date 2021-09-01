@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <script src="js/highlight/highlight.min.js"></script>
+
+  <title>Atributos de Tags</title>
+</head>
+<body>
+  <article id="top" class="frame-article">
+
+  <h1>Atributos em Tags</h1>
+
+  <p>Como vimos, tags podem possuir atributos. Tags com e sem fechamento podem ter atributos.</p>
+
+  <p>Alguns atributos são específicos para determinadas tags. Enquanto outros são globais e podem ser incluídos em quase todas as tags.</p>
+
+  <p>Alguns atributos são opcionais enquanto outros são obrigatórios em determinadas tags.</p>
+
+  <p>No artigo anterior vimos como funciona o atributo opcional <i>lang</i> na tag <span class="html-tag">&lt;html&gt;</span>.  (<span class="html-tag">&lt;html lang="pt-br"&gt;</span>)</p>
+
+  <p>O atributo <i>lang</i> está informando ao navegador qual o idioma predominante em todo o documento HTML.  Como o escopo da tag <span class="html-tag">&lt;html&gt;</span> é todo o documento, toda a página, consequentemente o atributo <i>lang</i> nesta tag é referente ao idioma do documento.</p>
+
+  <p>Porém mesmo que o idioma apresentado na sua página seja o Português do Brasil, ainda assim você poderia ter algum determinado parágrafo em Inglês (ou qualquer outro idioma). Neste caso você ainda poderia informar isto ao navegador inserindo o atributo <i>lang</i> exatamente neste parágrafo cujo idioma não fosse o Português do Brasil.</p>
+
+  <p>Vejamos um exemplo:</p>
+
+  <pre><code class="language-html">
+  &lt;!DOCTYPE html&gt;
+  
+  &lt;html lang="pt-br"&gt;
+    
+  &lt;head&gt; 
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Exemplificando Atributos&lt;/title&gt;
+  &lt;/head&gt;
+  
+  &lt;body&gt; 
+    &lt;h1&gt;Armazém Café e Relíquias&lt;/h1&gt; 
+
+    &lt;p&gt;Neste espaço está em construção o futuro site do Armazém Café e Relíquias.&lt;/p&gt; 
+    &lt;p&gt;Parada obrigatória de todo visitante em Cunha.&lt;/p&gt;
+
+    &lt;p lang="en-us"&gt;Here is under construction the future site of Armazém Café e Relíquias.&lt;/p&gt;
+    &lt;p lang="en-us"&gt;An obligatory stop for every visitor in Cunha.&lt;/p&gt;
+  &lt;/body&gt;
+  
+  &lt;/html&gt;
+  </code></pre> 
+
+  <p>Lembrando que <i>lang</i> é um atributo opcional em uma tag de texto. Você inclui se quiser mas é útil para o navegador ou para um programa leitor de tela para deficientes visuais, por exemplo.</p>
+
+  <p>Agora, para dar um exemplo de atributo obrigatório em uma tag, vamos introduzir uma nova tag extremamente importante no HTML. A tag <span class="html-tag">&lt;a&gt;</span>.</p>
+
+  <p>Este <i>a</i> vem de "anchor" e é justamente a tag responsável por criar links em um documento HTML. Veja como você poderia inserir um link clicável na sua página:</p>
+
+  <pre><code class="editable language-html" id="sample1">
+  &lt;!DOCTYPE html&gt;
+
+  &lt;html lang="pt-br"&gt;
+    
+  &lt;head&gt; 
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Exemplificando Links&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt; 
+    &lt;h1&gt;Armazém Café e Relíquias&lt;/h1&gt; 
+
+    &lt;p&gt;Neste espaço está em construção o futuro site do Armazém Café e Relíquias.&lt;/p&gt; 
+    &lt;p&gt;Parada obrigatória de todo visitante em Cunha.&lt;/p&gt;
+
+    &lt;p lang="en-us"&gt;Here is under construction the future site of Armazém Café e Relíquias.&lt;/p&gt;
+    &lt;p lang="en-us"&gt;An obligatory stop for every visitor in Cunha.&lt;/p&gt;
+
+    &lt;p&gt;
+      &lt;a href="https://viagemeturismo.abril.com.br/cidades/cunha/" target="_blank"&gt;
+      Clique aqui para conhecer Cunha&lt;/a&gt;.
+    &lt;/p&gt;
+  &lt;/body&gt;
+
+  &lt;/html&gt;
+  </code></pre> 
+
+  <button class="update-sample" onclick="showHtmlSample('sample1')"></button>
+
+  <p>O navegador exibiria assim o código acima:</p>
+
+  <iframe class="html-sample" id="sample1-html-sample"></iframe>
+
+  <p>O conteúdo de uma tag <span class="html-tag">&lt;a&gt;</span> (o elemento entre a tag de abertura e a de fechamento) é um link que, se clicado, abre no navegador o endereço indicado no atributo <i>href</i> da tag. Portanto <i>href</i> é um atributo obrigatório em uma tag <span class="html-tag">&lt;a&gt;</span>.</p>
+
+  <p>Em um documento HTML, um link para o site do Armazém Café e Relíquias, poderia ser da seguinte forma:</p>
+  
+  <pre><code class="language-html">
+  &lt;a href="www.armazem.orgfree.com"&gt;O Armazém&lt;/a&gt;
+  </code></pre>
+
+  <p>Este código faria <a href="www.armazem.orgfree.com" target="_blank">O Armazém</a> ser exibido como um link clicável para o site www.armazem.orgfree.com </p>
+
+  </article>
+
+  <script src="js/initialize.js"></script> 
+  <script>configureDocument('aprofundando.html', 'formatacao-codigo-html.html');</script>
+  
+</body>
+</html>

@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+@import "colors.css";
+@import "../js/highlight/styles/agate.min.css";
+
+/*--------------------------------------------------------------------------
+                     Fonte utilizada nos paragrafos
+---------------------------------------------------------------------------*/
+@font-face {
+  font-family: 'robot';
+  src: url("../fonts/RobotoSlab-VariableFont_wght.ttf");
+}
+
+/*--------------------------------------------------------------------------
+                              Estiliza body
+---------------------------------------------------------------------------*/
+body{
+  font-size: 1.2em;
+  padding-left:1.5vw;
+  padding-right: 1.5vw;
+  background-color: var(--default-background);
+}
+
+
+/*--------------------------------------------------------------------------
+                   Estiliza a tag article de cada frame
+ --------------------------------------------------------------------------*/     
+.frame-article {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', 'Arial' , 'sans-serif';
+}
+
+.frame-article p {
+
+  line-height: 1.5em;
+  text-align: justify;
+  font-family: robot;
+  font-size: 1em;
+  padding-bottom: 0.6em;
+
+}
+
+
+.frame-article a, a:visited, a:active {
+  text-decoration: none;
+  color: var(--link-color);
+ 
+}
+
+.frame-article ul {
+  margin-left: 3em;
+}
+
+.frame-article li {
+  padding: 0.5em;
+  text-align: justify;
+}
+
+.frame-article pre {
+
+  font-size: 1.3em;
+
+}
+
+.html-sample {
+  display: block;
+  margin-top: 1.5vh;
+  margin-bottom:1.5vh;
+  width: 100%;
+  height: 250px;
+  padding: 8px;
+  border: solid 1px black;
+  background-color: var(--samp-html-output-background);
+  font-family: robot;
+  font-size: 20px;
+}
+
+.update-sample {
+  font-size: 1.0em;
+  background-color: rgb(190, 190, 190);
+  border-radius: 6px;
+}
+
+.update-sample:hover {
+  background-color: rgb(222, 222, 222);
+}
+
+
+.html-tag {
+  
+  color : var(--html-tag-color);
+
+}
+
+/*-------------------------------------------------------------------------
+            Estiliza botoes Anterior e Proximo no fim da pagina
+-------------------------------------------------------------------------*/               
+a.nav-button, a.nav-button:visited {
+  display: block;
+  background-color:var(--nav-background);
+  color: var(--nav-color);
+  padding: 15px 32px;
+  margin-right: 10px;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.nav-button-prev {
+  float: left;
+}
+
+.nav-button-next {
+  float: right;
+}
+
+/*---------------------------------------------------------------------------
+                     Estiliza o rodape da pagina
+ --------------------------------------------------------------------------*/                     
+footer {
+  clear: both;
+}
+
+/*--------------------------------------------------------------------------*/
+

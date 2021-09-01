@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+ 
+<head>
+  <script src="js/highlight/highlight.min.js"></script>
+
+  <title>Introdução</title>
+</head>
+
+<body>
+  <article id="top" class="frame-article">
+
+  <h1>O Documento HTML</h1>  
+
+  <p>Fazer um site é quase tão simples quanto escrever um texto utilizando o Word.</p>
+
+  <p>A página que você visualiza em seu navegador é, basicamente, um simples arquivo texto dizendo ao navegador qual o conteúdo da página, qual sua estrutura e contendo instruções para formatação do layout.</p>
+
+  <p>Como curiosidade, acesse agora o <a href="../index.html" target="_blank">site do armazém</a> e clique com o botão direito do mouse em qualquer lugar da página. Irá abrir um menu e então selecione Exibir Código Fonte (ou algo assim). Você verá o código fonte da página. Ou seja, o código que foi escrito para que aquela página fosse exibida.</p>
+
+  <p>Está em uma linguagem chamada <abbr title="Hyper Text Markup Language">HTML</abbr>, bastante fácil de aprender e que não é uma linguagem de programação. É uma linguagem para formatar Hiper Textos. HTML quer dizer Hyper Text Markup Language. Vamos ver como isso funciona:</p>
+
+  <p>Abaixo veja a estrutura básica de uma página em HTML</p>
+  
+  <pre><code class="editable language-html" id="sample1">
+  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+
+    &lt;head&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+      Você está vendo a estrutura básica de um arquivo HTML
+    &lt;/body&gt;
+
+  &lt;/html&gt;
+  </code></pre>  
+
+  <button class="update-sample" onclick="showHtmlSample('sample1')"></button>
+
+  <p>Este código, no seu navegador, mostraria apenas :</p>
+
+  <iframe class="html-sample" id="sample1-html-sample"></iframe>
+ 
+  <p>Note estas coisas entre parênteses angulares &lt; &gt;</p>
+
+  <p>São as chamadas <i>tags</i>.</p>
+
+  <p>Assim <span class="html-tag">&lt;html&gt;</span> é uma tag, <span class="html-tag">&lt;head&gt;</span> é outra tag e <span class="html-tag">&lt;body&gt;</span> é mais uma tag.</p>
+
+  <p>A maioria destas tags possui um “fechamento”. Ou seja, uma outra tag iniciando com uma barra inclinada e as tags de abertura e fechamento delimitam o conteúdo ou escopo daquele elemento. Assim <span class="html-tag">&lt;/html&gt;</span> fecha a tag <span class="html-tag">&lt;html&gt;</span>. E tudo que está entre a abertura e o fechamento de uma tag, pertence ao escopo desta tag. É o conteúdo dela.</p>
+
+  <p>Então note que</p>
+  
+  <pre><code class="language-html">
+  &lt;head&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    Você está vendo a estrutura básica de um arquivo HTML
+  &lt;/body&gt;
+  </code></pre>
+
+  <p>é o que está dentro de <span class="html-tag">&lt;html&gt;</span> <span class="html-tag">&lt;/html&gt;</span>no nosso exemplo.</p>
+
+  <p>As tags indicam ao navegador o que são as coisas em um arquivo HTML . As tags <span class="html-tag">&lt;html&gt;</span> e <span class="html-tag">&lt;/html&gt;</span>, por exemplo, indicam onde começa e onde termina o documento HTML. A página em si.</p>
+
+  <p>E obrigatoriamente há pelo menos duas tags dentro de <span class="html-tag">&lt;html&gt;</span><span class="html-tag">&lt;/html&gt;</span></p>
+
+  <ol>
+    <li>O elemento <span class="html-tag">&lt;head&gt;</span> (a cabeça ou cabeçalho de uma página HTML)</li>
+    <li>O elemento <span class="html-tag">&lt;body&gt;</span> (o corpo de uma página HTML)</li>
+  </ol>
+
+  <p>Entre <span class="html-tag">&lt;head&gt;</span> e <span class="html-tag">&lt;/head&gt;</span> colocamos as configurações globais da página.</p>
+
+  <p>Entre <span class="html-tag">&lt;body&gt;</span> e <span class="html-tag">&lt;/body&gt;</span> vai o conteúdo propriamente dito da página.</p>
+
+  <p>O código HTML é estruturado por meio de tags. Elas indicam ao seu navegador o que é um título, o que é um parágrafo, o que é um link, e assim por diante... <a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element" target="_blank">Aqui</a> você encontra uma lista de todas as tags HTML.</p>
+
+  </article>  
+
+  <script src="js/initialize.js"></script> 
+  <script>configureDocument('#top', 'codigo-armazem.html');</script>
+
+</body>
+</html>

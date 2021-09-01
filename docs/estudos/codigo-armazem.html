@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <script src="js/highlight/highlight.min.js"></script>
+
+  <title>Código HTML</title>
+</head>
+
+<body>
+
+  <article id="top" class="frame-article">
+
+  <h1>Dissecando o Primeiro HTML</h1>  
+
+  <pre><code class="editable language-html" id="sample1">
+  &lt;!DOCTYPE html&gt;
+  &lt;html lang="pt-br"&gt;
+
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Armazém&lt;/title&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;h1&gt;Armazém Café e Relíquias&lt;/h1&gt;
+    &lt;p&gt;Neste espaço está em construção o futuro site do Armazém Café e Relíguias.&lt;/p&gt;
+    &lt;p&gt;Parada obrigatória de todo visitante em Cunha&lt;/p&gt;
+  &lt;/body&gt;
+
+  &lt;/html&gt;
+  </code></pre>
+
+  <button class="update-sample" onclick="showHtmlSample('sample1')"></button>
+
+  <p>Acima você está vendo exatamente o código HTML da página do seu armazém, do jeito que ela está agora.</p>
+
+  <p>Este código é o que faz seu navegador exibir:</p>
+
+  <iframe class="html-sample" id="sample1-html-sample"></iframe>
+
+  <p>Vamos dissecar este código…</p>
+
+  <p>Logo no início vemos <span class="html-tag">&lt;!DOCTYPE html&gt;</span> mas isso, ao contrário de todo o resto que vemos entre parênteses angulares, não é uma tag!</p>
+
+  <p>Esta é a 1ª coisa em qualquer documento HTML e serve para o navegador saber que versão de HTML a página está usando. (Neste caso estamos utilizando a última versão do HTML, o HTML5 <a href="https://www.w3.org/TR/html52/" target="_blank"><img src="images/favicon.png" alt="html5_logo"></a>).</p>
+
+  <p>Logo em seguida vemos a tag <span class="html-tag">&lt;html&gt;</span> e esta indica o início do documento. Fecha com a tag de fechamento <span class="html-tag">&lt;/html&gt;</span> (Note que a presença de uma barra no interior da tag é o que denota ser a tag de fechamento)</p>
+
+  <p><span class="html-tag">&lt;html&gt;</span> e seu respectivo fechamento <span class="html-tag">&lt;/html&gt;</span> delimitam para o navegador o próprio documento HTML.</p>
+
+  <p>No escopo da tag <span class="html-tag">&lt;html&gt;</span> você vê as já referidas tags <span class="html-tag">&lt;head&gt;</span> e <span class="html-tag">&lt;body&gt;</span> que respectivamente delimitam o cabeçalho e o corpo da página.</p>
+
+  <p>Examinemos o que há dentro de cada uma delas…</p>
+
+  <p>Dentro do HEAD (no seu escopo limitado por  <span class="html-tag">&lt;head&gt;</span> e  <span class="html-tag">&lt;/head&gt;</span>) você vê 3 tags <span class="html-tag">&lt;meta&gt;</span> e uma tag <span class="html-tag">&lt;title&gt;</span>.</p>
+
+  <pre><code class="language-html">
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Armazém&lt;/title&gt;
+  &lt;/head&gt;
+  </code></pre>
+
+  <p>Não é preciso agora entender nem decorar a função delas. Até porque os editores que a gente utiliza para escrever código HTML já inserem automaticamente estas tags obrigatórias.</p>
+
+  <p>Mas vou falar brevemente sobre elas apenas pra você começar a compreender a estrutura de um documento HTML.</p>
+
+  <p>Como dito antes, o <span class="html-tag">&lt;head&gt;</span> é a seção do documento HTML onde inserimos as configurações. A tag <span class="html-tag">&lt;meta&gt;</span> é de "meta-dado", ou seja, fornece dados sobre os dados.</p>
+
+  <p><span class="html-tag">&lt;meta charset="UTF-8"&gt;</span>  Esta é importante e diz ao navegador como os caracteres estão codificados. Como você deve imaginar, em um computador todos os caracteres são representados por valores númericos. São codificados por números. UTF-8 é uma das codificações que existem e esta tag está informando ao navegador que os caracteres do arquivo HTML estão representados em UTF-8. O que obviamente o seu browser precisa saber para processar o texto.</p> 
+
+  <p><span class="html-tag">&lt;meta http-equiv="X-UA-Compatible" content="IE=edge"&gt;</span> Esta é para forçar a compatibilidade com certos navegadores da Microsoft. Não é preciso entender, apenas note como estas tags &lt;meta&gt; são inseridas no HEAD para fornecer este tipo de informação para o navegador.</p>
+
+  <p><span class="html-tag">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span> Esta também é um pouco difícil explicar agora. Mas é necessária para criar sites "responsivos", que alteram seu layout e comportamento de acordo com o dispositivo onde está sendo visualizado.</p>
+
+  <p><span class="html-tag">&lt;title&gt;Armazém&lt;/title&gt;</span> Por fim esta tag é a que está dizendo ao navegador qual título ele deve colocar na aba onde irá abrir esta página.</p> 
+
+  <p>Bem, estas são as tags dentro do escopo da tag <span class="html-tag">&lt;head&gt;</span> deste documento. Agora vejamos o que há no <span class="html-tag">&lt;body&gt;</span></p>
+
+  <pre><code class="language-html">
+  &lt;body&gt;
+    &lt;h1&gt;Armazém Café e Relíquias&lt;/h1&gt;
+    &lt;p&gt;Neste espaço está em construção o futuro site do Armazém Café e Relíguias.&lt;/p&gt;
+    &lt;p&gt;Parada obrigatória de todo visitante em Cunha&lt;/p&gt;
+  &lt;/body&gt;  
+  </code></pre>
+
+  <p>Está vendo? É o conteúdo propriamente dito da página.</p>
+
+  <p>As tags <span class="html-tag">&lt;h1&gt;</span><span class="html-tag">&lt;/h1&gt;</span> delimitam um título. E as tags <span class="html-tag">&lt;p&gt;</span><span class="html-tag">&lt;/p&gt;</span> delimitam um parágrafo.</p>
+
+  <p>Portanto você vê na página um título e dois parágrafos. Agora experimente editar os códigos exibidos nesta página (sim, são editáveis!) e clique no botão <b>Edite e experimente!</b> para ver o resultado.</p>
+
+  <p>Altere o título, os parágrafos, adicione novos parágrafos e títulos. Ou delete alguma tag se preferir. Mexa no código à vontade para começar a se familiarizar e observe o resultado das suas edições.</p>
+
+  <p>Neste site a maioria dos exemplos serão editáveis e você deve experimentar o que quiser. É a melhor maneira de tirar qualquer dúvida.</p>
+
+  <p>Abaixo de todo exemplo editável você verá um botão como este <button class="update-sample"></button> e também um "display" mostrando como o seu navegador exibiria uma página  para aquele código.</p>
+
+  
+  
+  </body>
+    
+  </article>
+  
+  <script src="js/initialize.js"></script> 
+  <script>configureDocument('introducao.html', 'aprofundando.html');</script>
+
+</body>
+</html>
