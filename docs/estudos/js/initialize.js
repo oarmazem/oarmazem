@@ -2,15 +2,15 @@
 /*----------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------*/
-const newlineSubstitute = "-j4jro@=";
+const newlineSubstitute = '-j4jro@=';
 
-const style = "<style> body {font-size: 20px; font-family: robot; padding: 8px;} </style> \n ";
+const style = '<style> body {font-size: 20px; font-family: robot; padding: 8px;} </style> \n ';
 
 function showHtmlSample(id) {
 
   code = document.getElementById(id);
 
-  iframe = document.getElementById(id + "-html-sample"); 
+  iframe = document.getElementById(id + '-html-sample'); 
  
   innerText = code.innerText;
 
@@ -68,15 +68,15 @@ function configureDocument(last, next) {
   buttonTags = document.getElementsByClassName("update-sample");
 
   for (index = 0; index < buttonTags.length; index++) {
-    buttonTags[index].innerText = "\u261D Edite e experimente! \u00A0";
+    buttonTags[index].innerText = '\u261D Edite e experimente! \u00A0';
   }//for
 
-  codeTags = document.getElementsByClassName("editable");
+  codeTags = document.getElementsByClassName('editable');
 
   for (index = 0; index < codeTags.length; index++) {
-    codeTags[index].setAttribute("contenteditable", "true");
-    id = codeTags[index].getAttribute("id");
+    codeTags[index].setAttribute('contenteditable', 'true');
+    id = codeTags[index].getAttribute('id');
     showHtmlSample(id);
   }//for
 
-}//includeTags()
+}//configureDocument()

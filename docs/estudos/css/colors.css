@@ -5,16 +5,6 @@
 
   --link-color:rgb(69, 81, 185);
 
-  --javacode-linenumber-background: goldenrod;
-  --javacode-linenumber-color: black;
-
-  --javacode-method-color: olive;
-  --javacode-literalstring-color: hotpink;
-  --javacode-reserved-color: blue;
-  --javacode-constant-color:green;
-  --javacode-comment-color: rgb(173, 167, 167);
-  --javacode-literalchar-color: red;
-
   --h1-color: black;
   --h2-color: black;
   --h3-color: black;
@@ -22,7 +12,7 @@
   --h5-color: black;
   --h6-color: black;
   
-  --nav-background: rgb(28, 125, 163);
+  --nav-background: rgb(121, 184, 209);
   --nav-color: white;
   --nav-border-color: white;
   --nav-hover-color: black;
