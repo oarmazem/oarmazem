@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+.letter_o {
+  color:#2C459C;
+  font-family:Kaisei HarunoUmi;
+}
+
+.letter_1a {
+  color:#EE3539;
+  font-family:'Courier New', Courier, monospace;
+}
+
+.letter_1r {
+  color:#19B060;
+  font-family:sans-serif; 
+  font-size:25px;
+}
+
+.letter_1m {
+
+  color:#F58637;
+  font-family:sans-serif;
+   font-size:25px;
+
+}
+
+.letter_2a {
+  color:#0FB99B;
+  font-family:Spartan;
+}
+
+.letter_1z {
+  color:#4F2C72;
+  font-family:Chilanka, cursive;
+  font-size:30px;
+
+}
+
+.letter_1e {
+  color:#1597D5;
+  font-family:helvetica;
+  font-size:25px;
+}
+
+.letter_2m {
+  color:#A82F82;
+  font-family:Chilanka, cursive;
+
+}
+
+h3 {
+  font-family: Chilanka, cursive;
+}
