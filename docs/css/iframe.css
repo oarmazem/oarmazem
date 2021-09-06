@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+@import "colors.css";
+
+/*-------------------------------------------------------------------------
+                           Configuracoes globais
+-------------------------------------------------------------------------*/
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--body-background);
+  font-family: Chilanka, cursive;
+  font-size: 1em;
+}
+
+h1, h2 {
+  margin: 3vw;
+}

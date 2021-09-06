@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+:root {
+  --body-background:  white;
+
+  --link-color:rgb(69, 81, 185);
+
+  --h1-color: black;
+  --h2-color: black;
+  --h3-color: black;
+  --h4-color: black;
+  --h5-color: black;
+  --h6-color: black;
+  
+  --nav-background: var(--body-background);
+  --nav-color: black;
+  --nav-hover-color: rgb(238, 234, 234);
+  
+}
+

@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+@import "colors.css";
+
+/*-------------------------------------------------------------------------
+                           Configuracoes globais
+-------------------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--body-background);
+}
+
+/*-------------------------------------------------------------------------
+                   Configura o banner com o menu de navegacao
+-------------------------------------------------------------------------*/
+#menu {
+  height: 1.4vw;
+  width: 100%;
+  background-color: var(--body-background);
+}
+
+
+/*-------------------------------------------------------------------------
+                  Configura o menu do banner de navegacao
+-------------------------------------------------------------------------*/
+#menu ul {
+  list-style: none;
+}
+
+#menu li {
+  float: left;
+  margin-left: 4vw;
+  margin-top: 0.1vw;
+}
+
+#menu li a {
+  text-decoration: none;
+  font-family: Chilanka, cursive;
+  font-size: 1.2vw;
+  color: var(--nav-color);
+}
+
+#menu li a:hover {
+  background-color: var(--nav-hover-color);
+}
+
+iframe {
+  width: 100%;
+  margin: 0;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  padding-top: 2vw;
+  padding-bottom: 0;
+  border-style: none;
+}
+
+
+
+

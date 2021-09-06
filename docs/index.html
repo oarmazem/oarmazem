@@ -10,20 +10,36 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Gloria+Hallelujah&family=Kaisei+HarunoUmi:wght@500&family=Spartan:wght@200;400&display=swap" rel="stylesheet">
 
-  <link href="css/logomarca.css" rel="stylesheet">
 
-  <title>Armazém</title>
+  <link href="css/logomarca.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <script src="js/main.js"></script>
+
+  <title>O Armazém</title>
 </head>
 
-<body>
+<body onresize="setIframeHeight()">
   <div class="logomarca">
     <h1><span class="letter_1o">O </span><span class="letter_1a">a</span><span class="letter_1r">R</span><span class="letter_1m">M</span><span class="letter_2a">a</span><span class="letter_1z">Z</span><span class="letter_1e">É</span><span class="letter_2m">m</span></h1>
     <h2>CAFÉ & RELÍQUIAS</h2>
   </div>
 
-  <p>Neste espaço está em construção o futuro site de O Armazém Café e Relíquias.</p>
+  <nav id="menu">
+    <ul>
+      <li><a href="inicio.html" target="iframe" id="id1" onclick="nav('id1')">INÍCIO</a></li>
+      <li><a href="cafe.html" target="iframe" id="id2" onclick="nav('id2')">CAFÉ</a></li>
+      <li><a href="reliquias.html" target="iframe" id="id3" onclick="nav('id3')">RELÍQUIAS</a></li>
+      <li><a href="chegar.html" target="iframe" id="id4" onclick="nav('id4')">COMO CHEGAR</a></li>      
+      <li><a href="contato.html" target="iframe" id="id5" onclick="nav('id5')">CONTATO</a></li>
+    </ul>
+  </nav>
 
-  <p>Parada obrigatória de todo visitante em Cunha</p>
+  <iframe id="iframe" name="iframe" src="inicio.html"></iframe>
+
+  <script>
+    setIframeHeight();
+    nav("id1");
+  </script>
 </body>
 
 </html>
