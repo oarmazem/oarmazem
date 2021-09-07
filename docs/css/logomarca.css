@@ -65,14 +65,12 @@
   top: -1em;
   margin-left: 9.7em;
 }
+
 /*Centraliza a logomarca na página e define seu tamanho*/
 .logomarca {
   text-align: center; 
   height: 10vw;
   font-size: 2vw;
-  position: sticky;
-  top: 0;
-  z-index: 100;
   background-color: var(--body-background);
 }
 
@@ -107,4 +105,4 @@
   .logomarca {
     font-size: 3vw;
   }
-}
+} 
