@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  background-color: var(--body-background);
+  /*background-color: var(--body-background);*/
   font-family: Chilanka, cursive;
   font-size: 1em;
 }

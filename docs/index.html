@@ -10,15 +10,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Gloria+Hallelujah&family=Kaisei+HarunoUmi:wght@500&family=Spartan:wght@200;400&display=swap" rel="stylesheet">
 
-
-  <link href="css/logomarca.css" rel="stylesheet">
-  <link href="css/style.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link media="(max-width: 800px)" href="css/index-mobile.css" rel="stylesheet">
   <script src="js/main.js"></script>
 
   <title>O Armazém</title>
 </head>
 
-<body onresize="setIframeHeight()">
+<body>
+  <header>
   <div class="logomarca">
     <h1><span class="letter_1o">O </span><span class="letter_1a">a</span><span class="letter_1r">R</span><span class="letter_1m">M</span><span class="letter_2a">a</span><span class="letter_1z">Z</span><span class="letter_1e">É</span><span class="letter_2m">m</span></h1>
     <h2>CAFÉ & RELÍQUIAS</h2>
@@ -33,13 +33,11 @@
       <li><a href="contato.html" target="iframe" id="id5" onclick="nav('id5')">CONTATO</a></li>
     </ul>
   </nav>
+  </header>
 
   <iframe id="iframe" name="iframe" src="inicio.html"></iframe>
 
-  <script>
-    setIframeHeight();
-    nav("id1");
-  </script>
+  <script>nav("id1");</script>
 </body>
 
 </html>

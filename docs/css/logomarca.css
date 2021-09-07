@@ -68,6 +68,43 @@
 /*Centraliza a logomarca na página e define seu tamanho*/
 .logomarca {
   text-align: center; 
-  height: 8vw;
+  height: 10vw;
   font-size: 2vw;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--body-background);
+}
+
+/*----------------------------------------------------------------------------
+                           CSS responsivo
+ ---------------------------------------------------------------------------*/
+@media only screen and (max-width: 800px) {
+  .logomarca {
+    font-size: 2.2vw;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .logomarca {
+    font-size: 2.4vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .logomarca {
+    font-size: 2.6vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .logomarca {
+    font-size: 2.8vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .logomarca {
+    font-size: 3vw;
+  }
 }

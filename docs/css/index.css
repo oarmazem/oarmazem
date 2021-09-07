@@ -1,5 +1,6 @@
 @charset "UTF-8";
 
+@import "logomarca.css";
 @import "colors.css";
 
 /*-------------------------------------------------------------------------
@@ -24,9 +25,12 @@ body {
                    Configura o banner com o menu de navegacao
 -------------------------------------------------------------------------*/
 #menu {
-  height: 1.4vw;
+  height: 5vw;
   width: 100%;
   background-color: var(--body-background);
+  position: sticky;
+  top: 10vw;
+  z-index: 100;
 }
 
 
@@ -46,7 +50,7 @@ body {
 #menu li a {
   text-decoration: none;
   font-family: Chilanka, cursive;
-  font-size: 1.2vw;
+  font-size: 1.4vw;
   color: var(--nav-color);
 }
 
@@ -56,13 +60,69 @@ body {
 
 iframe {
   width: 100%;
+  height: 100vh;
   margin: 0;
   padding-left: 2vw;
   padding-right: 2vw;
-  padding-top: 2vw;
+  padding-top: 0;
   padding-bottom: 0;
   border-style: none;
+  background-color: var(--body-background);
 }
+
+@media only screen and (max-width: 800px) {
+  #menu {
+    height: 5.5vw;
+  }
+
+  #menu li a {
+    font-size: 1.8vw;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #menu {
+    height: 6vw;
+  }
+
+  #menu li a {
+    font-size: 2.2vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #menu {
+    height: 6.5vw;
+  }
+
+  #menu li a {
+    font-size: 2.6vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #menu {
+    height: 7vw;
+  }
+
+  #menu li a {
+    font-size: 3vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #menu {
+    height: 7.5vw;
+  }
+
+  #menu li a {
+    font-size: 3.4vw;
+  }
+}
+
+
+
+
 
 
 
