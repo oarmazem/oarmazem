@@ -2,6 +2,7 @@
 
 @import "logomarca.css";
 @import "colors.css";
+@import "languages.css";
 
 /*-------------------------------------------------------------------------
                            Configuracoes globais
@@ -57,6 +58,10 @@ header {
   font-family: Chilanka, cursive;
   font-size: 1.4vw;
   color: var(--nav-color);
+}
+
+#menu li a span {
+  font-family: Chilanka, cursive;
 }
 
 #menu li a:hover {

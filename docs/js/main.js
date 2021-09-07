@@ -41,3 +41,90 @@ function nav(id) {
   }//switch
   
 }//nav()
+
+/*----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------*/
+function setCurrentLanguage() {
+
+  currentLanguage = "pt";
+  
+}
+
+/*----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------*/
+function getCurrentLanguage() {
+
+  return currentLanguage;
+  
+}//getCurrentLanguage()
+
+/*----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------*/
+function toggleLanguage() {
+
+  if (currentLanguage == "pt") {
+
+    currentLanguage = "en"; 
+  } 
+  else { 
+
+    currentLanguage = "pt"; 
+  }
+
+  setLanguage();
+
+}//toggleLanguage()
+
+/*----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------*/
+function setLanguage() {
+
+  document.getElementById('iframe').contentWindow.setIFrameLanguage(currentLanguage);
+
+  ptDisplay = "none"; enDisplay = "none";
+
+  flag = document.getElementById("flag");
+
+  if (currentLanguage == "pt") { 
+    flag.src = "images/en.png";
+    flag.title = "Translate to English";
+    ptDisplay = "inline";
+    
+  } else { 
+    flag.src = "images/br.png";
+    flag.title = "Traduza para Português";
+    enDisplay = "inline";
+  }
+ 
+  updateSpans(ptDisplay, enDisplay);
+
+}//setLanguage()
+
+/*----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------*/
+function setIFrameLanguage(language) {
+
+  ptDisplay = "none"; enDisplay = "none";
+
+  if (language == "pt") { ptDisplay = "inline"; } else { enDisplay = "inline"; }
+
+  updateSpans(ptDisplay, enDisplay);
+}//setIFrameLanguage()
+
+/*----------------------------------------------------------------------------
+
+----------------------------------------------------------------------------*/
+function updateSpans(ptDisplay, enDisplay) {
+
+  pt = document.getElementsByClassName("pt");
+  en = document.getElementsByClassName("en");
+
+  for (i = 0; i < pt.length; i++) { pt[i].style.display = ptDisplay }
+  for (i = 0; i < en.length; i++) { en[i].style.display = enDisplay }
+
+}//updateSpans()

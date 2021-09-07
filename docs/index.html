@@ -18,6 +18,7 @@
 
 <body>
   <header>
+  <img id="flag" src="images/en.png" title="Translate to English" onclick="toggleLanguage()">  
   <div class="logomarca">
     <h1><span class="letter_1o">O </span><span class="letter_1a">a</span><span class="letter_1r">R</span><span class="letter_1m">M</span><span class="letter_2a">a</span><span class="letter_1z">Z</span><span class="letter_1e">É</span><span class="letter_2m">m</span></h1>
     <h2>CAFÉ & RELÍQUIAS</h2>
@@ -25,18 +26,21 @@
 
   <nav id="menu">
     <ul>
-      <li><a href="inicio.html" target="iframe" id="id1" onclick="nav('id1')">INÍCIO</a></li>
-      <li><a href="cafe.html" target="iframe" id="id2" onclick="nav('id2')">CAFÉ</a></li>
-      <li><a href="reliquias.html" target="iframe" id="id3" onclick="nav('id3')">RELÍQUIAS</a></li>
-      <li><a href="chegar.html" target="iframe" id="id4" onclick="nav('id4')">COMO CHEGAR</a></li>      
-      <li><a href="contato.html" target="iframe" id="id5" onclick="nav('id5')">CONTATO</a></li>
+      <li><a href="inicio.html" target="iframe" id="id1" onclick="nav('id1')"><span class="pt" lang="pt-br">INÍCIO</span><span class="en" lang="en-us">HOME</span></a></li>
+      <li><a href="cafe.html" target="iframe" id="id2" onclick="nav('id2')"><span class="pt" lang="pt-br">CAFÉ</span><span class="en" lang="en-us">COFEE</span></a></li>
+      <li><a href="reliquias.html" target="iframe" id="id3" onclick="nav('id3')"><span class="pt" lang="pt-br">RELÍQUIAS</span><span class="en" lang="en-us">RELICS</span></a></li>
+      <li><a href="chegar.html" target="iframe" id="id4" onclick="nav('id4')"><span class="pt" lang="pt-br">COMO CHEGAR</span><span class="en" lang="en-us">MAP</span></a></li>      
+      <li><a href="contato.html" target="iframe" id="id5" onclick="nav('id5')"><span class="pt" lang="pt-br">CONTATO</span><span class="en" lang="en-us">CONTACT</span></a></li>
     </ul>
   </nav>
   </header>
 
+  <script>
+    nav("id1");
+    setCurrentLanguage();
+  </script>
+  
   <iframe id="iframe" name="iframe" src="inicio.html"></iframe>
-
-  <script>nav("id1");</script>
 </body>
 
 </html>
