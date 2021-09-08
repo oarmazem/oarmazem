@@ -45,11 +45,17 @@ function nav(id) {
 /*----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------*/
-function setCurrentLanguage() {
+function setPortugueseAsCurrentLanguage() {
 
-  currentLanguage = "pt";
+  currentLanguage = 0; //0 -> PT-BR   1 -> EN-US
+
+  flag = document.getElementById("flag");
+  flag.src = "images/en.png";
+  flag.title = "Translate to English";
+
+  showPortuguese(true); 
   
-}
+}//setPortugueseAsCurrenteLanguage()
 
 /*----------------------------------------------------------------------------
 
@@ -65,14 +71,7 @@ function getCurrentLanguage() {
 ----------------------------------------------------------------------------*/
 function toggleLanguage() {
 
-  if (currentLanguage == "pt") {
-
-    currentLanguage = "en"; 
-  } 
-  else { 
-
-    currentLanguage = "pt"; 
-  }
+  currentLanguage = 1 - currentLanguage;
 
   setLanguage();
 
@@ -85,22 +84,18 @@ function setLanguage() {
 
   document.getElementById('iframe').contentWindow.setIFrameLanguage(currentLanguage);
 
-  ptDisplay = "none"; enDisplay = "none";
-
   flag = document.getElementById("flag");
 
-  if (currentLanguage == "pt") { 
+  if (currentLanguage == 0) { 
     flag.src = "images/en.png";
     flag.title = "Translate to English";
-    ptDisplay = "inline";
+    showPortuguese(true);
     
   } else { 
     flag.src = "images/br.png";
     flag.title = "Traduza para Português";
-    enDisplay = "inline";
+    showPortuguese(false);
   }
- 
-  updateSpans(ptDisplay, enDisplay);
 
 }//setLanguage()
 
@@ -109,22 +104,53 @@ function setLanguage() {
 ----------------------------------------------------------------------------*/
 function setIFrameLanguage(language) {
 
-  ptDisplay = "none"; enDisplay = "none";
+  if (language == 0) { 
+    showPortuguese(true)
+  } 
+  else { 
+    showPortuguese(false) 
+  }
 
-  if (language == "pt") { ptDisplay = "inline"; } else { enDisplay = "inline"; }
-
-  updateSpans(ptDisplay, enDisplay);
 }//setIFrameLanguage()
 
 /*----------------------------------------------------------------------------
 
 ----------------------------------------------------------------------------*/
-function updateSpans(ptDisplay, enDisplay) {
+function showPortuguese(showPt) {
 
   pt = document.getElementsByClassName("pt");
   en = document.getElementsByClassName("en");
 
-  for (i = 0; i < pt.length; i++) { pt[i].style.display = ptDisplay }
-  for (i = 0; i < en.length; i++) { en[i].style.display = enDisplay }
+  if (showPt) {
 
-}//updateSpans()
+    for (i = 0; i < pt.length; i++) { 
+
+      switch (pt[i].tagName) {
+        case "span":
+          pt[i].style.display = "inline";
+        default:
+          pt[i].style.display = "block";
+      }//switch
+
+    }//for
+
+    for (i = 0; i < en.length; i++) { en[i].style.display = "none" }
+  }
+  else {
+
+    for (i = 0; i < en.length; i++) { 
+
+      switch (en[i].tagName) {
+        case "span":
+          en[i].style.display = "inline";
+        default:
+          en[i].style.display = "block";
+      }//switch
+
+    }//for
+
+    for (i = 0; i < pt.length; i++) { pt[i].style.display = "none" }
+
+  }//if-else
+
+}//showPortuguese()
