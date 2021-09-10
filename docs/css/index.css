@@ -1,8 +1,8 @@
 @charset "UTF-8";
 
-@import "logomarca.css";
 @import "colors.css";
 @import "languages.css";
+@import "fonts.css";
 
 /*-------------------------------------------------------------------------
                            Configuracoes globais
@@ -29,6 +29,8 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
+  border: 1px solid rgba(0, 0, 0, 0); 
+  background-color: var(--body-background);
 }
 
 /*-------------------------------------------------------------------------
@@ -82,6 +84,16 @@ iframe {
   border-style: none;
   background-color: var(--body-background);
 }
+
+/*-------------------------------------------------------------------------
+              Configura o logo na parte superior da pagina
+-------------------------------------------------------------------------*/
+#logo {
+  display: block; 
+  width: 27vw; 
+  height: auto; 
+  margin: 3vw auto 3vw auto;
+}    
 
 /*-------------------------------------------------------------------------
                       CSS responsivo para o header

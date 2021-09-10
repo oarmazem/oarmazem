@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Gloria+Hallelujah&family=Kaisei+HarunoUmi:wght@500&family=Spartan&display=swap');
+
 /*----------------------------------------------------------------------------
                      Estiliza a logomarca do Armazém
 -----------------------------------------------------------------------------*/
@@ -106,3 +108,10 @@
     font-size: 3vw;
   }
 } 
+
+/*
+<div class="logomarca">
+<h1><span class="letter_1o">O </span><span class="letter_1a">a</span><span class="letter_1r">R</span><span class="letter_1m">M</span><span class="letter_2a">a</span><span class="letter_1z">Z</span><span class="letter_1e">É</span><span class="letter_2m">m</span></h1>
+<h2>CAFÉ & RELÍQUIAS</h2>
+</div>
+*/

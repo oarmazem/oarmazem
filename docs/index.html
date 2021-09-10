@@ -6,10 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Chilanka&family=Gloria+Hallelujah&family=Kaisei+HarunoUmi:wght@500&family=Spartan:wght@200;400&display=swap" rel="stylesheet">
-
+  
   <link href="css/index.css" rel="stylesheet">
   <script src="js/main.js"></script>
 
@@ -18,54 +20,48 @@
 
 <body>
   <header>
-  <img id="flag" onclick="toggleLanguage()">  
-  <div class="logomarca">
-    <h1><span class="letter_1o">O </span><span class="letter_1a">a</span><span class="letter_1r">R</span><span class="letter_1m">M</span><span class="letter_2a">a</span><span class="letter_1z">Z</span><span class="letter_1e">É</span><span class="letter_2m">m</span></h1>
-    <h2>CAFÉ & RELÍQUIAS</h2>
-  </div>
+
+  <img id="flag" onclick="toggleLanguage()">
+  <img id="logo" src="images/oarmazem.png" alt="logomarca">
 
   <nav id="menu">
-    <ul>
-      <li>
-        <a href="inicio.html" target="iframe" id="id1" onclick="nav('id1')">
-          <span class="pt" lang="pt-br">INÍCIO</span>
-          <span class="en" lang="en-us">HOME</span>
-        </a>
-      </li>
-      <li>
-        <a href="cafe.html" target="iframe" id="id2" onclick="nav('id2')">
-          <span class="pt" lang="pt-br">CAFÉ</span>
-          <span class="en" lang="en-us">COFEE</span>
-        </a>
-      </li>
-      <li>
-        <a href="reliquias.html" target="iframe" id="id3" onclick="nav('id3')">
-          <span class="pt" lang="pt-br">RELÍQUIAS</span>
-          <span class="en" lang="en-us">RELICS</span>
-        </a>
-      </li>
-      <li>
-        <a href="chegar.html" target="iframe" id="id4" onclick="nav('id4')">
-          <span class="pt" lang="pt-br">COMO CHEGAR</span>
-          <span class="en" lang="en-us">MAP</span>
-        </a>
-      </li>      
-      <li>
-        <a href="contato.html" target="iframe" id="id5" onclick="nav('id5')">
-          <span class="pt" lang="pt-br">CONTATO</span>
-          <span class="en" lang="en-us">CONTACT</span>
-        </a>
-      </li>
-    </ul>
+    <nav class ="pt" lang="pt-br">
+      <ul>
+        <li><a class="navClass0" >INÍCIO</a></li>
+        <li><a class="navClass1">CAFÉ</a></li>
+        <li><a class="navClass2">RELÍQUIAS</a></li>
+        <li><a class="navClass3">COMO CHEGAR</a></li>    
+        <li><a class="navClass4">CONTATO</a></li>
+      </ul>      
+    </nav>
+
+    <nav class ="en" lang="en-us">
+      <ul>
+        <li><a class="navClass0" >HOME</a></li>
+        <li><a class="navClass1">COFEE</a></li>
+        <li><a class="navClass2">RELICS</a></li>
+        <li><a class="navClass3">MAP</a></li>    
+        <li><a class="navClass4">CONTACT</a></li>
+      </ul>      
+    </nav>
+
+    <nav class ="es" lang="es-es">
+      <ul>
+        <li><a class="navClass0" >INICIO</a></li>
+        <li><a class="navClass1">CAFÉ</a></li>
+        <li><a class="navClass2">RELIQUIAS</a></li>
+        <li><a class="navClass3">¿CÓMO SE LLEGA?</a></li>    
+        <li><a class="navClass4">CONTACTE</a></li>
+      </ul>      
+    </nav>
   </nav>
+
   </header>
 
-  <script>
-    nav("id1");
-    setPortugueseAsCurrentLanguage();
-  </script>
+  <iframe id="iframe"></iframe>
+
+  <script>initialize();</script>
   
-  <iframe id="iframe" name="iframe" src="inicio.html"></iframe>
 </body>
 
 </html>

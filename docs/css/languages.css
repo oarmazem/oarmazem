@@ -11,13 +11,17 @@
   display: none;
 }
 
+.es {
+  display: none;
+}
+
 /*----------------------------------------------------------------------------
               Posiciona icon para alternancia de idiomas
 ----------------------------------------------------------------------------*/
 #flag {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 5px;
+  right: 5px;
 }
 
 
