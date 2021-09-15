@@ -62,12 +62,9 @@ header {
   color: var(--nav-color);
 }
 
-#menu li a span {
-  font-family: Chilanka, cursive;
-}
-
 #menu li a:hover {
   background-color: var(--nav-hover-color);
+  cursor: pointer;
 }
 
 /*-------------------------------------------------------------------------
@@ -93,7 +90,11 @@ iframe {
   width: 27vw; 
   height: auto; 
   margin: 3vw auto 3vw auto;
-}    
+} 
+
+#logo:hover {
+  cursor: pointer;
+}
 
 /*-------------------------------------------------------------------------
                       CSS responsivo para o header

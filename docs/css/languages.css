@@ -3,7 +3,7 @@
 /*---------------------------------------------------------------------------
            Display para as tags spam com textos em pt e en
 ---------------------------------------------------------------------------*/
-.pt {
+.br {
   display: none;
 }
 
@@ -22,6 +22,8 @@
   position: absolute;
   top: 5px;
   right: 5px;
+  width: 24px;
+  height: 24px;
 }
 
 

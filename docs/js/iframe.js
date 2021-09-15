@@ -1,14 +1,4 @@
-//Vetores apontando para tags com os textos em cada idioma
-const PT = document.getElementsByClassName("pt");
-const EN = document.getElementsByClassName("en");
-const ES = document.getElementsByClassName("es");
-
-const PORTUGUESE = 0;
-const ENGLISH = 1;
-const SPANISH = 2;
-const THERE_ARENT_PREVIOUS_LANGUAGE = false;
-
-initialize();
+let texts = [];
 
 /*----------------------------------------------------------------------------
   Exibe os textos da pagina no idioma passado pelo parametro "language"
@@ -17,40 +7,21 @@ initialize();
   funcao jah havia algum texto sendo exibido na pagina, ou se a pagina esta
   sendo carregada pela primeira vez
 ----------------------------------------------------------------------------*/
-function setLanguage(language, thereArePreviousLanguage) {
+function setLanguage() {
+
+  let previous = parent.getPreviousLanguage();
+
+  for (i = 0; i < texts[previous].length; i++) {
+    texts[previous][i].style.display = "none";
+
+  }//for
   
-  let previous;
-  let current;
-
-  switch (language) {
-
-    case PORTUGUESE:
-      current = PT;
-      previous = ES;
-      break;
-    case ENGLISH:
-      current = EN;
-      previous = PT;
-      break;
-    case SPANISH:
-      current = ES;
-      previous = EN;   
-
-  }//switch
-
-  //Oculta todas as tags que exibiam texto com o idioma corrente anterior
-  if (thereArePreviousLanguage) {
-    for (i = 0; i < previous.length; i++) { 
-
-      previous[i].style.display = "none"
-
-    }//for
-  }//if
-
+  let current = parent.getLanguage();
+  
   //Exibe todas as tags com a nova linguagem corrente
-  for (i = 0; i < current.length; i++) { 
+  for (i = 0; i < texts[current].length; i++) { 
 
-    current[i].style.display = "block";
+    texts[current][i].style.display = "block";
 
   }//for
 
@@ -61,6 +32,23 @@ function setLanguage(language, thereArePreviousLanguage) {
 ----------------------------------------------------------------------------*/
 function initialize() {
 
-  setLanguage(parent.getLanguage(), THERE_ARENT_PREVIOUS_LANGUAGE);
+  let howManyLanguages = parent.howManyLanguages();
+
+  for (i = 0; i < howManyLanguages; i++) {
+
+    texts[i] = document.getElementsByClassName(parent.getLanguagesInitials(i));
+
+  }//for
+
+  let currentLanguage = parent.getLanguage();
+  
+  //Exibe todas as tags com a nova linguagem corrente
+  for (i = 0; i < texts[currentLanguage].length; i++) { 
+
+    texts[currentLanguage][i].style.display = "block";
+
+  }//for
 
 }//initialize()
+
+initialize();

@@ -1,3 +1,19 @@
+const PORTUGUESE = 0;
+
+//Siglas dos idiomas do site
+const LANGUAGES = [
+  "br", //Português do Brasil
+  "en", //Inglês britânico
+  "es"  //Espanhol da Espanha
+];
+
+//Tooltips para cada icone de traducao
+const LANGUAGES_TOOLTIPS = [
+  "Traduzir para Português",
+  "Translate to English",
+  "Traducion para Español"
+];
+
 //Cores dos itens de menu
 const COLORS = [
   "#2C459C",
@@ -19,20 +35,7 @@ const FRAMES = [
   "contato.html"
 ];
 
-//Nomes dos arquivos com os icones de traducao
-const LANGUAGES_ICONS = [
-  "en.png",
-  "es.png",
-  "br.png"
-];
-
-//Tooltips para cada icone de traducao
-const LANGUAGES_TOOLTIPS = [
-  "Translate to English",
-  "Traducion para Español",
-  "Traduzir para Português"
-];
-
+//prefixo (sem o indice numerico) dos classnames das tags no menu de navegacao
 const ITEM_MENU_CLASS_NAME = "navClass";
 
 //Posicao no nome da classe em que se encontra o indice numerico do item de menu
@@ -43,26 +46,15 @@ const IFRAME = document.getElementById("iframe");
 
 //Objeto apontando para a tag com o icone da traducao
 const FLAG = document.getElementById("flag");
-FLAG.src = "images/en.png";
-FLAG.title = "Translate to English";
 
-//Vetores apontando para tags com os textos em cada idioma
-const PT = document.getElementsByClassName("pt");
-const EN = document.getElementsByClassName("en");
-const ES = document.getElementsByClassName("es");
+//O item do menu que esta selecionado
+let navSelected;//A secao do menu que esta selecionada
 
-const PORTUGUESE = 0;
-const ENGLISH = 1;
-const SPANISH = 2;
-const THERE_ARE_PREVIOUS_LANGUAGE = true;
-const THERE_ARENT_PREVIOUS_LANGUAGE = false;
+//O idioma que o site esta exibindo
+let currentLanguage;//O idioma corrente exibido no site   
 
-let navSelected = null;//A secao do menu que esta selecionada
-
-//O site abre em Portugues
-let currentLanguage = PORTUGUESE;   
-
-initialize();
+//Um array com todas as tags de textos que podem ser traduzidos
+let texts = [];
 
 /*----------------------------------------------------------------------------
             Listener responsavel pelo menu principal do site
@@ -119,6 +111,15 @@ function nav() {
 }//nav()
 
 /*----------------------------------------------------------------------------
+               Retorna quantos idiomas o site pode exibir
+----------------------------------------------------------------------------*/
+function howManyLanguages() {
+
+  return LANGUAGES.length;
+
+}//howManyLanguages()
+
+/*----------------------------------------------------------------------------
    Retorna o idioma corrente que estah sendo exibido na pag. principal para
    que o Iframe, ao carregar sua pagina, utilize o mesmo idioma
 
@@ -131,69 +132,87 @@ function getLanguage() {
 }//getLanguage()
 
 /*----------------------------------------------------------------------------
-  Exibe os textos da pagina no idioma passado pelo parametro "language"
-
-  "thereWasPreviousPage" eh um booleano que indica se antes de chamar esta 
-  funcao jah havia algum texto sendo exibido na pagina, ou se a pagina esta
-  sendo carregada pela primeira vez
+             Retorna o idioma anterior ao idioma corrente no site
 ----------------------------------------------------------------------------*/
-function setLanguage(language, thereArePreviousLanguage) {
+function getPreviousLanguage() {
+
+  return (currentLanguage - 1 + LANGUAGES.length) % howManyLanguages();
   
-  let previous;
-  let current;
+}//getPreviousLanguage()
 
-  switch (language) {
+/*----------------------------------------------------------------------------
+               Retorna o idioma para o qual o site serah traduzido
+----------------------------------------------------------------------------*/
+function getNextLanguage() {
 
-    case PORTUGUESE:
-      current = PT;
-      previous = ES;
-      break;
-    case ENGLISH:
-      current = EN;
-      previous = PT;
-      break;
-    case SPANISH:
-      current = ES;
-      previous = EN;   
+  return (currentLanguage + 1) % howManyLanguages();
+  
+}//getNextLanguage()
 
-  }//switch
+/*----------------------------------------------------------------------------
+             Retorna a sigla de duas letras de um idioma
+----------------------------------------------------------------------------*/
+function getLanguagesInitials(language) {
 
-  //Oculta todas as tags que exibiam texto com o idioma corrente anterior
-  if (thereArePreviousLanguage) {
-    for (i = 0; i < previous.length; i++) { 
+  return LANGUAGES[language];
 
-      previous[i].style.display = "none"
+}//getLanguagesInitials()
 
-    }//for
-  }//if
+/*----------------------------------------------------------------------------
+     Ajusta o icone do proximo idioma para o qual o site sera traduzido
+----------------------------------------------------------------------------*/
+function setIcon() {
 
-  //Exibe todas as tags com a nova linguagem corrente
-  for (i = 0; i < current.length; i++) { 
+  let nextLanguage = getNextLanguage();
 
-    current[i].style.display = "block";
+  FLAG.src = "images/" + getLanguagesInitials(nextLanguage) + ".png";
+  FLAG.title = LANGUAGES_TOOLTIPS[nextLanguage];  
+
+}//setIcon()
+
+/*----------------------------------------------------------------------------
+             Exibe os textos da pagina no idioma corrente
+----------------------------------------------------------------------------*/
+function setLanguage() {
+
+  //Oculta os textos do idioma corrente anterior
+  let previous = getPreviousLanguage();
+
+  for (i = 0; i < texts[previous].length; i++) {
+
+    texts[previous][i].style.display = "none";
 
   }//for
+  
+
+  //Exibe os textos do dioma corrente
+  let current = getLanguage();
+  
+  //Exibe todas as tags com a nova linguagem corrente
+  for (i = 0; i < texts[current].length; i++) { 
+
+    texts[current][i].style.display = "block";
+
+  }//for
+
+  //Exibe o icon referente ao próximo idioma
+  setIcon();
 
 }//setLanguage()
 
 /*----------------------------------------------------------------------------
      Troca o idioma corrente do site para o proximo idioma da lista
-
-     A lista eh : PORTUGUESE, ENGLISH, SPANISH
 ----------------------------------------------------------------------------*/
 function toggleLanguage() {
   
-  currentLanguage = (currentLanguage + 1) % 3;//Alterna 0, 1, 2, 0, 1, 2...
-  
-  //Atualiza o icone que indica o idioma para o qual a pag. sera traduzida
-  FLAG.src = "images/" + LANGUAGES_ICONS[currentLanguage];
-  FLAG.title = LANGUAGES_TOOLTIPS[currentLanguage];
+  //Alterna 0, 1, 2, ..., N,  0, 1, 2, ..., N
+  currentLanguage = getNextLanguage();
 
   //Atualiza idioma na pag. principal
-  setLanguage(currentLanguage, THERE_ARE_PREVIOUS_LANGUAGE);
+  setLanguage();
 
   //Atualiza idioma do frame
-  IFRAME.contentWindow.setLanguage(currentLanguage, THERE_ARE_PREVIOUS_LANGUAGE);
+  IFRAME.contentWindow.setLanguage();
   
 }//toggleLanguage()
 
@@ -203,7 +222,9 @@ define o idioma corrente do site
 ----------------------------------------------------------------------------*/
 function initialize() {
 
-  nav();
+  navSelected = null;
+
+  nav();//Configura o menu principal
 
   //Registra a function nav() como listener de todos os itens de menu
   let itensMenu = document.querySelectorAll("#menu a");
@@ -214,6 +235,29 @@ function initialize() {
 
   }//for
 
-  setLanguage(PORTUGUESE, THERE_ARENT_PREVIOUS_LANGUAGE);  
+  let logo = document.querySelector("#logo");
+
+  logo.addEventListener("click", nav);
+
+  currentLanguage = PORTUGUESE;
   
+  //Obtem todos os textos na pagina principal que possam ser traduzidos
+  for (i = 0; i < LANGUAGES.length; i++) {
+
+    texts[i] = document.getElementsByClassName(getLanguagesInitials(i));
+
+  }//for
+
+  //Exibe os textos que pertencam ao idioma corrente
+  for (i = 0; i < texts[currentLanguage].length; i++) { 
+
+    texts[currentLanguage][i].style.display = "block";
+
+  }//for
+
+  //Exibe o icone do idioma para o qual o site sera traduzido ao seu clicar no icon flag
+  setIcon();
+ 
 }//initialize()
+
+initialize();
