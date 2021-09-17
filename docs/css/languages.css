@@ -15,13 +15,18 @@
   display: none;
 }
 
+.fr {
+  display: none;
+}
+
 /*----------------------------------------------------------------------------
               Posiciona icon para alternancia de idiomas
 ----------------------------------------------------------------------------*/
 #flag {
-  position: absolute;
-  top: 5px;
-  right: 5px;
+  position: relative;
+  display: block;
+  float: right;
+  margin-right: 2vw;
   width: 24px;
   height: 24px;
 }

@@ -1,17 +1,28 @@
+//O site abre em Portugues
 const PORTUGUESE = 0;
 
-//Siglas dos idiomas do site
+/*****************************************************************************
+                      Siglas dos idiomas do site
+
+  Cada sigla destas corresponde ao class da tag que exibe texto neste idioma.
+  Uma div, por exemplo, contendo todos os paragrafos em Portugues, teria class="br"                      
+*****************************************************************************/
 const LANGUAGES = [
   "br", //Português do Brasil
   "en", //Inglês britânico
-  "es"  //Espanhol da Espanha
+  "es",  //Espanhol da Espanha
+  "fr"
 ];
+
+//Referencia apontando para a tag img que carrega icone de traducao
+const FLAG = document.getElementById("flag");
 
 //Tooltips para cada icone de traducao
 const LANGUAGES_TOOLTIPS = [
   "Traduzir para Português",
   "Translate to English",
-  "Traducion para Español"
+  "Traducion para Español",
+  "Traduire en Français"
 ];
 
 //Cores dos itens de menu
@@ -26,6 +37,9 @@ const COLORS = [
   "#A82F82"
 ];
 
+//Referencia apontando para a tag iframe onde sao carregadas as paginas de secao
+const IFRAME = document.getElementById("iframe");
+
 //Os arquivos dos frames de cada secao do menu
 const FRAMES = [
   "inicio.html", 
@@ -35,25 +49,27 @@ const FRAMES = [
   "contato.html"
 ];
 
-//prefixo (sem o indice numerico) dos classnames das tags no menu de navegacao
-const ITEM_MENU_CLASS_NAME = "navClass";
+/*
+  Prefixo (sem o indice numerico) dos classnames das tags no menu de navegacao
+
+  O primeiro item (em qualquer idioma) do menu principal tem class="navClass0",
+  o segundo tem class="navClass1", e assim por diante...
+*/  
+const ITEM_MENU_CLASSNAME_PREFIX = "navClass";
 
 //Posicao no nome da classe em que se encontra o indice numerico do item de menu
-const CLASS_INDEX_POSITION = ITEM_MENU_CLASS_NAME.length;
+const CLASS_INDEX_POSITION = ITEM_MENU_CLASSNAME_PREFIX.length;
 
-//Objeto apontando para a tag iframe onde sao carregadas as paginas de secao
-const IFRAME = document.getElementById("iframe");
-
-//Objeto apontando para a tag com o icone da traducao
-const FLAG = document.getElementById("flag");
-
-//O item do menu que esta selecionado
-let navSelected;//A secao do menu que esta selecionada
+/******************************************************************************
+ *              Variaveis inicializadas no metodo initialize()
+ ******************************************************************************/
+//A classe dos itens de menu que estao selecionados
+let navClassSelected;
 
 //O idioma que o site esta exibindo
-let currentLanguage;//O idioma corrente exibido no site   
+let currentLanguage;
 
-//Um array com todas as tags de textos que podem ser traduzidos
+//Um array bidimensional com todas as tags de textos que podem ser traduzidos
 let texts = [];
 
 /*----------------------------------------------------------------------------
@@ -63,50 +79,36 @@ function nav() {
 
   let menuItens;//Um vetor para armazenar os itens dos menus que serao manipulados
 
-  let navClass;//Armazena o nome da classe do grupo de itens de menu selecionados
+  //A secao e item de menu que era corrente serah desselecionada no menu principal
+  menuItens = document.querySelectorAll("#menu ." + navClassSelected);
 
-  //O metodo foi chamado na inicializadao
-  if (navSelected === null) { 
+  for (i = 0; i < menuItens.length; i++) {
 
-    navClass = ITEM_MENU_CLASS_NAME + "0";
+    let unselectedItem = menuItens[i];
+    unselectedItem.style.textDecoration = "none";
+    unselectedItem.style.color = "black";
 
-  } 
-  //O metodo foi chamado para tratar o clique do mouse em um item do menu
-  else {
+  }//for
 
-    navClass = this.className;
- 
-    //A secao que era a corrente serah desselecionada no menu principal
-    menuItens = document.getElementsByClassName(navSelected);
-
-    for (i = 0; i < menuItens.length; i++) {
-
-      let unselectedItem = menuItens[i];
-      unselectedItem.style.textDecoration = "none";
-      unselectedItem.style.color = "black";
-
-    }//for
-
-  }//if-else
-
-  navSelected = navClass;//O item clicado passa a ser o item selecionado
+  navClassSelected = this.className;//O item clicado passa a ser o item selecionado
 
   //Obtem o item selecionado em todos os idiomas
-  menuItens = document.getElementsByClassName(navSelected);
+  menuItens = document.querySelectorAll("#menu ." + navClassSelected);
 
   //Os itens de menu sao numerados com indices de 0 ao (numero de itens no menu - 1)
-  let classIndex = navSelected.substring(CLASS_INDEX_POSITION, navSelected.length);
+  let navClassSelectedIndex = 
+    navClassSelected.substring(CLASS_INDEX_POSITION, navClassSelected.length);
 
   //Destaca os itens selecionados em todos os idiomas
   for (i = 0; i < menuItens.length; i++) {
 
     let selectedItem = menuItens[i]; 
     selectedItem.style.textDecoration = "underline";    
-    selectedItem.style.color = COLORS[classIndex];
+    selectedItem.style.color = COLORS[navClassSelectedIndex];
 
   }//for
  
-  IFRAME.src = FRAMES[classIndex];//Carrega o frame do item selecionado
+  IFRAME.src = FRAMES[navClassSelectedIndex];//Carrega o frame do item selecionado
   
 }//nav()
 
@@ -184,7 +186,6 @@ function setLanguage() {
 
   }//for
   
-
   //Exibe os textos do dioma corrente
   let current = getLanguage();
   
@@ -222,9 +223,21 @@ define o idioma corrente do site
 ----------------------------------------------------------------------------*/
 function initialize() {
 
-  navSelected = null;
+  navClassSelected = ITEM_MENU_CLASSNAME_PREFIX + "0";//navClass0
 
-  nav();//Configura o menu principal
+  //Obtem o primeiro item do menu principal em todos os idiomas
+  let menuFirstItens = document.querySelectorAll("#menu ." + navClassSelected);  
+
+  //Destaca os primeiros itens em todos os idiomas
+  for (i = 0; i < menuFirstItens.length; i++) {
+
+    let selectedItem = menuFirstItens[i]; 
+    selectedItem.style.textDecoration = "underline";    
+    selectedItem.style.color = COLORS[0];
+
+  }//for
+ 
+  IFRAME.src = FRAMES[0];//Carrega o frame do item selecionado  
 
   //Registra a function nav() como listener de todos os itens de menu
   let itensMenu = document.querySelectorAll("#menu a");
@@ -235,11 +248,11 @@ function initialize() {
 
   }//for
 
-  let logo = document.querySelector("#logo");
-
-  logo.addEventListener("click", nav);
-
-  currentLanguage = PORTUGUESE;
+  /*
+    Registra a function nav() como listener da img da logomarca
+    Clicar na logo tem a mesma funcao que clicar no 1o item do menu
+  */
+  document.querySelector("#logo").addEventListener("click", nav);
   
   //Obtem todos os textos na pagina principal que possam ser traduzidos
   for (i = 0; i < LANGUAGES.length; i++) {
@@ -247,6 +260,8 @@ function initialize() {
     texts[i] = document.getElementsByClassName(getLanguagesInitials(i));
 
   }//for
+
+  currentLanguage = PORTUGUESE;
 
   //Exibe os textos que pertencam ao idioma corrente
   for (i = 0; i < texts[currentLanguage].length; i++) { 
