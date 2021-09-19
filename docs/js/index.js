@@ -1,29 +1,21 @@
 //O site abre em Portugues
 const PORTUGUESE = 0;
 
-/*****************************************************************************
-                      Siglas dos idiomas do site
+/*
+  Siglas dos idiomas do site
 
   Cada sigla destas corresponde ao class da tag que exibe texto neste idioma.
   Uma div, por exemplo, contendo todos os paragrafos em Portugues, teria class="br"                      
-*****************************************************************************/
+*/
 const LANGUAGES = [
-  "br", //Português do Brasil
-  "en", //Inglês britânico
-  "es",  //Espanhol da Espanha
-  "fr"
+  { initials: "br", tooltips: "Traduzir para Português" },
+  { initials: "en", tooltips: "Translate to English" },
+  { initials: "es", tooltips: "Traducion para Español" },
+  { initials: "fr", tooltips: "Traduire en Français" }
 ];
 
 //Referencia apontando para a tag img que carrega icone de traducao
 const FLAG = document.getElementById("flag");
-
-//Tooltips para cada icone de traducao
-const LANGUAGES_TOOLTIPS = [
-  "Traduzir para Português",
-  "Translate to English",
-  "Traducion para Español",
-  "Traduire en Français"
-];
 
 //Cores dos itens de menu
 const COLORS = [
@@ -156,7 +148,7 @@ function getNextLanguage() {
 ----------------------------------------------------------------------------*/
 function getLanguagesInitials(language) {
 
-  return LANGUAGES[language];
+  return LANGUAGES[language].initials;//sigla de 2 digitos do idioma
 
 }//getLanguagesInitials()
 
@@ -168,7 +160,7 @@ function setIcon() {
   let nextLanguage = getNextLanguage();
 
   FLAG.src = "images/" + getLanguagesInitials(nextLanguage) + ".png";
-  FLAG.title = LANGUAGES_TOOLTIPS[nextLanguage];  
+  FLAG.title = LANGUAGES[nextLanguage].tooltips;   
 
 }//setIcon()
 
@@ -240,7 +232,7 @@ function initialize() {
   IFRAME.src = FRAMES[0];//Carrega o frame do item selecionado  
 
   //Registra a function nav() como listener de todos os itens de menu
-  let itensMenu = document.querySelectorAll("#menu a");
+  let itensMenu = document.querySelectorAll("#menu li");
 
   for (i = 0; i < itensMenu.length; i++) {
 

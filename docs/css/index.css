@@ -53,16 +53,12 @@ header {
   float: left;
   margin-left: 4vw;
   margin-top: 0.1vw;
-}
-
-#menu li a {
-  text-decoration: none;
   font-family: Chilanka, cursive;
   font-size: 1.4vw;
   color: var(--nav-color);
 }
 
-#menu li a:hover {
+#menu li:hover {
   background-color: var(--nav-hover-color);
   cursor: pointer;
 }
