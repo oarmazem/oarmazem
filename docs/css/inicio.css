@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+@import "index.css";
+
+.foto {
+  display: block;
+  margin: auto;
+  height: auto;
+  padding: 0;
+}
+
+#foto1 {
+  border: solid 5px #19B060;
+  width: 80%;
+}
+
+.div1 {
+  display: grid;
+  grid-template-areas: "west east";
+  grid-gap: 2.5vw;
+}
+
+.west {
+  width: 25vw;
+  height: 45vw;
+  grid-area: west;
+}
+
+.east {
+  width: 72.5vw;
+  height: 45vw;
+  grid-area: east;
+}

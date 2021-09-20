@@ -23,12 +23,9 @@
               Posiciona icon para alternancia de idiomas
 ----------------------------------------------------------------------------*/
 #flag {
-  position: relative;
+  position: absolute;
   display: block;
-  float: right;
-  margin-right: 2vw;
-  width: 24px;
-  height: 24px;
+  right: 2vw;
 }
 
 

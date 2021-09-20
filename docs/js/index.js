@@ -29,12 +29,9 @@ const COLORS = [
   "#A82F82"
 ];
 
-//Referencia apontando para a tag iframe onde sao carregadas as paginas de secao
-const IFRAME = document.getElementById("iframe");
-
 //Os arquivos dos frames de cada secao do menu
-const FRAMES = [
-  "inicio.html", 
+const PAGES = [
+  "index.html", 
   "cafe.html",
   "reliquias.html", 
   "mapa.html", 
@@ -69,49 +66,19 @@ let texts = [];
 ----------------------------------------------------------------------------*/
 function nav() {
 
-  let menuItens;//Um vetor para armazenar os itens dos menus que serao manipulados
-
-  //A secao e item de menu que era corrente serah desselecionada no menu principal
-  menuItens = document.querySelectorAll("#menu ." + navClassSelected);
-
-  for (i = 0; i < menuItens.length; i++) {
-
-    let unselectedItem = menuItens[i];
-    unselectedItem.style.textDecoration = "none";
-    unselectedItem.style.color = "black";
-
-  }//for
-
+  if (this.className === navClassSelected) return;
+  
   navClassSelected = this.className;//O item clicado passa a ser o item selecionado
-
-  //Obtem o item selecionado em todos os idiomas
-  menuItens = document.querySelectorAll("#menu ." + navClassSelected);
 
   //Os itens de menu sao numerados com indices de 0 ao (numero de itens no menu - 1)
   let navClassSelectedIndex = 
     navClassSelected.substring(CLASS_INDEX_POSITION, navClassSelected.length);
 
-  //Destaca os itens selecionados em todos os idiomas
-  for (i = 0; i < menuItens.length; i++) {
+  sessionStorage.setItem("navClassSelectedIndex", navClassSelectedIndex);  
 
-    let selectedItem = menuItens[i]; 
-    selectedItem.style.textDecoration = "underline";    
-    selectedItem.style.color = COLORS[navClassSelectedIndex];
-
-  }//for
- 
-  IFRAME.src = FRAMES[navClassSelectedIndex];//Carrega o frame do item selecionado
+  window.open(PAGES[navClassSelectedIndex], "_self");//Carrega a pag. do item selecionado
   
 }//nav()
-
-/*----------------------------------------------------------------------------
-               Retorna quantos idiomas o site pode exibir
-----------------------------------------------------------------------------*/
-function howManyLanguages() {
-
-  return LANGUAGES.length;
-
-}//howManyLanguages()
 
 /*----------------------------------------------------------------------------
    Retorna o idioma corrente que estah sendo exibido na pag. principal para
@@ -130,7 +97,7 @@ function getLanguage() {
 ----------------------------------------------------------------------------*/
 function getPreviousLanguage() {
 
-  return (currentLanguage - 1 + LANGUAGES.length) % howManyLanguages();
+  return (currentLanguage - 1 + LANGUAGES.length) % LANGUAGES.length;
   
 }//getPreviousLanguage()
 
@@ -139,8 +106,8 @@ function getPreviousLanguage() {
 ----------------------------------------------------------------------------*/
 function getNextLanguage() {
 
-  return (currentLanguage + 1) % howManyLanguages();
-  
+  return (currentLanguage + 1) % LANGUAGES.length;
+
 }//getNextLanguage()
 
 /*----------------------------------------------------------------------------
@@ -165,14 +132,19 @@ function setIcon() {
 }//setIcon()
 
 /*----------------------------------------------------------------------------
-             Exibe os textos da pagina no idioma corrente
+     Troca o idioma corrente do site para o proximo idioma da lista
 ----------------------------------------------------------------------------*/
-function setLanguage() {
+function toggleLanguage() {
+
+  //Alterna 0, 1, 2, ..., N,  0, 1, 2, ..., N
+  currentLanguage = getNextLanguage();
+
+  sessionStorage.setItem("currentLanguage", currentLanguage);
 
   //Oculta os textos do idioma corrente anterior
   let previous = getPreviousLanguage();
 
-  for (i = 0; i < texts[previous].length; i++) {
+  for (let i = 0; i < texts[previous].length; i++) {
 
     texts[previous][i].style.display = "none";
 
@@ -182,7 +154,7 @@ function setLanguage() {
   let current = getLanguage();
   
   //Exibe todas as tags com a nova linguagem corrente
-  for (i = 0; i < texts[current].length; i++) { 
+  for (let i = 0; i < texts[current].length; i++) { 
 
     texts[current][i].style.display = "block";
 
@@ -191,22 +163,6 @@ function setLanguage() {
   //Exibe o icon referente ao próximo idioma
   setIcon();
 
-}//setLanguage()
-
-/*----------------------------------------------------------------------------
-     Troca o idioma corrente do site para o proximo idioma da lista
-----------------------------------------------------------------------------*/
-function toggleLanguage() {
-  
-  //Alterna 0, 1, 2, ..., N,  0, 1, 2, ..., N
-  currentLanguage = getNextLanguage();
-
-  //Atualiza idioma na pag. principal
-  setLanguage();
-
-  //Atualiza idioma do frame
-  IFRAME.contentWindow.setLanguage();
-  
 }//toggleLanguage()
 
 /*----------------------------------------------------------------------------
@@ -215,26 +171,28 @@ define o idioma corrente do site
 ----------------------------------------------------------------------------*/
 function initialize() {
 
-  navClassSelected = ITEM_MENU_CLASSNAME_PREFIX + "0";//navClass0
+  let navClassSelectedIndex = sessionStorage.getItem("navClassSelectedIndex");
 
-  //Obtem o primeiro item do menu principal em todos os idiomas
-  let menuFirstItens = document.querySelectorAll("#menu ." + navClassSelected);  
+  if (navClassSelectedIndex === null) navClassSelectedIndex = "0";
+
+  navClassSelected = ITEM_MENU_CLASSNAME_PREFIX + navClassSelectedIndex;//O item do menu
+
+  //Obtem o item selecionado do menu principal em todos os idiomas
+  let menuSelectedItens = document.querySelectorAll("#menu ." + navClassSelected);  
 
   //Destaca os primeiros itens em todos os idiomas
-  for (i = 0; i < menuFirstItens.length; i++) {
+  for (let i = 0; i < menuSelectedItens.length; i++) {
 
-    let selectedItem = menuFirstItens[i]; 
+    let selectedItem = menuSelectedItens[i]; 
     selectedItem.style.textDecoration = "underline";    
-    selectedItem.style.color = COLORS[0];
+    selectedItem.style.color = COLORS[navClassSelectedIndex];
 
   }//for
  
-  IFRAME.src = FRAMES[0];//Carrega o frame do item selecionado  
-
   //Registra a function nav() como listener de todos os itens de menu
   let itensMenu = document.querySelectorAll("#menu li");
 
-  for (i = 0; i < itensMenu.length; i++) {
+  for (let i = 0; i < itensMenu.length; i++) {
 
     itensMenu[i].addEventListener("click", nav);
 
@@ -247,16 +205,22 @@ function initialize() {
   document.querySelector("#logo").addEventListener("click", nav);
   
   //Obtem todos os textos na pagina principal que possam ser traduzidos
-  for (i = 0; i < LANGUAGES.length; i++) {
+  for (let i = 0; i < LANGUAGES.length; i++) {
 
     texts[i] = document.getElementsByClassName(getLanguagesInitials(i));
 
   }//for
 
-  currentLanguage = PORTUGUESE;
+  currentLanguage = parseInt(sessionStorage.getItem("currentLanguage"));
 
+  if (Number.isNaN(currentLanguage)) {
+
+    currentLanguage = PORTUGUESE; 
+
+  }
+ 
   //Exibe os textos que pertencam ao idioma corrente
-  for (i = 0; i < texts[currentLanguage].length; i++) { 
+  for (let i = 0; i < texts[currentLanguage].length; i++) { 
 
     texts[currentLanguage][i].style.display = "block";
 
