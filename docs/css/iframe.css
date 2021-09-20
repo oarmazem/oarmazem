@@ -27,6 +27,7 @@ h1, h2 {
 }
 
 .yellow-postit {
+  float: left;
   background-image: url("../images/postit.png"); 
   width: 30%;
   transform: rotate(1deg);
