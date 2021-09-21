@@ -1,0 +1,8 @@
+@charset "UTF-8";
+
+@import "main.css";
+
+.yellow-postit {
+  width: 24%;
+  transform: rotate(2deg);
+}

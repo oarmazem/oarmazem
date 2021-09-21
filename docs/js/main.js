@@ -49,6 +49,9 @@ const ITEM_MENU_CLASSNAME_PREFIX = "navClass";
 //Posicao no nome da classe em que se encontra o indice numerico do item de menu
 const CLASS_INDEX_POSITION = ITEM_MENU_CLASSNAME_PREFIX.length;
 
+//Referencia apontando para o objeto menu principal
+const MENU = document.getElementById("menu");
+
 /******************************************************************************
  *              Variaveis inicializadas no metodo initialize()
  ******************************************************************************/
@@ -126,7 +129,7 @@ function setIcon() {
 
   let nextLanguage = getNextLanguage();
 
-  FLAG.src = "images/" + getLanguagesInitials(nextLanguage) + ".png";
+  FLAG.src = "images/flags/" + getLanguagesInitials(nextLanguage) + ".png";
   FLAG.title = LANGUAGES[nextLanguage].tooltips;   
 
 }//setIcon()
@@ -166,10 +169,30 @@ function toggleLanguage() {
 }//toggleLanguage()
 
 /*----------------------------------------------------------------------------
+                 Monitora a posicao do menu principal
+----------------------------------------------------------------------------*/
+function scrollListener() {
+
+  let menuTopPosition = MENU.getBoundingClientRect().top;
+   
+  if (menuTopPosition <= 0) {
+
+    MENU.style.position = "fixed";
+    MENU.style.top = 0;
+    MENU.style.backgroundColor = "#DDDDDD";
+    document.removeEventListener("scroll", scrollListener);
+
+  }
+
+}//scrollListener()
+
+/*----------------------------------------------------------------------------
 Inicializa menu principal, registra listeners, obtem dados globais do DOM, 
 define o idioma corrente do site
 ----------------------------------------------------------------------------*/
 function initialize() {
+
+  document.addEventListener("scroll", scrollListener);
 
   let navClassSelectedIndex = sessionStorage.getItem("navClassSelectedIndex");
 

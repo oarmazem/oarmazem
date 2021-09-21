@@ -1,0 +1,190 @@
+@charset "UTF-8";
+
+@import "colors.css";
+@import "languages.css";
+@import "fonts.css";
+
+/*-------------------------------------------------------------------------
+                           Configuracoes globais
+-------------------------------------------------------------------------*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Chilanka, cursive;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--body-background);
+  overflow-x: hidden;
+}
+
+/*-------------------------------------------------------------------------
+               Configura header fixo no topo da pagina
+-------------------------------------------------------------------------*/
+header {
+  background-color: var(--body-background);
+}
+
+/*-------------------------------------------------------------------------
+                 Configura o menu de navegacao
+-------------------------------------------------------------------------*/
+#menu {
+  height: 3vw;
+  padding-top: 0.8vw;
+  width: 100%;
+  background-color: var(--nav-background);
+  z-index: 100;
+}
+
+/*-------------------------------------------------------------------------
+                  Configura o menu do banner de navegacao
+-------------------------------------------------------------------------*/
+#menu ul {
+  list-style: none;
+}
+
+#menu li {
+  float: left;
+  margin-left: 4vw;
+  font-size: 1.4vw;
+  color: var(--nav-color);
+}
+
+#menu li:hover {
+  background-color: var(--nav-hover-color);
+  cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------
+              Configura o logo na parte superior da pagina
+-------------------------------------------------------------------------*/
+#logo {
+  display: block; 
+  width: 27vw; 
+  height: auto; 
+  margin: 3vw auto 3vw auto;
+} 
+
+#logo:hover {
+  cursor: pointer;
+}
+
+/*-------------------------------------------------------------------------
+                           Estiliza o rodape
+-------------------------------------------------------------------------*/
+footer {
+  width: 100%;
+  height: 38px;
+  background-color: var(--body-background);
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+}
+
+footer img {
+  display: block;
+  float: left;
+  margin-left: 2vw;
+}
+
+footer address {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+  font-size: 14px;
+  text-align: center;
+  margin-top: 1.5vh;
+}
+/*------------------------------------------------------------------------------------------------
+                                  Estiliza os postits do site
+-------------------------------------------------------------------------------------------------*/
+
+.postit {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 30px;
+  padding: 5px;
+}
+
+.yellow-postit {
+  background-image: url("../images/postits/yellow-postit.png"); 
+}
+
+.orange-postit {
+  background-image: url("../images/postits/orange-postit.png"); 
+}
+
+.blue-postit {
+  background-image: url("../images/postits/blue-postit.png"); 
+}
+
+.postit-pin {
+  position: absolute;
+  top: -25px;
+  left: 3px;
+}
+
+/*-------------------------------------------------------------------------
+                      CSS responsivo para o header
+-------------------------------------------------------------------------*/
+@media only screen and (max-width: 800px) {
+  #menu {
+    height: 5.5vw;
+  }
+
+  #menu li a {
+    font-size: 1.8vw;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  #menu {
+    height: 6vw;
+  }
+
+  #menu li a {
+    font-size: 2.2vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #menu {
+    height: 6.5vw;
+  }
+
+  #menu li a {
+    font-size: 2.6vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  #menu {
+    height: 7vw;
+  }
+
+  #menu li a {
+    font-size: 3vw;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  #menu {
+    height: 7.5vw;
+  }
+
+  #menu li a {
+    font-size: 3.4vw;
+  }
+}
+
+
+
+
+

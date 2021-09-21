@@ -1,196 +1,129 @@
 @charset "UTF-8";
 
-@import "colors.css";
-@import "languages.css";
-@import "fonts.css";
+@import "main.css";
 
-/*-------------------------------------------------------------------------
-                           Configuracoes globais
--------------------------------------------------------------------------*/
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+#presentation {
+  margin-top: 4vh;
+  margin-bottom: 4vh;
 }
 
-html {
-  font-size: 16px;
-}
-
-body {
-  background-color: var(--body-background);
-  overflow: hidden;
-}
-/*-------------------------------------------------------------------------
-               Configura header fixo no topo da pagina
--------------------------------------------------------------------------*/
-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border: 1px solid rgba(0, 0, 0, 0); 
-  background-color: var(--body-background);
-}
-
-/*-------------------------------------------------------------------------
-                 Configura o menu de navegacao
--------------------------------------------------------------------------*/
-#menu {
-  height: 5vw;
-  width: 100%;
-  background-color: var(--nav-background);
-}
-
-/*-------------------------------------------------------------------------
-                  Configura o menu do banner de navegacao
--------------------------------------------------------------------------*/
-#menu ul {
-  list-style: none;
-}
-
-#menu li {
+#first-postit {
+  width: 24%;
   float: left;
-  margin-left: 4vw;
-  margin-top: 0.1vw;
-  font-family: Chilanka, cursive;
-  font-size: 1.4vw;
-  color: var(--nav-color);
+  margin-left: 5%;
+  margin-top: 3%;
+  transform: rotate(1.2deg);
 }
 
-#menu li:hover {
-  background-color: var(--nav-hover-color);
-  cursor: pointer;
-}
-
-/*-------------------------------------------------------------------------
-              Configura o logo na parte superior da pagina
--------------------------------------------------------------------------*/
-#logo {
-  display: block; 
-  width: 27vw; 
-  height: auto; 
-  margin: 3vw auto 3vw auto;
-} 
-
-#logo:hover {
-  cursor: pointer;
-}
-
-/*-------------------------------------------------------------------------
-                           Estiliza o rodape
--------------------------------------------------------------------------*/
-footer {
-  width: 100%;
-  height: 38px;
-  background-color: var(--body-background);
-  position: absolute;
-  bottom: 0;
-  z-index: 100;
-}
-
-footer img {
-  display: block;
-  float: left;
-  margin-left: 2vw;
-}
-
-footer address {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-  font-size: 14px;
-  text-align: center;
-  margin-top: 1.5vh;
-}
-
-
-
-
-
-
-
-
-
-
-.postit {
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  text-align: center;
-  line-height: 30px;
-}
-
-.yellow-postit {
-  background-image: url("../images/postit.png"); 
-  transform: rotate(1deg);
-}
-
-.yellow-postit h1, img{
+#first-postit h1, img {
   padding-top: 10px;
-  margin-bottom: 25px;
 }
 
-#red-pin {
+#logo-oarmazem {
+  display: block;
+  width: 70%;
+  height: auto;
+}
+
+.quadro-de-cortica {
+  clear: both;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10vw;
+  margin-bottom: 10vw;
+  display: grid;
+  grid-template-areas:
+  "box1 box1 box1 box2"
+  "box3 box3 box4 box4"
+  "box5 box6 box6 box6"
+  "box7 box8 box8 box9";
+  gap: 1vw;
+}
+
+.quadro-de-cortica .box1 {
+  grid-area: box1;
+  background-color: var(--green-r-color);
+  padding:5%;
+}
+
+.quadro-de-cortica .box2 {
+  grid-area: box2;
+  background-color: var(--red-a-color);
+  padding:5%;
+}
+
+.quadro-de-cortica .box3 {
+  grid-area: box3;
+  background-color: var(--blue-e-color);
+  padding:5%;
+}
+
+.quadro-de-cortica .box4 {
+  grid-area: box4;
+  background-color: var(--green-a-color);
+  padding:5%;
+}
+
+.quadro-de-cortica .box5 {
+  background-color: var(--orange-m-color);
+  grid-area: box5;
+  padding:5%;
+}
+
+.quadro-de-cortica .box6 {
+  grid-area: box6;
+  background-color: var(--blue-o-color);
+  padding:5%;
+}
+
+.quadro-de-cortica .box7 {
+  grid-area: box7;
+  background-color: var(--green-a-color);
+  padding:5%;
+}
+
+.quadro-de-cortica .box8 {
+  grid-area: box8;
+  background-color: var(--red-a-color);
+  padding:5%;
+}
+
+.quadro-de-cortica .box9 {
+  grid-area: box9;
+  background-color: var(--lilac-m-color);
+  padding:5%;
+}
+
+.quadro-de-cortica .postit {
+  margin: auto;
+  width: 50%;
+}
+
+.quadro-de-cortica .orange-postit {
+  transform: rotate(2deg);
+}
+
+.quadro-de-cortica .blue-postit {
+  transform: rotate(3deg);
+}
+
+.foto-container {
+  width: 80%;
+  margin: auto;
+  position: relative;
+}
+
+.foto {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: solid white 5px;
+  padding: 0;
+}
+
+.foto-pin {
   position: absolute;
-  top: -25px;
-  left: 3px;
+  top:-20px;
+  left: 45%;
 }
-
-/*-------------------------------------------------------------------------
-                      CSS responsivo para o header
--------------------------------------------------------------------------*/
-@media only screen and (max-width: 800px) {
-  #menu {
-    height: 5.5vw;
-  }
-
-  #menu li a {
-    font-size: 1.8vw;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  #menu {
-    height: 6vw;
-  }
-
-  #menu li a {
-    font-size: 2.2vw;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  #menu {
-    height: 6.5vw;
-  }
-
-  #menu li a {
-    font-size: 2.6vw;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  #menu {
-    height: 7vw;
-  }
-
-  #menu li a {
-    font-size: 3vw;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  #menu {
-    height: 7.5vw;
-  }
-
-  #menu li a {
-    font-size: 3.4vw;
-  }
-}
-
-
-
-
-

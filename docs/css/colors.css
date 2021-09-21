@@ -3,8 +3,6 @@
 :root {
   --body-background:  white;
 
-  --link-color:rgb(69, 81, 185);
-
   --h1-color: black;
   --h2-color: black;
   --h3-color: black;
@@ -15,6 +13,17 @@
   --nav-background: var(--body-background);
   --nav-color: black;
   --nav-hover-color: rgb(238, 234, 234);
-  
+
+  --blue-o-color: #2C459C;
+  --red-a-color: #EE3539;
+  --green-r-color: #19B060;
+  --orange-m-color: #F58637;
+  --green-a-color: #0FB99B;
+  --purple-z-color: #4F2C72;
+  --blue-e-color: #1597D5;
+  --lilac-m-color: #A82F82;
+
+  --link-color: var(--lilac-m-color);
+
 }
 
