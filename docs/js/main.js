@@ -52,6 +52,8 @@ const CLASS_INDEX_POSITION = ITEM_MENU_CLASSNAME_PREFIX.length;
 //Referencia apontando para o objeto menu principal
 const MENU = document.getElementById("menu");
 
+const REG_EXP = new RegExp(ITEM_MENU_CLASSNAME_PREFIX + "\\d+");
+
 /******************************************************************************
  *              Variaveis inicializadas no metodo initialize()
  ******************************************************************************/
@@ -71,7 +73,10 @@ function nav() {
 
   if (this.className === navClassSelected) return;
   
-  navClassSelected = this.className;//O item clicado passa a ser o item selecionado
+  //O item clicado passa a ser o item selecionado
+  navClassSelected = ((this.className).match(REG_EXP))[0];
+
+  console.log(navClassSelected);
 
   //Os itens de menu sao numerados com indices de 0 ao (numero de itens no menu - 1)
   let navClassSelectedIndex = 
@@ -226,6 +231,10 @@ function initialize() {
     Clicar na logo tem a mesma funcao que clicar no 1o item do menu
   */
   document.querySelector("#logo").addEventListener("click", nav);
+
+  let ocafe = document.querySelector("#o-cafe");
+
+  if (ocafe !== null) { ocafe.addEventListener("click", nav) };
   
   //Obtem todos os textos na pagina principal que possam ser traduzidos
   for (let i = 0; i < LANGUAGES.length; i++) {
