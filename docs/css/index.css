@@ -26,6 +26,7 @@
 }
 
 .quadro-de-cortica {
+  border: ridge 8px;
   background-image: url("../images/craft.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -69,8 +70,8 @@
 }
 
 .quadro-de-cortica .box5 {
-  /*background-color: var(--orange-m-color);*/
   grid-area: box5;
+  /*background-color: var(--orange-m-color);*/
   padding:5%;
 }
 

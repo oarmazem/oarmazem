@@ -125,10 +125,20 @@ footer address {
   background-image: url("../images/postits/blue-postit.png"); 
 }
 
-.postit-pin {
+.brown-postit {
+  background-image: url("../images/postits/brown-postit.png"); 
+}
+
+.postit-pin2 {
+  position: absolute;
+  top: -30px;
+  left: 20px;
+}
+
+.postit-pin3 {
   position: absolute;
   top: -25px;
-  left: 3px;
+  left: 2px;
 }
 
 /*-------------------------------------------------------------------------
