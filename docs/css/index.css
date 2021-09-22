@@ -26,6 +26,9 @@
 }
 
 .quadro-de-cortica {
+  background-image: url("../images/craft.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   clear: both;
   width: 95%;
   margin-left: auto;
@@ -43,55 +46,55 @@
 
 .quadro-de-cortica .box1 {
   grid-area: box1;
-  background-color: var(--green-r-color);
+  /*background-color: var(--green-r-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box2 {
   grid-area: box2;
-  background-color: var(--red-a-color);
+ /* background-color: var(--red-a-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box3 {
   grid-area: box3;
-  background-color: var(--blue-e-color);
+  /*background-color: var(--blue-e-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box4 {
   grid-area: box4;
-  background-color: var(--green-a-color);
+ /* background-color: var(--green-a-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box5 {
-  background-color: var(--orange-m-color);
+  /*background-color: var(--orange-m-color);*/
   grid-area: box5;
   padding:5%;
 }
 
 .quadro-de-cortica .box6 {
   grid-area: box6;
-  background-color: var(--blue-o-color);
+  /*background-color: var(--blue-o-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box7 {
   grid-area: box7;
-  background-color: var(--green-a-color);
+ /* background-color: var(--green-a-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box8 {
   grid-area: box8;
-  background-color: var(--red-a-color);
+ /* background-color: var(--red-a-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box9 {
   grid-area: box9;
-  background-color: var(--lilac-m-color);
+ /* background-color: var(--lilac-m-color);*/
   padding:5%;
 }
 
