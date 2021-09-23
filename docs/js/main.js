@@ -52,6 +52,7 @@ const CLASS_INDEX_POSITION = ITEM_MENU_CLASSNAME_PREFIX.length;
 //Referencia apontando para o objeto menu principal
 const MENU = document.getElementById("menu");
 
+//regexp para localizar "navClass" em um nome de classe
 const REG_EXP = new RegExp(ITEM_MENU_CLASSNAME_PREFIX + "\\d+");
 
 /******************************************************************************
@@ -185,7 +186,9 @@ function scrollListener() {
     MENU.style.position = "fixed";
     MENU.style.top = 0;
     MENU.style.backgroundColor = "#DDDDDD";
+    MENU.style.opacity = "0.9";
     document.removeEventListener("scroll", scrollListener);
+    document.querySelector("#logo").style.margin = "5vw auto 0vw auto";
 
   }
 
@@ -216,27 +219,21 @@ function initialize() {
     selectedItem.style.color = COLORS[navClassSelectedIndex];
 
   }//for
- 
-  //Registra a function nav() como listener de todos os itens de menu
-  let itensMenu = document.querySelectorAll("#menu li");
-
-  for (let i = 0; i < itensMenu.length; i++) {
-
-    itensMenu[i].addEventListener("click", nav);
-
-  }//for
-
-  /*
-    Registra a function nav() como listener da img da logomarca
-    Clicar na logo tem a mesma funcao que clicar no 1o item do menu
-  */
-  document.querySelector("#logo").addEventListener("click", nav);
-
-  let ocafe = document.querySelector("#o-cafe");
-
-  if (ocafe !== null) { ocafe.addEventListener("click", nav) };
   
-  //Obtem todos os textos na pagina principal que possam ser traduzidos
+  //Registra a function nav() como listener de todos os elementos navClass
+  for (let i = 0; i < PAGES.length; i++) {
+
+    let linksToSections = document.querySelectorAll("." + ITEM_MENU_CLASSNAME_PREFIX + i);
+
+    for (let j = 0; j < linksToSections.length; j++) {
+
+      linksToSections[j].addEventListener("click", nav);
+
+    }//for j
+
+  }//for i
+  
+  //Obtem todos os textos na pagina que possam ser traduzidos
   for (let i = 0; i < LANGUAGES.length; i++) {
 
     texts[i] = document.getElementsByClassName(getLanguagesInitials(i));

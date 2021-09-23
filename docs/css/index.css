@@ -2,115 +2,107 @@
 
 @import "main.css";
 
-#presentation {
-  display: none;
-  margin-top: 4vh;
-  margin-bottom: 4vh;
-}
-
-#first-postit {
-  width: 24%;
-  float: left;
-  margin-left: 5%;
-  margin-top: 3%;
-  transform: rotate(1.2deg);
-}
-
-#first-postit h1, img {
-  padding-top: 10px;
-}
-
-#logo-oarmazem {
-  display: block;
-  width: 70%;
-  height: auto;
-}
-
 .quadro-de-cortica {
   border: ridge 8px;
-  background-image: url("../images/craft.jpg");
+  background-image: url("../images/kraft.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  clear: both;
   width: 95%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 5vw;
-  margin-bottom: 10vw;
+  margin-bottom: 5vw;
   display: grid;
   grid-template-areas:
-  "box1 box1 box1 box2"
-  "box3 box3 box4 box4"
-  "box5 box6 box6 box6"
-  "box7 box8 box8 box9";
+  "box1 box1 box1 box1 box1 box2 box2 box2"
+  "box3 box3 box4 box4 box4 box4 box4 box4"
+  "box5 box5 box5 box5 box5 box6 box6 box6"
+  "box7 box7 box8 box8 box8 box9 box9 box9"
+  "box10 box10 box10 box10 box11 box12 box12 box12";
+  grid-template-columns: 12.5% 12.5% auto 12.5% 12.5% 12.5% 12.5% 12.5%;
   gap: 1vw;
 }
 
 .quadro-de-cortica .box1 {
   grid-area: box1;
-  /*background-color: var(--green-r-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box2 {
   grid-area: box2;
- /* background-color: var(--red-a-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box3 {
   grid-area: box3;
-  /*background-color: var(--blue-e-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box4 {
   grid-area: box4;
- /* background-color: var(--green-a-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box5 {
   grid-area: box5;
-  /*background-color: var(--orange-m-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box6 {
   grid-area: box6;
-  /*background-color: var(--blue-o-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box7 {
   grid-area: box7;
- /* background-color: var(--green-a-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box8 {
   grid-area: box8;
- /* background-color: var(--red-a-color);*/
   padding:5%;
 }
 
 .quadro-de-cortica .box9 {
   grid-area: box9;
- /* background-color: var(--lilac-m-color);*/
+  padding:5%;
+}
+
+.quadro-de-cortica .box10 {
+  grid-area: box10;
+  padding:5%;
+}
+
+.quadro-de-cortica .box11 {
+  grid-area: box11;
+  padding:5%;
+}
+.quadro-de-cortica .box12 {
+  grid-area: box12;
   padding:5%;
 }
 
 .quadro-de-cortica .postit {
   margin: auto;
+}
+
+.quadro-de-cortica .yellow-postit {
   width: 50%;
+  transform: rotate(-2deg);
 }
 
 .quadro-de-cortica .orange-postit {
+  width: 90%;
   transform: rotate(2deg);
 }
 
 .quadro-de-cortica .blue-postit {
-  transform: rotate(3deg);
+  width: 60%;
+}
+
+.quadro-de-cortica .brown-postit {
+  width: 98%;
+  transform: rotate(-3.5deg);
 }
 
 .foto-container {
@@ -131,4 +123,29 @@
   position: absolute;
   top:-20px;
   left: 45%;
+}
+
+img[data-color="blue-o"]:hover {
+  border-color: var(--blue-o-color);
+  cursor: pointer;
+}
+
+img[data-color="red-a"]:hover {
+  border-color: var(--red-a-color);
+  cursor: pointer;
+}
+
+img[data-color="green-r"]:hover {
+  border-color: var(--green-r-color);
+  cursor: pointer;
+}
+
+img[data-color="orange-m"]:hover {
+  border-color: var(--orange-m-color);
+  cursor: pointer;
+}
+
+img[data-color="green-a"]:hover {
+  border-color: var(--green-a-color);
+  cursor: pointer;
 }

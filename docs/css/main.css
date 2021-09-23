@@ -79,7 +79,7 @@ header {
 -------------------------------------------------------------------------*/
 footer {
   width: 100%;
-  height: 38px;
+  height: 32px;
   background-color: var(--body-background);
   position: fixed;
   bottom: 0;
@@ -90,6 +90,7 @@ footer img {
   display: block;
   float: left;
   margin-left: 2vw;
+  margin-top: 4px;
 }
 
 footer address {
@@ -97,19 +98,20 @@ footer address {
   left: 0;
   width: 100%;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
+  margin-top: 6px;
   font-size: 14px;
   text-align: center;
-  margin-top: 1.5vh;
 }
 /*------------------------------------------------------------------------------------------------
                                   Estiliza os postits do site
 -------------------------------------------------------------------------------------------------*/
 
 .postit {
+  position: relative;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   text-align: center;
-  line-height: 30px;
+  line-height: 26px;
   padding: 5px;
 }
 
@@ -137,8 +139,14 @@ footer address {
 
 .postit-pin3 {
   position: absolute;
-  top: -25px;
-  left: 2px;
+  top: -15px;
+  left: -5px;
+}
+
+.postit-pin4 {
+  position: absolute;
+  top: -15px;
+  right: 5px;
 }
 
 /*-------------------------------------------------------------------------
@@ -193,8 +201,3 @@ footer address {
     font-size: 3.4vw;
   }
 }
-
-
-
-
-
