@@ -56,8 +56,11 @@ header {
 }
 
 #menu li:hover {
-  background-color: var(--nav-hover-color);
   cursor: pointer;
+}
+
+#menu li:hover::before {
+  content : "\261E";
 }
 
 /*-------------------------------------------------------------------------
@@ -136,7 +139,7 @@ footer address {
 ------------------------------------------------------------------------------------------------*/
 img[alt="pin"] {
   position: absolute;
-  top: -20px;
+  top: -15px;
 }
 
 .left-pin {

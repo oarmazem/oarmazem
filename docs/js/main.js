@@ -38,31 +38,17 @@ const PAGES = [
   "contato.html"
 ];
 
-/*
-  Prefixo (sem o indice numerico) dos classnames das tags no menu de navegacao
-
-  O primeiro item (em qualquer idioma) do menu principal tem class="navClass0",
-  o segundo tem class="navClass1", e assim por diante...
-*/  
-const ITEM_MENU_CLASSNAME_PREFIX = "navClass";
-
-//Posicao no nome da classe em que se encontra o indice numerico do item de menu
-const CLASS_INDEX_POSITION = ITEM_MENU_CLASSNAME_PREFIX.length;
-
 //Referencia apontando para o objeto menu principal
 const MENU = document.getElementById("menu");
-
-//regexp para localizar "navClass" em um nome de classe
-const REG_EXP = new RegExp(ITEM_MENU_CLASSNAME_PREFIX + "\\d+");
 
 /******************************************************************************
  *              Variaveis inicializadas no metodo initialize()
  ******************************************************************************/
-//A classe dos itens de menu que estao selecionados
-let navClassSelected;
-
 //O idioma que o site esta exibindo
 let currentLanguage;
+
+//O numero da secao que esta sendo visualizada no site
+let sectionIndex;
 
 //Um array bidimensional com todas as tags de textos que podem ser traduzidos
 let texts = [];
@@ -70,20 +56,11 @@ let texts = [];
 /*----------------------------------------------------------------------------
             Listener responsavel pelo menu principal do site
 ----------------------------------------------------------------------------*/
-function nav() {
+function nav(index) {
 
-  if (this.className === navClassSelected) return;
-  
-  //O item clicado passa a ser o item selecionado
-  navClassSelected = ((this.className).match(REG_EXP))[0];
+  if (index === sectionIndex) return;
 
-  //Os itens de menu sao numerados com indices de 0 ao (numero de itens no menu - 1)
-  let navClassSelectedIndex = 
-    navClassSelected.substring(CLASS_INDEX_POSITION, navClassSelected.length);
-
-  sessionStorage.setItem("navClassSelectedIndex", navClassSelectedIndex);  
-
-  window.open(PAGES[navClassSelectedIndex], "_self");//Carrega a pag. do item selecionado
+  window.open(PAGES[index], "_self");//Carrega a pag. do item selecionado
   
 }//nav()
 
@@ -183,9 +160,10 @@ function scrollListener() {
 
     MENU.style.position = "fixed";
     MENU.style.top = 0;
-    MENU.style.backgroundColor = "#DDDDDD";
-    MENU.style.opacity = "0.9";
-    document.removeEventListener("scroll", scrollListener);
+    MENU.style.backgroundColor = COLORS[sectionIndex];
+    let itemMenu = document.querySelectorAll("#menu li");
+    for (let i = 0; i < itemMenu.length; i++) { itemMenu[i].style.color = "#FFFFFF"; }
+     document.removeEventListener("scroll", scrollListener);
     document.querySelector("#logo").style.margin = "5vw auto 0vw auto";
 
   }
@@ -196,40 +174,19 @@ function scrollListener() {
 Inicializa menu principal, registra listeners, obtem dados globais do DOM, 
 define o idioma corrente do site
 ----------------------------------------------------------------------------*/
-function initialize() {
+function initialize(index) {
+  
+  sectionIndex = index;
 
   document.addEventListener("scroll", scrollListener);
 
-  let navClassSelectedIndex = sessionStorage.getItem("navClassSelectedIndex");
+  //Destaca os itens de menu da atual section do site
+  let menuItens = document.querySelectorAll('li[onclick="nav(' + sectionIndex +')"');
 
-  if (navClassSelectedIndex === null) navClassSelectedIndex = "0";
-
-  navClassSelected = ITEM_MENU_CLASSNAME_PREFIX + navClassSelectedIndex;//O item do menu
-
-  //Obtem o item selecionado do menu principal em todos os idiomas
-  let menuSelectedItens = document.querySelectorAll("#menu ." + navClassSelected);  
-
-  //Destaca os primeiros itens em todos os idiomas
-  for (let i = 0; i < menuSelectedItens.length; i++) {
-
-    let selectedItem = menuSelectedItens[i]; 
-    selectedItem.style.textDecoration = "underline";    
-    selectedItem.style.color = COLORS[navClassSelectedIndex];
-
-  }//for
-  
-  //Registra a function nav() como listener de todos os elementos navClass
-  for (let i = 0; i < PAGES.length; i++) {
-
-    let linksToSections = document.querySelectorAll("." + ITEM_MENU_CLASSNAME_PREFIX + i);
-
-    for (let j = 0; j < linksToSections.length; j++) {
-
-      linksToSections[j].addEventListener("click", nav);
-
-    }//for j
-
-  }//for i
+  for (let i = 0; i < menuItens.length; i++) {
+    menuItens[i].style.color = COLORS[sectionIndex];
+    menuItens[i].style.textDecoration = "underline";
+  }
   
   //Obtem todos os textos na pagina que possam ser traduzidos
   for (let i = 0; i < LANGUAGES.length; i++) {
@@ -257,5 +214,3 @@ function initialize() {
   setIcon();
  
 }//initialize()
-
-initialize();

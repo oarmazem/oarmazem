@@ -13,46 +13,46 @@ function getHead() {
 -------------------------------------------------------------------------------------------------*/
 function getHeader() {
 
-  return `<img id="logo" class="navClass0" src="images/logos/letters-logo.png" alt="logomarca">
+  return `<img id="logo" onclick="nav(0)" src="images/logos/letters-logo.png" alt="logomarca">
 
   <nav id="menu">
-    <nav class ="br" lang="pt-br">
+    <nav class="br" lang="pt-br">
       <ul>
-        <li class="navClass0">INÍCIO</li>
-        <li class="navClass1">O CAFÉ</li>
-        <li class="navClass2">AS RELÍQUIAS</li>
-        <li class="navClass3">COMO CHEGAR</li>    
-        <li class="navClass4">CONTATO</li>
+        <li onclick="nav(0)">INÍCIO</li>
+        <li onclick="nav(1)">O CAFÉ</li>
+        <li onclick="nav(2)">AS RELÍQUIAS</li>
+        <li onclick="nav(3)">COMO CHEGAR</li>    
+        <li onclick="nav(4)">CONTATO</li>
       </ul>      
     </nav>
 
-    <nav class ="en" lang="en-us">
+    <nav class="en" lang="en-us">
       <ul>
-        <li class="navClass0">HOME</li>
-        <li class="navClass1">COFEE</li>
-        <li class="navClass2">RELICS</li>
-        <li class="navClass3">MAP</li>    
-        <li class="navClass4">CONTACT</li>
+        <li onclick="nav(0)">HOME</li>
+        <li onclick="nav(1)">COFEE</li>
+        <li onclick="nav(2)">RELICS</li>
+        <li onclick="nav(3)">MAP</li>    
+        <li onclick="nav(4)">CONTACT</li>
       </ul>      
     </nav>
 
-    <nav class ="es" lang="es-es">
+    <nav class="es" lang="es-es">
       <ul>
-        <li class="navClass0">INICIO</li>
-        <li class="navClass1">EL CAFÉ</li>
-        <li class="navClass2">LAS RELIQUIAS</li>
-        <li class="navClass3">¿CÓMO SE LLEGA?</li>    
-        <li class="navClass4">CONTACTE</li>
+        <li onclick="nav(0)">INICIO</li>
+        <li onclick="nav(1)">EL CAFÉ</li>
+        <li onclick="nav(2)">LAS RELIQUIAS</li>
+        <li onclick="nav(3)">¿CÓMO SE LLEGA?</li>    
+        <li onclick="nav(4)">CONTACTE</li>
       </ul>      
     </nav>
 
-    <nav class ="fr" lang="fr-fr">
+    <nav class="fr" lang="fr-fr">
       <ul>
-        <li class="navClass0">HOME</li>
-        <li class="navClass1">LE CAFE</li>
-        <li class="navClass2">LE RELIEF</li>
-        <li class="navClass3">COMMENT S'Y RENDRE ?</li>    
-        <li class="navClass4">CONTACTER</li>
+        <li onclick="nav(0)">HOME</li>
+        <li onclick="nav(1)">LE CAFE</li>
+        <li onclick="nav(2)">LE RELIEF</li>
+        <li onclick="nav(3)">COMMENT S'Y RENDRE ?</li>    
+        <li onclick="nav(4)">CONTACTER</li>
       </ul>      
     </nav>
   </nav>`;
