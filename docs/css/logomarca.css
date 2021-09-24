@@ -3,7 +3,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Chilanka&family=Gloria+Hallelujah&family=Kaisei+HarunoUmi:wght@500&family=Spartan&display=swap');
 
 /*----------------------------------------------------------------------------
-                     Estiliza a logomarca do Armazém
+  Etiliza o letreiro da logomarca do Armazém. Este css nao eh utilizado
+  pelo site, serviu apenas para a criacao da imagem do letreiro.
 -----------------------------------------------------------------------------*/
 
 /*O primeiro O da logomarca*/
@@ -76,40 +77,9 @@
   background-color: var(--body-background);
 }
 
-/*----------------------------------------------------------------------------
-                           CSS responsivo
- ---------------------------------------------------------------------------*/
-@media only screen and (max-width: 800px) {
-  .logomarca {
-    font-size: 2.2vw;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  .logomarca {
-    font-size: 2.4vw;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .logomarca {
-    font-size: 2.6vw;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  .logomarca {
-    font-size: 2.8vw;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  .logomarca {
-    font-size: 3vw;
-  }
-} 
-
 /*
+HTML DA LOGOMARCA
+
 <div class="logomarca">
 <h1><span class="letter_1o">O </span><span class="letter_1a">a</span><span class="letter_1r">R</span><span class="letter_1m">M</span><span class="letter_2a">a</span><span class="letter_1z">Z</span><span class="letter_1e">É</span><span class="letter_2m">m</span></h1>
 <h2>CAFÉ & RELÍQUIAS</h2>

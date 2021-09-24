@@ -1,7 +1,13 @@
 @charset "UTF-8";
 
+/*------------------------------------------------------------------------------------------------
+                  main.css importa colors.css languages.css fonts.css 
+------------------------------------------------------------------------------------------------*/
 @import "main.css";
 
+/*------------------------------------------------------------------------------------------------
+                               Configura o quadro de cortica
+------------------------------------------------------------------------------------------------*/
 .quadro-de-cortica {
   border: ridge 8px;
   background-image: url("../images/kraft.jpg");
@@ -23,6 +29,9 @@
   gap: 1vw;
 }
 
+/*------------------------------------------------------------------------------------------------
+                        Boxes no quadro para fotos e bilhetinhos
+------------------------------------------------------------------------------------------------*/
 .quadro-de-cortica .box1 {
   grid-area: box1;
   padding:5%;
@@ -86,6 +95,9 @@
   margin: auto;
 }
 
+/*------------------------------------------------------------------------------------------------
+                          Os tipos de bilhetinhos do quadro
+------------------------------------------------------------------------------------------------*/
 .quadro-de-cortica .yellow-postit {
   width: 50%;
   transform: rotate(-2deg);
@@ -105,12 +117,19 @@
   transform: rotate(-3.5deg);
 }
 
+/*------------------------------------------------------------------------------------------------
+         Divs para as fotos. Esta div faz a foto oucpar 80% da largura do seu box e permite 
+         que o pin da foto seja posicionado corretamente sobre ela.           
+------------------------------------------------------------------------------------------------*/
 .foto-container {
+  position: relative;
   width: 80%;
   margin: auto;
-  position: relative;
 }
 
+/*------------------------------------------------------------------------------------------------
+                     Estiliza as fotos dentro das divs .foto-container
+------------------------------------------------------------------------------------------------*/
 .foto {
   display: block;
   width: 100%;
@@ -119,17 +138,9 @@
   padding: 0;
 }
 
-.foto-pin {
-  position: absolute;
-  top:-20px;
-  left: 45%;
-}
-
-img[data-color="blue-o"]:hover {
-  border-color: var(--blue-o-color);
-  cursor: pointer;
-}
-
+/*------------------------------------------------------------------------------------------------
+             Cores "hover" para as molduras das fotos que sao links para secoes
+------------------------------------------------------------------------------------------------*/
 img[data-color="red-a"]:hover {
   border-color: var(--red-a-color);
   cursor: pointer;

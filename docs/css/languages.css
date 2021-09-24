@@ -1,7 +1,10 @@
 @charset "UTF-8";
 
 /*---------------------------------------------------------------------------
-           Display para as tags spam com textos em pt e en
+     Display para as tags spam com textos em seus respectivos idiomas.
+     As paginas abrem com todss textos traduziveis ocultos. O codigo 
+     javascript em main.js se encarrega de exibir os textos do idioma 
+     corrente no momento do carregamento da pagina.
 ---------------------------------------------------------------------------*/
 .br {
   display: none;

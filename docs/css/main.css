@@ -104,7 +104,7 @@ footer address {
 }
 /*------------------------------------------------------------------------------------------------
                                   Estiliza os postits do site
--------------------------------------------------------------------------------------------------*/
+------------------------------------------------------------------------------------------------*/
 
 .postit {
   position: relative;
@@ -131,21 +131,23 @@ footer address {
   background-image: url("../images/postits/brown-postit.png"); 
 }
 
-.postit-pin2 {
+/*------------------------------------------------------------------------------------------------
+                            Estiliza os pins dos post-its
+------------------------------------------------------------------------------------------------*/
+img[alt="pin"] {
   position: absolute;
-  top: -30px;
+  top: -20px;
+}
+
+.left-pin {
   left: 20px;
 }
 
-.postit-pin3 {
-  position: absolute;
-  top: -15px;
-  left: -5px;
+.center-pin {
+  left: 45%;
 }
 
-.postit-pin4 {
-  position: absolute;
-  top: -15px;
+.right-pin {
   right: 5px;
 }
 

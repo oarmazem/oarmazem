@@ -77,8 +77,6 @@ function nav() {
   //O item clicado passa a ser o item selecionado
   navClassSelected = ((this.className).match(REG_EXP))[0];
 
-  console.log(navClassSelected);
-
   //Os itens de menu sao numerados com indices de 0 ao (numero de itens no menu - 1)
   let navClassSelectedIndex = 
     navClassSelected.substring(CLASS_INDEX_POSITION, navClassSelected.length);
