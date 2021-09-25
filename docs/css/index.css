@@ -9,24 +9,13 @@
                                Configura o quadro de cortica
 ------------------------------------------------------------------------------------------------*/
 .quadro-de-cortica {
-  border: ridge 8px;
-  background-image: url("../images/green_cup.png");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  width: 95%;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 5vw;
-  margin-bottom: 5vw;
-  display: grid;
+  background-image: url("../images/recicled-paper.jpg");
   grid-template-areas:
   "box1 box1 box1 box1 box1 box2 box2 box2"
   "box3 box3 box4 box4 box4 box4 box4 box4"
   "box5 box5 box5 box5 box5 box6 box6 box6"
   "box7 box7 box8 box8 box8 box9 box9 box9"
   "box10 box10 box10 box10 box11 box12 box12 box12";
-  grid-template-columns: 12.5% 12.5% auto 12.5% 12.5% 12.5% 12.5% 12.5%;
-  gap: 1vw;
 }
 
 /*------------------------------------------------------------------------------------------------
@@ -89,74 +78,4 @@
 .quadro-de-cortica .box12 {
   grid-area: box12;
   padding:5%;
-}
-
-.quadro-de-cortica .postit {
-  margin: auto;
-}
-
-/*------------------------------------------------------------------------------------------------
-                          Os tipos de bilhetinhos do quadro
-------------------------------------------------------------------------------------------------*/
-.quadro-de-cortica .yellow-postit {
-  width: 50%;
-  transform: rotate(-2deg);
-}
-
-.quadro-de-cortica .orange-postit {
-  width: 90%;
-  transform: rotate(2deg);
-}
-
-.quadro-de-cortica .blue-postit {
-  width: 60%;
-}
-
-.quadro-de-cortica .brown-postit {
-  width: 98%;
-  transform: rotate(-3.5deg);
-}
-
-/*------------------------------------------------------------------------------------------------
-         Divs para as fotos. Esta div faz a foto oucpar 80% da largura do seu box e permite 
-         que o pin da foto seja posicionado corretamente sobre ela.           
-------------------------------------------------------------------------------------------------*/
-.foto-container {
-  position: relative;
-  width: 80%;
-  margin: auto;
-}
-
-/*------------------------------------------------------------------------------------------------
-                     Estiliza as fotos dentro das divs .foto-container
-------------------------------------------------------------------------------------------------*/
-.foto {
-  display: block;
-  width: 100%;
-  height: auto;
-  border: solid white 5px;
-  padding: 0;
-}
-
-/*------------------------------------------------------------------------------------------------
-             Cores "hover" para as molduras das fotos que sao links para secoes
-------------------------------------------------------------------------------------------------*/
-img[data-color="red-a"]:hover {
-  border-color: var(--red-a-color);
-  cursor: pointer;
-}
-
-img[data-color="green-r"]:hover {
-  border-color: var(--green-r-color);
-  cursor: pointer;
-}
-
-img[data-color="orange-m"]:hover {
-  border-color: var(--orange-m-color);
-  cursor: pointer;
-}
-
-img[data-color="green-a"]:hover {
-  border-color: var(--green-a-color);
-  cursor: pointer;
 }
