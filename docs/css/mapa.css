@@ -13,49 +13,4 @@
   "box6 box6 box6 box7 box7 box7 box8 box8";
 }
 
-/*------------------------------------------------------------------------------------------------
-                        Boxes no quadro para fotos e bilhetinhos
-------------------------------------------------------------------------------------------------*/
-.quadro-de-cortica .box1 {
-  grid-area: box1;
-  padding:5%;
-}
-
-.quadro-de-cortica .box2 {
-  grid-area: box2;
-  padding:5%;
-}
-
-.quadro-de-cortica .box3 {
-  grid-area: box3;
-  padding:5%;
-}
-
-.quadro-de-cortica .box4 {
-  grid-area: box4;
-  padding:5%;
-}
-
-
-.quadro-de-cortica .box5 {
-  grid-area: box5;
-  padding:5%;
-}
-
-
-.quadro-de-cortica .box6{
-  grid-area: box6;
-  padding:5%;
-}
-
-.quadro-de-cortica .box7 {
-  grid-area: box7;
-  padding:5%;
-}
-
-
-.quadro-de-cortica .box8 {
-  grid-area: box8;
-  padding:5%;
-}
 

@@ -94,6 +94,61 @@ header {
   gap: 1vw;
 }
 
+.quadro-de-cortica > div {
+  padding: 5%;
+}
+
+/*------------------------------------------------------------------------------------------------
+                        Boxes no quadro para fotos e bilhetinhos
+------------------------------------------------------------------------------------------------*/
+.quadro-de-cortica .box1 {
+  grid-area: box1;
+}
+
+.quadro-de-cortica .box2 {
+  grid-area: box2;  
+}
+
+.quadro-de-cortica .box3 {
+  grid-area: box3;  
+}
+
+.quadro-de-cortica .box4 {
+  grid-area: box4;  
+}
+
+.quadro-de-cortica .box5 {
+  grid-area: box5;  
+}
+
+.quadro-de-cortica .box6 {
+  grid-area: box6;  
+}
+
+.quadro-de-cortica .box7 {
+  grid-area: box7;  
+}
+
+.quadro-de-cortica .box8 {
+  grid-area: box8;  
+}
+
+.quadro-de-cortica .box9 {
+  grid-area: box9;  
+}
+
+.quadro-de-cortica .box10 {
+  grid-area: box10;  
+}
+
+.quadro-de-cortica .box11 {
+  grid-area: box11;  
+}
+
+.quadro-de-cortica .box12 {
+  grid-area: box12;  
+}
+
 /*------------------------------------------------------------------------------------------------
                       Os tipos de bilhetinhos do quadro de cortica
 ------------------------------------------------------------------------------------------------*/
