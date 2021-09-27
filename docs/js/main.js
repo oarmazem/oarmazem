@@ -210,7 +210,7 @@ function initialize(index) {
 
   }//for
 
-  //Exibe o icone do idioma para o qual o site sera traduzido ao seu clicar no icon flag
+  //Exibe o icone do idioma para o qual o site sera traduzido ao clicar no icon flag
   setIcon();
  
 }//initialize()

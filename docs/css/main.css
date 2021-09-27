@@ -94,13 +94,22 @@ header {
   gap: 1vw;
 }
 
+/*------------------------------------------------------------------------------------------------
+                      Style comum a todos os boxes de quadros de cortica
+------------------------------------------------------------------------------------------------*/
 .quadro-de-cortica > div {
+  border: solid 1px;
+  position: relative;
   padding: 5%;
 }
 
 /*------------------------------------------------------------------------------------------------
                         Boxes no quadro para fotos e bilhetinhos
 ------------------------------------------------------------------------------------------------*/
+.quadro-de-cortica .box0 {
+  grid-area: box0;
+}
+
 .quadro-de-cortica .box1 {
   grid-area: box1;
 }
@@ -152,27 +161,38 @@ header {
 /*------------------------------------------------------------------------------------------------
                       Os tipos de bilhetinhos do quadro de cortica
 ------------------------------------------------------------------------------------------------*/
-.quadro-de-cortica .postit {
-  margin: auto;
+.postit {
+  position: relative;
+  margin: auto; 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  line-height: 26px;
+  padding: 5px;
 }
 
-.quadro-de-cortica .yellow-postit {
-  width: 50%;
-  transform: rotate(-2deg);
+.yellow-postit {
+  background-image: url("../images/postits/yellow-postit.png"); 
 }
 
-.quadro-de-cortica .orange-postit {
-  width: 90%;
-  transform: rotate(2deg);
+.orange-postit {
+  background-image: url("../images/postits/orange-postit.png"); 
 }
 
-.quadro-de-cortica .blue-postit {
-  width: 60%;
+.blue-postit {
+  background-image: url("../images/postits/blue-postit.png"); 
 }
 
-.quadro-de-cortica .brown-postit {
-  width: 98%;
-  transform: rotate(-3.5deg);
+.brown-postit {
+  background-image: url("../images/postits/brown-postit.png"); 
+}
+
+/*-----------------------------------------------------------------------------------------------
+        Uma div para anexar elementos soltos dentro de um box do quadro de cortica
+-----------------------------------------------------------------------------------------------*/
+.box-attachment {
+  position: absolute;
+  padding: 0;
 }
 
 /*------------------------------------------------------------------------------------------------
@@ -186,7 +206,7 @@ header {
 }
 
 /*------------------------------------------------------------------------------------------------
-                     Estiliza as fotos dentro das divs .foto-container
+             Estiliza as fotos dentro das divs .foto-container ou box-attachment
 ------------------------------------------------------------------------------------------------*/
 .foto {
   display: block;
@@ -222,34 +242,6 @@ img[data-color="orange-m"]:hover {
 img[data-color="green-a"]:hover {
   border-color: var(--green-a-color);
   cursor: pointer;
-}
-/*------------------------------------------------------------------------------------------------
-                                  Estiliza os postits do site
-------------------------------------------------------------------------------------------------*/
-
-.postit {
-  position: relative;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  text-align: center;
-  line-height: 26px;
-  padding: 5px;
-}
-
-.yellow-postit {
-  background-image: url("../images/postits/yellow-postit.png"); 
-}
-
-.orange-postit {
-  background-image: url("../images/postits/orange-postit.png"); 
-}
-
-.blue-postit {
-  background-image: url("../images/postits/blue-postit.png"); 
-}
-
-.brown-postit {
-  background-image: url("../images/postits/brown-postit.png"); 
 }
 
 /*------------------------------------------------------------------------------------------------
