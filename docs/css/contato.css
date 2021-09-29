@@ -6,7 +6,8 @@
                                Configura o quadro de cortica
 ------------------------------------------------------------------------------------------------*/
 .quadro-de-cortica {
-  background-image: url("../images/natural-gray-paper.png");
+  /*background-image: url("../images/natural-gray-paper.png");*/
+  background-color:rgba(5, 70, 37, 0.4);
   grid-template-areas:
   "box1 box1 box1 box1 box2 box2 box2 box3"
   "box4 box4 box5 box5 box5 box6 box6 box6"

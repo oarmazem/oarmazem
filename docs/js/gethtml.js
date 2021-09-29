@@ -31,7 +31,7 @@ function getHeader() {
     <nav class="en" lang="en-us">
       <ul>
         <li onclick="nav(0)">HOME</li>
-        <li onclick="nav(1)">COFEE</li>
+        <li onclick="nav(1)">COFFEE</li>
         <li onclick="nav(2)">RELICS</li>
         <li onclick="nav(3)">MAP</li>    
         <li onclick="nav(4)">CONTACT</li>

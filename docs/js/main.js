@@ -165,24 +165,48 @@ function toggleLanguage() {
 }//toggleLanguage()
 
 /*----------------------------------------------------------------------------
+  Quando a janela eh redimensionada em sua largura, o menu e o footer devem  
+  ser redimensionados em suas alturas. A nova altura serah um percentual da
+  largura da janela do navegador. Porem, quanto menor esta largura, maior 
+  sera o percentual atribuidos as alturas de menu principal e footer
+
+  Esta funcao calcula o valor que sera atribuidos aos vw de menu e footer.
+----------------------------------------------------------------------------*/
+function getVwValue() {
+
+  let w = parseInt(window.getComputedStyle(BODY).getPropertyValue("width"));
+  return ((360000 / (w * w)) + 2);
+
+}//getVwValue()
+
+/*----------------------------------------------------------------------------
                  Monitora a posicao do menu principal
 ----------------------------------------------------------------------------*/
 function scrollListener() {
 
   let menuTopPosition = MENU.getBoundingClientRect().top;
-   
+  
+  //fixa o menu principal no topo da tela 
   if (menuTopPosition <= 0) {
 
     MENU.style.position = "fixed";
     MENU.style.top = 0;
     MENU.style.backgroundColor = COLORS[sectionIndex];
+
     let itemMenu = document.querySelectorAll("#menu li");
+
     for (let i = 0; i < itemMenu.length; i++) { itemMenu[i].style.color = "#FFFFFF"; }
+
     document.removeEventListener("scroll", scrollListener);
+    
+    //As novas margens do logo quando o menu se torna fixo no topo da tela
+    LOGO.style.margin = (getVwValue() + 2) + "vw auto 2vw auto";
+
     menuFixed = true;
+
     if (QUADRO_DE_CORTICA != null) { QUADRO_DE_CORTICA.style.marginTop = "0"; }
 
-  }
+  }//if
 
 }//scrollListener()
 
@@ -191,8 +215,7 @@ function scrollListener() {
 ----------------------------------------------------------------------------*/
 function resizeListener() {
 
-  let w = parseInt(window.getComputedStyle(BODY).getPropertyValue("width"));
-  w = (360000 / (w * w)) + 2;
+  let w = getVwValue();
  
   if (menuFixed) { LOGO.style.margin = (w + 2) + "vw auto 2vw auto"; }
 
