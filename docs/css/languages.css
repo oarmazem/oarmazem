@@ -21,14 +21,3 @@
 .fr {
   display: none;
 }
-
-/*----------------------------------------------------------------------------
-              Posiciona icon para alternancia de idiomas
-----------------------------------------------------------------------------*/
-#flag {
-  position: absolute;
-  display: block;
-  right: 2vw;
-}
-
-

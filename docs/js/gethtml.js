@@ -3,7 +3,8 @@
 -------------------------------------------------------------------------------------------------*/
 function getHead() {
 
-  return `<meta name="keywords" content="viagem turismo pousada hotel hospedagem antiguidades restaurante travel tourism hotel">
+  return `
+  <meta name="keywords" content="viagem turismo pousada hotel hospedagem antiguidades restaurante travel tourism hotel">
   <meta name="description" content="">`;
 
 }//getHead()
@@ -13,7 +14,8 @@ function getHead() {
 -------------------------------------------------------------------------------------------------*/
 function getHeader() {
 
-  return `<img id="logo" onclick="nav(0)" src="images/logos/letters-logo.png" alt="logomarca">
+  return `
+  <img id="logo" onclick="nav(0)" src="images/logos/letters-logo.png" alt="logomarca">
 
   <nav id="menu">
     <nav class="br" lang="pt-br">
@@ -64,20 +66,19 @@ function getHeader() {
 -------------------------------------------------------------------------------------------------*/
 function getFooter() {
 
-  return `<a href="https://www.instagram.com/armazem.cafe.reliquias/" target="_blank">
-  <img src="images/social/instagram.png" alt="instagram">
-</a>
-<a href="#" target="_blank"> 
-  <img src="images/social/whatsapp.png" alt="whatsapp">
-</a>
-<a href="https://www.facebook.com/armazem.cafe.reliquias/" target="_blank">
-  <img src="images/social/facebook.png" alt="facebook">
-</a>
-<a href="mailto:cafereliquia@gmail.com" target="_blank">
-  <img src="images/social/email.png" alt="mail">
-</a>
-<address>Rod. Salvador Pacetti 0000 Cunha-SP (21)97923-5720</address>
-<img id="flag" onclick="toggleLanguage()" alt="translate">`; 
+  return `
+<div class="box1">
+<a href="https://www.instagram.com/armazem.cafe.reliquias/" target="_blank"><img src="images/social/instagram.png" alt="instagram"></a>
+<a href="#" target="_blank"><img src="images/social/whatsapp.png" alt="whatsapp"></a>
+<a href="https://www.facebook.com/armazem.cafe.reliquias/" target="_blank"><img src="images/social/facebook.png" alt="facebook"></a>
+<a href="mailto:cafereliquia@gmail.com" target="_blank"><img src="images/social/email.png" alt="mail"></a>
+</div>
+<div class="box2">
+<address>Rod. Salvador Pacetti Km 64 Cunha-SP (11)98415-6248</address>
+</div>
+<div class="box3">
+<img id="flag" onclick="toggleLanguage()" alt="translate">
+</div>`; 
 
 }//getFooter()
 

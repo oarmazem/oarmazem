@@ -37,7 +37,7 @@ header {
   display: block; 
   width: 27vw; 
   height: auto; 
-  margin: 3vw auto 3vw auto;
+  margin: 4vh auto 4vh auto;
 } 
 
 #logo:hover {
@@ -48,8 +48,8 @@ header {
                        Configura o menu de navegacao
 -------------------------------------------------------------------------*/
 #menu {
-  height: 3vw;
-  padding-top: 0.8vw;
+  height: 1em;
+  padding-top: 0.2em;
   width: 100%;
   background-color: var(--nav-background);
   z-index: 100;
@@ -64,8 +64,8 @@ header {
 
 #menu li {
   float: left;
-  margin-left: 4vw;
-  font-size: 1.4vw;
+  margin-left: 3vw;
+  font-size: 0.6em;
   color: var(--nav-color);
 }
 
@@ -87,18 +87,17 @@ header {
   width: 95%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 5vw;
-  margin-bottom: 5vw;
+  margin-top: 5vh;
+  margin-bottom: 3.5vw;
   display: grid;
-  grid-template-columns: 12.5% 12.5% auto 12.5% 12.5% 12.5% 12.5% 12.5%;
-  gap: 1vw;
+  grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
+  gap: 0;
 }
 
 /*------------------------------------------------------------------------------------------------
                       Style comum a todos os boxes de quadros de cortica
 ------------------------------------------------------------------------------------------------*/
 .quadro-de-cortica > div {
-  border: solid 1px;
   position: relative;
   padding: 5%;
 }
@@ -167,8 +166,17 @@ header {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   text-align: center;
-  line-height: 26px;
-  padding: 5px;
+  font-size: 16px;
+  line-height: 24px;
+  padding-top: 2%;
+  padding-bottom: 1%;
+}
+
+.postit p {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .yellow-postit {
@@ -248,12 +256,13 @@ img[data-color="green-a"]:hover {
                             Estiliza os pins dos post-its
 ------------------------------------------------------------------------------------------------*/
 img[alt="pin"] {
+  display: block;
   position: absolute;
   top: -15px;
 }
 
 .left-pin {
-  left: 20px;
+  left: 5%;/*20px;*/
 }
 
 .center-pin {
@@ -261,88 +270,74 @@ img[alt="pin"] {
 }
 
 .right-pin {
-  right: 5px;
+  right: 2%;/*5px;*/
 }
-
 
 /*-------------------------------------------------------------------------
                            Estiliza o rodape
 -------------------------------------------------------------------------*/
 footer {
-  width: 100%;
-  height: 32px;
   background-color: var(--body-background);
   position: fixed;
   bottom: 0;
   z-index: 100;
+  width: 100%;
+  height: 1em;
+  padding-top: 0.15em;
+  display: grid;
+  grid-template-areas: "box1 box2 box3";
+  grid-template-columns: 25% 50% 25%;
+  gap: 0;
 }
 
 footer img {
+  height: 0.7em;
+  width: auto;
+}
+
+footer .box1 {
+  grid-area: box1;
+}
+
+footer .box1 img {
   display: block;
   float: left;
-  margin-left: 2vw;
-  margin-top: 4px;
+  margin-left: 1.5vw;
+}
+
+footer .box2 {
+  grid-area: box2;
+  text-align: center;
+  font-size: 0.6em;
+}
+
+footer .box3 {
+  grid-area: box3;
+}
+
+footer .box3 img {
+  display: block;
+  float: right;
+  margin-right: 1.5vw;
 }
 
 footer address {
-  position: absolute;
-  left: 0;
-  width: 100%;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; 
-  margin-top: 6px;
-  font-size: 14px;
-  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
 }
+
 
 /*-------------------------------------------------------------------------
-                      CSS responsivo para o header
+          CSS responsivo para telas com largura menor que 600px
 -------------------------------------------------------------------------*/
-@media only screen and (max-width: 800px) {
-  #menu {
-    height: 5.5vw;
-  }
-
-  #menu li {
-    font-size: 1.8vw;
-  }
-}
-
-@media only screen and (max-width: 700px) {
-  #menu {
-    height: 6vw;
-  }
-
-  #menu li {
-    font-size: 2.2vw;
-  }
-}
-
 @media only screen and (max-width: 600px) {
-  #menu {
-    height: 6.5vw;
+  .postit {
+    font-size: 2vw;
+    line-height: 2vw;
   }
 
-  #menu li {
-    font-size: 2.6vw;
-  }
-}
-
-@media only screen and (max-width: 500px) {
-  #menu {
-    height: 7vw;
-  }
-
-  #menu li {
-    font-size: 3vw;
-  }
-}
-
-@media only screen and (max-width: 400px) {
-  #menu {
-    height: 7.5vw;
-  }
-
-  #menu li {
-    font-size: 3.4vw;
+  img[alt="pin"] {
+    height: 3vw;
+    width: auto;
+    top: -1.5vw;
   }
 }

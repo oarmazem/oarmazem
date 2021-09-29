@@ -41,6 +41,18 @@ const PAGES = [
 //Referencia apontando para o objeto menu principal
 const MENU = document.getElementById("menu");
 
+//Referencia apontando para o Logo no header da pagina
+const LOGO = document.querySelector("#logo");
+
+//Referencia para o quadro de cortica
+const QUADRO_DE_CORTICA = document.querySelector(".quadro-de-cortica");
+
+//Referencia para o elemento body da pagina
+const BODY = document.querySelector("body");
+
+//Referencia para o elemento footer da pagina
+const FOOTER =  document.querySelector("footer");
+
 /******************************************************************************
  *              Variaveis inicializadas no metodo initialize()
  ******************************************************************************/
@@ -52,6 +64,9 @@ let sectionIndex;
 
 //Um array bidimensional com todas as tags de textos que podem ser traduzidos
 let texts = [];
+
+//true quando o menu principal se torna fixo no topo da pagina
+let menuFixed;
 
 /*----------------------------------------------------------------------------
             Listener responsavel pelo menu principal do site
@@ -163,12 +178,31 @@ function scrollListener() {
     MENU.style.backgroundColor = COLORS[sectionIndex];
     let itemMenu = document.querySelectorAll("#menu li");
     for (let i = 0; i < itemMenu.length; i++) { itemMenu[i].style.color = "#FFFFFF"; }
-     document.removeEventListener("scroll", scrollListener);
-    document.querySelector("#logo").style.margin = "5vw auto 0vw auto";
+    document.removeEventListener("scroll", scrollListener);
+    menuFixed = true;
+    if (QUADRO_DE_CORTICA != null) { QUADRO_DE_CORTICA.style.marginTop = "0"; }
 
   }
 
 }//scrollListener()
+
+/*----------------------------------------------------------------------------
+              Listener para redimensionamento da tela
+----------------------------------------------------------------------------*/
+function resizeListener() {
+
+  let w = parseInt(window.getComputedStyle(BODY).getPropertyValue("width"));
+  w = (360000 / (w * w)) + 2;
+ 
+  if (menuFixed) { LOGO.style.margin = (w + 2) + "vw auto 2vw auto"; }
+
+  MENU.style.fontSize = w + "vw";
+
+  if (QUADRO_DE_CORTICA != null) { QUADRO_DE_CORTICA.style.marginBottom = (w + 0.2) + "vw"; }
+
+  FOOTER.style.fontSize = w + "vw";
+
+}//resizeListener()
 
 /*----------------------------------------------------------------------------
 Inicializa menu principal, registra listeners, obtem dados globais do DOM, 
@@ -177,6 +211,12 @@ define o idioma corrente do site
 function initialize(index) {
   
   sectionIndex = index;
+
+  menuFixed = false;
+
+  resizeListener();
+
+  window.addEventListener("resize", resizeListener);
 
   document.addEventListener("scroll", scrollListener);
 
