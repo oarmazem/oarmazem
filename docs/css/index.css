@@ -9,7 +9,6 @@
                                Configura o quadro de cortica
 ------------------------------------------------------------------------------------------------*/
 .quadro-de-cortica {
-  /*background-image: url("../images/blue-recicled-paper.jpg");*/
   background-color: rgba(15, 26, 61, 0.4);
   grid-template-areas:
   "box1 box1 box1 box1 box1 box1 box1 box1"
