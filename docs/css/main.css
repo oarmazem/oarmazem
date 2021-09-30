@@ -226,13 +226,14 @@ header {
   position: absolute; 
   left: 8px; 
   bottom: 6px;
-  color: var(--blue-o-color);
+  background-color: rgba(255,255,255,0.3);
+  color: black; 
   overflow:hidden;
   font-size: 2vw;
 }
 
-.comment[data-color="black"] {
-  color: black;
+.comment[data-color="blue"] {
+  color: var(--blue-o-color);
 }
 
 .comment[data-color="white"] {
@@ -254,29 +255,32 @@ header {
 /*------------------------------------------------------------------------------------------------
              Cores "hover" para as molduras das fotos que sao links para secoes
 ------------------------------------------------------------------------------------------------*/
+img[data-color]:hover {
+  cursor: pointer;
+}
+
+img[data-color] ~ .comment:hover {
+  cursor: pointer;
+}
+
 img[data-color="blue-o"]:hover {
   border-color: var(--blue-o-color);
-  cursor: pointer;
 }
 
 img[data-color="red-a"]:hover {
   border-color: var(--red-a-color);
-  cursor: pointer;
 }
 
 img[data-color="green-r"]:hover {
   border-color: var(--green-r-color);
-  cursor: pointer;
 }
 
 img[data-color="orange-m"]:hover {
   border-color: var(--orange-m-color);
-  cursor: pointer;
 }
 
 img[data-color="green-a"]:hover {
   border-color: var(--green-a-color);
-  cursor: pointer;
 }
 
 /*------------------------------------------------------------------------------------------------
