@@ -5,7 +5,9 @@ function getHead() {
 
   return `
   <meta name="keywords" content="viagem turismo pousada hotel hospedagem antiguidades restaurante travel tourism hotel">
-  <meta name="description" content="">`;
+  <meta name="description" content="">
+  <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+  <title>O Armazém Café & Relíquias</title>`;
 
 }//getHead()
 
@@ -15,7 +17,7 @@ function getHead() {
 function getHeader() {
 
   return `
-  <img id="logo" onclick="nav(0)" src="images/logos/letters-logo.png" alt="logomarca">
+  <h1><img id="logo" onclick="nav(0)" src="images/logos/letters-logo.png" alt="logomarca"></h1>
 
   <nav id="menu">
     <nav class="br" lang="pt-br">
@@ -71,7 +73,7 @@ function getFooter() {
 <a href="https://www.instagram.com/armazem.cafe.reliquias/" target="_blank"><img src="images/social/instagram.png" alt="instagram"></a>
 <a href="#" target="_blank"><img src="images/social/whatsapp.png" alt="whatsapp"></a>
 <a href="https://www.facebook.com/armazem.cafe.reliquias/" target="_blank"><img src="images/social/facebook.png" alt="facebook"></a>
-<a href="mailto:cafereliquia@gmail.com" target="_blank"><img src="images/social/email.png" alt="mail"></a>
+<a href="mailto:oarmazem.contato@gmail.com" target="_blank"><img src="images/social/email.png" alt="mail"></a>
 </div>
 <div class="box2">
 <address>Rod. Salvador Pacetti Km 64 Cunha-SP (11)98415-6248</address>
@@ -81,6 +83,8 @@ function getFooter() {
 </div>`; 
 
 }//getFooter()
+
+document.querySelector("head").innerHTML += getHead(); 
 
 document.querySelector("header").innerHTML = getHeader();
 

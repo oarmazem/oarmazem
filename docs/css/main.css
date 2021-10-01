@@ -15,7 +15,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: 1vw;
 }
 
 body {
@@ -35,7 +35,7 @@ header {
 -------------------------------------------------------------------------*/
 #logo {
   display: block; 
-  width: 27vw; 
+  width: 27rem; 
   height: auto; 
   margin: 4vh auto 4vh auto;
 } 
@@ -64,7 +64,7 @@ header {
 
 #menu li {
   float: left;
-  margin-left: 3vw;
+  margin-left: 3rem;
   font-size: 0.6em;
   color: var(--nav-color);
 }
@@ -88,7 +88,7 @@ header {
   margin-left: auto;
   margin-right: auto;
   margin-top: 5vh;
-  margin-bottom: 3.5vw;
+  margin-bottom: 3.5rem;
   display: grid;
   grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
   gap: 0;
@@ -162,10 +162,9 @@ header {
   background-repeat: no-repeat;
   background-size: 100% 100%;
   text-align: center;
-  font-size: 16px;
-  line-height: 24px;
-  padding-top: 2%;
-  padding-bottom: 1%;
+  font-size: 1.8rem;
+  line-height: 2.4rem; 
+  padding:2%;
 }
 
 .postit p {
@@ -216,20 +215,21 @@ header {
   display: block;
   width: 100%;
   height: auto;
-  border: solid white 5px;
+  border: solid white 0.8rem;
   padding: 0;
+  box-shadow: -0.8rem 0.6rem 1rem rgba(50, 50, 50, 0.7);
 }
 
 .comment {
-  width: 90%;
+  width: 93%;
   display: none;
   position: absolute; 
-  left: 8px; 
-  bottom: 6px;
-  background-color: rgba(255,255,255,0.3);
+  left: 0.9rem; 
+  bottom: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.3);
   color: black; 
   overflow:hidden;
-  font-size: 2vw;
+  font-size: 2rem;
 }
 
 .comment[data-color="blue"] {
@@ -289,9 +289,9 @@ img[data-color="green-a"]:hover {
 img[alt="pin"] {
   display: block;
   position: absolute;
-  height: 2.8vw;
+  height: 2.8rem;
   width: auto;
-  top: -1.3vw;
+  top: -1.3rem;
 }
 
 .left-pin {
@@ -335,7 +335,7 @@ footer .box1 {
 footer .box1 img {
   display: block;
   float: left;
-  margin-left: 1.5vw;
+  margin-left: 1.5rem;
 }
 
 footer .box2 {
@@ -351,19 +351,9 @@ footer .box3 {
 footer .box3 img {
   display: block;
   float: right;
-  margin-right: 1.5vw;
+  margin-right: 1.5rem;
 }
 
 footer address {
   font-family: 'Times New Roman', Times, serif;
-}
-
-/*-------------------------------------------------------------------------
-          CSS responsivo para telas com largura menor que 600px
--------------------------------------------------------------------------*/
-@media only screen and (max-width: 600px) {
-  .postit {
-    font-size: 2vw;
-    line-height: 2vw;
-  }
 }
