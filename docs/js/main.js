@@ -215,15 +215,15 @@ function scrollListener() {
 ----------------------------------------------------------------------------*/
 function resizeListener() {
 
-  let w = getVwValue();
+  let p = getVwValue();
  
-  if (menuFixed) { LOGO.style.margin = (w + 2) + "vw auto 2vw auto"; }
+  if (menuFixed) { LOGO.style.margin = (p + 2) + "vw auto 2vw auto"; }
 
-  MENU.style.fontSize = w + "vw";
+  MENU.style.fontSize = p + "vw";
 
-  if (QUADRO_DE_CORTICA != null) { QUADRO_DE_CORTICA.style.marginBottom = (w + 0.2) + "vw"; }
+  if (QUADRO_DE_CORTICA != null) { QUADRO_DE_CORTICA.style.marginBottom = (p + 0.2) + "vw"; }
 
-  FOOTER.style.fontSize = w + "vw";
+  FOOTER.style.fontSize = p + "vw";
 
 }//resizeListener()
 
