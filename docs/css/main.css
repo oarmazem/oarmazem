@@ -4,9 +4,9 @@
 @import "languages.css";
 @import "fonts.css";
 
-/*-------------------------------------------------------------------------
-                           Configuracoes globais
--------------------------------------------------------------------------*/
+/*================================================================================================
+                                     Configuracoes globais
+=================================================================================================*/
 * {
   margin: 0;
   padding: 0;
@@ -14,6 +14,10 @@
   font-family: Chilanka, cursive;
 }
 
+/*----------------------------------------------------------------------
+ Os elementos no quadro-de-cortica e o banner do logo se redimensionam 
+ proporcionalmente a largura do viewport.
+-----------------------------------------------------------------------*/
 html {
   font-size: 1vw;
 }
@@ -23,16 +27,16 @@ body {
   overflow-x: hidden;
 }
 
-/*-------------------------------------------------------------------------
-                          Configura o header
--------------------------------------------------------------------------*/
+/*================================================================================================
+                                       Configura o header
+================================================================================================*/
 header {
   background-color: var(--body-background);
 }
   
-/*-------------------------------------------------------------------------
-              Configura o logo na parte superior da pagina
--------------------------------------------------------------------------*/
+/*================================================================================================
+                        Configura o logo na parte superior da pagina
+================================================================================================*/
 #logo {
   display: block; 
   width: 27rem; 
@@ -40,13 +44,20 @@ header {
   margin: 4vh auto 4vh auto;
 } 
 
+/*----------------------------------------------------------------------
+               O logo eh um link para a secao inicial
+-----------------------------------------------------------------------*/
 #logo:hover {
   cursor: pointer;
 }
 
-/*-------------------------------------------------------------------------
-                       Configura o menu de navegacao
--------------------------------------------------------------------------*/
+/*================================================================================================
+                              Configura o menu de navegacao
+================================================================================================*/
+/*----------------------------------------------------------------------
+      O redimensionamento do menu de navegacao fica a cargo de codigo
+      javascript em main.js
+-----------------------------------------------------------------------*/
 #menu {
   height: 1em;
   padding-top: 0.2em;
@@ -55,9 +66,9 @@ header {
   z-index: 100;
 }
 
-/*-------------------------------------------------------------------------
-            Configura os itens do menu do banner de navegacao
--------------------------------------------------------------------------*/
+/*================================================================================================
+                       Configura os itens do menu do banner de navegacao
+================================================================================================*/
 #menu ul {
   list-style: none;
 }
@@ -77,9 +88,9 @@ header {
   content : "\261E";
 }
 
-/*------------------------------------------------------------------------------------------------
-                               Configura o quadro de cortica
-------------------------------------------------------------------------------------------------*/
+/*================================================================================================
+                                 Configura o quadro de cortica
+================================================================================================*/
 .quadro-de-cortica {
   border: ridge 8px;
   background-repeat: no-repeat;
@@ -94,17 +105,17 @@ header {
   gap: 0;
 }
 
-/*------------------------------------------------------------------------------------------------
+/*================================================================================================
                       Style comum a todos os boxes de quadros de cortica
-------------------------------------------------------------------------------------------------*/
+================================================================================================*/
 .quadro-de-cortica > div {
   position: relative;
   padding: 5%;
 }
 
-/*------------------------------------------------------------------------------------------------
-                        Boxes no quadro para fotos e bilhetinhos
-------------------------------------------------------------------------------------------------*/
+/*================================================================================================
+              Boxes no quadro para fotos e bilhetinhos. Compoem um gridlayout
+================================================================================================*/
 .quadro-de-cortica .box1 {
   grid-area: box1;
 }
@@ -153,9 +164,9 @@ header {
   grid-area: box12;  
 }
 
-/*------------------------------------------------------------------------------------------------
+/*================================================================================================
                       Os tipos de bilhetinhos do quadro de cortica
-------------------------------------------------------------------------------------------------*/
+================================================================================================*/
 .postit {
   position: relative;
   margin: auto; 
@@ -164,7 +175,11 @@ header {
   text-align: center;
   font-size: 1.8rem;
   line-height: 2.4rem; 
-  padding:2%;
+  padding: 2%;
+}
+
+.postit h1, h2 {
+  margin-bottom: 3%;
 }
 
 .postit p {
@@ -190,27 +205,27 @@ header {
   background-image: url("../images/postits/brown-postit.png"); 
 }
 
-/*-----------------------------------------------------------------------------------------------
-        Uma div para anexar elementos soltos dentro de um box do quadro de cortica
------------------------------------------------------------------------------------------------*/
+/*================================================================================================
+         Uma div para anexar elementos soltos dentro de um box do quadro de cortica
+================================================================================================*/
 .box-attachment {
   position: absolute;
   padding: 0;
 }
 
-/*------------------------------------------------------------------------------------------------
-         Divs para as fotos. Esta div faz a foto oucpar 80% da largura do seu box e permite 
-         que o pin da foto seja posicionado corretamente sobre ela.           
-------------------------------------------------------------------------------------------------*/
-.foto-container {
+/*================================================================================================
+        Figure para as fotos dos boxes. A figure faz a foto oucpar 80% da largura 
+        do seu box e permite que o pin da foto seja posicionado corretamente sobre ela.           
+================================================================================================*/
+.quadro-de-cortica figure {
   position: relative;
   width: 80%;
   margin: auto;
 }
 
-/*------------------------------------------------------------------------------------------------
-             Estiliza as fotos dentro das divs .foto-container ou box-attachment
-------------------------------------------------------------------------------------------------*/
+/*================================================================================================
+               Estiliza as fotos e suas figcaptions no escopo das figures
+================================================================================================*/
 .foto {
   display: block;
   width: 100%;
@@ -220,7 +235,7 @@ header {
   box-shadow: -0.8rem 0.6rem 1rem rgba(50, 50, 50, 0.7);
 }
 
-.comment {
+.quadro-de-cortica figcaption {
   width: 93%;
   display: none;
   position: absolute; 
@@ -228,64 +243,54 @@ header {
   bottom: 0.9rem;
   background-color: rgba(255, 255, 255, 0.3);
   color: black; 
-  overflow:hidden;
   font-size: 2rem;
 }
 
-.comment[data-color="blue"] {
-  color: var(--blue-o-color);
-}
-
-.comment[data-color="white"] {
-  color: white;
-}
-
-.comment[data-color="red"] {
-  color: var(--red-a-color);
-}
-
-.comment[data-color="green"] {
-  color: var(--green-a-color);
-}
-
-.foto-container:hover .comment {
+.quadro-de-cortica figure:hover figcaption {
   display: block;
 }
 
-/*------------------------------------------------------------------------------------------------
-             Cores "hover" para as molduras das fotos que sao links para secoes
-------------------------------------------------------------------------------------------------*/
-img[data-color]:hover {
+/*================================================================================================
+       Cursor pointer  e cores "hover" para as molduras das fotos que sao links para secoes
+================================================================================================*/
+/*----------------------------------------------------------------------
+ Fotos no quadro de cortica com atributo onclick sao links para secoes
+-----------------------------------------------------------------------*/
+.quadro-de-cortica .foto[onclick]:hover {
   cursor: pointer;
 }
 
-img[data-color] ~ .comment:hover {
+.quadro-de-cortica .foto[onclick] ~ figcaption:hover {
   cursor: pointer;
 }
 
-img[data-color="blue-o"]:hover {
+/*----------------------------------------------------------------------
+ Os styles abaixo fazem a moldura de uma foto-link mudar a cor quando o
+ mouse estah sobre ela
+-----------------------------------------------------------------------*/
+.quadro-de-cortica .foto[data-color="blue-o"]:hover {
   border-color: var(--blue-o-color);
 }
 
-img[data-color="red-a"]:hover {
+.quadro-de-cortica .foto[data-color="red-a"]:hover {
   border-color: var(--red-a-color);
 }
 
-img[data-color="green-r"]:hover {
+.quadro-de-cortica .foto[data-color="green-r"]:hover {
   border-color: var(--green-r-color);
 }
 
-img[data-color="orange-m"]:hover {
+.quadro-de-cortica .foto[data-color="orange-m"]:hover {
   border-color: var(--orange-m-color);
 }
 
-img[data-color="green-a"]:hover {
+.quadro-de-cortica .foto[data-color="green-a"]:hover {
   border-color: var(--green-a-color);
 }
 
-/*------------------------------------------------------------------------------------------------
+/*================================================================================================
                             Estiliza os pins dos post-its
-------------------------------------------------------------------------------------------------*/
+================================================================================================*/
 img[alt="pin"] {
   display: block;
   position: absolute;
@@ -306,9 +311,9 @@ img[alt="pin"] {
   right: 3%;
 }
 
-/*-------------------------------------------------------------------------
-                           Estiliza o rodape
--------------------------------------------------------------------------*/
+/*================================================================================================
+                                        Estiliza o rodape
+================================================================================================*/
 footer {
   background-color: var(--body-background);
   position: fixed;
