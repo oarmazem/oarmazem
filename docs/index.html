@@ -11,9 +11,20 @@
   <link href="css/index.css" rel="stylesheet">
 
   <script>
-    if (window.prompt("Em qual cidade você nasceu?").toUpperCase() != "SANTOS") { window.open("negado.html", "_self"); };
-    if (window.prompt("Quantos anos EU tenho?") != "97") { window.open("negado.html", "_self"); };    
-  </script>
+    let acess = sessionStorage.getItem("acess");
+    if (acess != "ok") {
+
+      let ans = window.prompt("Em qual cidade você nasceu?");
+
+      if ((ans === null) || ans.toUpperCase() != 'SANTOS') { window.open("negado.html", "_self"); }
+
+      ans = window.prompt("Quantos anos EU tenho?"); 
+
+      if ((ans === null) || ans != '97') { window.open("negado.html", "_self"); }      
+
+      sessionStorage.setItem("acess", "ok");
+    }
+  </script>  
 
 </head>
 
