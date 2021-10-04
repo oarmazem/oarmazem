@@ -17,8 +17,8 @@ const LANGUAGES = [
 //Referencia apontando para a tag img que carrega icone de traducao
 const FLAG = document.getElementById("flag");
 
-//Cores dos itens de menu
-const COLORS = [
+/*
+Cores das secoes associadas as cores do letreiro
   "#2C459C",
   "#EE3539",
   "#19B060",
@@ -27,19 +27,19 @@ const COLORS = [
   "#4F2C72",
   "#1597D5",
   "#A82F82"
-];
+*/
 
-//Os arquivos dos frames de cada secao do menu
-const PAGES = [
-  "index.html", 
-  "cafe.html",
-  "reliquias.html", 
-  "mapa.html", 
-  "contato.html"
-];
+//Os arquivos dos frames de cada secao do menu e as respectivas cores
+const SECTIONS_COLORS = {
+  "index.html" : "#2C459C",
+  "cafe.html" :  "#EE3539" ,
+  "reliquias.html" : "#19B060",
+  "mapa.html" : "#F58637",
+  "contato.html" : "#0FB99B"
+};
 
 //Referencia apontando para o objeto menu principal
-const MENU = document.getElementById("menu");
+const MENU = document.querySelector("#menu");
 
 //Referencia apontando para o Logo no header da pagina
 const LOGO = document.querySelector("#logo");
@@ -59,8 +59,11 @@ const FOOTER =  document.querySelector("footer");
 //O idioma que o site esta exibindo
 let currentLanguage;
 
-//O numero da secao que esta sendo visualizada no site
-let sectionIndex;
+//O nome do arquivo da secao que esta sendo visualizada no site
+let section;
+
+//A cor da secao que esta sendo visualizada
+let sectionColor;
 
 //Um array bidimensional com todas as tags de textos que podem ser traduzidos
 let texts = [];
@@ -71,11 +74,11 @@ let menuFixed;
 /*----------------------------------------------------------------------------
             Listener responsavel pelo menu principal do site
 ----------------------------------------------------------------------------*/
-function nav(index) {
+function nav(newSection) {
 
-  if (index === sectionIndex) return;
+  if (newSection === section) return;
 
-  window.open(PAGES[index], "_self");//Carrega a pag. do item selecionado
+  window.open(newSection, "_self");//Carrega a pag. do item selecionado
   
 }//nav()
 
@@ -189,23 +192,45 @@ function scrollListener() {
   //fixa o menu principal no topo da tela 
   if (menuTopPosition <= 0) {
 
+    //Com o menu fixado este listener nao eh mais necessario
+    document.removeEventListener("scroll", scrollListener);    
+   
+    //Fixa o menu principal no topo da pagina
     MENU.style.position = "fixed";
     MENU.style.top = 0;
-    MENU.style.backgroundColor = COLORS[sectionIndex];
-
-    let itemMenu = document.querySelectorAll("#menu li");
-
-    for (let i = 0; i < itemMenu.length; i++) { itemMenu[i].style.color = "#FFFFFF"; }
-
-    document.removeEventListener("scroll", scrollListener);
-    
-    //As novas margens do logo quando o menu se torna fixo no topo da tela
-    LOGO.style.margin = (getVwValue() + 2) + "vw auto 2vw auto";
 
     menuFixed = true;
 
+    //As novas margens do logo e quadro quando o menu se torna fixo no topo da tela
+    LOGO.style.margin = (getVwValue() + 2) + "vw auto 2vw auto";
+
     if (QUADRO_DE_CORTICA != null) { QUADRO_DE_CORTICA.style.marginTop = "0"; }
 
+    //Troca a cor de fundo do menu pai (principal) para a cor da secao corrente
+    MENU.style.backgroundColor = sectionColor;
+
+    //A cor do texto do menu principal e seus submenus quando menu principal fica fixo
+    let color = "white";
+
+    //Troca a cor do texto dos itens do menu pai (principal)
+    let supermenu_li = document.querySelectorAll("#menu > ul > li");
+
+    for (let i = 0; i < supermenu_li.length; i++) { 
+
+      supermenu_li[i].style.color = color;
+
+    }//for
+  
+    //Troca a cor dos submenus
+    let submenu_ul = document.querySelectorAll(".submenu ul");
+
+    for (let i = 0; i < submenu_ul.length; i++) { 
+
+      submenu_ul[i].style.backgroundColor = sectionColor;     
+      submenu_ul[i].style.color = color;
+
+    }//for
+  
   }//if
 
 }//scrollListener()
@@ -231,9 +256,12 @@ function resizeListener() {
 Inicializa menu principal, registra listeners, obtem dados globais do DOM, 
 define o idioma corrente do site
 ----------------------------------------------------------------------------*/
-function initialize(index) {
-  
-  sectionIndex = index;
+function initialize(newSection) {
+
+  section = newSection;
+
+  //Obtem a cor da nova secao
+  sectionColor = SECTIONS_COLORS[section];
 
   menuFixed = false;
 
@@ -244,11 +272,13 @@ function initialize(index) {
   document.addEventListener("scroll", scrollListener);
 
   //Destaca os itens de menu da atual section do site
-  let menuItens = document.querySelectorAll('li[onclick="nav(' + sectionIndex +')"');
+  let menuItens = document.querySelectorAll('li[onclick="nav(\'' + section + '\')"');
 
   for (let i = 0; i < menuItens.length; i++) {
-    menuItens[i].style.color = COLORS[sectionIndex];
+
+    menuItens[i].style.color = sectionColor;
     menuItens[i].style.textDecoration = "underline";
+
   }
   
   //Obtem todos os textos na pagina que possam ser traduzidos

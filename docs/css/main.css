@@ -59,6 +59,7 @@ header {
       javascript em main.js
 -----------------------------------------------------------------------*/
 #menu {
+  position: relative;
   height: 1em;
   padding-top: 0.2em;
   width: 100%;
@@ -73,19 +74,41 @@ header {
   list-style: none;
 }
 
-#menu li {
+#menu li:hover {
+  cursor: pointer;
+}
+
+#menu > ul > li {
   float: left;
   margin-left: 3rem;
   font-size: 0.6em;
   color: var(--nav-color);
 }
 
-#menu li:hover {
-  cursor: pointer;
+#menu > ul >  li:hover::before {
+  content : "\261E";
 }
 
-#menu li:hover::before {
-  content : "\261E";
+li.submenu ul {
+  position: absolute;  
+  display: none;
+  border: solid 1px;
+  color: var(--nav-color);
+  background-color: var(--submenu-background);
+  z-index: 10;
+}
+
+li.submenu li {
+  padding: 1rem;
+}
+
+li.submenu li:hover {
+  color: var(--submenu-hover-color);
+  background-color: var(--submenu-hover-background);
+}
+
+li.submenu:hover ul {
+  display: block;
 }
 
 /*================================================================================================

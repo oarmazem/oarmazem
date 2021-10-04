@@ -10,6 +10,11 @@
 	<meta name="googlebot" content="noindex, nofollow"> 
   <link href="css/index.css" rel="stylesheet">
 
+  <script>
+    if (window.prompt("Em qual cidade você nasceu?").toUpperCase() != "SANTOS") { window.open("negado.html", "_self"); };
+    if (window.prompt("Quantos anos EU tenho?") != "97") { window.open("negado.html", "_self"); };    
+  </script>
+
 </head>
 
 <body>
@@ -19,7 +24,7 @@
 <!----------------------------------------------------------------------------------------------- 
                             INICIO DA SECAO MAIN DA PAGINA   
 ------------------------------------------------------------------------------------------------>
-<main>  
+<main>
   
   <section class="quadro-de-cortica">
 
@@ -71,9 +76,9 @@
     <div class="box3">
 
       <figure>
-        <img class="foto" title="O CAFÉ" data-color="red-a" onclick="nav(1)" src="images/fotos/cafe-com-bolo.jpg" alt="cafe com bolo">
+        <img class="foto" title="O CAFÉ" data-color="red-a" onclick="nav('cafe.html')" src="images/fotos/cafe-com-bolo.jpg" alt="cafe com bolo">
         <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
-        <figcaption onclick="nav(1)">
+        <figcaption onclick="nav('cafe.html')">
           <p class="br" lang="pt-br">Isso é café de verdade!</p>
           <p class="en" lang="en-us">This is real coffee!</p>
           <p class="es" lang="es-es">Este és café de verdad!</p>
@@ -106,7 +111,7 @@
     <div class="box4">
 
       <figure>
-        <img class="foto" title="AS RELÍQUIAS" data-color="green-r" onclick="nav(2)" src="images/fotos/cha.jpg" alt="chá">
+        <img class="foto" title="AS RELÍQUIAS" data-color="green-r" onclick="nav('reliquias.html')" src="images/fotos/cha.jpg" alt="chá">
         <img class="center-pin" src="images/pins/center-green-pin.png" alt="pin">
       </figure>
 
@@ -224,7 +229,7 @@
     <div class="box8">
 
       <figure> 
-        <img class="foto" title="COMO CHEGAR" data-color="orange-m" onclick="nav(3)" src="images/fotos/placa.jpg" alt="letreiro">
+        <img class="foto" title="COMO CHEGAR" data-color="orange-m" onclick="nav('mapa.html')" src="images/fotos/placa.jpg" alt="letreiro">
         <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
       </figure>
 
@@ -266,7 +271,7 @@
     <div class="box10">
 
       <figure>
-        <img class="foto" title="CONTATO" data-color="green-a" class="foto" onclick="nav(4)" src="images/fotos/telefone.jpg" alt="telefone"> 
+        <img class="foto" title="CONTATO" data-color="green-a" class="foto" onclick="nav('contato.html')" src="images/fotos/telefone.jpg" alt="telefone"> 
         <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
       </figure>
 
@@ -301,7 +306,7 @@
 
 <script src="js/gethtml.js"></script>
 <script src="js/main.js"></script>
-<script>initialize(0);</script>
+<script>initialize("index.html");</script>
 
 </body>
 

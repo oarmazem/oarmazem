@@ -16,6 +16,9 @@
   --nav-background: var(--body-background);
   --nav-color: black;
   --nav-hover-color: rgb(238, 234, 234);
+  --submenu-background: rgba(255, 255, 255, 0.85);
+  --submenu-hover-color: white;
+  --submenu-hover-background: black;
 
   --blue-o-color: #2C459C;
   --red-a-color: #EE3539;
