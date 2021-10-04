@@ -16,13 +16,22 @@
 
       let ans = window.prompt("Em qual cidade você nasceu?");
 
-      if ((ans === null) || ans.toUpperCase() != 'SANTOS') { window.open("negado.html", "_self"); }
+      if ((ans === null) || ans.toUpperCase() != 'SANTOS') { 
 
-      ans = window.prompt("Quantos anos EU tenho?"); 
+        window.open("negado.html", "_self"); 
 
-      if ((ans === null) || ans != '97') { window.open("negado.html", "_self"); }      
+      } 
+      else {
 
-      sessionStorage.setItem("acess", "ok");
+        let ans = window.prompt("Quantos anos EU tenho?"); 
+
+        if ((ans === null) || ans != '97') {
+
+           window.open("negado.html", "_self");
+
+        }
+        else  { sessionStorage.setItem("acess", "ok"); }
+      }  
     }
   </script>  
   
