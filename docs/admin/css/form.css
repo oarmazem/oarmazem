@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 1vw;
+}
+
+h2 {
+ text-align: center;
+ margin: 1.3rem;
+}
+
+form {
+  position: relative;
+  background-color: #DDDDDD;
+  border: solid 1px;
+  font-size: 1.3rem;
+  margin:1rem;
+  padding:0.5rem;
+}
+
+input, select, textarea {
+  font-size: 1.1rem;
+}
+
+fieldset {
+  padding: 0 0.5rem 0 0.5rem;
+  clear: left;
+}
+
+#situacao:checked ~ .danfe_venda{
+  display: inline;
+}
+
+.input_field {
+  margin: 1rem 1.5rem 1rem 0;
+  float: left;
+}
+
+.danfe_venda {
+  display: none;
+}
+
+#uploads fieldset {
+  padding: 0.4rem;
+}
+
+input[type='file'] {
+  margin-top: 0.2rem;
+}  
+
+.button_action {
+  border-radius: 14px;
+  width: 10rem;
+  height: 4rem;
+  margin: 0.6rem 0 0.1rem 10px;
+  box-shadow: 1px 1px 1px 1px #AAAAAA;
+  clear: both;
+}
+
+.button_action:hover {
+  cursor:pointer;
+}
+
+.button_action:active {
+  box-shadow: none;
+}
+
+#bar {
+  display: none;
+  background-color: grey;
+  border: solid 1px;
+  width: 50%;
+  margin: 1rem 0 0.5rem 10px;
+}    
+
+#ocilator {
+  width: 10%;
+  height: 20px;
+  background-color: blue;
+  position: relative;
+}
+
+input[type='submit'] {
+  background-color: lightgreen;
+}
+
+input[type='reset'] {
+  background-color: yellow;
+}
+
+footer {
+  padding: 0 1rem 0.5rem 1rem;
+  font-size: 1.2rem;
+}
+
+@media only screen and (min-width: 800px) {
+  #uploads {
+    float: right;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  html {
+    font-size: 1.1vw;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  html {
+    font-size: 1.25vw;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 1.45vw;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  html {
+    font-size: 1.6vw;
+  }
+}

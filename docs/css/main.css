@@ -115,7 +115,7 @@ li.submenu:hover ul {
                                  Configura o quadro de cortica
 ================================================================================================*/
 .quadro-de-cortica {
-  border: ridge 8px;
+  /*border: solid 1px;/*ridge 8px;*/
   background-repeat: no-repeat;
   background-size: 100% 100%;
   width: 95%;
