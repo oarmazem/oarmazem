@@ -30,20 +30,19 @@ input, select, textarea {
 
 fieldset {
   padding: 0 0.5rem 0 0.5rem;
-  clear: left;
-}
-
-#situacao:checked ~ .danfe_venda{
-  display: inline;
 }
 
 .input_field {
   margin: 1rem 1.5rem 1rem 0;
-  float: left;
+  display: inline-block;
 }
 
 .danfe_venda {
   display: none;
+}
+
+#situacao:checked ~ .danfe_venda {
+  display: inline-block;
 }
 
 #uploads fieldset {
@@ -60,11 +59,11 @@ input[type='file'] {
   height: 4rem;
   margin: 0.6rem 0 0.1rem 10px;
   box-shadow: 1px 1px 1px 1px #AAAAAA;
-  clear: both;
+  clear: right;
 }
 
 .button_action:hover {
-  cursor:pointer;
+  cursor: pointer;
 }
 
 .button_action:active {

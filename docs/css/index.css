@@ -9,7 +9,7 @@
                     Configuracoes para o quadro de cortica da secao index
 =================================================================================================*/
 .quadro-de-cortica {
-  background-color: rgba(15, 26, 61, 0.4);
+  background-color: rgba(44, 69, 66, 0.4);
   grid-template-areas:
   "box1 box1 box1 box1 box1 box1 box1 box1 box1 box1"
   "box2 box2 box2 box2 box2 box2 box3 box3 box3 box3"
