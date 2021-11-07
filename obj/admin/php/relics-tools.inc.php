@@ -29,10 +29,12 @@ class RelicsTableHandler {
 
   const UPDATE = 0;
   const INSERTINTO = 1;
+  const UPLOAD = 2;
 
   private $mode; //0 indica que eh um objeto de UPDATE, 1 de INSERT INTO na tabela relics
 
   //Variaveis para armazenar campos de formulario
+  private $uptime;
   public $tipo;
   public $nome;
   public $cod;
@@ -68,7 +70,7 @@ class RelicsTableHandler {
   /*[01]--------------------------------------------------------------------------------------------
   *                                      Construtor da classe
   *-----------------------------------------------------------------------------------------------*/
-  public function __construct(int $mode) {
+  public function __construct(int $mode = self::UPLOAD) {
 
     $this->mode = $mode;
     $this->conn = connect();
@@ -131,17 +133,13 @@ class RelicsTableHandler {
 
     $this->desc = $_POST['desc'];
 
-    //No UPDATE este campo nao eh atualizado. Por isso seu valor eh lido para o campo oculto de form e 
-    //depois copiado de volta para o BD
-    if ($this->mode === self::UPDATE) $this->nextImgIndex = $_POST['next_img_index']; 
-
   }//readFormFields()
 
   /*[04]--------------------------------------------------------------------------------------------
   *       Executa uma instrucao SQL INSERT INTO ou UPDATE, fazendo o bind dos parametros com 
   *       campos da classe
   *-----------------------------------------------------------------------------------------------*/
-  public function writeFormOnDatabase() {
+  public function writeOnDatabase() {
 
     $this->readFormFields();
 
@@ -177,14 +175,14 @@ class RelicsTableHandler {
 
     $stmt->execute();
 
-  }//writeFormOnDatabase()
+  }//writeOnDatabase()
 
   /*[05]--------------------------------------------------------------------------------------------
-  *                Le uma linha da tabela relics onde id = $cod
+  *                  Retorna colunas de uma linha da tabela relics onde id = $cod
   *-----------------------------------------------------------------------------------------------*/
-  public function getLine(string $cod) : array {
+  private function getColumns(string $columns, string $cod) : array {
 
-    $stmt = $this->conn->prepare("SELECT * FROM relics WHERE id = $cod");
+    $stmt = $this->conn->prepare("SELECT $columns FROM relics WHERE id = $cod");
 
     $stmt->execute();
 
@@ -194,16 +192,17 @@ class RelicsTableHandler {
 
     return $result[0];
 
-  }//getLine()
+  }//getColumns()
 
   /*[06]--------------------------------------------------------------------------------------------
   *   Le os campos de um registro da tabela relics para as variaveis privadas e as formata de 
   *   modo apropriado para serem inseridas no formulario
   *-----------------------------------------------------------------------------------------------*/
-  public function writeDatabaseOnForm(string $cod) {
+  public function readDatabase(string $cod) {
 
-    $line = getLine($cod);
+    $line = $this->getColumns('*', $cod);
 
+    $this->uptime = $line['uptime'];
     $this->tipo = $line['typ'];
     $this->nome = $line['product_data'];
     $this->cod = $line['id'];
@@ -233,14 +232,35 @@ class RelicsTableHandler {
 
     foreach ($this->arrayUnd as $k => $v) { if ($k == $this->unity) $this->arrayUnd[$k] = "selected"; }
 
-  }//writeDatabaseOnForm()  
-  
+  }//readDatabase()
+
   /*[07]--------------------------------------------------------------------------------------------
+  *          Obtem o campo next_img_index da tabela relics na linha com id = $cod
+  *-----------------------------------------------------------------------------------------------*/ 
+  public function getNextImgIndex(string $cod) : int {
+
+    $line = $this->getColumns('next_img_index', $cod);
+
+    return ((int)($line['next_img_index']));
+
+  }//getNextImgIndex()
+
+  /*[08]--------------------------------------------------------------------------------------------
+  *          Seta o campo next_img_index da tabela relics na linha com id = $cod
+  *-----------------------------------------------------------------------------------------------*/ 
+  public function setNextImgIndex(int $nextIndex, string $cod) {
+
+    $stmt = $this->conn->prepare("UPDATE relics SET next_img_index = $nextIndex WHERE id = $cod");
+    $stmt->execute();
+
+  }//setNextImgIndex()
+    
+  /*[09]--------------------------------------------------------------------------------------------
   *          Deleta um registro da tabela relics e seus arquivos de imagem associados
   *-----------------------------------------------------------------------------------------------*/ 
   public function delete(string $cod) {
 
-    $stmt = $conn->prepare("DELETE FROM relics WHERE id = $cod");
+    $stmt = $this->conn->prepare("DELETE FROM relics WHERE id = $cod");
 
     $stmt->execute();
 
@@ -254,41 +274,43 @@ class RelicsTableHandler {
 
   }//delete()
 
-  /*[08]--------------------------------------------------------------------------------------------
+  /*[10]--------------------------------------------------------------------------------------------
   *                                  Escreve os dados do objeto
   *-----------------------------------------------------------------------------------------------*/   
   public function __toString() {
 
-    $str = "<br><p> Identificação [ $this->nome - código: $this->cod - tipo: $this->tipo ]</p>";
+    $str = "<br> Data/hora de registro (horário do servidor) [ " . datetimeSqlToDatetimeBr($this->uptime) . " ]</p>";
 
-    $str .= "<p> " . (isset($this->qtd) ? " Qtd.: $this->qtd" : '') . 
-    (isset($this->mat) ? " Material: $this->mat" : "") . "</p>";
+    $str .= "<p> Identificação [ $this->nome - código: $this->cod - tipo: $this->tipo ]</p>";
+
+    $str .= "<p> " . (empty($this->qtd) ? '' : " Qtd.: $this->qtd") . 
+    (empty($this->mat) ? '' : " Material: $this->mat") . "</p>";
 
     $str .= "<p> Dados de compra [" . 
-    (isset($this->custo) ? " Custo de aquisição: R$ " . number_format((float)($this->custo), 2, ',', '.'): '') . 
-    (isset($this->dataCompra) ? " Data da compra: " . date_brformat($this->dataCompra) : '') . 
-    (isset($this->nfeCompra) ? " NFE: $this->nfeCompra-$this->nfeCompraSerie" : '') .
+    (empty($this->custo) ? '' : " Custo de aquisição: R$ " . number_format((float)($this->custo), 2, ',', '.')) . 
+    (empty($this->dataCompra) ? '' : " Data da compra: " . dateSqlToDateBr($this->dataCompra)) . 
+    (empty($this->nfeCompra) ? '' : " NFE: $this->nfeCompra-$this->nfeCompraSerie") .
     " ]</p>";
   
     $str .= "<p> Dados de venda [" . 
-    (isset($this->venda) ? " Preço de venda: R$ " . number_format((float)($this->venda), 2, ',', '.'): '') .  
+    (empty($this->venda) ? '' : " Preço de venda: R$ " . number_format((float)($this->venda), 2, ',', '.')) .  
     (($this->situacao == 1) ? " - Vendido -" : '') . 
-    (isset($this->dataVenda) ? " Data da venda: " . date_brformat($this->dataVenda) : "") . 
-    (isset($this->nfeVenda) ? " NFE: $this->nfeVenda-$this->nfeVendaSerie" : '') .
+    (empty($this->dataVenda) ? '' : " Data da venda: " . dateSqlToDateBr($this->dataVenda)) . 
+    (empty($this->nfeVenda) ? '' : " NFE: $this->nfeVenda-$this->nfeVendaSerie") .
     " ]</p>";
 
     $str .= "<p> Dimensões ($this->unity) [" .  
-    (isset($this->alt) ? " alt.: " . number_format((float)($this->alt), 3, ',', '.') : '') .
-    (isset($this->larg) ? " larg.: " . number_format((float)($this->larg), 3, ',', '.') : '') .
-    (isset($this->prof) ? " prof.: " . number_format((float)($this->prof), 3, ',', '.') : '') .
-    (isset($this->comp) ? " comp.: " . number_format((float)($this->comp), 3, ',', '.') : '') .
-    (isset($this->dia) ? " diâmetro: " . number_format((float)($this->dia), 3, ',', '.') : '') .
+    (empty($this->alt) ? '' : " alt.: " . number_format((float)($this->alt), 3, ',', '.')) .
+    (empty($this->larg) ? '' : " larg.: " . number_format((float)($this->larg), 3, ',', '.')) .
+    (empty($this->prof) ? '' : " prof.: " . number_format((float)($this->prof), 3, ',', '.')) .
+    (empty($this->comp) ? '' : " comp.: " . number_format((float)($this->comp), 3, ',', '.')) .
+    (empty($this->dia) ? '' : " diâmetro: " . number_format((float)($this->dia), 3, ',', '.')) .
     " ]</p>";
   
     $str .= "<p> Dados do fornecedor [" . 
-    (isset($this->fornecedorNome) ? " Nome: $this->fornecedorNome" : '') .
-    (isset($this->cpfCnpj) ? " CPF/CNPJ: $this->cpfCnpj" : '') .
-    (isset($this->local) ? " Local: $this->local" : '') . 
+    (empty($this->fornecedorNome) ? '' : " Nome: $this->fornecedorNome") .
+    (empty($this->cpfCnpj) ? '' : " CPF/CNPJ: $this->cpfCnpj") .
+    (empty($this->local) ? '' : " Local: $this->local") . 
     " ]</p>";
 
     $str .= "<br><p> $this->desc</p>";

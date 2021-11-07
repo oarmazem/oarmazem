@@ -13,25 +13,17 @@ try {
 
   $cod = $_POST['cod'];
 
-  $update = new RelicsTableHandler(RelicsTableHandler::UPDATE);
+  $delete = new RelicsTableHandler(RelicsTableHandler::UPDATE);
 
   if (isset($_POST['update'])) {
    
-    if (isset($_POST['delete'])) {
+    $update->delete($cod);
 
-      $update->delete($cod);
-
-      header('Location: search.php');
-
-    } else {
-
-      $update->writeOnDatabase();
-
-    }
+    $cod++;
 
   }//if
 
-  $update->readDatabase($cod);//Le os dados do artigo no BD
+  $delete->readDatabase($cod);//Le os dados do artigo no BD
 
 }
 catch (PDOException $e) {
@@ -82,45 +74,45 @@ catch (PDOException $e) {
       </div>
 
       <div class="input_field"> 
-        <label for="nome"><b>*Nome:</b></label>
-        <input type="text" name="nome" id="nome" size="50" maxlength="120" title="O nome do artigo" value="<?php echo $update->nome ?>" required>
+        <label for="nome">Nome:</label>
+        <input type="text" name="nome" id="nome" size="50" maxlength="120" title="O nome do artigo" value="<?php echo $update->nome ?>" readonly>
       </div>
 
       <div class="input_field">           
-        <label for="cod"><b>*Cód.:</b></label>
-        <input type-="text" name="cod" id="cod" size="5" title="O código do artigo<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->cod ?>" readonly required>
+        <label for="cod">Cód.:</label>
+        <input type-="text" name="cod" id="cod" size="5" title="O código do artigo<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->cod ?>" readonly>
       </div>
 
       <div class="input_field">       
         <label for="qtd">Qtd.:</label>
-        <input type="number" name="qtd" id="qtd" size="3" min="1" title="Quantidade<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->qtd ?>">
+        <input type="number" name="qtd" id="qtd" size="3" min="1" title="Quantidade<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->qtd ?>" readonly>
       </div>
 
       <div class="input_field">  
         <label for="mat">Mat.:</label>
-        <input type="text" name="mat" id="mat" size="20" maxlength="80" title="Material" value="<?php echo $update->mat ?>">
+        <input type="text" name="mat" id="mat" size="20" maxlength="80" title="Material" value="<?php echo $update->mat ?>" readonly>
       </div>
 
       <div class="input_field">      
         <label for="data_compra">Data compra:</label>
-        <input type="date" name="data_compra" id="data_compra" value="<?php echo $update->dataCompra ?>">   
+        <input type="text" name="data_compra" id="data_compra" value="<?php echo $update->dataCompra ?>" readonly>   
       </div>
 
       <div class="input_field">    
         <label for="custo">Custo:</label>
-        <input type="text" name="custo" id="custo" size="8" title="Preço de aquisição<?php echo CURRENCY_REGEXP; ?>" value="<?php echo $update->custo ?>">   
+        <input type="text" name="custo" id="custo" size="8" title="Preço de aquisição<?php echo CURRENCY_REGEXP; ?>" value="<?php echo $update->custo ?>" readonly>   
       </div>     
 
       <div class="input_field">            
-        <label for="venda"><b>*Venda:</b></label>
-        <input type="text" name="venda" id="venda" size="8" title="Preço para venda<?php echo CURRENCY_REGEXP; ?>" value="<?php echo $update->venda ?>" required>
+        <label for="venda">Venda:</label>
+        <input type="text" name="venda" id="venda" size="8" title="Preço para venda<?php echo CURRENCY_REGEXP; ?>" value="<?php echo $update->venda ?>" readonly>
       </div> 
        
       <div class="input_field">        
         <label for="nfe_compra">NFE:</label>
-        <input type="text" name="nfe_compra" id="nfe_compra" size="5" title="DANFE-Compra<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->nfeCompra ?>">
+        <input type="text" name="nfe_compra" id="nfe_compra" size="5" title="DANFE-Compra<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->nfeCompra ?>" readonly>
         <label for="nfe_compra_serie">Série:</label>
-        <input type="number" name="nfe_compra_serie" id="nfe_compra_serie" size="1" min="1" title="Número de série da NFE da compra<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->nfeCompraSerie ?>">
+        <input type="text" name="nfe_compra_serie" id="nfe_compra_serie" size="1" min="1" title="Número de série da NFE da compra<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->nfeCompraSerie ?>" readonly>
       </div>
       
       <div class="input_field"> 
@@ -211,10 +203,6 @@ catch (PDOException $e) {
   <section class="display">
 
     <script src="js/main.js"></script>
-    <script>
-      let reset_button = document.querySelector("input[type='reset']");
-      reset_button.addEventListener("click", reset, false);
-    </script>
 
     <?php
 

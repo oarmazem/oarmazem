@@ -240,22 +240,19 @@ if (!adminPasswordOk()) header('Location: index.php');
 
       $insert = new RelicsTableHandler(RelicsTableHandler::INSERTINTO);
 
-      $insert->readFormFields();
+      $insert->nextImgIndex = saveResizedImages((int)$cod);
 
-      $nextImgIndex = saveResizedImages((int)$cod);
-
-      if ($nextImgIndex) {
+      if ($insert->nextImgIndex) {
         
         try {
 
-          $insert->writeFormOnDatabase();
+          $insert->writeOnDatabase();
 
         }
         catch (PDOException $e) {
 
           echoMsg($e->getMessage());
           echoMsg('Falha ao realizar cadastro. Erro ao inserir registro no banco de dados.');
-          $conn = null;
           exit(1);
 
         }
@@ -264,6 +261,8 @@ if (!adminPasswordOk()) header('Location: index.php');
         
         echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . resizedFilename((int)$cod, 0) . '">';   
 
+        $insert->readDatabase($cod);//Le a tabela relics para obter a hora de registro
+        
         echo $insert;
 
       } 

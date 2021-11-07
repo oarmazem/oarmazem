@@ -57,13 +57,22 @@ function trunc(string $str, int $length) : string {
 }//trunc()
 
 /*[03]--------------------------------------------------------------------------------------------
-*                                  Trunca uma data
+*                                  Formata uma data
 *-----------------------------------------------------------------------------------------------*/
-function date_brformat(string $date) : string {
+function dateSqlToDateBr(string $date) : string {
 
   return (substr($date, 8, 2) . '-' . substr($date, 5, 3) . substr($date, 0, 4));
 
-}//date_formatc()
+}//dateSqlToDateBr()
+
+/*[04]--------------------------------------------------------------------------------------------
+*                                  Formata uma data
+*-----------------------------------------------------------------------------------------------*/
+function datetimeSqlToDatetimeBr(string $datetime) : string {
+
+  return (dateSqlToDateBr(substr($datetime, 0, 10)) . substr($datetime, 10, 9));
+
+}//datetimeSqlToDatetimeBr()
 
 
 ?>

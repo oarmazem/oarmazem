@@ -31,9 +31,10 @@ if (!adminPasswordOk()) header('Location: index.php');
   <nav>
     <h2>Selecione uma das opções</h2>
     <ul>
-    <li><a href="complete.php">Formulário de Cadastro Completo</a></li>
-    <li><a href="search.php?target=update">Atualização de Dados</a></li>
-    <li><a href="search.php?target=upload">Upload de Imagens</a></li>
+    <li><a href="complete.php">Cadastro de Relíquias</a></li>
+    <li><a href="search.php?target=delete.php">Excluir Relíquias</a></li> 
+    <li><a href="search.php?target=update">Atualização de Dados de Relíquias</a></li>
+    <li><a href="search.php?target=upload">Upload de Imagens de Relíquias</a></li>
     <li><a href="preview.php">Prévia de Imagem</a></li>
     </ul>
   </nav>

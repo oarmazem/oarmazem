@@ -9,19 +9,15 @@ require_once 'php/relics-tools.inc.php';
 
 if (!adminPasswordOk() || !isset($_POST['cod'])) header('Location: index.php'); 
 
-//Testa se existe artigo com id = $cod no BD
+
 try {
 
   $cod = $_POST['cod'];
 
-  $conn = connect();
+  $upload = new RelicsTableHandler();
 
-  $stmt = $conn->prepare("SELECT id FROM relics WHERE id = $cod");
-  $stmt->execute();
-
-  $result = $stmt->fetchAll(); 
-      
-  if (count($result) === 0) prKeyNotFoundException();
+  $currentNextIndex = $upload->getNextImgIndex($cod);//Se nao existe artigo com id = $cod, uma excecao eh lancada
+  
 }
 catch (PDOException $e) {
 
@@ -55,7 +51,7 @@ catch (PDOException $e) {
 </head>
 
 <body>
-  <h2>Selecione arquivos jpg menores que <?php echo MAX_FILE_SIZE ?> bytes</h2>
+  <h2>Selecione arquivos jpg menores que <?php echo number_format(MAX_FILE_SIZE, 0, ',', '.') ?> bytes</h2>
 
   <form method="POST" action="upload.php" enctype="multipart/form-data" onsubmit="return validateFormPreview(this)">
     <input type="hidden" name="cod" value="<?php echo $_POST['cod'] ?>" >
@@ -82,16 +78,11 @@ catch (PDOException $e) {
 
       try {
 
-        $currentNextIndex = getFirstFieldFounded('next_img_index', 'relics', "id = $cod");
+        $nextIndex = saveMoreResizedImages((int)$cod, $currentNextIndex);
 
-        $nextIndex = saveMoreResizedImages($cod, $currentNextIndex);
+        if ($nextIndex === $currentNextIndex) throw new PDOException('Não foi possível fazer o upload dos arquivos!');
 
-        if ($nextIndex == $currentNextIndex) throw new PDOException('Não foi possível fazer o upload dos arquivos!');
-
-        $conn = connect();
-
-        $stmt = $conn->prepare("UPDATE relics SET next_img_index = $nextIndex WHERE id = $cod");
-        $stmt->execute();
+        $upload->setNextImgIndex($nextIndex, $cod);
 
       }
       catch (PDOException $e) {
@@ -99,15 +90,14 @@ catch (PDOException $e) {
         echoMsg($e->getMessage());
 
       }
-      finally {
-
-        $conn = null;
-
-      }//try-catch
     
     }//if  
 
     $pathnames = getFilesFromCode((int)$cod);
+
+    $upload->readDatabase($cod);
+
+    echo $upload;
 
     foreach($pathnames as $pathname) {
 

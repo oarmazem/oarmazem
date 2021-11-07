@@ -330,7 +330,7 @@ function del() {
 
   if (DELETE.checked) {
 
-    alert('CUIDADO!\n\nMarcar esta opção irá excluir o registro.');
+    alert('CUIDADO! Marcar esta opção permitirá excluir o registro.\n\nSe campos inválidos não permitirem excluir, use o botão REDEFINIR\ne tente novamente.');
 
     SUBMIT.style.backgroundColor = 'red';
     SUBMIT.value = 'EXCLUIR';
