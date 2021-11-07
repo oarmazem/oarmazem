@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@import "main-form.css";
+@import "ocilator.css";
+
+/*------------------------------------------------------------------------------------------------
+                                    Estiliza update.php
+------------------------------------------------------------------------------------------------*/
+#cod {
+  color: grey;
+}
+
+#delete {
+  width: 10rem;
+  height: 4rem;
+  margin: 0.6rem 0 0.1rem 0;
+  float: right;
+}
+
+#goto_search_page {
+  background-color: rgb(106, 212, 212);
+}

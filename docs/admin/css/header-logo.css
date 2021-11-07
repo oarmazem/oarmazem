@@ -1,0 +1,10 @@
+@charset "UTF-8";
+
+header {
+  margin: 2vh 0 2vh 5vw;
+}
+
+header img {
+  display: block;
+  width: 30%;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+	<meta name="googlebot" content="noindex, nofollow">
+  <link href="css/mapa.css" rel="stylesheet">
+
+  <script>
+    let acess = sessionStorage.getItem("acess");
+    if (acess != "ok") {
+
+      let ans = window.prompt("Em qual cidade você nasceu?");
+
+      if ((ans === null) || ans.toUpperCase() != 'SANTOS') { 
+
+        window.open("negado.html", "_self"); 
+
+      } 
+      else {
+
+        let ans = window.prompt("Quantos anos EU tenho?"); 
+
+        if ((ans === null) || ans != '97') {
+
+           window.open("negado.html", "_self");
+
+        }
+        else  { sessionStorage.setItem("acess", "ok"); }
+      }  
+    }
+  </script>  
+  
+</head>
+
+<body>
+
+<header></header>  
+
+<!----------------------------------------------------------------------------------------------- 
+                            INICIO DA SECAO MAIN DA PAGINA   
+------------------------------------------------------------------------------------------------>
+<main>
+
+  <section class="quadro-de-cortica">
+
+    <div class="box1">
+
+      <figure>
+        <img class="foto" title="INÍCIO" data-color="blue-o" onclick="nav('index.html')" src="images/photos/fachada.jpg" alt="chá">
+        <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      </figure>
+
+      <div class="postit yellow-postit" style="width: 75%; transform: rotate(-2deg);">
+      <div class="br" lang="pt-br">
+        <p>Estamos localizados à Rodovia Salvador Pacetti Km 64</p>
+        <p>Cunha - SP</p>
+      </div>
+      <div class="en" lang="en-us"> 
+        <p>We are located at Rodovia Salvador Pacetti Km 64</p>
+        <p>Cunha - SP - Brazil</p>
+      </div>
+      <div class="es" lang="es-es">
+        <p>Nos encontramos en Rodovia Salvador Pacetti Km 64</p>
+        <p>Cunha - SP - Brasil</p>
+      </div>
+      <div class="fr" lang="fr-fr">
+        <p>Nous sommes situés à Rodovia Salvador Pacetti Km 64</p>
+        <p>Cunha - SP - Brésil</p>
+      </div>
+      <img class="right-pin" src="images/pins/lateral-black-pin.png" alt="pin">    
+      </div><!--postit-->
+
+    </div><!--box1-->
+
+    <div class="box2">
+
+      <div id="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1005.5064328541168!2d-44.87625517077933!3d-23.15026299905552!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDA5JzAxLjAiUyA0NMKwNTInMzIuNiJX!5e1!3m2!1spt-BR!2sbr!4v1632897169301!5m2!1spt-BR!2sbr" allowfullscreen="" loading="lazy"></iframe>
+        <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">    
+      </div>
+
+    </div><!--box2-->
+
+    <div class="box3">
+
+      <figure>
+        <img class="foto" title="AS RELÍQUIAS" data-color="green-r" onclick="nav('reliquias.html')" src="images/photos/lamparina.jpg" alt="Lamparina">
+        <img class="center-pin" src="images/pins/center-green-pin.png" alt="pin">
+      </figure>      
+
+    </div><!--box3-->
+
+    <div class="box4">
+
+      <figure>
+        <img class="foto" title="CONTATO" data-color="green-a" onclick="nav('contato.html')" src="images/photos/telefone-antigo.jpg" alt="telefone antigo">
+        <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      </figure>      
+
+    </div><!--box4-->
+
+    <div class="box5">
+
+      <figure>
+        <img class="foto"  title="O CAFÉ" data-color="red-a" onclick="nav('cafe.html')" src="images/photos/cafe-com-bolo2.jpg" alt="cafe com bolo">
+        <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      </figure> 
+
+    </div><!--box5-->
+
+    <div class="box6">
+
+      <figure> 
+        <img class="foto" src="images/photos/cristaleira.jpg" alt="cristaleira">
+        <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      </figure>
+
+    </div><!--box6-->
+
+    <div class="box7">
+
+      <figure> 
+        <img class="foto" src="images/photos/antigo-armazem2.jpg" alt="antigo armazém">
+        <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      </figure>
+
+    </div><!--box7-->
+
+    <div class="box8">
+
+      <figure> 
+        <img class="foto" src="images/photos/brinquedo.jpg" alt="brinquedo">
+        <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      </figure>      
+      
+    </div><!--box8-->
+
+  </section><!--quadro-de-cortica-->
+
+</main>
+<!----------------------------------------------------------------------------------------------- 
+                              FIM DA SECAO MAIN DA PAGINA   
+------------------------------------------------------------------------------------------------>  
+
+<footer></footer>    
+
+<script src="js/gethtml.js"></script>
+<script src="js/main.js"></script>
+<script>initialize("mapa.html");</script>
+
+</body>
+
+</html>

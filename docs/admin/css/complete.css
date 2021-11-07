@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+@import "main-form.css";
+@import "upload-images.css";
+@import "ocilator.css";
+
+/*------------------------------------------------------------------------------------------------
+                             Estiliza o formulario complete.php
+------------------------------------------------------------------------------------------------*/
+#uploads fieldset {
+  padding: 0.4rem;
+}
+
+@media only screen and (min-width: 800px) {
+  #uploads {
+    float: right;
+  }
+
+  .button_action {
+    clear: right;
+  }
+}

@@ -1,0 +1,387 @@
+@charset "UTF-8";
+
+@import "colors.css";
+@import "languages.css";
+@import "fonts.css";
+
+/*================================================================================================
+                                     Configuracoes globais
+=================================================================================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Chilanka, cursive;
+}
+
+/*----------------------------------------------------------------------
+ Os elementos no quadro-de-cortica e o banner do logo se redimensionam 
+ proporcionalmente a largura do viewport.
+-----------------------------------------------------------------------*/
+html {
+  font-size: 1vw;
+}
+
+body {
+  background-color: var(--body-background);
+  overflow-x: hidden;
+}
+
+/*================================================================================================
+                                       Configura o header
+================================================================================================*/
+header {
+  background-color: var(--body-background);
+}
+  
+/*================================================================================================
+                        Configura o logo na parte superior da pagina
+================================================================================================*/
+#logo {
+  display: block; 
+  width: 27rem; 
+  height: auto; 
+  margin: 4vh auto 4vh auto;
+} 
+
+/*----------------------------------------------------------------------
+               O logo eh um link para a secao inicial
+-----------------------------------------------------------------------*/
+#logo:hover {
+  cursor: pointer;
+}
+
+/*================================================================================================
+                              Configura o menu de navegacao
+================================================================================================*/
+/*----------------------------------------------------------------------
+      O redimensionamento do menu de navegacao fica a cargo de codigo
+      javascript em main.js
+-----------------------------------------------------------------------*/
+#menu {
+  position: relative;
+  height: 1em;
+  padding-top: 0.2em;
+  width: 100%;
+  background-color: var(--nav-background);
+  z-index: 100;
+}
+
+/*================================================================================================
+                       Configura os itens do menu do banner de navegacao
+================================================================================================*/
+#menu ul {
+  list-style: none;
+}
+
+#menu li:hover {
+  cursor: pointer;
+}
+
+#menu > ul > li {
+  float: left;
+  margin-left: 3rem;
+  font-size: 0.6em;
+  color: var(--nav-color);
+}
+
+#menu > ul >  li:hover::before {
+  content : "\261E";
+}
+
+li.submenu ul {
+  position: absolute;  
+  display: none;
+  border: solid 1px;
+  color: var(--nav-color);
+  background-color: var(--submenu-background);
+  z-index: 10;
+}
+
+li.submenu li {
+  padding: 1rem;
+}
+
+li.submenu li:hover {
+  color: var(--submenu-hover-color);
+  background-color: var(--submenu-hover-background);
+}
+
+li.submenu:hover ul {
+  display: block;
+}
+
+/*================================================================================================
+                                 Configura o quadro de cortica
+================================================================================================*/
+.quadro-de-cortica {
+  border: ridge 8px;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  margin-bottom: 3.5rem;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  gap: 0;
+}
+
+/*================================================================================================
+                      Style comum a todos os boxes de quadros de cortica
+================================================================================================*/
+.quadro-de-cortica > div {
+  position: relative;
+  padding: 5%;
+}
+
+/*================================================================================================
+              Boxes no quadro para fotos e bilhetinhos. Compoem um gridlayout
+================================================================================================*/
+.quadro-de-cortica .box1 {
+  grid-area: box1;
+}
+
+.quadro-de-cortica .box2 {
+  grid-area: box2;  
+}
+
+.quadro-de-cortica .box3 {
+  grid-area: box3;  
+}
+
+.quadro-de-cortica .box4 {
+  grid-area: box4;  
+}
+
+.quadro-de-cortica .box5 {
+  grid-area: box5;  
+}
+
+.quadro-de-cortica .box6 {
+  grid-area: box6;  
+}
+
+.quadro-de-cortica .box7 {
+  grid-area: box7;  
+}
+
+.quadro-de-cortica .box8 {
+  grid-area: box8;  
+}
+
+.quadro-de-cortica .box9 {
+  grid-area: box9;  
+}
+
+.quadro-de-cortica .box10 {
+  grid-area: box10;  
+}
+
+.quadro-de-cortica .box11 {
+  grid-area: box11;  
+}
+
+.quadro-de-cortica .box12 {
+  grid-area: box12;  
+}
+
+/*================================================================================================
+                      Os tipos de bilhetinhos do quadro de cortica
+================================================================================================*/
+.postit {
+  position: relative;
+  margin: auto; 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  text-align: center;
+  font-size: 1.8rem;
+  line-height: 2.4rem; 
+  padding: 2%;
+}
+
+.postit h1, h2 {
+  margin-bottom: 3%;
+}
+
+.postit p {
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.yellow-postit {
+  background-image: url("../images/postits/yellow-postit.png"); 
+}
+
+.orange-postit {
+  background-image: url("../images/postits/orange-postit.png"); 
+}
+
+.blue-postit {
+  background-image: url("../images/postits/blue-postit.png"); 
+}
+
+.brown-postit {
+  background-image: url("../images/postits/brown-postit.png"); 
+}
+
+/*================================================================================================
+         Uma div para anexar elementos soltos dentro de um box do quadro de cortica
+================================================================================================*/
+.box-attachment {
+  position: absolute;
+  padding: 0;
+}
+
+/*================================================================================================
+        Figure para as fotos dos boxes. A figure faz a foto oucpar 80% da largura 
+        do seu box e permite que o pin da foto seja posicionado corretamente sobre ela.           
+================================================================================================*/
+.quadro-de-cortica figure {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+/*================================================================================================
+               Estiliza as fotos e suas figcaptions no escopo das figures
+================================================================================================*/
+.foto {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: solid white 0.8rem;
+  padding: 0;
+  box-shadow: -0.8rem 0.6rem 1rem rgba(50, 50, 50, 0.7);
+}
+
+.quadro-de-cortica figcaption {
+  width: 93%;
+  display: none;
+  position: absolute; 
+  left: 0.9rem; 
+  bottom: 0.9rem;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: black; 
+  font-size: 2rem;
+}
+
+.quadro-de-cortica figure:hover figcaption {
+  display: block;
+}
+
+/*================================================================================================
+       Cursor pointer  e cores "hover" para as molduras das fotos que sao links para secoes
+================================================================================================*/
+/*----------------------------------------------------------------------
+ Fotos no quadro de cortica com atributo onclick sao links para secoes
+-----------------------------------------------------------------------*/
+.quadro-de-cortica .foto[onclick]:hover {
+  cursor: pointer;
+}
+
+.quadro-de-cortica .foto[onclick] ~ figcaption:hover {
+  cursor: pointer;
+}
+
+/*----------------------------------------------------------------------
+ Os styles abaixo fazem a moldura de uma foto-link mudar a cor quando o
+ mouse estah sobre ela
+-----------------------------------------------------------------------*/
+.quadro-de-cortica .foto[data-color="blue-o"]:hover {
+  border-color: var(--blue-o-color);
+}
+
+.quadro-de-cortica .foto[data-color="red-a"]:hover {
+  border-color: var(--red-a-color);
+}
+
+.quadro-de-cortica .foto[data-color="green-r"]:hover {
+  border-color: var(--green-r-color);
+}
+
+.quadro-de-cortica .foto[data-color="orange-m"]:hover {
+  border-color: var(--orange-m-color);
+}
+
+.quadro-de-cortica .foto[data-color="green-a"]:hover {
+  border-color: var(--green-a-color);
+}
+
+/*================================================================================================
+                            Estiliza os pins dos post-its
+================================================================================================*/
+img[alt="pin"] {
+  display: block;
+  position: absolute;
+  height: 2.8rem;
+  width: auto;
+  top: -1.3rem;
+}
+
+.left-pin {
+  left: 5%;
+}
+
+.center-pin {
+  left: 45%;
+}
+
+.right-pin {
+  right: 3%;
+}
+
+/*================================================================================================
+                                        Estiliza o rodape
+================================================================================================*/
+footer {
+  background-color: var(--body-background);
+  position: fixed;
+  bottom: 0;
+  z-index: 100;
+  width: 100%;
+  height: 1em;
+  padding-top: 0.15em;
+  display: grid;
+  grid-template-areas: "box1 box2 box3";
+  grid-template-columns: 25% 50% 25%;
+  gap: 0;
+}
+
+footer img {
+  height: 0.7em;
+  width: auto;
+}
+
+footer .box1 {
+  grid-area: box1;
+}
+
+footer .box1 img {
+  display: block;
+  float: left;
+  margin-left: 1.5rem;
+}
+
+footer .box2 {
+  grid-area: box2;
+  text-align: center;
+  font-size: 0.5em;
+}
+
+footer .box3 {
+  grid-area: box3;
+}
+
+footer .box3 img {
+  display: block;
+  float: right;
+  margin-right: 1.5rem;
+}
+
+footer address {
+  font-family: 'Times New Roman', Times, serif;
+}

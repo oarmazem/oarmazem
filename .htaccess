@@ -1,0 +1,6 @@
+#Habilita o Mod-Rewrite
+RewriteEngine On
+
+#para desabilitar o MultView altere o sinal "+" por "-"
+Options +MultiViews
+

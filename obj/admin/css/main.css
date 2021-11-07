@@ -68,9 +68,13 @@ input[type='reset'] {
   background-color: rgb(233, 230, 230);
 }
 
-section .display {
+section.display {
   padding: 0 1rem 0.5rem 1rem;
   font-size: 1.2rem;
+}
+
+section.display p {
+  line-height: 2rem;
 }
 
 @media only screen and (max-width: 800px) {

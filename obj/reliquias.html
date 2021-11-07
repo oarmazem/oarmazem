@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+	<meta name="googlebot" content="noindex, nofollow">
+  <link href="css/reliquias.css" rel="stylesheet">
+
+  <script>
+    let acess = sessionStorage.getItem("acess");
+    if (acess != "ok") {
+
+      let ans = window.prompt("Em qual cidade você nasceu?");
+
+      if ((ans === null) || ans.toUpperCase() != 'SANTOS') { 
+
+        window.open("negado.html", "_self"); 
+
+      } 
+      else {
+
+        let ans = window.prompt("Quantos anos EU tenho?"); 
+
+        if ((ans === null) || ans != '97') {
+
+           window.open("negado.html", "_self");
+
+        }
+        else  { sessionStorage.setItem("acess", "ok"); }
+      }  
+    }
+  </script>  
+
+</head>
+
+<body>
+
+<header></header>  
+
+<!----------------------------------------------------------------------------------------------- 
+                            INICIO DA SECAO MAIN DA PAGINA   
+------------------------------------------------------------------------------------------------>
+<main>
+
+  <div class="postit yellow-postit" style="width: 30%;">
+    <h2 class="br" lang="pt-br">Esta poderia ser a página das relíquias</h2>
+    <h2 class="en" lang="en-us">This could be the relics page</h2>
+    <h2 class="es" lang="es-es">Esta podría ser la página de reliquias</h2>
+    <h2 class="fr" lang="fr-fr">Cela pourrait être la page des reliques</h2>
+  </div>
+
+</main>
+<!----------------------------------------------------------------------------------------------- 
+                              FIM DA SECAO MAIN DA PAGINA   
+------------------------------------------------------------------------------------------------>
+
+<footer></footer>
+
+<script src="js/gethtml.js"></script>
+<script src="js/main.js"></script>
+<script>initialize("reliquias.html");</script>
+
+</body>
+
+</html>

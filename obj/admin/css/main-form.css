@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+@import "main.css";
+
+/*------------------------------------------------------------------------------------------------
+                             Aplicavel a complete.php e update.php
+------------------------------------------------------------------------------------------------*/
+select, textarea {
+  font-size: 1.1rem;
+}
+
+.danfe_venda {
+  display: none;
+}
+
+#situacao:checked ~ .danfe_venda {
+  display: inline-block;
+}

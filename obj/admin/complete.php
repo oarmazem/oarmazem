@@ -236,24 +236,19 @@ if (!adminPasswordOk()) header('Location: index.php');
 
     if (isset($_POST['cod'])) { 
 
-      readFormFields();
+      $cod = $_POST['cod'];
+
+      $insert = new RelicsTableHandler(RelicsTableHandler::INSERTINTO);
+
+      $insert->readFormFields();
 
       $nextImgIndex = saveResizedImages((int)$cod);
 
       if ($nextImgIndex) {
         
         try {
-          $conn = connect();
 
-          $sql = "INSERT INTO relics (" . 
-          "typ, product_data, id, qt, mat, purchase_date, purchase_price, price, purchase_nfe, purchase_nfe_serie," . 
-          " vendido, sale_nfe, sale_nfe_serie, sale_date, dim_alt, dim_larg, dim_prof, dim_comp, dim_dia," . 
-          " dimension_unity, vendor_name, vendor_id, vendor_locality, product_desc, next_img_index)" . 
-          " VALUES(:tipo, :nome, :cod, :qtd, :mat, :dataCompra, :custo, :venda, :nfeCompra, :nfeCompraSerie," . 
-          " :situacao, :nfeVenda, :nfeVendaSerie, :dataVenda, :alt, :larg, :prof, :comp, :dia, :unity," . 
-          " :fornecedorNome, :cpfCnpj, :local, :desc, :nextImgIndex)";
-      
-          bindAndExecute($conn, $sql);
+          $insert->writeFormOnDatabase();
 
         }
         catch (PDOException $e) {
@@ -264,43 +259,12 @@ if (!adminPasswordOk()) header('Location: index.php');
           exit(1);
 
         }
-        finally {
-
-          $conn = null;
-
-        }
 
         echoMsg('Cadastro realizado com sucesso!');
+        
         echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . resizedFilename((int)$cod, 0) . '">';   
 
-        $echoCss = 'text-align: left; font-size: 1.3vw; color: black;';
-        
-        echoMsg("Identificação [ $nome - código:$cod - tipo:$tipo ]", $echoCss); 
-
-        $qtd = isset($qtd) ? " Qtd.: $qtd" : "";
-        $mat = isset($mat) ? " Material: $mat" : "";
-        echoMsg("$qtd $mat", $echoCss);
-
-        $dataCompra = isset($dataCompra) ? " Data da compra: $dataCompra" : "";
-        $custo = isset($custo) ? " Custo de aquisição: R$ " . number_format($custo, 2, ',', '.'): "";
-        echoMsg("Dados da compra [ $dataCompra $custo ]", $echoCss);
-
-        if (isset($nfeCompra)) echoMsg(" NFE Compra: $nfeCompra-$nfeCompraSerie", $echoCss);
-
-        $venda = isset($venda) ? " Preço de venda: R$ " . number_format($venda, 2, ',', '.'): "";
-        $vendido = ($situacao == 1) ? " - Vendido -" : "";
-        $dataVenda = isset($dataVenda) ? " Data da venda: $dataVenda" : "";
-        echoMsg("Dados da venda [ $venda $vendido $dataVenda ]", $echoCss);
-
-        if (isset($nfeVenda)) echoMsg(" NFE Venda: $nfeVenda-$nfeVendaSerie", $echoCss);    
-
-        $fornecedorNome = isset($fornecedorNome) ? " Nome: $fornecedorNome" : "";
-        $cpfCnpj = isset($cpfCnpj) ? " CPF/CNPJ: $cpfCnpj" : "";
-        $local = isset($local) ? " Local: $local" : "";
-        echoMsg("Dados do fornecedor [ $fornecedorNome $cpfCnpj $local ]", $echoCss);
-
-        echo '<style> br#clear {clear: left;}</style> <br id="clear">';
-        echoMsg($desc, 'text-align: left; font-size: 1.2vw;');
+        echo $insert;
 
       } 
       else {
