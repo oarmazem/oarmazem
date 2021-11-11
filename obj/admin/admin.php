@@ -1,9 +1,9 @@
 <?php
 
+require_once 'php/paths.inc.php';
 require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
-require_once 'php/main.inc.php';
-require_once 'php/password-tools.inc.php';
+require_once '../php/password-tools.inc.php';
 
 if (!adminPasswordOk()) header('Location: index.php'); 
 
@@ -32,7 +32,7 @@ if (!adminPasswordOk()) header('Location: index.php');
     <h2>Selecione uma das opções</h2>
     <ul>
     <li><a href="complete.php">Cadastro de Relíquias</a></li>
-    <li><a href="search.php?target=delete.php">Excluir Relíquias</a></li> 
+    <li><a href="search.php?target=delete">Excluir Relíquias</a></li> 
     <li><a href="search.php?target=update">Atualização de Dados de Relíquias</a></li>
     <li><a href="search.php?target=upload">Upload de Imagens de Relíquias</a></li>
     <li><a href="preview.php">Prévia de Imagem</a></li>

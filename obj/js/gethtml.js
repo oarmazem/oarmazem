@@ -34,12 +34,17 @@ function getHeader() {
       <li class="submenu">
         AS RELÍQUIAS
         <ul>
-          <li onclick="nav('reliquias.html')">Louças</li>
-          <li onclick="nav('reliquias.html')">Talheres</li>
-          <li onclick="nav('reliquias.html')">Decoração e Arte</li>
-          <li onclick="nav('reliquias.html')">Brinquedos</li>
-          <li onclick="nav('reliquias.html')">Máquinas, Ferramentas, Aparelhos</li>
-          <li onclick="nav('reliquias.html')">Mais relíquias...</li>          
+          <li onclick="nav('_reliquias.php?type=1')">Louças e Porcelanas</li>
+          <li onclick="nav('_reliquias.php?type=2')">Jarras, Copos e Taças</li>          
+          <li onclick="nav('_reliquias.php?type=3')">Talheres</li>
+          <li onclick="nav('_reliquias.php?type=4')">Decoração e Arte</li>
+          <li onclick="nav('_reliquias.php?type=5')">Livros</li>  
+          <li onclick="nav('_reliquias.php?type=6')">Miniaturas e Coleções</li>                  
+          <li onclick="nav('_reliquias.php?type=7')">Brinquedos</li>
+          <li onclick="nav('_reliquias.php?type=8')">Vestuário e Adereços</li>          
+          <li onclick="nav('_reliquias.php?type=9')">Máquinas, Ferramentas, Aparelhos</li>
+          <li onclick="nav('_reliquias.php?type=10')">Curiosidades</li>          
+          <li onclick="nav('_reliquias.php?type=12')">Mais relíquias...</li>          
         </ul>        
       </li>
       <li onclick="nav('mapa.html')">COMO CHEGAR</li>    
@@ -60,12 +65,17 @@ function getHeader() {
       <li class="submenu">
         RELICS
         <ul>
-          <li onclick="nav('reliquias.html')">Crockery</li>
-          <li onclick="nav('reliquias.html')">Cutlery</li>
-          <li onclick="nav('reliquias.html')">Decoration and Art</li>
-          <li onclick="nav('reliquias.html')">Toys</li>
-          <li onclick="nav('reliquias.html')">Machines, Tools, Eletronics</li>
-          <li onclick="nav('reliquias.html')">More...</li>          
+          <li onclick="nav('_reliquias.php?type=1')">Crockery</li>
+          <li onclick="nav('_reliquias.php?type=2')">Jugs and Glasses</li>          
+          <li onclick="nav('_reliquias.php?type=3')">Cutlery</li>
+          <li onclick="nav('_reliquias.php?type=4')">Decoration and Art</li>
+          <li onclick="nav('_reliquias.php?type=5')">Books</li>
+          <li onclick="nav('_reliquias.php?type=6')">Miniatures and Collections</li>
+          <li onclick="nav('_reliquias.php?type=7')">Toys</li>
+          <li onclick="nav('_reliquias.php?type=8')">Clothing</li>
+          <li onclick="nav('_reliquias.php?type=9')">Machines, Tools, Eletronics</li>
+          <li onclick="nav('_reliquias.php?type=10')">Oddities</li>
+          <li onclick="nav('_reliquias.php?type=12')">More...</li>          
         </ul>           
       </li>
       <li onclick="nav('mapa.html')">MAP</li>    
@@ -86,12 +96,17 @@ function getHeader() {
       <li class="submenu">
         LAS RELIQUIAS
         <ul>
-          <li onclick="nav('reliquias.html')">Vajillas</li>
-          <li onclick="nav('reliquias.html')">Cubiertos</li>
-          <li onclick="nav('reliquias.html')">Decoración y Arte</li>
-          <li onclick="nav('reliquias.html')">Juguetes</li>
-          <li onclick="nav('reliquias.html')">Máquinas, herramientas, aparatos</li>
-          <li onclick="nav('reliquias.html')">Más reliquias...</li>          
+          <li onclick="nav('_reliquias.php?type=1')">Vajillas y Porcelanas</li>
+          <li onclick="nav('_reliquias.php?type=2')">Jarras, Vasos y Copas</li>          
+          <li onclick="nav('_reliquias.php?type=3')">Cubiertos</li>
+          <li onclick="nav('_reliquias.php?type=4')">Decoración y Arte</li>
+          <li onclick="nav('_reliquias.php?type=5')">Libros</li>  
+          <li onclick="nav('_reliquias.php?type=6')">Miniaturas y Coleccionables</li>                  
+          <li onclick="nav('_reliquias.php?type=7')">Juguetes</li>
+          <li onclick="nav('_reliquias.php?type=8')">Ropas</li>          
+          <li onclick="nav('_reliquias.php?type=9')">Máquinas y Herramientas</li>
+          <li onclick="nav('_reliquias.php?type=10')">Curiosidades</li>          
+          <li onclick="nav('_reliquias.php?type=12')">Mas reliquias...</li>           
         </ul>           
       </li>
       <li onclick="nav('mapa.html')">¿CÓMO SE LLEGA?</li>    
@@ -112,12 +127,17 @@ function getHeader() {
       <li class="submenu">
         LE RELIEF
         <ul>
-          <li onclick="nav('reliquias.html')">Vaisselle</li>
-          <li onclick="nav('reliquias.html')">Couverts</li>
-          <li onclick="nav('reliquias.html')">Décoration et art</li>
-          <li onclick="nav('reliquias.html')">Jouets</li>
-          <li onclick="nav('reliquias.html')">Machines, outils, appareils</li>
-          <li onclick="nav('reliquias.html')">Plus de reliques...</li>          
+          <li onclick="nav('_reliquias.php?type=1')">Vaisselle et porcelaine</li>
+          <li onclick="nav('_reliquias.php?type=2')">Pichets, tasses et gobelets</li>          
+          <li onclick="nav('_reliquias.php?type=3')">Couverts</li>
+          <li onclick="nav('_reliquias.php?type=4')">Art et Decor</li>
+          <li onclick="nav('_reliquias.php?type=5')">Livres</li>  
+          <li onclick="nav('_reliquias.php?type=6')">Miniatures et objets de collection</li>                  
+          <li onclick="nav('_reliquias.php?type=7')">Jouets</li>
+          <li onclick="nav('_reliquias.php?type='8)">Vêtements</li>          
+          <li onclick="nav('_reliquias.php?type=9')">Machines et outils</li>
+          <li onclick="nav('_reliquias.php?type=10')">Curiosités</li>          
+          <li onclick="nav('_reliquias.php?type=12')">Plus de reliques...</li>           
         </ul>           
       </li>
       <li onclick="nav('mapa.html')">COMMENT S'Y RENDRE ?</li>    

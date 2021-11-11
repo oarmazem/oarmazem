@@ -2,8 +2,7 @@
 
 require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
-require_once 'php/main.inc.php';
-require_once 'php/password-tools.inc.php';
+require_once '../php/password-tools.inc.php';
 
 if (adminPasswordOk()) header('Location: admin.php'); 
 
@@ -48,7 +47,7 @@ if (isset($_POST['pass'])) {
   <header>
     <img src="../images/logos/sketchy-logo.png" alt="logo">
   </header>
-  <?php echo "$title\n" ?>
+  <?php echo "$title\n"; ?>
   <form method="POST" action="index.php">
     <fieldset>
     <div class="input_field"> 

@@ -33,9 +33,21 @@ Cores das secoes associadas as cores do letreiro
 const SECTIONS_COLORS = {
   "index.html" : "#2C459C",
   "cafe.html" :  "#EE3539" ,
-  "reliquias.html" : "#19B060",
   "mapa.html" : "#F58637",
-  "contato.html" : "#0FB99B"
+  "contato.html" : "#0FB99B",
+  "_reliquias.php?type=1" : "#19B060",
+  "_reliquias.php?type=2" : "#19B060",
+  "_reliquias.php?type=3" : "#19B060",
+  "_reliquias.php?type=4" : "#19B060",
+  "_reliquias.php?type=5" : "#19B060",
+  "_reliquias.php?type=6" : "#19B060",
+  "_reliquias.php?type=7" : "#19B060",
+  "_reliquias.php?type=8" : "#19B060",
+  "_reliquias.php?type=9" : "#19B060",
+  "_reliquias.php?type=10" : "#19B060",
+  "_reliquias.php?type=11" : "#19B060",
+  "_reliquias.php?type=12" : "#19B060",
+  "show-relic.php" : "#19B060"
 };
 
 //Referencia apontando para o objeto menu principal
@@ -253,10 +265,21 @@ function resizeListener() {
 }//resizeListener()
 
 /*----------------------------------------------------------------------------
+              Listener para ocultar o banner do FreeWHA
+----------------------------------------------------------------------------*/
+function eraseFreewhaBanner() {
+
+  document.querySelector("body > div").style.display = "none";
+ 
+}//eraseFreewhaBanner()
+
+/*----------------------------------------------------------------------------
 Inicializa menu principal, registra listeners, obtem dados globais do DOM, 
 define o idioma corrente do site
 ----------------------------------------------------------------------------*/
 function initialize(newSection) {
+
+  document.addEventListener("DOMContentLoaded", eraseFreewhaBanner);
 
   section = newSection;
 
@@ -274,10 +297,13 @@ function initialize(newSection) {
   //Destaca os itens de menu da atual section do site
   let menuItens = document.querySelectorAll('li[onclick="nav(\'' + section + '\')"');
 
+  let isSubmenu = (section.charAt(0) === "_");
+
   for (let i = 0; i < menuItens.length; i++) {
 
     menuItens[i].style.color = sectionColor;
     menuItens[i].style.textDecoration = "underline";
+    if (isSubmenu) menuItens[i].style.backgroundColor = "lightgrey";
 
   }
   

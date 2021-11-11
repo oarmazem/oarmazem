@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@import "main-form.css";
+
+/*------------------------------------------------------------------------------------------------
+                                    Estiliza delete.php
+------------------------------------------------------------------------------------------------*/
+input, textarea, select {
+  color: grey;
+}
+
+input#cod {
+  color: red;
+  font-weight: bold;
+}
+
+.button_action {
+  color: black;
+}
+
+#delete {
+  background-color: red;
+}
+
+#goto_search_page {
+  background-color: rgb(106, 212, 212);
+}

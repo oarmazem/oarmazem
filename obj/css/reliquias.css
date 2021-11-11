@@ -1,3 +1,36 @@
 @charset "UTF-8";
 
 @import "main.css";
+
+main {
+  width: 95rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5vh;
+  margin-bottom: 3.5rem;
+}
+
+figure {
+  float: left;
+  margin: 0;
+  width: 19rem;
+  height: 30rem;
+}
+
+img {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.4rem;
+}
+
+figcaption {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figcaption p {
+  line-height: 1.2rem;
+}

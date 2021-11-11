@@ -2,8 +2,7 @@
 
 require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
-require_once 'php/main.inc.php';
-require_once 'php/password-tools.inc.php';
+require_once '../php/password-tools.inc.php';
 
 if (!adminPasswordOk()) header('Location: index.php'); 
 
@@ -32,7 +31,7 @@ if (!adminPasswordOk()) header('Location: index.php');
 
   <?php if (isset($_GET['target'])) $target = $_GET['target']; else $target = 'update'; ?>
 
-  <form method="POST" action="<?php echo $target ?>.php">
+  <form method="POST" action="<?php echo $target; ?>.php">
     <fieldset>
     <div class="input_field"> 
       <label for="pass">Código:</label>

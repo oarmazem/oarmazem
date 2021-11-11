@@ -1,11 +1,11 @@
 <?php
 
+require_once 'php/paths.inc.php';
 require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
-require_once 'php/main.inc.php';
-require_once 'php/password-tools.inc.php';
-require_once 'php/images-tools.inc.php';
-require_once 'php/relics-tools.inc.php';
+require_once '../php/password-tools.inc.php';
+require_once '../php/images-tools.inc.php';
+require_once '../php/relics-tools.inc.php';
 
 if (!adminPasswordOk()) header('Location: index.php'); 
 
@@ -27,32 +27,33 @@ if (!adminPasswordOk()) header('Location: index.php');
 
   <datalist id="datalist_locais">
     <option value="Cunha"></option>
-    <option value="São Paulo"></option> 
-    <option value="Rio de Janeiro"></option>    
-    <option value="Paraty"></option>  
     <option value="Minas Gerais"></option>  
-    <option value="Niterói"></option>                                                 
+    <option value="Niterói"></option>   
+    <option value="Paraty"></option>     
+    <option value="Rio de Janeiro"></option>   
+    <option value="São Paulo"></option>      
   </datalist>  
 
   <datalist id="datalist_materiais">
-    <option value="Alumínio"></option>    
+    <option value="Alumínio"></option>   
+    <option value="Chumbo"></option> 
+    <option value="Cristal"></option>       
     <option value="Ferro"></option> 
-    <option value="Chumbo"></option>    
-    <option value="Madeira"></option>  
     <option value="Fibra natural"></option> 
-    <option value="Tecido"></option>  
-    <option value="Lã"></option>    
-    <option value="Seda"></option>         
-    <option value="Porcelana"></option>    
-    <option value="Vidro"></option> 
-    <option value="Cristal"></option>  
+    <option value="Lã"></option>   
+    <option value="Madeira"></option>  
     <option value="Opalina"></option>       
-    <option value="Plástico"></option>                                                 
+    <option value="Plástico"></option> 
+    <option value="Porcelana"></option>   
+    <option value="Resina"></option> 
+    <option value="Seda"></option>    
+    <option value="Tecido"></option>  
+    <option value="Vidro"></option>                                                
   </datalist>
 
   <h2>Cadastre um artigo</h2>
 
-  <form method="POST" action="complete.php" enctype="multipart/form-data" onsubmit="return validateFormComplete(this)">
+  <form method="POST" action="complete.php" enctype="multipart/form-data" onsubmit="return validate_jpg_cpfcnpj()">
 
     <fieldset><!--Formulario-->  
 
@@ -205,7 +206,7 @@ if (!adminPasswordOk()) header('Location: index.php');
       
       <div class="input_field"  id="uploads">
         <fieldset><legend>Uploads</legend>
-          <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE ?>">
+          <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>">
           <label for="main_image"><b>*Imagem principal:</b></label>
           <br>
           <input type="file" name="main_image" id="main_image" required>
@@ -231,6 +232,7 @@ if (!adminPasswordOk()) header('Location: index.php');
   <section class="display">
 
     <script src="js/main.js"></script>
+    <script src="js/validation.js"></script>
 
     <?php
 
@@ -259,7 +261,7 @@ if (!adminPasswordOk()) header('Location: index.php');
 
         echoMsg('Cadastro realizado com sucesso!');
         
-        echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . resizedFilename((int)$cod, 0) . '">';   
+        echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . getMainFilename((int)$cod) . '">';   
 
         $insert->readDatabase($cod);//Le a tabela relics para obter a hora de registro
         

@@ -10,31 +10,6 @@
 	<meta name="googlebot" content="noindex, nofollow">
   <link href="css/cafe.css" rel="stylesheet">
 
-  <script>
-    let acess = sessionStorage.getItem("acess");
-    if (acess != "ok") {
-
-      let ans = window.prompt("Em qual cidade você nasceu?");
-
-      if ((ans === null) || ans.toUpperCase() != 'SANTOS') { 
-
-        window.open("negado.html", "_self"); 
-
-      } 
-      else {
-
-        let ans = window.prompt("Quantos anos EU tenho?"); 
-
-        if ((ans === null) || ans != '97') {
-
-           window.open("negado.html", "_self");
-
-        }
-        else  { sessionStorage.setItem("acess", "ok"); }
-      }  
-    }
-  </script>  
-
 </head>
 
 <body>
