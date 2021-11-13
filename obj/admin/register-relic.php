@@ -18,7 +18,7 @@ if (!adminPasswordOk()) header('Location: index.php');
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/complete.css" rel="stylesheet">
+  <link href="css/register-relic.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
   <title>Cadastro Artigo</title>
 </head>
@@ -51,9 +51,9 @@ if (!adminPasswordOk()) header('Location: index.php');
     <option value="Vidro"></option>                                                
   </datalist>
 
-  <h2>Cadastre um artigo</h2>
+  <h2>Cadastre uma relíquia</h2>
 
-  <form method="POST" action="complete.php" enctype="multipart/form-data" onsubmit="return validate_jpg_cpfcnpj()">
+  <form method="POST" action="register-relic.php" enctype="multipart/form-data" onsubmit="return validate_jpg_cpfcnpj()">
 
     <fieldset><!--Formulario-->  
 
@@ -215,13 +215,12 @@ if (!adminPasswordOk()) header('Location: index.php');
           <label for="more_images">Mais imagens:</label>
           <br>
           <input type="file" name="more_images[]" id="more_images" multiple="multiple">
-
         </fieldset><!--Uploads-->
       </div>
         
     </fieldset><!--Formulario-->
 
-    <input class="button_action" type="submit" value="CADASTRAR" title="Cadastra o novo artigo">
+    <input class="button_action" type="submit" value="CADASTRAR" title="Cadastra uma nova relíquia">
     <input class="button_action" type="reset" value="REDEFINIR" title="Redefine dados do formuláro para os valores iniciais">
     <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">
     <div id="bar"><div id="ocilator"></div></div>   
@@ -241,8 +240,30 @@ if (!adminPasswordOk()) header('Location: index.php');
       $cod = $_POST['cod'];
 
       $insert = new RelicsTableHandler(RelicsTableHandler::INSERTINTO);
+      
+      try {
 
-      $insert->nextImgIndex = saveResizedImages((int)$cod);
+        if ($insert->existRow($cod)) {
+
+          echoMsg("Já existe relíquia com código $cod !");
+          $insert->nextImgIndex = 0; 
+
+        }  
+        else {
+          
+          $insert->nextImgIndex = saveResizedImages($cod);
+
+        }//if-else   
+
+      }
+      catch (PDOException $e) {
+
+        echoMsg($e->getMessage());
+        echoMsg('Falha ao realizar cadastro. Erro ao consultar banco de dados!');
+        echo "</section></body></html>"; //fecha as tags abertas antes de abortar
+        exit(1);
+
+      }//try-catch
 
       if ($insert->nextImgIndex) {
         
@@ -253,15 +274,17 @@ if (!adminPasswordOk()) header('Location: index.php');
         }
         catch (PDOException $e) {
 
+          $insert->deleteImagesFromCode($cod);
           echoMsg($e->getMessage());
-          echoMsg('Falha ao realizar cadastro. Erro ao inserir registro no banco de dados.');
+          echoMsg('Falha ao realizar cadastro. Erro ao inserir registro no banco de dados!');
+          echo "</section></body></html>"; //fecha as tags abertas antes de abortar
           exit(1);
 
         }
 
         echoMsg('Cadastro realizado com sucesso!');
         
-        echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . getMainFilename((int)$cod) . '">';   
+        echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . getMainImageFromCode($cod) . '">';   
 
         $insert->readDatabase($cod);//Le a tabela relics para obter a hora de registro
         
@@ -270,7 +293,7 @@ if (!adminPasswordOk()) header('Location: index.php');
       } 
       else {
 
-        echoMsg('Falha ao realizar cadastro. Erro no upload de imagens.');
+        echoMsg('Falha ao realizar cadastro! Erro no upload de imagens.');
 
       }
 

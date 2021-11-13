@@ -22,7 +22,7 @@ try {
 catch (PDOException $e) {
 
   echoMsg($e->getMessage());
-  echo "<a href=\"search.php?target=upload\">Voltar</a>";
+  echo "<a href=\"search.php?target=upload-relic\">Voltar</a>";
   exit(1);
 
 }
@@ -37,7 +37,7 @@ catch (PDOException $e) {
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
-  <link href="css/upload.css" rel="stylesheet">
+  <link href="css/upload-relic.css" rel="stylesheet">
   <title>Upload de Imagens</title>
   <style>
     .thumb {
@@ -53,18 +53,21 @@ catch (PDOException $e) {
 <body>
   <h2>Selecione arquivos jpg menores que <?php echo number_format(MAX_FILE_SIZE, 0, ',', '.') ?> bytes</h2>
 
-  <form method="POST" action="upload.php" enctype="multipart/form-data" onsubmit="return validate_jpg()">
-    <input type="hidden" name="cod" value="<?php echo $_POST['cod']; ?>" >
+  <form method="POST" action="upload-relic.php" enctype="multipart/form-data" onsubmit="return validate_jpg()">
+    <div class="input_field">           
+      <label for="cod">Cód.:</label>
+      <input type-="text" name="cod" id="cod" size="5" title="O código da relíquia" value="<?php echo $cod; ?>" readonly required>
+    </div>
 
     <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE ?>" >
 
-    <label for="more_images">Selecione imagens para o artigo [<?php echo $_POST['cod']; ?>]:</label>
+    <label for="more_images">Selecione imagens para a relíquia [<?php echo $cod; ?>]:</label>
     <input type="file" name="more_images[]" id="more_images" multiple="multiple" required>
     <br><br>
 
     <input class="button_action" type="submit" name="upload" value="UPLOAD" title="Upload dos arquivos">
     <input class="button_action" type="reset" value="REDEFINIR" title="Desseleciona os arquivos">
-    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Atualiza os dados de outro artigo" onclick="gotoSearchPage('upload')">
+    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Upload de imagens para outra relíquia" onclick="gotoSearchPage('upload-relic')">
     <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">    
     <div id="bar"><div id="ocilator"></div></div>     
   </form>
@@ -78,24 +81,35 @@ catch (PDOException $e) {
 
     if (isset($_POST['upload'])) {
 
-      try {
+      $nextIndex = saveMoreResizedImages($cod, $currentNextIndex);
 
-        $nextIndex = saveMoreResizedImages((int)$cod, $currentNextIndex);
+      if ($nextIndex === $currentNextIndex) {
 
-        if ($nextIndex === $currentNextIndex) throw new PDOException('Não foi possível fazer o upload dos arquivos!');
-
-        $upload->setNextImgIndex($nextIndex, $cod);
+        echoMsg('Não foi possível fazer o upload dos arquivos!');
 
       }
-      catch (PDOException $e) {
+      else {
 
-        echoMsg($e->getMessage());
+        try {
 
-      }
+          $upload->setNextImgIndex($nextIndex, $cod);
+
+        }
+        catch (PDOException $e) {
+
+          echoMsg($e->getMessage());
+          echoMsg('Falha ao atualizar banco de dados!');
+          echoMsg('Atenção! O número de imagens registrado para esta relíquia pode ter ficado inconsistente.');
+          echoMsg('Nesse caso as próximas imagens para esta relíquia a serem enviadas substituirão estas que foram enviadas agora.');
+          echoMsg('É recomendável tentar novamente o upload destas imagens.');
+  
+        }//try-catch
+
+      }//if-else
     
     }//if  
 
-    $pathnames = getFilesFromCode((int)$cod);
+    $pathnames = getImagesFromCode($cod);
 
     $upload->readDatabase($cod);
 

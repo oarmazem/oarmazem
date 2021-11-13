@@ -27,9 +27,34 @@ if (!adminPasswordOk()) header('Location: index.php');
   <header>
     <img src="../images/logos/sketchy-logo.png" alt="logo">
   </header>
-  <h2>Entre com o código do artigo</h2>
 
-  <?php if (isset($_GET['target'])) $target = $_GET['target']; else $target = 'update'; ?>
+  <?php
+    if (isset($_GET['target'])) { 
+
+      $target = $_GET['target']; 
+
+      switch ($target) {
+
+        case 'del-relic':
+        case 'update-relic':
+        case 'upload-relic':
+          $type = 'a relíquia';
+          break;
+        default: 
+          $type = 'o item de cardápio'; 
+
+      }//switch
+
+    }
+    else { 
+
+      echoMsg('Erro. Seleção indefinida!'); 
+      exit(1);
+
+    }  
+
+    echo "<h2>Entre com o código d$type</h2>";
+  ?>
 
   <form method="POST" action="<?php echo $target; ?>.php">
     <fieldset>
@@ -38,7 +63,7 @@ if (!adminPasswordOk()) header('Location: index.php');
       <input type="text" id="cod" name="cod" size="20" title="O código do artigo<?php echo INTEGER_REGEXP; ?>" required>
     </div>
     </fieldset><br>
-    <input type="submit" class="button_action" value="BUSCAR" title="Busca os dados do artigo"> 
+    <input type="submit" class="button_action" value="BUSCAR" title="Buscar pelo código"> 
     <input class="button_action" type="reset" value="REDEFINIR" title="Limpa o campo">
     <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">          
   </form>

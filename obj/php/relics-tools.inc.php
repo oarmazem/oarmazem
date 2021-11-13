@@ -5,7 +5,7 @@ define('DECIMAL_REGEXP', EXEMPLO . "12&#10;123,4&#10;123,45&#10;12,345\" pattern
 define('CPF_CNPJ_REGEXP', EXEMPLO . "&#10;001.002.003/12&#10;001.002.003-12&#10;01.002.003/0001-02&#10;01.002.003/0002-02\" pattern=\"\\s*((\\d{3}\\.\\d{3}\\.\\d{3}[/-]\\d{2})|(\\d{2}\\.\\d{3}\\.\\d{3}[/]000[01]-\\d{2}))\\s*");
 
 /*[01]---------------------------------------------------------------------------------------------
-            Lista reliquias de um determinado tipo e nao vendidas em uma pagina
+             Lista reliquias de um determinado tipo e nao vendidas em uma pagina
 ------------------------------------------------------------------------------------------------*/
 function listRelics(string $type) {
 
@@ -26,12 +26,12 @@ function listRelics(string $type) {
     $cod = $result[$i]['id']; $nome = $result[$i]['product_data']; 
     $preco = $result[$i]['price']; $preco = number_format((float)$preco, 2, ',', '.');
 
-    $pathname = getMainFilename((int)$cod);
+    $pathname = getMainImageFromCode($cod);
 
     echo 
     "<figure id=\"$cod\">\n" . 
       "\t<a href=\"show-relic.php?type=$type&cod=$cod\">\n" .
-        "\t\t<img src=\"$pathname\" alt=\"$cod\">\n" . 
+        "\t\t<img src=\"$pathname\" title=\"cód.:$cod\" alt=\"$cod\">\n" . 
       "\t</a>\n" .
       "\t<figcaption>\n" .
         "\t\t<p>$nome</p><br>\n" . 
@@ -234,6 +234,21 @@ class RelicsTableHandler {
   }//getColumns()
 
   /*[06]--------------------------------------------------------------------------------------------
+  *       Retorna true se existe reliquia cadastrada com id = $cod, false se nao
+  *-----------------------------------------------------------------------------------------------*/
+  public function existRow(string $cod) : bool {
+
+    $stmt = $this->conn->prepare("SELECT id FROM relics WHERE id = $cod");
+
+    $stmt->execute();
+
+    $result = $stmt->fetchAll(); 
+
+    return (count($result) !== 0);
+
+  }//existRow()
+
+  /*[07]--------------------------------------------------------------------------------------------
   *   Le os campos de um registro da tabela relics para as variaveis privadas e as formata de 
   *   modo apropriado para serem inseridas no formulario
   *-----------------------------------------------------------------------------------------------*/
@@ -273,7 +288,7 @@ class RelicsTableHandler {
 
   }//readDatabase()
 
-  /*[07]--------------------------------------------------------------------------------------------
+  /*[08]--------------------------------------------------------------------------------------------
   *          Obtem o campo next_img_index da tabela relics na linha com id = $cod
   *-----------------------------------------------------------------------------------------------*/ 
   public function getNextImgIndex(string $cod) : int {
@@ -284,7 +299,7 @@ class RelicsTableHandler {
 
   }//getNextImgIndex()
 
-  /*[08]--------------------------------------------------------------------------------------------
+  /*[09]--------------------------------------------------------------------------------------------
   *          Seta o campo next_img_index da tabela relics na linha com id = $cod
   *-----------------------------------------------------------------------------------------------*/ 
   public function setNextImgIndex(int $nextIndex, string $cod) {
@@ -293,17 +308,13 @@ class RelicsTableHandler {
     $stmt->execute();
 
   }//setNextImgIndex()
-    
-  /*[09]--------------------------------------------------------------------------------------------
-  *          Deleta um registro da tabela relics e seus arquivos de imagem associados
+
+  /*[10]--------------------------------------------------------------------------------------------
+  *               Deleta arquivos de imagem associados a uma reliquia de id = $cod
   *-----------------------------------------------------------------------------------------------*/ 
-  public function delete(string $cod) {
+  public function deleteImagesFromCode(string $cod) {
 
-    $stmt = $this->conn->prepare("DELETE FROM relics WHERE id = $cod");
-
-    $stmt->execute();
-
-    $pathnames = getFilesFromCode((int)$cod);
+    $pathnames = getImagesFromCode($cod);
 
     if (basename($pathnames[0]) === "qmark.png") return;
 
@@ -313,9 +324,22 @@ class RelicsTableHandler {
 
     }
 
-  }//delete()
+  }//deleteImagesFromCode()
+    
+  /*[11]--------------------------------------------------------------------------------------------
+  *          Deleta um registro da tabela relics e seus arquivos de imagem associados
+  *-----------------------------------------------------------------------------------------------*/ 
+  public function deleteRow(string $cod) {
 
-  /*[10]--------------------------------------------------------------------------------------------
+    $stmt = $this->conn->prepare("DELETE FROM relics WHERE id = $cod");
+
+    $stmt->execute();
+
+    $this->deleteImagesFromCode($cod);
+
+  }//deleteRow()
+
+  /*[12]--------------------------------------------------------------------------------------------
   *                                  Escreve os dados do objeto
   *-----------------------------------------------------------------------------------------------*/   
   public function __toString() {
@@ -360,6 +384,6 @@ class RelicsTableHandler {
 
   }//__toString()
 
-}//class RelicsHandler
+}//class RelicsTableHandler
 
 ?>

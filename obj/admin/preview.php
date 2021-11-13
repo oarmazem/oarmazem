@@ -31,8 +31,8 @@ if (!adminPasswordOk()) header('Location: index.php');
     <label for="main_image">Escolha uma imagem jpg no seu computador:</label>
     <input type="file" name="main_image" id="main_image" required>
     <br><br>
-    <input class="button_action" type="submit" value="PREVIEW">
-    <input class="button_action" type="reset" value="REDEFINIR" title="Exclui arquivos selecionados">
+    <input class="button_action" type="submit" value="PREVIEW" title="Exibe uma prévia da imagem">
+    <input class="button_action" type="reset" value="REDEFINIR" title="Desseleciona o arquivo">
     <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">    
     <div id="bar"><div id="ocilator"></div></div>     
     

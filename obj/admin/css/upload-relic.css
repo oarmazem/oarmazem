@@ -1,22 +1,16 @@
 @charset "UTF-8";
 
-@import "main-form.css";
+@import "main.css";
 @import "upload-images.css";
 @import "ocilator.css";
 
 /*------------------------------------------------------------------------------------------------
-                             Estiliza o formulario complete.php
+                                 Estiliza upload-relic.php
 ------------------------------------------------------------------------------------------------*/
-#uploads fieldset {
-  padding: 0.4rem;
+#cod {
+  color: grey;
 }
 
-@media only screen and (min-width: 800px) {
-  #uploads {
-    float: right;
-  }
-
-  .button_action {
-    clear: right;
-  }
+#goto_search_page {
+  background-color: rgb(106, 212, 212);
 }

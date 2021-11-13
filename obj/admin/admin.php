@@ -31,10 +31,11 @@ if (!adminPasswordOk()) header('Location: index.php');
   <nav>
     <h2>Selecione uma das opções</h2>
     <ul>
-    <li><a href="complete.php">Cadastro de Relíquias</a></li>
-    <li><a href="search.php?target=delete">Excluir Relíquias</a></li> 
-    <li><a href="search.php?target=update">Atualização de Dados de Relíquias</a></li>
-    <li><a href="search.php?target=upload">Upload de Imagens de Relíquias</a></li>
+    <li><a href="register-relic.php">Cadastro de Relíquias</a></li>
+    <li><a href="search.php?target=del-relic">Excluir Relíquias</a></li> 
+    <li><a href="search.php?target=update-relic">Atualização de Dados de Relíquias</a></li>
+    <li><a href="search.php?target=upload-relic">Upload de Imagens de Relíquias</a></li>
+    <li><a href="register-cof.php">Cadastro de Itens do Cardápio</a></li>
     <li><a href="preview.php">Prévia de Imagem</a></li>
     </ul>
   </nav>

@@ -21,17 +21,18 @@ function resizeImage(string $source, string $target): bool {
   // Dimensao original da imagem
   list($width, $height) = $size;
 
-  $newWidth;
-  $newHeight;
-
   //O recorte eh feito mantendo-se o tamanho da menor dimensao : largura ou altura
   if ($width > $height) {
+
     $newWidth = intdiv($height * 7, 8);
     $newHeight = $height;
+
   }
   else {
+
     $newWidth = $width;
     $newHeight = intdiv($width * 8, 7);
+
   }
 
   //Recorte tirado do centro da imagem original
@@ -55,7 +56,7 @@ function resizeImage(string $source, string $target): bool {
     Esta funcao eh utilizada por saveResizedImages() para nomear os arquivos com imagens dos
     artigos a venda no antiquario.
 -----------------------------------------------------------------------------------------------*/
-function resizedFilename(int $cod, int $index): string {
+function resizedFilename(string $cod, int $index): string {
 
   $start = -1;
   $i = $index;
@@ -72,7 +73,7 @@ function resizedFilename(int $cod, int $index): string {
 /*[03]-------------------------------------------------------------------------------------------
                                   Salva imagem de artigo
 -----------------------------------------------------------------------------------------------*/
-function saveResizedImages(int $cod): int {
+function saveResizedImages(string $cod): int {
 
   $countImagesResizeds = 0;
 
@@ -88,7 +89,8 @@ function saveResizedImages(int $cod): int {
     echoMsg("$filename excede limite de " . MAX_FILE_SIZE . ' bytes para upload.', CSS_ERR);
     echoMsg("Falha no upload de $filename", CSS_ERR);
 
-  }elseif (resizeImage($tmpName, resizedFilename($cod, $countImagesResizeds))) {
+  }
+  elseif (resizeImage($tmpName, resizedFilename($cod, $countImagesResizeds))) {
 
     $countImagesResizeds++;
 
@@ -138,7 +140,7 @@ function saveResizedImages(int $cod): int {
 /*[04]-------------------------------------------------------------------------------------------
                              Salva mais imagens de um artigo
 -----------------------------------------------------------------------------------------------*/
-function saveMoreResizedImages(int $cod, int $countImagesResizeds): int {
+function saveMoreResizedImages(string $cod, int $countImagesResizeds): int {
  
   set_time_limit(0);
  
@@ -215,7 +217,7 @@ function saveMoreResizedImages(int $cod, int $countImagesResizeds): int {
   /*[06]------------------------------------------------------------------------------------------
     Retorna um array com todos os pathnames dos arquivos de imagem de um artigo com codigo $cod
   -----------------------------------------------------------------------------------------------*/
-  function getFilesFromCode(int $cod) : array {
+  function getImagesFromCode(string $cod) : array {
 
     $files = scandir(RESIZE_DIR);
 
@@ -229,7 +231,7 @@ function saveMoreResizedImages(int $cod, int $countImagesResizeds): int {
 
       $prefix = substr($filename, 0, $pos);
 
-      if ($prefix == $cod) $pathnames[] = RESIZE_DIR . $filename;
+      if ($prefix === $cod) $pathnames[] = RESIZE_DIR . $filename;
 
     }
 
@@ -237,12 +239,12 @@ function saveMoreResizedImages(int $cod, int $countImagesResizeds): int {
 
     return $pathnames;
 
-  }//getFilesFromCode()
+  }//getImagesFromCode()
 
   /*[07]------------------------------------------------------------------------------------------
                Retorna o pathname do arquivo de imagem principal de uma reliquia
   -----------------------------------------------------------------------------------------------*/
-  function getMainFilename(int $cod) : string {
+  function getMainImageFromCode(string $cod) : string {
 
     $pathname = resizedFilename($cod, 0);
 
@@ -250,6 +252,6 @@ function saveMoreResizedImages(int $cod, int $countImagesResizeds): int {
 
     return $pathname;
 
-  }//getMainFilename()
+  }//getMainImageFromCode()
 
 ?>

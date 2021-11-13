@@ -19,7 +19,7 @@ try {
    
     if (isset($_POST['delete'])) {
 
-      $update->delete($cod);
+      $update->deleteRow($cod);
 
       header('Location: search.php');
 
@@ -37,7 +37,7 @@ try {
 catch (PDOException $e) {
 
   echoMsg($e->getMessage());
-  echo "<a href=\"search.php?target=update\">Voltar</a>";
+  echo "<a href=\"search.php?target=update-relic\">Voltar</a>";
   exit(1);  
 
 }
@@ -51,7 +51,7 @@ catch (PDOException $e) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/update.css" rel="stylesheet">
+  <link href="css/update-relic.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
   <title>Atualiza Artigo</title>
 </head>
@@ -59,7 +59,7 @@ catch (PDOException $e) {
 <body>
   <h2>Atualize os Dados</h2>
 
-  <form method="POST" action="update.php" onsubmit="return validate_cpf()">
+  <form method="POST" action="update-relic.php" onsubmit="return validate_cpf()">
 
     <fieldset><!--Formulario-->  
 
@@ -88,7 +88,7 @@ catch (PDOException $e) {
 
       <div class="input_field">           
         <label for="cod"><b>*Cód.:</b></label>
-        <input type-="text" name="cod" id="cod" size="5" title="O código do artigo<?php echo INTEGER_REGEXP; ?>" value="<?php echo $update->cod; ?>" readonly required>
+        <input type-="text" name="cod" id="cod" size="5" title="O código da relíquia" value="<?php echo $update->cod; ?>" readonly required>
       </div>
 
       <div class="input_field">       
@@ -201,7 +201,7 @@ catch (PDOException $e) {
 
     <input class="button_action" type="submit" name="update" value="ATUALIZAR" title="Clique para atualizar os dados">
     <input class="button_action" type="reset" value="REDEFINIR" title="Redefine dados do formuláro para os valores iniciais">
-    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Atualiza os dados de outro artigo" onclick="gotoSearchPage('update')">
+    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Atualiza os dados de outro artigo" onclick="gotoSearchPage('update-relic')">
     <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
     <div id="bar"><div id="ocilator"></div></div>  
     <input type="checkbox" name="delete" id="delete" title="Marque para excluir registro" onclick="del()">
@@ -221,7 +221,7 @@ catch (PDOException $e) {
 
     if (isset($_POST['update'])) { echoMsg('Cadastro atualizado com sucesso!'); }//if 
 
-    echo '<img style="margin: 0.5vw; width: 6vw; height: auto;" src="' . getMainFilename((int)$cod) . '">';   
+    echo '<img style="margin: 0.5vw; width: 6vw; height: auto;" src="' . getMainImageFromCode($cod) . '">';   
 
     ?>
 

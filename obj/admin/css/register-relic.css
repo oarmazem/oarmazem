@@ -1,22 +1,22 @@
 @charset "UTF-8";
 
 @import "main-form.css";
+@import "upload-images.css";
 @import "ocilator.css";
 
 /*------------------------------------------------------------------------------------------------
-                                    Estiliza update.php
+                             Estiliza o formulario register-relic.php
 ------------------------------------------------------------------------------------------------*/
-#cod {
-  color: grey;
+#uploads fieldset {
+  padding: 0.4rem;
 }
 
-#delete {
-  width: 10rem;
-  height: 4rem;
-  margin: 0.6rem 0 0.1rem 0;
-  float: right;
-}
+@media only screen and (min-width: 800px) {
+  #uploads {
+    float: right;
+  }
 
-#goto_search_page {
-  background-color: rgb(106, 212, 212);
+  .button_action {
+    clear: right;
+  }
 }

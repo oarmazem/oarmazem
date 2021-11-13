@@ -17,7 +17,7 @@ try {
 
   if (isset($_POST['delete'])) {
    
-    $delete->delete($cod);
+    $delete->deleteRow($cod);
 
     $cod++;
 
@@ -29,7 +29,7 @@ try {
 catch (PDOException $e) {
 
   echoMsg($e->getMessage());
-  echo "<a href=\"search.php?target=delete\">Voltar</a>";
+  echo "<a href=\"search.php?target=del-relic\">Voltar</a>";
   exit(1);  
 
 }
@@ -43,15 +43,15 @@ catch (PDOException $e) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/delete.css" rel="stylesheet">
+  <link href="css/del-relic.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
-  <title>Excluir Artigo</title>
+  <title>Excluir Relíquia</title>
 </head>
 
 <body>
   <h2>Excluir</h2>
 
-  <form method="POST" action="delete.php">
+  <form method="POST" action="del-relic.php">
 
     <fieldset><!--Formulario-->  
 
@@ -191,8 +191,8 @@ catch (PDOException $e) {
         
     </fieldset><!--Formulario-->
 
-    <input class="button_action" type="submit" id="delete" name="delete" value="EXCLUIR" title="Clique para excluir o artigo">
-    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Buscar outro artigo" onclick="gotoSearchPage('delete')">
+    <input class="button_action" type="submit" id="delete" name="delete" value="EXCLUIR" title="Clique para excluir a relíquia">
+    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Buscar outra relíquia" onclick="gotoSearchPage('del-relic')">
     <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
   
   </form>
@@ -204,7 +204,7 @@ catch (PDOException $e) {
 
     <?php
 
-    echo '<img style="margin: 0.5vw; width: 6vw; height: auto;" src="' . getMainFilename((int)$cod) . '">';   
+    echo '<img style="margin: 0.5vw; width: 6vw; height: auto;" src="' . getMainImageFromCode($cod) . '">';   
 
     ?>
 

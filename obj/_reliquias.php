@@ -6,8 +6,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-	<meta name="googlebot" content="noindex, nofollow">
   <link href="css/reliquias.css" rel="stylesheet">
 
 </head>
@@ -26,7 +24,7 @@ require_once 'php/mysql.inc.php';
 require_once 'php/images-tools.inc.php';
 require_once 'php/relics-tools.inc.php';
 
-if (isset($_GET['type'])) $type = $_GET['type']; else exit(1);
+if (isset($_GET['type'])) $type = $_GET['type']; else header('Location: 403.html'); 
 
 try {
 
@@ -35,7 +33,7 @@ try {
 }
 catch (PDOException $e) {
 
-  echoMsg($e->getMessage());
+  echoMsg($e->getMessage()); 
 
 }
 
@@ -47,7 +45,7 @@ catch (PDOException $e) {
 
 <script src="js/gethtml.js"></script>
 <script src="js/main.js"></script>
-<script>initialize("_reliquias.php<?php echo "?type=$type" ?>");</script>
+<script>initialize("_reliquias.php?type=<?php echo $type ?>");</script>
 
 
 </body>

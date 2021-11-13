@@ -1,25 +1,20 @@
 @charset "UTF-8";
 
 @import "main-form.css";
+@import "ocilator.css";
 
 /*------------------------------------------------------------------------------------------------
-                                    Estiliza delete.php
+                                    Estiliza update-relic.php
 ------------------------------------------------------------------------------------------------*/
-input, textarea, select {
+#cod {
   color: grey;
 }
 
-input#cod {
-  color: red;
-  font-weight: bold;
-}
-
-.button_action {
-  color: black;
-}
-
 #delete {
-  background-color: red;
+  width: 10rem;
+  height: 4rem;
+  margin: 0.6rem 0 0.1rem 0;
+  float: right;
 }
 
 #goto_search_page {
