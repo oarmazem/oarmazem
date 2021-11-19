@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+/*================================================================================================
+                      main.css importa colors.css fonts.css e languages.css
+=================================================================================================*/
+@import "main.css";
+
+/*================================================================================================
+                                  Personaliza o cursor do mouse
+=================================================================================================*/
+body { 
+  cursor: url('../images/cursor2.png'), auto; 
+}
+
+/*================================================================================================
+                       Estiliza titulos de tipos de itens de cardapio  
+=================================================================================================*/
+main h1 {
+  clear: left;
+  margin-Bottom: 2vh;
+  padding-top: 0.2em;
+  text-align: center;
+  border: solid 1px var(--red-a-color);
+  color: var(--red-a-color);
+}
+
+/*================================================================================================
+                 Estiliza o container da foto de uma relíquia e de seus dados
+=================================================================================================*/
+figure {
+  float: left;
+  margin: 0;
+  width: 19rem;
+  height: 30rem;
+}
+
+img {
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0.4rem;
+}
+
+figcaption {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figcaption p {
+  line-height: 1.2rem;
+}

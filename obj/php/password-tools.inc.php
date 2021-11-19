@@ -5,26 +5,11 @@
 *-----------------------------------------------------------------------------------------------*/
 function getAdminPassword() : string {
 
-  try {
+  $result = sqlSelect('SELECT pass FROM authentic WHERE TRUE'); 
     
-    return getFirstFieldFounded('pass', 'authentic', 'TRUE');
+  if (count($result) === 0) throw new PDOException('Não há senha de acesso registrada no banco de dados!');
 
-  }
-  catch (PDOException $e) {
-
-    $errMsg = $e->getMessage();
-
-    if ($errMsg === EMPTY_QUERY_RESULT) 
-
-      echoMsg('Não há senha registrada no banco de dados!');
-
-    else
-
-      echoMsg($errMsg);  
-
-    exit(1);
-
-  }
+  return $result[0]['pass'];
 
 }//getAdminPassword()
 

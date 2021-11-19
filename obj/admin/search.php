@@ -4,7 +4,16 @@ require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
 require_once '../php/password-tools.inc.php';
 
-if (!adminPasswordOk()) header('Location: index.php'); 
+try {
+
+  if (!adminPasswordOk()) redirectTo('index.php');
+ 
+}
+catch (PDOException $e) {
+
+  kill($e->getMessage(), '', '<a href="admin.php">Voltar</a>');
+
+}
 
 ?>
 
@@ -48,8 +57,7 @@ if (!adminPasswordOk()) header('Location: index.php');
     }
     else { 
 
-      echoMsg('Erro. Seleção indefinida!'); 
-      exit(1);
+      redirectTo('../403.html');
 
     }  
 
@@ -71,4 +79,4 @@ if (!adminPasswordOk()) header('Location: index.php');
   <script src="js/main.js"></script>
   
 </body>
-</html>
+</html> 

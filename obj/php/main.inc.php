@@ -6,7 +6,9 @@ define('INTEGER_REGEXP', EXEMPLO . "12&#10;123&#10;1234\" pattern=\"\\s*\\d+\\s*
 
 define('CURRENCY_REGEXP', EXEMPLO . "12&#10;123&#10;123,45&#10;12345,67\" pattern=\"\\s*\\d+(,\\d{2})?\\s*");
 
-define('EMPTY_QUERY_RESULT', 'Consulta retornou 0 registros!');
+define('DECIMAL_REGEXP', EXEMPLO . "12&#10;123,4&#10;123,45&#10;12,345\" pattern=\"\\s*\\d+(,\\d{1,3})?\\s*");
+
+define('CPF_CNPJ_REGEXP', EXEMPLO . "&#10;001.002.003/12&#10;001.002.003-12&#10;01.002.003/0001-02&#10;01.002.003/0002-02\" pattern=\"\\s*((\\d{3}\\.\\d{3}\\.\\d{3}[/-]\\d{2})|(\\d{2}\\.\\d{3}\\.\\d{3}[/]000[01]-\\d{2}))\\s*");
 
 /*[01]--------------------------------------------------------------------------------------------
 *                              Escreve uma mensagem na pagina.
@@ -19,36 +21,8 @@ function echoMsg(
   echo '<br><p style="' . $css . '">' . $msg . '</p>';
 
 }//echoMsg()
-
-/*[02]--------------------------------------------------------------------------------------------
-*         Retorna o primeiro dado encontrado em uma consulta para um unico campo do BD            
-*-----------------------------------------------------------------------------------------------*/
-function getFirstFieldFounded(string $field, string $table, string $clause) : string {
-
-  try {
-    
-    $conn = connect();
-
-    //$field deve especificar apenas um campo do banco de dados
-    $stmt = $conn->prepare("SELECT $field FROM $table WHERE $clause");
-    $stmt->execute();
-
-    $result = $stmt->fetchAll(); 
-      
-    if (count($result) === 0) throw new PDOException(EMPTY_QUERY_RESULT);
-
-    return ($result[0][$field]);
-
-  }
-  finally {
-
-    $conn = null;
-
-  }
-
-}//getFirstFieldFounded()
  
-/*[03]--------------------------------------------------------------------------------------------
+/*[02]--------------------------------------------------------------------------------------------
 *          Retorna true se o campo eh string vazia ou so com espacos em branco
 *-----------------------------------------------------------------------------------------------*/
 function emptyField(string $field) : bool {
@@ -57,7 +31,7 @@ function emptyField(string $field) : bool {
 
 }//emptyField()
 
-/*[04]--------------------------------------------------------------------------------------------
+/*[03]--------------------------------------------------------------------------------------------
 *                                  Trunca uma string
 *-----------------------------------------------------------------------------------------------*/
 function trunc(string $str, int $length) : string {
@@ -68,7 +42,7 @@ function trunc(string $str, int $length) : string {
 
 }//trunc()
 
-/*[05]--------------------------------------------------------------------------------------------
+/*[04]--------------------------------------------------------------------------------------------
 *                                  Formata uma data
 *-----------------------------------------------------------------------------------------------*/
 function dateSqlToDateBr(string $date) : string {
@@ -79,7 +53,7 @@ function dateSqlToDateBr(string $date) : string {
 
 }//dateSqlToDateBr()
 
-/*[06]--------------------------------------------------------------------------------------------
+/*[05]--------------------------------------------------------------------------------------------
 *                                  Formata uma data
 *-----------------------------------------------------------------------------------------------*/
 function datetimeSqlToDatetimeBr(string $datetime) : string {
@@ -89,5 +63,36 @@ function datetimeSqlToDatetimeBr(string $datetime) : string {
   return (dateSqlToDateBr(substr($datetime, 0, 10)) . substr($datetime, 10, 9));
 
 }//datetimeSqlToDatetimeBr()
+
+/*[06]--------------------------------------------------------------------------------------------
+*                     Encerra um script com msg de erro e tags de fechamento
+*-----------------------------------------------------------------------------------------------*/
+function kill(
+  string $errMsg,
+  string $extraMsg = '', 
+  string $html = '', 
+  string $openTags = '<html><body>',
+  string $closeTags = '</body></html>'
+) {
+
+  if (!empty($openTags)) echo "$openTags\n";
+  echo echoMsg($errMsg) . "\n";
+  if (!empty($extraMsg)) echo echoMsg($extraMsg) . "\n";
+  if (!empty($html)) echo "$html\n";
+  if (!empty($closeTags)) echo "$closeTags";
+
+  exit(1);
+
+}//kill()
+
+/*[07]--------------------------------------------------------------------------------------------
+*           Aborta o script que chamou o metodo de redireciona a pagina indicada
+*-----------------------------------------------------------------------------------------------*/
+function redirectTo(string $url) {
+
+  header("Location: $url");
+  exit(0);
+
+}//redirect()
 
 ?>

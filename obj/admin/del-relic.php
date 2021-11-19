@@ -7,9 +7,9 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/relics-tools.inc.php';
 
-if (!adminPasswordOk() || !isset($_POST['cod'])) header('Location: index.php'); 
-
 try {
+
+  if (!adminPasswordOk() || !isset($_POST['cod'])) redirectTo('index.php');   
 
   $cod = $_POST['cod'];
 
@@ -28,9 +28,7 @@ try {
 }
 catch (PDOException $e) {
 
-  echoMsg($e->getMessage());
-  echo "<a href=\"search.php?target=del-relic\">Voltar</a>";
-  exit(1);  
+  kill($e->getMessage(), '', '<a href="search.php?target=del-relic">Voltar</a>');
 
 }
 
@@ -67,7 +65,7 @@ catch (PDOException $e) {
           <option value="7" <?php echo $delete->arrayTipo[6]; ?>>07 - Brinquedos</option>
           <option value="8" <?php echo $delete->arrayTipo[7]; ?>>08 - Vestuário e adereços</option>   
           <option value="9" <?php echo $delete->arrayTipo[8]; ?>>09 - Máquinas, aparelhos, equipamentos</option>
-          <option value="10" <?php echo $delete->arrayTipo[9]; ?>>10 - Estranhos</option>
+          <option value="10" <?php echo $delete->arrayTipo[9]; ?>>10 - Curiosidades</option>
           <option value="11" <?php echo $delete->arrayTipo[10]; ?>>11 - Só pra ver</option>
           <option value="12" <?php echo $delete->arrayTipo[11]; ?>>12 - Mais relíquias...</option>
         </select>

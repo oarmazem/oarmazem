@@ -4,7 +4,16 @@ require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
 require_once '../php/password-tools.inc.php';
 
-if (adminPasswordOk()) header('Location: admin.php'); 
+try {
+
+  if (adminPasswordOk()) redirectTo('admin.php'); 
+
+}
+catch (PDOException $e) {
+
+  kill($e->getMessage());
+
+}
 
 $title = '<h2>Autenticação requerida.</h2>';
 
@@ -18,7 +27,7 @@ if (isset($_POST['pass'])) {
 
     setcookie('login_armazem', $pass);
 
-    header('Location: admin.php');
+    redirectTo('admin.php'); 
 
   }
 

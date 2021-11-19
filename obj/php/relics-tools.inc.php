@@ -1,41 +1,32 @@
 <?php declare(strict_types=1);
 
-define('DECIMAL_REGEXP', EXEMPLO . "12&#10;123,4&#10;123,45&#10;12,345\" pattern=\"\\s*\\d+(,\\d{1,3})?\\s*");
-
-define('CPF_CNPJ_REGEXP', EXEMPLO . "&#10;001.002.003/12&#10;001.002.003-12&#10;01.002.003/0001-02&#10;01.002.003/0002-02\" pattern=\"\\s*((\\d{3}\\.\\d{3}\\.\\d{3}[/-]\\d{2})|(\\d{2}\\.\\d{3}\\.\\d{3}[/]000[01]-\\d{2}))\\s*");
-
 /*[01]---------------------------------------------------------------------------------------------
              Lista reliquias de um determinado tipo e nao vendidas em uma pagina
 ------------------------------------------------------------------------------------------------*/
 function listRelics(string $type) {
 
-  $conn = connect();
-
-  $stmt = $conn->prepare("SELECT id, product_data, price FROM relics WHERE (typ = $type AND vendido = 0)");
-
-  $stmt->execute();
-
-  $result = $stmt->fetchAll(); 
+  $result = sqlSelect("SELECT id, product_data, price FROM relics WHERE (typ = $type AND vendido = 0)");
 
   $numberOfLines = count($result); 
 
-  if ($numberOfLines === 0) throw new PDOException("Nenhum artigo ainda nesta seção!");
+  if ($numberOfLines === 0) throw new PDOException("Nenhuma relíquia ainda nesta seção!");
 
   for ($i = 0; $i < $numberOfLines; $i++) {
 
     $cod = $result[$i]['id']; $nome = $result[$i]['product_data']; 
-    $preco = $result[$i]['price']; $preco = number_format((float)$preco, 2, ',', '.');
-
+    $price = $result[$i]['price'];
+    if ($type === '11') $price = ''; else $price = "R$ " . number_format((float)$price, 2, ',', '.');
+   
     $pathname = getMainImageFromCode($cod);
 
     echo 
     "<figure id=\"$cod\">\n" . 
-      "\t<a href=\"show-relic.php?type=$type&cod=$cod\">\n" .
+      "\t<a href=\"show-details.php?table=relics&type=$type&cod=$cod\">\n" .
         "\t\t<img src=\"$pathname\" title=\"cód.:$cod\" alt=\"$cod\">\n" . 
       "\t</a>\n" .
       "\t<figcaption>\n" .
         "\t\t<p>$nome</p><br>\n" . 
-        "\t\t<p>R$ $preco</p>\n" .
+        "\t\t<p>$price</p>\n" .
       "\t</figcaption>\n" . 
     "</figure>\n\n";
 
@@ -59,10 +50,10 @@ class RelicsTableHandler {
   "INSERT INTO relics (" . 
   " typ, product_data, id, qt, mat, purchase_date, purchase_price, price, purchase_nfe, purchase_nfe_serie," . 
   " vendido, sale_nfe, sale_nfe_serie, sale_date, dim_alt, dim_larg, dim_prof, dim_comp, dim_dia," . 
-  " dimension_unity, vendor_name, vendor_id, vendor_locality, product_desc, next_img_index)" . 
+  " dimension_unity, vendor_name, vendor_id, vendor_locality, product_desc)" . 
   " VALUES(:tipo, :nome, :cod, :qtd, :mat, :dataCompra, :custo, :venda, :nfeCompra, :nfeCompraSerie," . 
   " :situacao, :nfeVenda, :nfeVendaSerie, :dataVenda, :alt, :larg, :prof, :comp, :dia, :unity," . 
-  " :fornecedorNome, :cpfCnpj, :local, :desc, :nextImgIndex )"
+  " :fornecedorNome, :cpfCnpj, :local, :desc )"
 
   ];  
 
@@ -98,7 +89,6 @@ class RelicsTableHandler {
   public $cpfCnpj;
   public $local;
   public $desc;
-  public $nextImgIndex;
 
   public $arrayTipo = ['', '', '', '', '', '', '', '', '', '', '', ''];
 
@@ -209,9 +199,6 @@ class RelicsTableHandler {
     $stmt->bindParam(':local', $this->local, PDO::PARAM_STR);
     $stmt->bindParam(':desc', $this->desc, PDO::PARAM_STR);
 
-    //No UPDATE este campo nao eh atualizado. Por isso eh verficado se faz parte da instrucao SQL 
-    if ($this->mode === self::INSERTINTO) $stmt->bindParam(':nextImgIndex', $this->nextImgIndex, PDO::PARAM_STR); 
-
     $stmt->execute();
 
   }//writeOnDatabase()
@@ -221,13 +208,9 @@ class RelicsTableHandler {
   *-----------------------------------------------------------------------------------------------*/
   private function getColumns(string $columns, string $cod) : array {
 
-    $stmt = $this->conn->prepare("SELECT $columns FROM relics WHERE id = $cod");
+    $result = sqlSelect("SELECT $columns FROM relics WHERE id = $cod", $this->conn);
 
-    $stmt->execute();
-
-    $result = $stmt->fetchAll(); 
-
-    if (count($result) === 0) throw new PDOException("Não foi encontrado artigo com código $cod!");
+    if (count($result) === 0) throw new PDOException("Não foi encontrada relíquia com código $cod !");
 
     return $result[0];
 
@@ -238,11 +221,7 @@ class RelicsTableHandler {
   *-----------------------------------------------------------------------------------------------*/
   public function existRow(string $cod) : bool {
 
-    $stmt = $this->conn->prepare("SELECT id FROM relics WHERE id = $cod");
-
-    $stmt->execute();
-
-    $result = $stmt->fetchAll(); 
+    $result = sqlSelect("SELECT id FROM relics WHERE id = $cod", $this->conn);
 
     return (count($result) !== 0);
 
@@ -287,46 +266,8 @@ class RelicsTableHandler {
     foreach ($this->arrayUnd as $k => $v) { if ($k == $this->unity) $this->arrayUnd[$k] = "selected"; }
 
   }//readDatabase()
-
-  /*[08]--------------------------------------------------------------------------------------------
-  *          Obtem o campo next_img_index da tabela relics na linha com id = $cod
-  *-----------------------------------------------------------------------------------------------*/ 
-  public function getNextImgIndex(string $cod) : int {
-
-    $line = $this->getColumns('next_img_index', $cod);
-
-    return ((int)($line['next_img_index']));
-
-  }//getNextImgIndex()
-
-  /*[09]--------------------------------------------------------------------------------------------
-  *          Seta o campo next_img_index da tabela relics na linha com id = $cod
-  *-----------------------------------------------------------------------------------------------*/ 
-  public function setNextImgIndex(int $nextIndex, string $cod) {
-
-    $stmt = $this->conn->prepare("UPDATE relics SET next_img_index = $nextIndex WHERE id = $cod");
-    $stmt->execute();
-
-  }//setNextImgIndex()
-
-  /*[10]--------------------------------------------------------------------------------------------
-  *               Deleta arquivos de imagem associados a uma reliquia de id = $cod
-  *-----------------------------------------------------------------------------------------------*/ 
-  public function deleteImagesFromCode(string $cod) {
-
-    $pathnames = getImagesFromCode($cod);
-
-    if (basename($pathnames[0]) === "qmark.png") return;
-
-    foreach($pathnames as $pathname) {
-
-      if (!unlink($pathname)) echoMsg("Falha ao excluir " . basename($pathname));   
-
-    }
-
-  }//deleteImagesFromCode()
     
-  /*[11]--------------------------------------------------------------------------------------------
+  /*[08]--------------------------------------------------------------------------------------------
   *          Deleta um registro da tabela relics e seus arquivos de imagem associados
   *-----------------------------------------------------------------------------------------------*/ 
   public function deleteRow(string $cod) {
@@ -335,11 +276,11 @@ class RelicsTableHandler {
 
     $stmt->execute();
 
-    $this->deleteImagesFromCode($cod);
+    deleteImagesFromCode($cod);
 
   }//deleteRow()
 
-  /*[12]--------------------------------------------------------------------------------------------
+  /*[09]--------------------------------------------------------------------------------------------
   *                                  Escreve os dados do objeto
   *-----------------------------------------------------------------------------------------------*/   
   public function __toString() {

@@ -6,19 +6,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/reliquias.css" rel="stylesheet">
+  <link href="css/main.css" rel="stylesheet">
 
   <style>
 
+    body { cursor: url('images/cursor6.png'), auto; }
+
     h1 { margin: 5vh 0 3vh 0; }
 
-    #main { width: 40%; margin: 0 0 2vh 0; float: left; transition: 0.8s; padding: 0; }
+    #main { width: 40%; margin: 0 0 2vh 0; float: left; transition: 0.8s; }
 
     #main:hover { width: 60%; cursor: zoom-in; }
 
     #main img { border: solid 5px green; width: 95%; margin-right: 5%; }
 
-    #aside { width: 40%; overflow: auto;}
+    #aside { width: 40%; overflow: auto; }
 
     .thumb { 
       width: 18%;
@@ -29,7 +31,9 @@
    
     .thumb:hover { cursor: pointer; }
 
-    #desc { margin: 0 0 3vh 0; width: 40%; position: relative; float: left; overflow: hidden; }
+    #desc { margin: 0 0 3vh 0; width: 40%; position: relative; float: left; }
+
+    #desc img { position: absolute; width: 6%; top: -2%; left: 47%; }
 
     #back {
       clear: left;
@@ -37,8 +41,9 @@
       width: 8%;
       margin-left: auto;
       margin-right: auto;
-      margin-bottom: 5vh;
     }
+
+    #back img { width: 80%; }
 
   </style>
 
@@ -56,20 +61,25 @@ require_once 'php/paths.inc.php';
 require_once 'php/main.inc.php';
 require_once 'php/mysql.inc.php';
 require_once 'php/images-tools.inc.php';
-require_once 'php/relics-tools.inc.php';
 
 if (isset($_GET['cod'])) {
   
-  $type = $_GET['type']; $cod = $_GET['cod'];
+  $table = $_GET['table']; $type = $_GET['type']; $cod = $_GET['cod'];
+
+  if ($table === 'relics') $return = "_reliquias.php?type=$type#$cod"; else $return = "cafes.php#$cod";
 
 }
-else header('Location: 403.html'); 
+else { 
+
+  redirectTo('403.html');
+  
+}
 
 try {
 
   $conn = connect();
 
-  $stmt = $conn->prepare("SELECT product_data, price, product_desc FROM relics WHERE id = $cod");
+  $stmt = $conn->prepare("SELECT product_data, price, product_desc FROM $table WHERE id = $cod");
 
   $stmt->execute();
 
@@ -77,26 +87,31 @@ try {
 
   $numberOfLines = count($result); 
 
-  if ($numberOfLines === 0) throw new PDOException("Relíquia não localizada!");
+  if ($numberOfLines === 0) throw new PDOException("Item não localizado!");
 
 }
 catch (PDOException $e) {
 
-  echoMsg($e->getMessage());
-  echoMsg('Falha ao consultar banco de dados!');
-  echo "<a id=\"back\" href=\"_reliquias.php?type=$type#$cod\"><img src=\"images/back.png\" alt=\"Voltar\"></a>";
-  echo "</main></body></html>";
-  exit(1);
+  kill(
+    $e->getMessage(),
+    'Falha ao consultar banco de dados!',
+    "<a id=\"back\" href=\"$return\"><img src=\"images/back.png\" alt=\"Voltar\"></a>",
+    '',
+    '</main></body></html>'
+  );
 
 }
 
 $nome = $result[0]['product_data'];
-$price = $result[0]['price'];
+$price = $result[0]['price']; 
+if (($table === 'relics') && ($type === '11')) $price = ''; else $price = "- R$ " . number_format((float)$price, 2, ',', '.');
 $desc = $result[0]['product_desc'];
 
-echo "<h1>$nome - R$ " . number_format($price, 2, ',', '.') . "</h1>";
+echo "<h1>$nome $price" . "</h1>";
 
-$photos = getImagesFromCode($cod);
+if ($table === 'relics') $realCode = $cod; else $realCode = 'c' . $cod;
+
+$photos = getImagesFromCode($realCode);
 
 echo 
 "\n\n<div id=\"main\">\n" . 
@@ -118,15 +133,18 @@ for ($i = 0; $i < $numberOfPhotos; $i++) {
 echo "</div>\n\n";
 
 echo 
-"<div id=\"desc\" class=\"box-attachment\">\n" . 
+"<div id=\"desc\">\n" . 
   "\t<div class=\"postit yellow-postit\">" . "<p>$desc</p>" . "</div>\n" .
+  "\t<img src=\"images/pins/center-black-pin.png\">\n" .
 "</div>\n\n";
 
-echo "<a id=\"back\" href=\"_reliquias.php?type=$type#$cod\"><img src=\"images/back.png\" alt=\"Voltar\"></a>";
+echo "<a id=\"back\" href=\"$return\"><img src=\"images/back.png\" alt=\"Voltar\"></a>";
 
 ?>
 
 </main>
+
+<img id="chest" src="images/chest.png" onclick="nav('_reliquias.php?type=11')"> 
 
 <footer></footer>
 
@@ -134,7 +152,7 @@ echo "<a id=\"back\" href=\"_reliquias.php?type=$type#$cod\"><img src=\"images/b
 <script src="js/main.js"></script>
 <script>
 
-  initialize("show-relic.php");
+  initialize("show-details.php");
 
   function unThumb(pathname) { 
 

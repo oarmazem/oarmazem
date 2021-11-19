@@ -22,15 +22,7 @@ function getHeader() {
   <nav id="menu">
     <ul class="br" lang="pt-br">
       <li onclick="nav('index.html')">INÍCIO</li>
-      <li class="submenu">
-        O CAFÉ
-        <ul>
-          <li onclick="nav('cafe.html')">Tortas</li>
-          <li onclick="nav('cafe.html')">Bolos</li>
-          <li onclick="nav('cafe.html')">Cafés</li>
-          <li onclick="nav('cafe.html')">Presuntos</li>
-        </ul>
-      </li>
+      <li onclick="nav('cafes.php')">O CAFÉ</li>
       <li class="submenu">
         AS RELÍQUIAS
         <ul>
@@ -53,15 +45,7 @@ function getHeader() {
   
     <ul class="en" lang="en-us">
       <li onclick="nav('index.html')">HOME</li>
-      <li class="submenu">
-        COFFEE
-        <ul>
-          <li onclick="nav('cafe.html')">Pies</li>
-          <li onclick="nav('cafe.html')">Cakes</li>
-          <li onclick="nav('cafe.html')">Coffees</li>
-          <li onclick="nav('cafe.html')">Ham</li>
-        </ul>        
-      </li>
+      <li onclick="nav('cafes.php')">COFFEE</li>
       <li class="submenu">
         RELICS
         <ul>
@@ -84,15 +68,7 @@ function getHeader() {
 
     <ul class="es" lang="es-es">
       <li onclick="nav('index.html')">INICIO</li>
-      <li class="submenu">
-        EL CAFÉ
-        <ul>
-          <li onclick="nav('cafe.html')">Tartas</li>
-          <li onclick="nav('cafe.html')">Pastelería</li>
-          <li onclick="nav('cafe.html')">Cafés</li>
-          <li onclick="nav('cafe.html')">Jamones</li>
-        </ul>        
-      </li>
+      <li onclick="nav('cafes.php')">EL CAFÉ</li>
       <li class="submenu">
         LAS RELIQUIAS
         <ul>
@@ -115,15 +91,7 @@ function getHeader() {
 
     <ul class="fr" lang="fr-fr">
       <li onclick="nav('index.html')">HOME</li>
-      <li class="submenu">
-        LE CAFE
-        <ul>
-          <li onclick="nav('cafe.html')">Tartes</li>
-          <li onclick="nav('cafe.html')">Gâteaux</li>
-          <li onclick="nav('cafe.html')">Cafés</li>
-          <li onclick="nav('cafe.html')">Hams</li>
-        </ul>        
-      </li>
+      <li onclick="nav('cafes.php')">LE CAFE</li>
       <li class="submenu">
         LE RELIEF
         <ul>

@@ -7,7 +7,16 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/relics-tools.inc.php';
 
-if (!adminPasswordOk()) header('Location: index.php'); 
+try {
+
+  if (!adminPasswordOk()) redirectTo('index.php');   
+
+}
+catch (PDOException $e) {
+
+  kill($e->getMessage(), '', '<a href="admin.php">Voltar</a>');
+
+}
 
 ?>
 
@@ -20,7 +29,7 @@ if (!adminPasswordOk()) header('Location: index.php');
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/register-relic.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
-  <title>Cadastro Artigo</title>
+  <title>Cadastro de Relíquia</title>
 </head>
 
 <body>
@@ -59,8 +68,8 @@ if (!adminPasswordOk()) header('Location: index.php');
 
       <div class="input_field">
         <label for="tipo"><b>*Tipo:</b></label>
-        <select name="tipo" id="tipo" title="O tipo do artigo" required>
-          <option value="">Selecione o tipo do artigo</option>
+        <select name="tipo" id="tipo" title="O tipo de relíquia" required>
+          <option value="">Selecione o tipo da relíquia</option>
           <optgroup label="Para casa">
             <option value="1">01 - Louças e porcelanas</option>
             <option value="2">02 - Jarras, copos e taças</option>
@@ -80,8 +89,8 @@ if (!adminPasswordOk()) header('Location: index.php');
           <optgroup label="Viagem no tempo">    
             <option value="9">09 - Máquinas, aparelhos, equipamentos</option>
           </optgroup>
-          <optgroup label="Curiosidades">
-            <option value="10">10 - Estranhos</option>
+          <optgroup label="Peculiaridades">
+            <option value="10">10 - Curiosidades</option>
             <option value="11">11 - Só pra ver</option>
           </optgroup>
           <option value="12">12 - Mais relíquias...</option>
@@ -90,12 +99,12 @@ if (!adminPasswordOk()) header('Location: index.php');
 
       <div class="input_field"> 
         <label for="nome"><b>*Nome:</b></label>
-        <input type="text" name="nome" id="nome" size="50" maxlength="120" placeholder="O nome do artigo que deve ser exibido no site" title="O nome do artigo" required>
+        <input type="text" name="nome" id="nome" size="50" maxlength="120" placeholder="O nome da relíquia que deve ser exibido no site" title="O nome da relíquia" required>
       </div>
 
       <div class="input_field">           
         <label for="cod"><b>*Cód.:</b></label>
-        <input type-="text" name="cod" id="cod" size="5" placeholder="Numérico" title="O código do artigo<?php echo INTEGER_REGEXP; ?>" required>
+        <input type-="text" name="cod" id="cod" size="5" placeholder="Numérico" title="O código da relíquia<?php echo INTEGER_REGEXP; ?>" <?php if (isset($_POST['cod'])) { $cod=$_POST['cod'] + 1; echo "value=\"$cod\""; } ?> required>
       </div>
 
       <div class="input_field">       
@@ -132,7 +141,7 @@ if (!adminPasswordOk()) header('Location: index.php');
       
       <div class="input_field"> 
         <label for="situacao">Vendido:</label>         
-        <input type="checkbox" value="Vendido" name="situacao" id="situacao" title="Marque se já foi vendido"> 
+        <input type="checkbox" value="Vendido" name="situacao" id="situacao" title="Marque se já foi vendida"> 
         <label for="nfe_venda" class="danfe_venda">NFE(venda):</label>
         <input type="text" class="danfe_venda" name="nfe_venda" id="nfe_venda" size="5" title="DANFE-Venda<?php echo INTEGER_REGEXP; ?>" > 
         <label for="nfe_venda_serie" class="danfe_venda">Série:</label>
@@ -201,7 +210,7 @@ if (!adminPasswordOk()) header('Location: index.php');
 
       <div class="input_field">
         <label for="desc"><b>*Descrição:</b></label><br>
-        <textarea name="desc" id="desc" rows="8" cols="80" placeholder="Uma descrição do artigo que será exibida no site." title="Digite uma descrição para o artigo" required></textarea>
+        <textarea name="desc" id="desc" rows="8" cols="80" placeholder="Uma descrição da relíquia que será exibida no site." title="Digite uma descrição para a relíquia" required></textarea>
       </div>
       
       <div class="input_field"  id="uploads">
@@ -209,12 +218,12 @@ if (!adminPasswordOk()) header('Location: index.php');
           <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>">
           <label for="main_image"><b>*Imagem principal:</b></label>
           <br>
-          <input type="file" name="main_image" id="main_image" required>
+          <input type="file" name="main_image" id="main_image" title="A primeira imagem que será exibida para esta relíquia" required>
           <br><br>
                   
           <label for="more_images">Mais imagens:</label>
           <br>
-          <input type="file" name="more_images[]" id="more_images" multiple="multiple">
+          <input type="file" name="more_images[]" id="more_images" title="Estas outras imagens serão mostradas na descrição detalhada da relíquia" multiple="multiple">
         </fieldset><!--Uploads-->
       </div>
         
@@ -243,61 +252,41 @@ if (!adminPasswordOk()) header('Location: index.php');
       
       try {
 
-        if ($insert->existRow($cod)) {
+        if ($insert->existRow($cod)) throw new PDOException("Já existe relíquia com código $cod");
 
-          echoMsg("Já existe relíquia com código $cod !");
-          $insert->nextImgIndex = 0; 
+        $insert->writeOnDatabase();
 
-        }  
-        else {
-          
-          $insert->nextImgIndex = saveResizedImages($cod);
-
-        }//if-else   
+        $numOfSavedImages = saveResizedImages($cod);
 
       }
       catch (PDOException $e) {
 
-        echoMsg($e->getMessage());
-        echoMsg('Falha ao realizar cadastro. Erro ao consultar banco de dados!');
-        echo "</section></body></html>"; //fecha as tags abertas antes de abortar
-        exit(1);
+        kill(
+          $e->getMessage(),
+         'Falha ao realizar cadastro!',
+         '',
+         '',
+         '</section></body></html>'
+        );
 
       }//try-catch
 
-      if ($insert->nextImgIndex) {
-        
-        try {
+      echoMsg('Cadastro realizado com sucesso!');
+      
+      echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . getMainImageFromCode($cod) . '">';   
 
-          $insert->writeOnDatabase();
+      $insert->readDatabase($cod);//Le a tabela relics para obter a hora de registro
+      
+      echo $insert;
 
-        }
-        catch (PDOException $e) {
+      if ($numOfSavedImages === 0) {
 
-          $insert->deleteImagesFromCode($cod);
-          echoMsg($e->getMessage());
-          echoMsg('Falha ao realizar cadastro. Erro ao inserir registro no banco de dados!');
-          echo "</section></body></html>"; //fecha as tags abertas antes de abortar
-          exit(1);
-
-        }
-
-        echoMsg('Cadastro realizado com sucesso!');
-        
-        echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . getMainImageFromCode($cod) . '">';   
-
-        $insert->readDatabase($cod);//Le a tabela relics para obter a hora de registro
-        
-        echo $insert;
-
-      } 
-      else {
-
-        echoMsg('Falha ao realizar cadastro! Erro no upload de imagens.');
+        echoMsg('ATENÇÃO! Falhou o upload de todas as imagens e no momento não há imagens para esta relíquia.', CSS_ERR);
+        echoMsg('Utilize a opção <b>Upload de Imagens de Relíquias</b> do menu admnistrativo para cadastrar imagens desta relíquia.', CSS_ERR);
 
       }
 
-    }//if [formulario vazio]  
+    }//if (isset($_POST['cod']))
 
     ?>
 

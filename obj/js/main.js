@@ -32,7 +32,7 @@ Cores das secoes associadas as cores do letreiro
 //Os arquivos dos frames de cada secao do menu e as respectivas cores
 const SECTIONS_COLORS = {
   "index.html" : "#2C459C",
-  "cafe.html" :  "#EE3539" ,
+  "cafes.php" :  "#EE3539" ,
   "mapa.html" : "#F58637",
   "contato.html" : "#0FB99B",
   "_reliquias.php?type=1" : "#19B060",
@@ -47,7 +47,7 @@ const SECTIONS_COLORS = {
   "_reliquias.php?type=10" : "#19B060",
   "_reliquias.php?type=11" : "#19B060",
   "_reliquias.php?type=12" : "#19B060",
-  "show-relic.php" : "#19B060"
+  "show-details.php" : "#4F2C72"
 };
 
 //Referencia apontando para o objeto menu principal

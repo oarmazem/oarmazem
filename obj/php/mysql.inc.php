@@ -8,7 +8,6 @@ define('DB_NAME', '305936');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'eratostenes');
 
-
 /*[01]--------------------------------------------------------------------------------------------
 *                           Retorna uma conexao com o banco de dados
 *-----------------------------------------------------------------------------------------------*/
@@ -28,5 +27,32 @@ function connect(
   return $conn;
 
 }//connect()
+
+/*[02]--------------------------------------------------------------------------------------------
+*                         Executa uma instrucao SELECT do SQL
+*-----------------------------------------------------------------------------------------------*/
+function sqlSelect(string $sqlSelect, PDO $c = null) : array {
+
+  try {
+
+    if ($c === null) { 
+      $conn = connect();
+      $stmt = $conn->prepare($sqlSelect);
+    }
+    else
+     $stmt = $c->prepare($sqlSelect);
+
+    $stmt->execute();
+
+    return $stmt->fetchAll(); 
+
+  }
+  finally {
+
+    $conn = null;
+
+  }
+
+}//sqlSelect()
 
 ?>

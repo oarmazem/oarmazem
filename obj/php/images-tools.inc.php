@@ -4,7 +4,6 @@ define('MAX_FILE_SIZE', 3500000);
 
 define('CSS_ERR', 'text-align: left; font-size: 1.3vw; color: red; margin-bottom: 12px;');
 
-
 /*[01]------------------------------------------------------------------------------------------
    Altera as dimensoes da imagem jpeg. Ficara com 350 x 400 pixels depois de processada. Eh
    realizado, portanto, um recorte com proporcao 7 x 8 no centro da imagem original e este 
@@ -75,7 +74,7 @@ function resizedFilename(string $cod, int $index): string {
 -----------------------------------------------------------------------------------------------*/
 function saveResizedImages(string $cod): int {
 
-  $countImagesResizeds = 0;
+  $countResizedImages = 0;
 
   set_time_limit(0);
 
@@ -90,9 +89,9 @@ function saveResizedImages(string $cod): int {
     echoMsg("Falha no upload de $filename", CSS_ERR);
 
   }
-  elseif (resizeImage($tmpName, resizedFilename($cod, $countImagesResizeds))) {
+  elseif (resizeImage($tmpName, resizedFilename($cod, $countResizedImages))) {
 
-    $countImagesResizeds++;
+    $countResizedImages++;
 
   }
   else {
@@ -120,9 +119,9 @@ function saveResizedImages(string $cod): int {
 
     $tmpName = $_FILES['more_images']['tmp_name'][$i];
  
-    if (resizeImage($tmpName, resizedFilename($cod, $countImagesResizeds))) {
+    if (resizeImage($tmpName, resizedFilename($cod, $countResizedImages))) {
 
-      $countImagesResizeds++;
+      $countResizedImages++;
 
     }
     else {
@@ -133,16 +132,106 @@ function saveResizedImages(string $cod): int {
 
   }//for
 
-  return $countImagesResizeds;
+  return $countResizedImages;
 
 }//saveResizedImages()
 
-/*[04]-------------------------------------------------------------------------------------------
+/*[04]------------------------------------------------------------------------------------------
+                                  Exibe uma previa da imagem
+-----------------------------------------------------------------------------------------------*/
+function preview() {
+
+  set_time_limit(0);
+  
+  // Checa tamanho maximo
+  if ($_FILES['main_image']['size'] > MAX_FILE_SIZE) {
+
+    echoMsg('Desculṕe, arquivo grande demais.');
+    return;
+
+  }
+
+  $targetFile = RESIZE_DIR . 'preview.jpg';
+  $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));  
+  
+  // Apenas arquivo jpeg
+  if($imageFileType != 'jpg' && $imageFileType != 'jpeg') {
+
+    echoMsg('Apenas arquivos JPG e JPEG podem ser processados.');
+    return;
+
+  }
+
+  if (!resizeImage($_FILES['main_image']['tmp_name'], $targetFile)) {
+  
+    echoMsg('Falha no redimensionamento da imagem.');
+
+  }
+
+}//preview()
+
+/*[05]------------------------------------------------------------------------------------------
+  Retorna um array com todos os pathnames dos arquivos de imagem de um artigo com codigo $cod
+-----------------------------------------------------------------------------------------------*/
+function getImagesFromCode(string $cod) : array {
+
+  $files = scandir(RESIZE_DIR);
+
+  $pathnames = null;
+  
+  foreach ($files as $filename) {
+
+    $pos = strpos($filename, '-');
+
+    if ($pos === false) continue;
+
+    $prefix = substr($filename, 0, $pos);
+
+    if ($prefix === $cod) $pathnames[] = RESIZE_DIR . $filename;
+
+  }
+
+  if ($pathnames === null) $pathnames[] = RESIZE_DIR . 'qmark.png';
+
+  return $pathnames;
+
+}//getImagesFromCode()
+
+/*[06]------------------------------------------------------------------------------------------
+              Retorna o pathname do arquivo de imagem principal de uma reliquia
+-----------------------------------------------------------------------------------------------*/
+function getMainImageFromCode(string $cod) : string {
+
+  $pathname = resizedFilename($cod, 0);
+
+  if (!file_exists($pathname)) return RESIZE_DIR . "qmark.png";
+
+  return $pathname;
+
+}//getMainImageFromCode()
+
+/*[07]------------------------------------------------------------------------------------------
+          Retorna quantas imagens da reliquia de id = $cod existem no servidor
+-----------------------------------------------------------------------------------------------*/
+function countImagesFromCode(string $cod) : int {
+
+  $pathnames = getImagesFromCode($cod);
+
+  if ($pathnames[0] === (RESIZE_DIR . 'qmark.png')) return 0;
+
+  return (count($pathnames));
+
+}//countImagensFromCode()
+
+/*[08]-------------------------------------------------------------------------------------------
                              Salva mais imagens de um artigo
 -----------------------------------------------------------------------------------------------*/
-function saveMoreResizedImages(string $cod, int $countImagesResizeds): int {
+function saveMoreResizedImages(string $cod): int {
  
   set_time_limit(0);
+
+  $imageIndex = countImagesFromCode($cod);
+  $countResizedImages = 0;
  
   $length = count($_FILES['more_images']['name']);
 
@@ -163,9 +252,10 @@ function saveMoreResizedImages(string $cod, int $countImagesResizeds): int {
 
     $tmpName = $_FILES['more_images']['tmp_name'][$i];
  
-    if (resizeImage($tmpName, resizedFilename($cod, $countImagesResizeds))) {
+    if (resizeImage($tmpName, resizedFilename($cod, $imageIndex))) {
 
-      $countImagesResizeds++;
+      $imageIndex++;
+      $countResizedImages++;
 
     }
     else {
@@ -176,82 +266,33 @@ function saveMoreResizedImages(string $cod, int $countImagesResizeds): int {
 
   }//for
 
-  return $countImagesResizeds;
+  return $countResizedImages;
 
 }//saveMoreResizedImages()
 
-  /*[05]------------------------------------------------------------------------------------------
-                                    Exibe uma previa da imagem
-  -----------------------------------------------------------------------------------------------*/
-  function preview() {
+/*[09]--------------------------------------------------------------------------------------------
+*               Deleta arquivos de imagem associados a uma reliquia de id = $cod
+*-----------------------------------------------------------------------------------------------*/ 
+function deleteImagesFromCode(string $cod) : bool {
 
-    set_time_limit(0);
-    
-    // Checa tamanho maximo
-    if ($_FILES['main_image']['size'] > MAX_FILE_SIZE) {
+  $sucess = true;
 
-      echoMsg('Desculṕe, arquivo grande demais.');
-      return;
+  $pathnames = getImagesFromCode($cod);
 
-    }
+  if (basename($pathnames[0]) === "qmark.png") return true;
 
-    $targetFile = RESIZE_DIR . 'preview.jpg';
-    $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));  
-    
-    // Apenas arquivo jpeg
-    if($imageFileType != 'jpg' && $imageFileType != 'jpeg') {
+  foreach($pathnames as $pathname) {
 
-      echoMsg('Apenas arquivos JPG e JPEG podem ser processados.');
-      return;
+    if (!unlink($pathname)) {
 
-    }
-  
-    if (!resizeImage($_FILES['main_image']['tmp_name'], $targetFile)) {
-    
-      echoMsg('Falha no redimensionamento da imagem.');
+      echoMsg(('Falha ao excluir ' . basename($pathname)), CSS_ERR); 
+      $sucess = false;
+    }  
 
-    }
+  }//foreach 
 
-  }//preview()
+  return $sucess;
 
-  /*[06]------------------------------------------------------------------------------------------
-    Retorna um array com todos os pathnames dos arquivos de imagem de um artigo com codigo $cod
-  -----------------------------------------------------------------------------------------------*/
-  function getImagesFromCode(string $cod) : array {
-
-    $files = scandir(RESIZE_DIR);
-
-    $pathnames = null;
-   
-    foreach ($files as $filename) {
-
-      $pos = strpos($filename, '-');
-
-      if ($pos === false) continue;
-
-      $prefix = substr($filename, 0, $pos);
-
-      if ($prefix === $cod) $pathnames[] = RESIZE_DIR . $filename;
-
-    }
-
-    if ($pathnames === null) $pathnames[] = RESIZE_DIR . 'qmark.png';
-
-    return $pathnames;
-
-  }//getImagesFromCode()
-
-  /*[07]------------------------------------------------------------------------------------------
-               Retorna o pathname do arquivo de imagem principal de uma reliquia
-  -----------------------------------------------------------------------------------------------*/
-  function getMainImageFromCode(string $cod) : string {
-
-    $pathname = resizedFilename($cod, 0);
-
-    if (!file_exists($pathname)) return RESIZE_DIR . "qmark.png";
-
-    return $pathname;
-
-  }//getMainImageFromCode()
+}//deleteImagesFromCode()
 
 ?>

@@ -7,23 +7,20 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/relics-tools.inc.php';
 
-if (!adminPasswordOk() || !isset($_POST['cod'])) header('Location: index.php'); 
-
-
 try {
+  
+  if (!adminPasswordOk() || !isset($_POST['cod'])) redirectTo('index.php');  
 
   $cod = $_POST['cod'];
 
   $upload = new RelicsTableHandler();
 
-  $currentNextIndex = $upload->getNextImgIndex($cod);//Se nao existe artigo com id = $cod, uma excecao eh lancada
+  if (!$upload->existRow($cod)) throw new PDOException("Não existe relíquia com código $cod !");
   
 }
 catch (PDOException $e) {
 
-  echoMsg($e->getMessage());
-  echo "<a href=\"search.php?target=upload-relic\">Voltar</a>";
-  exit(1);
+  kill($e->getMessage(), '', '<a href="search.php?target=upload-relic">Voltar</a>');
 
 }
 
@@ -81,32 +78,10 @@ catch (PDOException $e) {
 
     if (isset($_POST['upload'])) {
 
-      $nextIndex = saveMoreResizedImages($cod, $currentNextIndex);
+      $countResizedImages = saveMoreResizedImages($cod);
 
-      if ($nextIndex === $currentNextIndex) {
-
-        echoMsg('Não foi possível fazer o upload dos arquivos!');
-
-      }
-      else {
-
-        try {
-
-          $upload->setNextImgIndex($nextIndex, $cod);
-
-        }
-        catch (PDOException $e) {
-
-          echoMsg($e->getMessage());
-          echoMsg('Falha ao atualizar banco de dados!');
-          echoMsg('Atenção! O número de imagens registrado para esta relíquia pode ter ficado inconsistente.');
-          echoMsg('Nesse caso as próximas imagens para esta relíquia a serem enviadas substituirão estas que foram enviadas agora.');
-          echoMsg('É recomendável tentar novamente o upload destas imagens.');
-  
-        }//try-catch
-
-      }//if-else
-    
+      if ($countResizedImages === 0) echoMsg('Falha. Não foi possível fazer o upload dos arquivos!');
+      
     }//if  
 
     $pathnames = getImagesFromCode($cod);

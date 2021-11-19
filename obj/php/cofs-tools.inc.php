@@ -1,53 +1,52 @@
 <?php declare(strict_types=1);
 
-
 /*[01]---------------------------------------------------------------------------------------------
-            Lista reliquias de um determinado tipo e nao vendidas em uma pagina
+                  Lista itens de cardápio de um determinado tipo
 ------------------------------------------------------------------------------------------------*/
-function listCofs() {
+function listCofs(string $type) {
 
-  $conn = connect();
-
-  $stmt = $conn->prepare("SELECT id, product_data, price FROM cofs WHERE (typ = $type AND vendido = 0)");
-
-  $stmt->execute();
-
-  $result = $stmt->fetchAll(); 
+  $result = sqlSelect("SELECT id, product_data, price FROM cofs WHERE typ = $type");
 
   $numberOfLines = count($result); 
 
-  if ($numberOfLines === 0) throw new PDOException("Nenhum artigo ainda nesta seção!");
+  if ($numberOfLines === 0) throw new PDOException("Nada ainda nesta seção!");
 
   for ($i = 0; $i < $numberOfLines; $i++) {
 
     $cod = $result[$i]['id']; $nome = $result[$i]['product_data']; 
-    $preco = $result[$i]['price']; $preco = number_format((float)$preco, 2, ',', '.');
-
-    $pathname = getMainFilename((int)$cod);
+    $price = $result[$i]['price'];
+    $price = "R$ " . number_format((float)$price, 2, ',', '.');
+   
+    $pathname = getMainImageFromCode('c' . $cod);
 
     echo 
     "<figure id=\"$cod\">\n" . 
-      "\t<a href=\"show-relic.php?type=$type&cod=$cod\">\n" .
-        "\t\t<img src=\"$pathname\" alt=\"$cod\">\n" . 
+      "\t<a href=\"show-details.php?table=cofs&type=$type&cod=$cod\">\n" .
+        "\t\t<img src=\"$pathname\" title=\"cód.:$cod\" alt=\"$cod\">\n" . 
       "\t</a>\n" .
       "\t<figcaption>\n" .
         "\t\t<p>$nome</p><br>\n" . 
-        "\t\t<p>R$ $preco</p>\n" .
+        "\t\t<p>$price</p>\n" .
       "\t</figcaption>\n" . 
     "</figure>\n\n";
 
   }//for
 
-}//listRelics()
+}//listCofs()
 
 class CofsTableHandler {
 
   const SQL = [
     
-  "UPDATE cofs SET typ = :tipo, product_data = :nome, price = :venda, product_desc = :desc WHERE id = :cod" 
+  "UPDATE cofs" . 
+  " SET typ = :tipo, product_data = :nome, purchase_price = :custo, price = :venda," . 
+  " vendor_name = :fornecedorNome, vendor_id = :cpfCnpj, vendor_locality = :local, product_desc = :desc" . 
+  " WHERE id = :cod" 
   ,
-  "INSERT INTO cofs (typ, product_data, id, price, product_desc, next_img_index)" . 
-  " VALUES(:tipo, :nome, :cod, :venda, :desc, :nextImgIndex )"
+  "INSERT INTO cofs (" . 
+  " typ, product_data, id, purchase_price, price," . 
+  " vendor_name, vendor_id, vendor_locality, product_desc)" . 
+  " VALUES(:tipo, :nome, :cod, :custo, :venda, :fornecedorNome, :cpfCnpj, :local, :desc )"
 
   ];  
 
@@ -55,18 +54,21 @@ class CofsTableHandler {
   const INSERTINTO = 1;
   const UPLOAD = 2;
 
-  private $mode; //0 indica que eh um objeto de UPDATE, 1 de INSERT INTO na tabela relics
+  private $mode; //0 indica que eh um objeto de UPDATE, 1 de INSERT INTO na tabela cofs
 
   //Variaveis para armazenar campos de formulario
   private $uptime;
   public $tipo;
   public $nome;
   public $cod;
+  public $custo; 
   public $venda; 
+  public $fornecedorNome;
+  public $cpfCnpj;
+  public $local;
   public $desc;
-  public $nextImgIndex;
 
-  public $arrayTipo = ['', '', '', '', '', '', '', '', '', '', '', ''];
+  public $arrayTipo = ['', ''];
 
   private $conn;
 
@@ -99,7 +101,12 @@ class CofsTableHandler {
     $this->nome = trunc($_POST['nome'], 120);
     $this->cod =  trim($_POST['cod']);
 
+    $this->custo = emptyField('custo') ? null : str_replace(',','.',trim($_POST['custo']));
     $this->venda = str_replace(',','.',trim($_POST['venda']));
+
+    $this->fornecedorNome = emptyField('fornecedor_nome') ? null : trunc($_POST['fornecedor_nome'], 100);
+    $this->cpfCnpj = emptyField('cpf_cnpj') ? null : $_POST['cpf_cnpj'];
+    $this->local = emptyField('local') ? null : trunc($_POST['local'], 40);
 
     $this->desc = $_POST['desc'];
 
@@ -118,34 +125,42 @@ class CofsTableHandler {
     $stmt->bindParam(':tipo', $this->tipo, PDO::PARAM_STR);
     $stmt->bindParam(':nome', $this->nome, PDO::PARAM_STR);
     $stmt->bindParam(':cod', $this->cod, PDO::PARAM_STR);
+    $stmt->bindParam(':custo', $this->custo, PDO::PARAM_STR);
     $stmt->bindParam(':venda', $this->venda, PDO::PARAM_STR);
+    $stmt->bindParam(':fornecedorNome', $this->fornecedorNome, PDO::PARAM_STR);
+    $stmt->bindParam(':cpfCnpj', $this->cpfCnpj, PDO::PARAM_STR);
+    $stmt->bindParam(':local', $this->local, PDO::PARAM_STR);
     $stmt->bindParam(':desc', $this->desc, PDO::PARAM_STR);
-
-    //No UPDATE este campo nao eh atualizado. Por isso eh verficado se faz parte da instrucao SQL 
-    if ($this->mode === self::INSERTINTO) $stmt->bindParam(':nextImgIndex', $this->nextImgIndex, PDO::PARAM_STR); 
 
     $stmt->execute();
 
   }//writeOnDatabase()
 
   /*[05]--------------------------------------------------------------------------------------------
-  *                  Retorna colunas de uma linha da tabela relics onde id = $cod
+  *                  Retorna colunas de uma linha da tabela cofs onde id = $cod
   *-----------------------------------------------------------------------------------------------*/
   private function getColumns(string $columns, string $cod) : array {
 
-    $stmt = $this->conn->prepare("SELECT $columns FROM relics WHERE id = $cod");
+    $result = sqlSelect("SELECT $columns FROM cofs WHERE id = $cod", $this->conn);
 
-    $stmt->execute();
-
-    $result = $stmt->fetchAll(); 
-
-    if (count($result) === 0) throw new PDOException("Não foi encontrado artigo com código $cod!");
+    if (count($result) === 0) throw new PDOException("Não foi encontrado item com código $cod !");
 
     return $result[0];
 
   }//getColumns()
 
   /*[06]--------------------------------------------------------------------------------------------
+  *       Retorna true se existe item cadastrado com id = $cod, false se nao
+  *-----------------------------------------------------------------------------------------------*/
+  public function existRow(string $cod) : bool {
+
+    $result = sqlSelect("SELECT id FROM cofs WHERE id = $cod", $this->conn);
+
+    return (count($result) !== 0);
+
+  }//existRow()
+
+  /*[07]--------------------------------------------------------------------------------------------
   *   Le os campos de um registro da tabela relics para as variaveis privadas e as formata de 
   *   modo apropriado para serem inseridas no formulario
   *-----------------------------------------------------------------------------------------------*/
@@ -157,57 +172,31 @@ class CofsTableHandler {
     $this->tipo = $line['typ'];
     $this->nome = $line['product_data'];
     $this->cod = $line['id'];
+    $this->custo = $line['purchase_price']; $this->custo = str_replace('.',',', $this->custo); 
     $this->venda = $line['price']; $this->venda = str_replace('.',',', $this->venda); 
+    $this->fornecedorNome = $line['vendor_name'];
+    $this->cpfCnpj = $line['vendor_id'];
+    $this->local = $line['vendor_locality'];
     $this->desc = $line['product_desc'];
 
-    for ($i = 0; $i < 12; $i++) { if ($i == ($this->tipo - 1)) $this->arrayTipo[$i] = "selected"; }
-
+    for ($i = 0; $i < 2; $i++) { if ($i == ($this->tipo - 1)) $this->arrayTipo[$i] = "selected"; }
 
   }//readDatabase()
-
-  /*[07]--------------------------------------------------------------------------------------------
-  *          Obtem o campo next_img_index da tabela relics na linha com id = $cod
-  *-----------------------------------------------------------------------------------------------*/ 
-  public function getNextImgIndex(string $cod) : int {
-
-    $line = $this->getColumns('next_img_index', $cod);
-
-    return ((int)($line['next_img_index']));
-
-  }//getNextImgIndex()
-
-  /*[08]--------------------------------------------------------------------------------------------
-  *          Seta o campo next_img_index da tabela relics na linha com id = $cod
-  *-----------------------------------------------------------------------------------------------*/ 
-  public function setNextImgIndex(int $nextIndex, string $cod) {
-
-    $stmt = $this->conn->prepare("UPDATE cofs SET next_img_index = $nextIndex WHERE id = $cod");
-    $stmt->execute();
-
-  }//setNextImgIndex()
     
-  /*[09]--------------------------------------------------------------------------------------------
-  *          Deleta um registro da tabela relics e seus arquivos de imagem associados
+  /*[08]--------------------------------------------------------------------------------------------
+  *          Deleta um registro da tabela cofs seus arquivos de imagem associados
   *-----------------------------------------------------------------------------------------------*/ 
-  public function delete(string $cod) {
+  public function deleteRow(string $cod) {
 
     $stmt = $this->conn->prepare("DELETE FROM cofs WHERE id = $cod");
 
     $stmt->execute();
 
-    $pathnames = getFilesFromCode((int)$cod);
+    deleteImagesFromCode('c' . $cod);
 
-    if (basename($pathnames[0]) === "qmark.png") return;
+  }//deleteRow()
 
-    foreach($pathnames as $pathname) {
-
-      if (!unlink($pathname)) echoMsg("Falha ao excluir " . basename($pathname));   
-
-    }
-
-  }//delete()
-
-  /*[10]--------------------------------------------------------------------------------------------
+  /*[09]--------------------------------------------------------------------------------------------
   *                                  Escreve os dados do objeto
   *-----------------------------------------------------------------------------------------------*/   
   public function __toString() {
@@ -215,6 +204,17 @@ class CofsTableHandler {
     $str = "<br> Data/hora de registro (horário do servidor) [ " . datetimeSqlToDatetimeBr($this->uptime) . " ]</p>";
 
     $str .= "<p> Identificação [ $this->nome - código: $this->cod - tipo: $this->tipo ]</p>";
+ 
+    $str .= "<p> Dados de compra [" . 
+    (empty($this->custo) ? '' : " Custo de aquisição: R$ " . number_format((float)($this->custo), 2, ',', '.')) . 
+    (empty($this->dataCompra) ? '' : " Data da compra: " . dateSqlToDateBr($this->dataCompra)) . 
+    " ]</p>";
+   
+    $str .= "<p> Dados do fornecedor [" . 
+    (empty($this->fornecedorNome) ? '' : " Nome: $this->fornecedorNome") .
+    (empty($this->cpfCnpj) ? '' : " CPF/CNPJ: $this->cpfCnpj") .
+    (empty($this->local) ? '' : " Local: $this->local") . 
+    " ]</p>";
 
     $str .= "<br><p> $this->desc</p>";
 
@@ -222,6 +222,6 @@ class CofsTableHandler {
 
   }//__toString()
 
-}//class RelicsHandler
+}//class CofsTableHandler
 
 ?>

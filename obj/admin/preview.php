@@ -6,7 +6,16 @@ require_once '../php/mysql.inc.php';
 require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 
-if (!adminPasswordOk()) header('Location: index.php'); 
+try {
+
+  if (!adminPasswordOk()) redirectTo('index.php'); 
+
+}
+catch (PDOException $e) {
+
+  kill($e->getMessage(), '', '<a href="admin.php">Voltar</a>');
+
+}
 
 ?>
 
