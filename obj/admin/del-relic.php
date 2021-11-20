@@ -41,7 +41,7 @@ catch (PDOException $e) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/del-relic.css" rel="stylesheet">
+  <link href="css/delete.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
   <title>Excluir Relíquia</title>
 </head>
@@ -66,19 +66,19 @@ catch (PDOException $e) {
           <option value="8" <?php echo $delete->arrayTipo[7]; ?>>08 - Vestuário e adereços</option>   
           <option value="9" <?php echo $delete->arrayTipo[8]; ?>>09 - Máquinas, aparelhos, equipamentos</option>
           <option value="10" <?php echo $delete->arrayTipo[9]; ?>>10 - Curiosidades</option>
-          <option value="11" <?php echo $delete->arrayTipo[10]; ?>>11 - Só pra ver</option>
+          <option value="11" <?php echo $delete->arrayTipo[10]; ?>>11 - Do fundo do baú</option>
           <option value="12" <?php echo $delete->arrayTipo[11]; ?>>12 - Mais relíquias...</option>
         </select>
       </div>
 
       <div class="input_field"> 
         <label for="nome">Nome:</label>
-        <input type="text" name="nome" id="nome" size="50" maxlength="120" title="O nome do artigo" value="<?php echo $delete->nome; ?>" readonly>
+        <input type="text" name="nome" id="nome" size="50" maxlength="120" title="O nome da relíquia" value="<?php echo $delete->nome; ?>" readonly>
       </div>
 
       <div class="input_field">           
         <label for="cod">Cód.:</label>
-        <input type-="text" name="cod" id="cod" size="5" title="O código do artigo<?php echo INTEGER_REGEXP; ?>" value="<?php echo $delete->cod; ?>" readonly>
+        <input type-="text" name="cod" id="cod" size="5" title="O código da relíquia<?php echo INTEGER_REGEXP; ?>" value="<?php echo $delete->cod; ?>" readonly>
       </div>
 
       <div class="input_field">       
@@ -115,7 +115,7 @@ catch (PDOException $e) {
       
       <div class="input_field"> 
         <label for="situacao">Vendido:</label>         
-        <input type="checkbox" value="Vendido" name="situacao" id="situacao" title="Marque se já foi vendido" <?php echo $delete->situacao; ?>> 
+        <input type="checkbox" value="Vendido" name="situacao" id="situacao" title="Marcado se já foi vendida" <?php echo $delete->situacao; ?>> 
         <label for="nfe_venda" class="danfe_venda">NFE(venda):</label>
         <input type="text" class="danfe_venda" name="nfe_venda" id="nfe_venda" size="5" title="DANFE-Venda<?php echo INTEGER_REGEXP; ?>" value="<?php echo $delete->nfeVenda; ?>" readonly> 
         <label for="nfe_venda_serie" class="danfe_venda">Série:</label>
@@ -184,7 +184,7 @@ catch (PDOException $e) {
 
       <div class="input_field">
         <label for="desc">Descrição:</label><br>
-        <textarea name="desc" id="desc" rows="8" cols="80" title="Digite uma descrição para o artigo" readonly><?php echo $delete->desc; ?></textarea>
+        <textarea name="desc" id="desc" rows="8" cols="80" title="Descrição da relíquia" readonly><?php echo $delete->desc; ?></textarea>
       </div>
         
     </fieldset><!--Formulario-->
@@ -198,7 +198,6 @@ catch (PDOException $e) {
   <section class="display">
 
     <script src="js/main.js"></script>
-    <script src="js/validation.js"></script>
 
     <?php
 

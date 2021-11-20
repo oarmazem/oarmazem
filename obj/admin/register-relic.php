@@ -27,7 +27,7 @@ catch (PDOException $e) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/register-relic.css" rel="stylesheet">
+  <link href="css/register.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
   <title>Cadastro de Relíquia</title>
 </head>
@@ -91,7 +91,7 @@ catch (PDOException $e) {
           </optgroup>
           <optgroup label="Peculiaridades">
             <option value="10">10 - Curiosidades</option>
-            <option value="11">11 - Só pra ver</option>
+            <option value="11">11 - Do fundo do baú</option>
           </optgroup>
           <option value="12">12 - Mais relíquias...</option>
         </select>

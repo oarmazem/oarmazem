@@ -283,6 +283,14 @@ function initialize(newSection) {
 
   section = newSection;
 
+  if (section ===  "_reliquias.php?type=11") {
+
+    let chestImage = document.querySelector("#chest");
+    chestImage.src = "images/open-chest.png";
+    chestImage.setAttribute( "onClick", "nav('index.html')" );
+
+  }
+
   //Obtem a cor da nova secao
   sectionColor = SECTIONS_COLORS[section];
 

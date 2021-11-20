@@ -26,31 +26,35 @@ require_once 'php/cofs-tools.inc.php';
   
 <main>
 
-
 <?php
 
-$tipo = ['Cafés', 'Tortas e Bolos'];
+$tipo = [
+  'Tortas salgadas', 'Sanduíches', 'Tortas e bolos', 'Sorvetes', 'Cafés', 'Chás', 'Chocolate quente',
+  'Refrigerantes', 'Água', 'Sucos'
+];
 
-try {
+for ($type = 1; $type <= 10; $type++) {
 
-  for ($type = 1; $type <= 2; $type++) {
-    $index = $type - 1;
-    echo "<h1>$tipo[$index]</h1>";
+ 
+  echo "<h1>" . $tipo[$type - 1] . "</h1>";
+
+  try {
+
     listCofs($type);
-  }//for 
 
-}
-catch (PDOException $e) {
+  }
+  catch (PDOException $e) {
 
-  echoMsg($e->getMessage()); 
-
-}
+    echoMsg($e->getMessage()); 
+  
+  }
+}//for 
 
 ?>
 
 </main>
 
-<img id="chest" src="images/chest.png" onclick="nav('_reliquias.php?type=11')"> 
+<img id="chest" src="images/close-chest.png" onclick="nav('_reliquias.php?type=11')"> 
 
 <footer></footer>
 

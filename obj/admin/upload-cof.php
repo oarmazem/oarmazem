@@ -5,7 +5,7 @@ require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
 require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
-require_once '../php/relics-tools.inc.php';
+require_once '../php/cofs-tools.inc.php';
 
 try {
   
@@ -13,14 +13,14 @@ try {
 
   $cod = $_POST['cod'];
 
-  $upload = new RelicsTableHandler();
+  $upload = new CofsTableHandler();
 
-  if (!$upload->existRow($cod)) throw new PDOException("Não existe relíquia com código $cod !");
+  if (!$upload->existRow($cod)) throw new PDOException("Não existe item de cardápio com código $cod !");
   
 }
 catch (PDOException $e) {
 
-  kill($e->getMessage(), '', '<a href="search.php?target=upload-relic">Voltar</a>');
+  kill($e->getMessage(), '', '<a href="search.php?target=upload-cof">Voltar</a>');
 
 }
 
@@ -41,21 +41,21 @@ catch (PDOException $e) {
 <body>
   <h2>Selecione arquivos jpg menores que <?php echo number_format(MAX_FILE_SIZE, 0, ',', '.') ?> bytes</h2>
 
-  <form method="POST" action="upload-relic.php" enctype="multipart/form-data" onsubmit="return validate_jpg()">
+  <form method="POST" action="upload-cof.php" enctype="multipart/form-data" onsubmit="return validate_jpg()">
     <div class="input_field">           
       <label for="cod">Cód.:</label>
-      <input type-="text" name="cod" id="cod" size="5" title="O código da relíquia" value="<?php echo $cod; ?>" readonly required>
+      <input type-="text" name="cod" id="cod" size="5" title="O código do item" value="<?php echo $cod; ?>" readonly required>
     </div>
 
     <input type="hidden" id="MAX_FILE_SIZE" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE ?>" >
 
-    <label for="more_images">Selecione imagens para a relíquia [<?php echo $cod; ?>]:</label>
+    <label for="more_images">Selecione imagens para o item [<?php echo $cod; ?>] do cardápio:</label>
     <input type="file" name="more_images[]" id="more_images" multiple="multiple" required>
     <br><br>
 
     <input class="button_action" type="submit" name="upload" value="UPLOAD" title="Upload dos arquivos">
     <input class="button_action" type="reset" value="REDEFINIR" title="Desseleciona os arquivos">
-    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Upload de imagens para outra relíquia" onclick="gotoSearchPage('upload-relic')">
+    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Upload de imagens para outro item do cardápio" onclick="gotoSearchPage('upload-cof')">
     <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">    
     <div id="bar"><div id="ocilator"></div></div>     
   </form>
@@ -69,13 +69,13 @@ catch (PDOException $e) {
 
     if (isset($_POST['upload'])) {
 
-      $countResizedImages = saveMoreResizedImages($cod);
+      $countResizedImages = saveMoreResizedImages('c' . $cod);
 
       if ($countResizedImages === 0) echoMsg('Falha. Não foi possível fazer o upload dos arquivos!');
       
     }//if  
 
-    $pathnames = getImagesFromCode($cod);
+    $pathnames = getImagesFromCode('c' . $cod);
 
     $upload->readDatabase($cod);
 

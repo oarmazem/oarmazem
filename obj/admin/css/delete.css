@@ -1,14 +1,25 @@
 @charset "UTF-8";
 
-@import "main.css";
-@import "upload-images.css";
-@import "ocilator.css";
+@import "main-form.css";
 
 /*================================================================================================
-                                Estiliza upload-relic.php
+                            Estiliza del-relic.php e del-cof.php
 =================================================================================================*/
-#cod {
+input, textarea, select {
   color: grey;
+}
+
+input#cod {
+  color: red;
+  font-weight: bold;
+}
+
+.button_action {
+  color: black;
+}
+
+#delete {
+  background-color: red;
 }
 
 #goto_search_page {

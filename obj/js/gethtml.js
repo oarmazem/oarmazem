@@ -33,9 +33,10 @@ function getHeader() {
           <li onclick="nav('_reliquias.php?type=5')">Livros</li>  
           <li onclick="nav('_reliquias.php?type=6')">Miniaturas e Coleções</li>                  
           <li onclick="nav('_reliquias.php?type=7')">Brinquedos</li>
-          <li onclick="nav('_reliquias.php?type=8')">Vestuário e Adereços</li>          
+          <!--li onclick="nav('_reliquias.php?type=8')">Vestuário e Adereços</li-->          
           <li onclick="nav('_reliquias.php?type=9')">Máquinas, Ferramentas, Aparelhos</li>
-          <li onclick="nav('_reliquias.php?type=10')">Curiosidades</li>          
+          <li onclick="nav('_reliquias.php?type=10')">Curiosidades</li>  
+          <!--li onclick="nav('_reliquias.php?type=11')">Do Fundo do Baú</li-->            
           <li onclick="nav('_reliquias.php?type=12')">Mais relíquias...</li>          
         </ul>        
       </li>
@@ -56,9 +57,10 @@ function getHeader() {
           <li onclick="nav('_reliquias.php?type=5')">Books</li>
           <li onclick="nav('_reliquias.php?type=6')">Miniatures and Collections</li>
           <li onclick="nav('_reliquias.php?type=7')">Toys</li>
-          <li onclick="nav('_reliquias.php?type=8')">Clothing</li>
+          <!--li onclick="nav('_reliquias.php?type=8')">Clothing</li-->
           <li onclick="nav('_reliquias.php?type=9')">Machines, Tools, Eletronics</li>
           <li onclick="nav('_reliquias.php?type=10')">Oddities</li>
+          <!--li onclick="nav('_reliquias.php?type=11')">Dredge up</li-->   
           <li onclick="nav('_reliquias.php?type=12')">More...</li>          
         </ul>           
       </li>
@@ -79,9 +81,10 @@ function getHeader() {
           <li onclick="nav('_reliquias.php?type=5')">Libros</li>  
           <li onclick="nav('_reliquias.php?type=6')">Miniaturas y Coleccionables</li>                  
           <li onclick="nav('_reliquias.php?type=7')">Juguetes</li>
-          <li onclick="nav('_reliquias.php?type=8')">Ropas</li>          
+          <!--li onclick="nav('_reliquias.php?type=8')">Ropas</li-->          
           <li onclick="nav('_reliquias.php?type=9')">Máquinas y Herramientas</li>
-          <li onclick="nav('_reliquias.php?type=10')">Curiosidades</li>          
+          <li onclick="nav('_reliquias.php?type=10')">Curiosidades</li>
+          <!--li onclick="nav('_reliquias.php?type=11')">¿Te acuerdas de eso?</li-->             
           <li onclick="nav('_reliquias.php?type=12')">Mas reliquias...</li>           
         </ul>           
       </li>
@@ -102,9 +105,10 @@ function getHeader() {
           <li onclick="nav('_reliquias.php?type=5')">Livres</li>  
           <li onclick="nav('_reliquias.php?type=6')">Miniatures et objets de collection</li>                  
           <li onclick="nav('_reliquias.php?type=7')">Jouets</li>
-          <li onclick="nav('_reliquias.php?type='8)">Vêtements</li>          
+          <!--li onclick="nav('_reliquias.php?type='8)">Vêtements</li-->          
           <li onclick="nav('_reliquias.php?type=9')">Machines et outils</li>
-          <li onclick="nav('_reliquias.php?type=10')">Curiosités</li>          
+          <li onclick="nav('_reliquias.php?type=10')">Curiosités</li>  
+          <!--li onclick="nav('_reliquias.php?type=11')">Vous vous en souvenez?</li-->          
           <li onclick="nav('_reliquias.php?type=12')">Plus de reliques...</li>           
         </ul>           
       </li>

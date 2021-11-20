@@ -15,7 +15,7 @@ catch (PDOException $e) {
 
 }
 
-$title = '<h2>Autenticação requerida.</h2>';
+$title = '<h2>Autenticação requerida</h2>';
 
 if (isset($_POST['pass'])) {
   

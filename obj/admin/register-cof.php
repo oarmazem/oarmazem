@@ -27,7 +27,7 @@ catch (PDOException $e) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/register-relic.css" rel="stylesheet">
+  <link href="css/register.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
   <title>Cadastro de Item de Cardápio</title>
 </head>
@@ -44,12 +44,24 @@ catch (PDOException $e) {
         <label for="tipo"><b>*Tipo:</b></label>
         <select name="tipo" id="tipo" title="Selecione que espécie de item é este" required>
           <option value="">Selecione que tipo de item será cadastrado</option>
-          <optgroup label="Cafés">
-            <option value="1">01 - Australiano</option>
+          <optgroup label="Para matar a fome">
+            <option value="1">01 - Tortas salgadas</option>
+            <option value="2">02 - Sanduíches</option>            
           </optgroup>
-          <optgroup label="Tortas e Bolos">
-            <option value="2">02 - Bolo de Chocolate</option>
-          </optgroup>          
+          <optgroup label="Doces e sobremesas">
+            <option value="3">03 - Tortas e bolos</option>
+            <option value="4">04 - Sorvetes</option>            
+          </optgroup>    
+          <optgroup label="Bebidas quentes">
+            <option value="5">05 - Cafés</option>
+            <option value="6">06 - Chás</option>  
+            <option value="7">07 - Chocolate quente</option>                   
+          </optgroup>   
+          <optgroup label="Bebidas frias">
+            <option value="8">08 - Refrigerantes</option>
+            <option value="9">09 - Água</option>   
+            <option value="10">10 - Sucos</option>        
+          </optgroup>  
         </select>
       </div>
 

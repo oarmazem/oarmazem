@@ -68,7 +68,7 @@ class CofsTableHandler {
   public $local;
   public $desc;
 
-  public $arrayTipo = ['', ''];
+  public $arrayTipo = ['', '', '', '', '', '', '', '', '', ''];
 
   private $conn;
 
@@ -179,7 +179,7 @@ class CofsTableHandler {
     $this->local = $line['vendor_locality'];
     $this->desc = $line['product_desc'];
 
-    for ($i = 0; $i < 2; $i++) { if ($i == ($this->tipo - 1)) $this->arrayTipo[$i] = "selected"; }
+    for ($i = 0; $i < 11; $i++) { if ($i == ($this->tipo - 1)) $this->arrayTipo[$i] = "selected"; }
 
   }//readDatabase()
     

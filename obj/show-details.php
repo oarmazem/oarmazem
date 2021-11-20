@@ -6,46 +6,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/main.css" rel="stylesheet">
-
-  <style>
-
-    body { cursor: url('images/cursor6.png'), auto; }
-
-    h1 { margin: 5vh 0 3vh 0; }
-
-    #main { width: 40%; margin: 0 0 2vh 0; float: left; transition: 0.8s; }
-
-    #main:hover { width: 60%; cursor: zoom-in; }
-
-    #main img { border: solid 5px green; width: 95%; margin-right: 5%; }
-
-    #aside { width: 40%; overflow: auto; }
-
-    .thumb { 
-      width: 18%;
-      margin-left: 2%; 
-      margin-bottom: 1vw; 
-      float: left; 
-    }
-   
-    .thumb:hover { cursor: pointer; }
-
-    #desc { margin: 0 0 3vh 0; width: 40%; position: relative; float: left; }
-
-    #desc img { position: absolute; width: 6%; top: -2%; left: 47%; }
-
-    #back {
-      clear: left;
-      display: block;
-      width: 8%;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    #back img { width: 80%; }
-
-  </style>
+  <link href="css/show-details.css" rel="stylesheet">
 
 </head>
 
@@ -144,7 +105,7 @@ echo "<a id=\"back\" href=\"$return\"><img src=\"images/back.png\" alt=\"Voltar\
 
 </main>
 
-<img id="chest" src="images/chest.png" onclick="nav('_reliquias.php?type=11')"> 
+<img id="chest" src="images/close-chest.png" onclick="nav('_reliquias.php?type=11')"> 
 
 <footer></footer>
 
@@ -154,12 +115,18 @@ echo "<a id=\"back\" href=\"$return\"><img src=\"images/back.png\" alt=\"Voltar\
 
   initialize("show-details.php");
 
+  /*------------------------------------------------------------------------------------
+                      Carrega um thumbnail na imagem principal
+  ------------------------------------------------------------------------------------*/
   function unThumb(pathname) { 
 
     document.querySelector("#main img").src = pathname; 
 
   }//unThumb()  
 
+  /*-------------------------------------------------------------------------------------
+             Ajusta a altura do postit para alinhar com a imagem principal
+  --------------------------------------------------------------------------------------*/
   function setPostitHeight() {
 
     let mainImgHeight = document.querySelector("#main img").offsetHeight;

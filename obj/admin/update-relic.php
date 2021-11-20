@@ -49,7 +49,7 @@ catch (PDOException $e) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="css/update-relic.css" rel="stylesheet">
+  <link href="css/update.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
   <title>Atualiza Artigo</title>
 </head>
@@ -63,7 +63,7 @@ catch (PDOException $e) {
 
       <div class="input_field">
         <label for="tipo"><b>*Tipo:</b></label>
-        <select name="tipo" id="tipo" title="O tipo do artigo" required>
+        <select name="tipo" id="tipo" title="O tipo da relíquia" required>
           <option value="1" <?php echo $update->arrayTipo[0]; ?>>01 - Louças e porcelanas</option>
           <option value="2" <?php echo $update->arrayTipo[1]; ?>>02 - Jarras, copos e taças</option>
           <option value="3" <?php echo $update->arrayTipo[2]; ?>>03 - Talheres</option>
@@ -74,14 +74,14 @@ catch (PDOException $e) {
           <option value="8" <?php echo $update->arrayTipo[7]; ?>>08 - Vestuário e adereços</option>   
           <option value="9" <?php echo $update->arrayTipo[8]; ?>>09 - Máquinas, aparelhos, equipamentos</option>
           <option value="10" <?php echo $update->arrayTipo[9]; ?>>10 - Curiosidades</option>
-          <option value="11" <?php echo $update->arrayTipo[10]; ?>>11 - Só pra ver</option>
+          <option value="11" <?php echo $update->arrayTipo[10]; ?>>11 - Do fundo do baú</option>
           <option value="12" <?php echo $update->arrayTipo[11]; ?>>12 - Mais relíquias...</option>
         </select>
       </div>
 
       <div class="input_field"> 
         <label for="nome"><b>*Nome:</b></label>
-        <input type="text" name="nome" id="nome" size="50" maxlength="120" title="O nome do artigo" value="<?php echo $update->nome; ?>" required>
+        <input type="text" name="nome" id="nome" size="50" maxlength="120" title="O nome da relíquia" value="<?php echo $update->nome; ?>" required>
       </div>
 
       <div class="input_field">           
@@ -192,14 +192,14 @@ catch (PDOException $e) {
 
       <div class="input_field">
         <label for="desc"><b>*Descrição:</b></label><br>
-        <textarea name="desc" id="desc" rows="8" cols="80" title="Digite uma descrição para o artigo" required><?php echo $update->desc; ?></textarea>
+        <textarea name="desc" id="desc" rows="8" cols="80" title="Digite uma descrição para a relíquia" required><?php echo $update->desc; ?></textarea>
       </div>
         
     </fieldset><!--Formulario-->
 
     <input class="button_action" type="submit" name="update" value="ATUALIZAR" title="Clique para atualizar os dados">
     <input class="button_action" type="reset" value="REDEFINIR" title="Redefine dados do formuláro para os valores iniciais">
-    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Atualiza os dados de outro artigo" onclick="gotoSearchPage('update-relic')">
+    <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Atualiza os dados de outra relíquia" onclick="gotoSearchPage('update-relic')">
     <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
     <div id="bar"><div id="ocilator"></div></div>  
     <input type="checkbox" name="delete" id="delete" title="Marque para excluir registro" onclick="del()">
