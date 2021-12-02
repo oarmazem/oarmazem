@@ -31,10 +31,10 @@ Cores das secoes associadas as cores do letreiro
 
 //Os arquivos dos frames de cada secao do menu e as respectivas cores
 const SECTIONS_COLORS = {
-  "index.html" : "#2C459C",
+  "index.php" : "#2C459C",
   "cafes.php" :  "#EE3539" ,
-  "mapa.html" : "#F58637",
-  "contato.html" : "#0FB99B",
+  "mapa.php" : "#F58637",
+  "contato.php" : "#0FB99B",
   "_reliquias.php?type=1" : "#19B060",
   "_reliquias.php?type=2" : "#19B060",
   "_reliquias.php?type=3" : "#19B060",

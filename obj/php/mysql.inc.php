@@ -2,9 +2,6 @@
 
 define('DB_SERVERNAME', 'localhost');
 define('DB_NAME', '305936');
-//define('DB_USERNAME', '305936');
-//define('DB_PASSWORD', 'phedrophedroca');
-
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', 'eratostenes');
 
@@ -54,5 +51,42 @@ function sqlSelect(string $sqlSelect, PDO $c = null) : array {
   }
 
 }//sqlSelect()
+
+/*[03]--------------------------------------------------------------------------------------------
+*                        Registra dados do acesso a uma pagina do site
+*-----------------------------------------------------------------------------------------------*/
+function trace(string $pg) {
+  
+  if (isset($_SERVER['REMOTE_ADDR'])) {
+
+    $ip = $_SERVER['REMOTE_ADDR'];
+
+    if (isset($_SERVER['HTTP_USER_AGENT'])) {
+
+      $user_agent = $_SERVER['HTTP_USER_AGENT'];
+
+    }
+    else $user_agent = '';
+
+    try {
+
+      $conn = connect();
+
+      $stmt = $conn->prepare("INSERT INTO acess (ip, user_agent, pg) VALUES(:ip, :user_agent, :pg)");
+
+      $stmt->bindParam(':ip', $ip, PDO::PARAM_STR);
+      $stmt->bindParam(':user_agent', $user_agent, PDO::PARAM_STR);
+      $stmt->bindParam(':pg', $pg, PDO::PARAM_STR);
+
+      $stmt->execute();
+
+    }
+    catch (PDOException $e) { }
+    
+    finally { $conn = null; }
+
+  }//if
+
+}//trace()
 
 ?>

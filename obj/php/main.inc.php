@@ -71,7 +71,7 @@ function kill(
   string $errMsg,
   string $extraMsg = '', 
   string $html = '', 
-  string $openTags = '<html><body>',
+  string $openTags = '<!DOCTYPE html><html><body>',
   string $closeTags = '</body></html>'
 ) {
 

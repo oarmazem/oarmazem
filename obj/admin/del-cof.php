@@ -25,6 +25,8 @@ try {
 
   $delete->readDatabase($cod);//Le os dados do artigo no BD
 
+  $menu = getMenuSectionNames();
+
 }
 catch (PDOException $e) {
 
@@ -56,16 +58,31 @@ catch (PDOException $e) {
       <div class="input_field">
         <label for="tipo">Tipo:</label>
         <select name="tipo" id="tipo" title="O tipo do artigo" required>
-          <option value="1" <?php echo $delete->arrayTipo[0]; ?>>01 - Tortas salgadas</option>
-          <option value="2" <?php echo $delete->arrayTipo[1]; ?>>02 - Sanduíches</option>
-          <option value="3" <?php echo $delete->arrayTipo[2]; ?>>03 - Tortas e bolos</option>
-          <option value="4" <?php echo $delete->arrayTipo[3]; ?>>04 - Sorvetes</option>
-          <option value="5" <?php echo $delete->arrayTipo[4]; ?>>05 - Cafés</option>
-          <option value="6" <?php echo $delete->arrayTipo[5]; ?>>06 - Chás</option>
-          <option value="7" <?php echo $delete->arrayTipo[6]; ?>>07 - Chocolate quente</option>
-          <option value="8" <?php echo $delete->arrayTipo[7]; ?>>08 - Refrigerantes</option>   
-          <option value="9" <?php echo $delete->arrayTipo[8]; ?>>09 - Água</option>
-          <option value="10" <?php echo $delete->arrayTipo[9]; ?>>10 - Sucos</option>
+          <option value="1" <?php echo $delete->arrayTipo[0]; ?>>01 - <?php echo $menu[0] ?></option>
+          <option value="2" <?php echo $delete->arrayTipo[1]; ?>>02 - <?php echo $menu[1] ?></option>            
+          <option value="3" <?php echo $delete->arrayTipo[2]; ?>>03 - <?php echo $menu[2] ?></option>
+          <option value="4" <?php echo $delete->arrayTipo[3]; ?>>04 - <?php echo $menu[3] ?></option>            
+          <option value="5" <?php echo $delete->arrayTipo[4]; ?>>05 - <?php echo $menu[4] ?></option>
+          <option value="6" <?php echo $delete->arrayTipo[5]; ?>>06 - <?php echo $menu[5] ?></option>  
+          <option value="7" <?php echo $delete->arrayTipo[6]; ?>>07 - <?php echo $menu[6] ?></option>                   
+          <option value="8" <?php echo $delete->arrayTipo[7]; ?>>08 - <?php echo $menu[7] ?></option>
+          <option value="9" <?php echo $delete->arrayTipo[8]; ?>>09 - <?php echo $menu[8] ?></option>   
+          <option value="10" <?php echo $delete->arrayTipo[9]; ?>>10 - <?php echo $menu[9] ?></option>    
+          <option value="11" <?php echo $delete->arrayTipo[10]; ?>>11 - <?php echo $menu[10] ?></option>
+          <option value="12" <?php echo $delete->arrayTipo[11]; ?>>12 - <?php echo $menu[11] ?></option>            
+          <option value="13" <?php echo $delete->arrayTipo[12]; ?>>13 - <?php echo $menu[12] ?></option>
+          <option value="14" <?php echo $delete->arrayTipo[13]; ?>>14 - <?php echo $menu[13] ?></option>            
+          <option value="15" <?php echo $delete->arrayTipo[14]; ?>>15 - <?php echo $menu[14] ?></option>
+          <option value="16" <?php echo $delete->arrayTipo[15]; ?>>16 - <?php echo $menu[15] ?></option>  
+          <option value="17" <?php echo $delete->arrayTipo[16]; ?>>17 - <?php echo $menu[16] ?></option>                   
+          <option value="18" <?php echo $delete->arrayTipo[17]; ?>>18 - <?php echo $menu[17] ?></option>
+          <option value="19" <?php echo $delete->arrayTipo[18]; ?>>19 - <?php echo $menu[18] ?></option>   
+          <option value="20" <?php echo $delete->arrayTipo[19]; ?>>20 - <?php echo $menu[19] ?></option>
+          <option value="21" <?php echo $delete->arrayTipo[20]; ?>>21 - <?php echo $menu[20] ?></option>  
+          <option value="22" <?php echo $delete->arrayTipo[21]; ?>>22 - <?php echo $menu[21] ?></option>                   
+          <option value="23" <?php echo $delete->arrayTipo[22]; ?>>23 - <?php echo $menu[22] ?></option>
+          <option value="24" <?php echo $delete->arrayTipo[23]; ?>>24 - <?php echo $menu[23] ?></option>   
+          <option value="25" <?php echo $delete->arrayTipo[24]; ?>>25 - <?php echo $menu[24] ?></option>                         
         </select>
       </div>
 

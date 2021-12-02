@@ -23,6 +23,8 @@ require_once 'php/main.inc.php';
 require_once 'php/mysql.inc.php';
 require_once 'php/images-tools.inc.php';
 
+trace('17');//registra no BD um acesso a esta pagina 17
+
 if (isset($_GET['cod'])) {
   
   $table = $_GET['table']; $type = $_GET['type']; $cod = $_GET['cod'];
@@ -94,9 +96,9 @@ for ($i = 0; $i < $numberOfPhotos; $i++) {
 echo "</div>\n\n";
 
 echo 
-"<div id=\"desc\">\n" . 
-  "\t<div class=\"postit yellow-postit\">" . "<p>$desc</p>" . "</div>\n" .
-  "\t<img src=\"images/pins/center-black-pin.png\">\n" .
+  "<div class=\"postit yellow-postit\">" . 
+    "<p>$desc</p>" . 
+    "\t<img src=\"images/pins/center-black-pin.png\">\n" .
 "</div>\n\n";
 
 echo "<a id=\"back\" href=\"$return\"><img src=\"images/back.png\" alt=\"Voltar\"></a>";

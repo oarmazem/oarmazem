@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <?php
 
 require_once 'php/paths.inc.php';
@@ -8,7 +7,10 @@ require_once 'php/images-tools.inc.php';
 require_once 'php/relics-tools.inc.php';
 
 if (isset($_GET['type'])) $type = $_GET['type']; else redirectTo('403.html');
+
+trace(2 + $type);
 ?>
+<!DOCTYPE html>
 
 <html lang="pt-br">
   

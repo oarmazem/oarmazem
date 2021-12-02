@@ -7,8 +7,9 @@ require_once 'php/mysql.inc.php';
 require_once 'php/images-tools.inc.php';
 require_once 'php/cofs-tools.inc.php';
 
-?>
+trace('2');
 
+?>
 <html lang="pt-br">
   
 <head>
@@ -28,15 +29,7 @@ require_once 'php/cofs-tools.inc.php';
 
 <?php
 
-$tipo = [
-  'Tortas salgadas', 'Sanduíches', 'Tortas e bolos', 'Sorvetes', 'Cafés', 'Chás', 'Chocolate quente',
-  'Refrigerantes', 'Água', 'Sucos'
-];
-
-for ($type = 1; $type <= 10; $type++) {
-
- 
-  echo "<h1>" . $tipo[$type - 1] . "</h1>";
+for ($type = 1; $type <= NUMBER_OF_MENU_SECTIONS; $type++) {
 
   try {
 

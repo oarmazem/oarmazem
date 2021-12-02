@@ -1,16 +1,14 @@
 <?php
 
-$exif = exif_read_data('../uploads/3002-000.jpg', 0, true);
+header("Content-type: image/png");
+$imagem = ImageCreate(300,60);
+$white =  ImageColorAllocate($imagem, 255, 255, 255);
+$blue = ImageColorAllocate($imagem, 0, 0, 255);
 
-echo "3002-000.jpg:<br />\n";
-foreach ($exif as $key => $section) {
+ImageRectangle($imagem, 0, 0, 199, 59, $blue);
+ImagePng($imagem);
+ImageDestroy($imagem);
 
-    foreach ($section as $name => $val) {
-
-        echo "$key.$name: $val<br />\n";
-
-    }
-}
 
 ?>
 

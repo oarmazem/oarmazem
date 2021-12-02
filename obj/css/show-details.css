@@ -32,9 +32,9 @@ h1 { margin: 5vh 0 3vh 0; }
 
 .thumb:hover { cursor: pointer; }
 
-#desc { margin: 0 0 3vh 0; width: 40%; position: relative; float: left; }
+.postit { margin: 0 0 3vh 0; width: 40%; position: relative; float: left; }
 
-#desc img { position: absolute; width: 6%; top: -2%; left: 47%; }
+.postit img { position: absolute; width: 6%; top: -2%; left: 47%; }
 
 #back {
   clear: left;

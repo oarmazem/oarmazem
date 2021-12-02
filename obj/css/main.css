@@ -126,85 +126,23 @@ main {
                                  Configura o quadro de cortica
 ================================================================================================*/
 .quadro-de-cortica {
+  position: relative;
   border: ridge 8px;
   /*background-repeat: no-repeat;
   background-size: 100% 100%;*/
-  display: grid;
-  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-  gap: 0;
-}
-
-/*================================================================================================
-                      Style comum a todos os boxes de quadros de cortica
-================================================================================================*/
-.quadro-de-cortica > div {
-  position: relative;
-  padding: 5%;
-}
-
-/*================================================================================================
-              Boxes no quadro para fotos e bilhetinhos. Compoem um gridlayout
-================================================================================================*/
-.quadro-de-cortica .box1 {
-  grid-area: box1;
-}
-
-.quadro-de-cortica .box2 {
-  grid-area: box2;  
-}
-
-.quadro-de-cortica .box3 {
-  grid-area: box3;  
-}
-
-.quadro-de-cortica .box4 {
-  grid-area: box4;  
-}
-
-.quadro-de-cortica .box5 {
-  grid-area: box5;  
-}
-
-.quadro-de-cortica .box6 {
-  grid-area: box6;  
-}
-
-.quadro-de-cortica .box7 {
-  grid-area: box7;  
-}
-
-.quadro-de-cortica .box8 {
-  grid-area: box8;  
-}
-
-.quadro-de-cortica .box9 {
-  grid-area: box9;  
-}
-
-.quadro-de-cortica .box10 {
-  grid-area: box10;  
-}
-
-.quadro-de-cortica .box11 {
-  grid-area: box11;  
-}
-
-.quadro-de-cortica .box12 {
-  grid-area: box12;  
 }
 
 /*================================================================================================
                       Os tipos de bilhetinhos do quadro de cortica
 ================================================================================================*/
 .postit {
-  position: relative;
-  margin: auto; 
+  position: absolute;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   text-align: center;
   font-size: 1.8rem;
   line-height: 2.4rem; 
-  padding: 2%;
+  padding: 1%;
 }
 
 .postit h1, h2 {
@@ -212,7 +150,7 @@ main {
 }
 
 .postit p {
-  width: 95%;
+  width: 97%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -235,21 +173,11 @@ main {
 }
 
 /*================================================================================================
-         Uma div para anexar elementos soltos dentro de um box do quadro de cortica
-================================================================================================*/
-.box-attachment {
-  position: absolute;
-  padding: 0;
-}
-
-/*================================================================================================
         Figure para as fotos dos boxes. A figure faz a foto oucpar 80% da largura 
         do seu box e permite que o pin da foto seja posicionado corretamente sobre ela.           
 ================================================================================================*/
 .quadro-de-cortica figure {
-  position: relative;
-  width: 80%;
-  margin: auto;
+  position: absolute;
 }
 
 /*================================================================================================
@@ -260,7 +188,6 @@ main {
   width: 100%;
   height: auto;
   border: solid white 0.8rem;
-  padding: 0;
   box-shadow: -0.8rem 0.6rem 1rem rgba(50, 50, 50, 0.7);
 }
 

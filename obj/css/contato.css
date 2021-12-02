@@ -17,9 +17,4 @@ body {
 =================================================================================================*/
 .quadro-de-cortica {
   background-color:rgba(5, 70, 37, 0.4);
-  grid-template-areas:
-  "box1 box1 box1 box1 box1 box2 box2 box2 box2 box2"
-  "box4 box4 box4 box5 box5 box5 box6 box6 box6 box6"
-  "box7 box7 box7 box8 box8 box8 box8 box9 box9 box9"
-  "box10 box10 box10 box11 box11 box11 box12 box12 box12 box12";
 }

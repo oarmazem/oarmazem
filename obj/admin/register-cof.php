@@ -11,6 +11,8 @@ try {
 
   if (!adminPasswordOk()) redirectTo('index.php');   
 
+  $menu = getMenuSectionNames();
+
 }
 catch (PDOException $e) {
 
@@ -44,24 +46,31 @@ catch (PDOException $e) {
         <label for="tipo"><b>*Tipo:</b></label>
         <select name="tipo" id="tipo" title="Selecione que espécie de item é este" required>
           <option value="">Selecione que tipo de item será cadastrado</option>
-          <optgroup label="Para matar a fome">
-            <option value="1">01 - Tortas salgadas</option>
-            <option value="2">02 - Sanduíches</option>            
-          </optgroup>
-          <optgroup label="Doces e sobremesas">
-            <option value="3">03 - Tortas e bolos</option>
-            <option value="4">04 - Sorvetes</option>            
-          </optgroup>    
-          <optgroup label="Bebidas quentes">
-            <option value="5">05 - Cafés</option>
-            <option value="6">06 - Chás</option>  
-            <option value="7">07 - Chocolate quente</option>                   
-          </optgroup>   
-          <optgroup label="Bebidas frias">
-            <option value="8">08 - Refrigerantes</option>
-            <option value="9">09 - Água</option>   
-            <option value="10">10 - Sucos</option>        
-          </optgroup>  
+          <option value="1">01 - <?php echo $menu[0] ?></option>
+          <option value="2">02 - <?php echo $menu[1] ?></option>            
+          <option value="3">03 - <?php echo $menu[2] ?></option>
+          <option value="4">04 - <?php echo $menu[3] ?></option>            
+          <option value="5">05 - <?php echo $menu[4] ?></option>
+          <option value="6">06 - <?php echo $menu[5] ?></option>  
+          <option value="7">07 - <?php echo $menu[6] ?></option>                   
+          <option value="8">08 - <?php echo $menu[7] ?></option>
+          <option value="9">09 - <?php echo $menu[8] ?></option>   
+          <option value="10">10 - <?php echo $menu[9] ?></option>    
+          <option value="11">11 - <?php echo $menu[10] ?></option>
+          <option value="12">12 - <?php echo $menu[11] ?></option>            
+          <option value="13">13 - <?php echo $menu[12] ?></option>
+          <option value="14">14 - <?php echo $menu[13] ?></option>            
+          <option value="15">15 - <?php echo $menu[14] ?></option>
+          <option value="16">16 - <?php echo $menu[15] ?></option>  
+          <option value="17">17 - <?php echo $menu[16] ?></option>                   
+          <option value="18">18 - <?php echo $menu[17] ?></option>
+          <option value="19">19 - <?php echo $menu[18] ?></option>   
+          <option value="20">20 - <?php echo $menu[19] ?></option>   
+          <option value="21">21 - <?php echo $menu[20] ?></option>  
+          <option value="22">22 - <?php echo $menu[21] ?></option>                   
+          <option value="23">23 - <?php echo $menu[22] ?></option>
+          <option value="24">24 - <?php echo $menu[23] ?></option>   
+          <option value="25">25 - <?php echo $menu[24] ?></option>                       
         </select>
       </div>
 
@@ -171,7 +180,7 @@ catch (PDOException $e) {
       
       echo '<img style="margin: 2vw; width: 10vw; height: auto; float: left;" src="' . getMainImageFromCode('c' . $cod) . '">';   
 
-      $insert->readDatabase($cod);//Le a tabela relics para obter a hora de registro
+      $insert->readDatabase($cod);//Le a tabela cofs para obter a hora de registro
       
       echo $insert;
 

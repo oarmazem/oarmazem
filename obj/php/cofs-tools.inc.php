@@ -1,20 +1,48 @@
 <?php declare(strict_types=1);
 
+define('NUMBER_OF_MENU_SECTIONS', 25);
+
+/*[00]---------------------------------------------------------------------------------------------
+              Retorna um array com os nomes de todas as secoes do cardapio
+------------------------------------------------------------------------------------------------*/
+function getMenuSectionNames() : array {
+ 
+  $menuSections = sqlSelect("SELECT menu_section FROM menu");
+
+  $numberOfLines = count($menuSections);
+
+  if ($numberOfLines !== NUMBER_OF_MENU_SECTIONS) 
+    throw new PDOException("Número de seções do cardápio no BD não é o esperado! (Lidos: $numberOfLines Esperado: " .  NUMBER_OF_MENU_SECTIONS . ')');
+
+  for ($i = 0; $i < NUMBER_OF_MENU_SECTIONS; $i++) { $result[$i] = $menuSections[$i]['menu_section']; }
+
+  return $result;
+
+}//getMenuSectionsNames()
+
 /*[01]---------------------------------------------------------------------------------------------
                   Lista itens de cardápio de um determinado tipo
 ------------------------------------------------------------------------------------------------*/
 function listCofs(string $type) {
 
-  $result = sqlSelect("SELECT id, product_data, price FROM cofs WHERE typ = $type");
+  $menu = sqlSelect("SELECT id, product_data, price FROM cofs WHERE typ = $type");
 
-  $numberOfLines = count($result); 
+  $numberOfLines = count($menu); 
 
-  if ($numberOfLines === 0) throw new PDOException("Nada ainda nesta seção!");
+  if ($numberOfLines === 0) return; 
+
+  $menuSection = sqlSelect("SELECT menu_section FROM menu WHERE id = $type");
+
+  if (count($menuSection) === 0) throw new PDOException("Seção $type não encontrada no cardápio!"); 
+
+  $menuSectionName = $menuSection[0]['menu_section'];
+
+  echo "<h1>" . $menuSectionName . "</h1>";
 
   for ($i = 0; $i < $numberOfLines; $i++) {
 
-    $cod = $result[$i]['id']; $nome = $result[$i]['product_data']; 
-    $price = $result[$i]['price'];
+    $cod = $menu[$i]['id']; $nome = $menu[$i]['product_data']; 
+    $price = $menu[$i]['price'];
     $price = "R$ " . number_format((float)$price, 2, ',', '.');
    
     $pathname = getMainImageFromCode('c' . $cod);
@@ -68,7 +96,7 @@ class CofsTableHandler {
   public $local;
   public $desc;
 
-  public $arrayTipo = ['', '', '', '', '', '', '', '', '', ''];
+  public $arrayTipo;
 
   private $conn;
 
@@ -179,7 +207,14 @@ class CofsTableHandler {
     $this->local = $line['vendor_locality'];
     $this->desc = $line['product_desc'];
 
-    for ($i = 0; $i < 11; $i++) { if ($i == ($this->tipo - 1)) $this->arrayTipo[$i] = "selected"; }
+    for ($i = 0; $i < NUMBER_OF_MENU_SECTIONS; $i++) { 
+
+      if ($i == ($this->tipo - 1)) 
+        $this->arrayTipo[$i] = 'selected';
+      else
+        $this->arrayTipo[$i] = '';
+
+    }
 
   }//readDatabase()
     

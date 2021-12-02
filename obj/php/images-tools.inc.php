@@ -43,7 +43,11 @@ function resizeImage(string $source, string $target): bool {
   $source = imagecreatefromjpeg($source);
   imagecopyresampled($newImage, $source, 0, 0, $x, $y, 350, 400, $newWidth, $newHeight);
 
-  return (imagejpeg($newImage, $target, 75)); 
+  $result = (imagejpeg($newImage, $target, 75)); 
+
+  imageDestroy($newImage);
+
+  return $result;
 
 }//resizeImage()  
 

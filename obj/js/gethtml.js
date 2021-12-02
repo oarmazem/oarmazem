@@ -17,11 +17,11 @@ function getHead() {
 function getHeader() {
 
   return `
-  <h1><img id="logo" onclick="nav('index.html')" src="images/logos/letters-logo.png" alt="logomarca"></h1>
+  <h1><img id="logo" onclick="nav('index.php')" src="images/logos/letters-logo.png" alt="logomarca"></h1>
 
   <nav id="menu">
     <ul class="br" lang="pt-br">
-      <li onclick="nav('index.html')">INÍCIO</li>
+      <li onclick="nav('index.php')">INÍCIO</li>
       <li onclick="nav('cafes.php')">O CAFÉ</li>
       <li class="submenu">
         AS RELÍQUIAS
@@ -40,12 +40,12 @@ function getHeader() {
           <li onclick="nav('_reliquias.php?type=12')">Mais relíquias...</li>          
         </ul>        
       </li>
-      <li onclick="nav('mapa.html')">COMO CHEGAR</li>    
-      <li onclick="nav('contato.html')">CONTATO</li>
+      <li onclick="nav('mapa.php')">COMO CHEGAR</li>    
+      <li onclick="nav('contato.php')">CONTATO</li>
     </ul>      
   
     <ul class="en" lang="en-us">
-      <li onclick="nav('index.html')">HOME</li>
+      <li onclick="nav('index.php')">HOME</li>
       <li onclick="nav('cafes.php')">COFFEE</li>
       <li class="submenu">
         RELICS
@@ -64,12 +64,12 @@ function getHeader() {
           <li onclick="nav('_reliquias.php?type=12')">More...</li>          
         </ul>           
       </li>
-      <li onclick="nav('mapa.html')">MAP</li>    
-      <li onclick="nav('contato.html')">CONTACT</li>
+      <li onclick="nav('mapa.php')">MAP</li>    
+      <li onclick="nav('contato.php')">CONTACT</li>
     </ul>      
 
     <ul class="es" lang="es-es">
-      <li onclick="nav('index.html')">INICIO</li>
+      <li onclick="nav('index.php')">INICIO</li>
       <li onclick="nav('cafes.php')">EL CAFÉ</li>
       <li class="submenu">
         LAS RELIQUIAS
@@ -88,12 +88,12 @@ function getHeader() {
           <li onclick="nav('_reliquias.php?type=12')">Mas reliquias...</li>           
         </ul>           
       </li>
-      <li onclick="nav('mapa.html')">¿CÓMO SE LLEGA?</li>    
-      <li onclick="nav('contato.html')">CONTACTE</li>
+      <li onclick="nav('mapa.php')">¿CÓMO SE LLEGA?</li>    
+      <li onclick="nav('contato.php')">CONTACTE</li>
     </ul>      
 
     <ul class="fr" lang="fr-fr">
-      <li onclick="nav('index.html')">HOME</li>
+      <li onclick="nav('index.php')">HOME</li>
       <li onclick="nav('cafes.php')">LE CAFE</li>
       <li class="submenu">
         LE RELIEF
@@ -112,8 +112,8 @@ function getHeader() {
           <li onclick="nav('_reliquias.php?type=12')">Plus de reliques...</li>           
         </ul>           
       </li>
-      <li onclick="nav('mapa.html')">COMMENT S'Y RENDRE ?</li>    
-      <li onclick="nav('contato.html')">CONTACTER</li>
+      <li onclick="nav('mapa.php')">COMMENT S'Y RENDRE ?</li>    
+      <li onclick="nav('contato.php')">CONTACTER</li>
     </ul>      
   </nav>`;
 
@@ -132,7 +132,7 @@ function getFooter() {
 <a href="mailto:oarmazem.contato@gmail.com" target="_blank"><img src="images/social/email.png" alt="mail"></a>
 </div>
 <div class="box2">
-<address>Rod. Salvador Pacetti Km 64 Cunha-SP (11)98415-6248</address>
+<address>Rod. Salvador Pacetti Km 64,3 Cunha-SP (11)98415-6248</address>
 </div>
 <div class="box3">
 <img id="flag" onclick="toggleLanguage()" alt="translate">
