@@ -67,7 +67,8 @@ catch (PDOException $e) {
     <ul id="coffee">
       <li><a href="register-cof.php">Cadastro de Itens do Cardápio</a></li>
       <li><a href="search.php?target=del-cof">Excluir Itens do Cardápio</a></li>  
-      <li><a href="search.php?target=update-cof">Atualização de Dados de um Item do Cardápio</a></li>      
+      <li><a href="search.php?target=update-cof">Atualização de Dados de um Item do Cardápio</a></li>  
+      <li><a href="list-cofs.php">Listagem dos Itens do Cardápio</a></li>     
       <li><a href="search.php?target=upload-cof">Upload de Imagens de Itens de Cardápio</a></li>
       <li><a href="update-cofmenu.php">Atualização de Nomes de Seções do Cardápio</a></li>     
     </ul>

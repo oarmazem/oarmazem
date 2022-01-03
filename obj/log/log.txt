@@ -741,3 +741,707 @@ IP: 127.0.0.1
 03/01/2022 12:43:35am
 Reliquia 3 atualizada
 
+IP: 127.0.0.1
+03/01/2022 05:50:51am
+Executando update-relic.php
+
+IP: 127.0.0.1
+03/01/2022 05:50:51am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:50:51am
+Executando index.php
+
+IP: 127.0.0.1
+03/01/2022 05:50:51am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:50:55am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 05:50:55am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:51:10am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 05:51:10am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:52:00am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 05:52:00am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:54:30am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 05:54:30am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:54:33am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 05:54:33am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:54:37am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 05:54:37am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:54:59am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 05:54:59am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:55:33am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 05:55:33am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 05:55:36am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 05:55:36am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:04:40am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:04:40am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:04:44am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:04:44am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:04:49am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:04:49am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:04:52am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:04:52am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:06:05am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:06:05am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:06:07am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 06:06:07am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:06:11am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:06:11am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:06:13am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:06:13am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:14:58am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:14:58am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:15:00am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:15:00am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:15:28am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:15:28am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:15:28am
+Executando index.php
+
+IP: 127.0.0.1
+03/01/2022 06:15:28am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:15:39am
+Executando index.php
+
+IP: 127.0.0.1
+03/01/2022 06:15:39am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:15:39am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:15:39am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:15:41am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:15:41am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:18:01am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:18:01am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:18:04am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:18:04am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:18:42am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:18:42am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:18:44am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:18:44am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:07am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:07am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:17am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:17am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:17am
+Executando index.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:17am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:29am
+Executando index.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:29am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:29am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:29am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:30am
+Executando register-relic.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:30am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:36am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:36am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:37am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:37am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:39am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:39am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:42am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:42am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:48am
+Executando del-relic.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:48am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:53am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:53am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:55am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:55am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:20:59am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:20:59am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:07am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:07am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:11am
+Executando update-relic.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:11am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:11am
+Reliquia 1 atualizada
+
+IP: 127.0.0.1
+03/01/2022 06:21:19am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:19am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:21am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:21am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:26am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:26am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:30am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:30am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:36am
+Executando upload-relic.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:36am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:38am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:38am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:44am
+Executando register-cof.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:44am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:46am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:46am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:48am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:48am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:55am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:55am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:21:57am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 06:21:57am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:22:01am
+Executando del-cof.php
+
+IP: 127.0.0.1
+03/01/2022 06:22:01am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:22:02am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:22:02am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:27:54am
+Executando stats.php
+
+IP: 127.0.0.1
+03/01/2022 06:27:54am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:28:05am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:28:05am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:40:37am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:40:37am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:40:58am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:40:58am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:41:00am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:41:00am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:41:01am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 06:41:01am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 06:41:03am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 06:41:03am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:03:04am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 07:03:04am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:03:04am
+Executando index.php
+
+IP: 127.0.0.1
+03/01/2022 07:03:04am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:03:13am
+Executando index.php
+
+IP: 127.0.0.1
+03/01/2022 07:03:13am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:03:13am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 07:03:13am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:03:15am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 07:03:15am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:03:41am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 07:03:41am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:03:43am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 07:03:43am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:05:52am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 07:05:52am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:05:55am
+Executando list-cofs.php
+
+IP: 127.0.0.1
+03/01/2022 07:05:55am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:14:51am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 07:14:51am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:14:54am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 07:14:54am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:16:28am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 07:16:28am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:17:12am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 07:17:12am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:17:15am
+Executando stats.php
+
+IP: 127.0.0.1
+03/01/2022 07:17:15am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:17:17am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 07:17:17am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:18:24am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 07:18:24am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 07:19:51am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 07:19:51am
+Encontrou cookie
+

@@ -58,7 +58,7 @@ catch (PDOException $e) {
     <input class="button_action" type="submit" name="upload" value="UPLOAD" title="Upload dos arquivos">
     <input class="button_action" type="reset" value="REDEFINIR" title="Desseleciona os arquivos">
     <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Upload de imagens para outro item do cardápio" onclick="gotoSearchPage('upload-cof')">
-    <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">    
+    <input class="button_action" type="button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">    
     <div id="bar"><div id="ocilator"></div></div>     
   </form>
 

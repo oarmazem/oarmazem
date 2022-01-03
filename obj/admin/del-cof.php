@@ -138,7 +138,7 @@ catch (PDOException $e) {
 
     <input class="button_action" type="submit" id="delete" name="delete" value="EXCLUIR" title="Clique para excluir o item do cardápio">
     <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Buscar outro item de cardápio" onclick="gotoSearchPage('del-cof')">
-    <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
+    <input class="button_action" type="button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
   
   </form>
  

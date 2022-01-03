@@ -44,7 +44,7 @@ catch (PDOException $e) {
     <br><br>
     <input class="button_action" type="submit" value="PREVIEW" title="Exibe uma prévia da imagem">
     <input class="button_action" type="reset" value="REDEFINIR" title="Desseleciona o arquivo">
-    <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">    
+    <input class="button_action" type="button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">    
     <div id="bar"><div id="ocilator"></div></div>     
     
   </form>

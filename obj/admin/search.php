@@ -76,7 +76,7 @@ catch (PDOException $e) {
     </fieldset><br>
     <input type="submit" class="button_action" value="BUSCAR" title="Buscar pelo código"> 
     <input class="button_action" type="reset" value="REDEFINIR" title="Limpa o campo">
-    <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">          
+    <input class="button_action" type="button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">          
   </form>
 
   <script src="js/main.js"></script>

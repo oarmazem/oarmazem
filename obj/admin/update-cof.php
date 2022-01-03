@@ -147,7 +147,7 @@ catch (PDOException $e) {
     <input class="button_action" type="submit" name="update" value="ATUALIZAR" title="Clique para atualizar os dados">
     <input class="button_action" type="reset" value="REDEFINIR" title="Redefine dados do formuláro para os valores iniciais">
     <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Atualiza os dados de outro item" onclick="gotoSearchPage('update-cof')">
-    <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
+    <input class="button_action" type="button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
     <div id="bar"><div id="ocilator"></div></div>  
     <input type="checkbox" name="delete" id="delete" title="Marque para excluir registro" onclick="del()">
   

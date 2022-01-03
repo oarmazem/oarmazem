@@ -195,7 +195,7 @@ catch (PDOException $e) {
 
     <input class="button_action" type="submit" id="delete" name="delete" value="EXCLUIR" title="Clique para excluir a relíquia">
     <input class="button_action" type="button" id="goto_search_page" value="BUSCAR" title="Buscar outra relíquia" onclick="gotoSearchPage('del-relic')">
-    <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
+    <input class="button_action" type="button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">  
   
   </form>
  

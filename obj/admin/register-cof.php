@@ -138,7 +138,7 @@ catch (PDOException $e) {
 
     <input class="button_action" type="submit" value="CADASTRAR" title="Cadastra um novo item para o cardápio">
     <input class="button_action" type="reset" value="REDEFINIR" title="Redefine dados do formuláro para os valores iniciais">
-    <input class="button_action" type="button" id="options_button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">
+    <input class="button_action" type="button" value="OPÇÕES" title="Retorna ao menu inicial" onclick="gotoAdminPage()">
     <div id="bar"><div id="ocilator"></div></div>   
     <div style="position: absolute; bottom: 1px; right: 4px;">(*) Obrigatórios</div>
 
