@@ -1,8 +1,11 @@
 <?php
 
+require_once 'php/paths.inc.php';
 require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
 require_once '../php/password-tools.inc.php';
+
+insertLog('Executando search.php');
 
 try {
 

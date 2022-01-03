@@ -128,7 +128,7 @@ trace('16');
         <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
       </figure>      
 
-      <figure style="width: 30%; left: 68%; top: 102rem;"> 
+      <figure style="width: 30%; left: 68%; top: 98rem;"> 
         <img class="foto" src="images/photos/cachorro.jpg" alt="cachorro">
         <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
         <figcaption>
@@ -159,11 +159,10 @@ trace('16');
         <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">                            
       </div><!--postit-->   
 
-      <figure style="width: 30%; left: 55%; top: 126rem; transform:" > 
+      <figure style="width: 30%; left: 55%; top: 126rem;" > 
         <img class="foto" src="images/photos/pinoquio.jpg" alt="pinóquio">
         <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
-      </figure>      
-
+      </figure>     
     
   </section><!--quadro-de-cortica-->
 

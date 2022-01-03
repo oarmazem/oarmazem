@@ -34,6 +34,46 @@ function listRelics(string $type) {
 
 }//listRelics()
 
+/*[02]---------------------------------------------------------------------------------------------
+                  Lista reliquias que correspondem a uma determinada pesquisa
+------------------------------------------------------------------------------------------------*/
+function searchRelics(string $search) {
+
+  $sep = '[ .;:!?=_+*-]|';
+
+  $search = "'($sep^)" . remove_accents($search) . "($sep$)'";
+
+  $result = 
+    sqlSelect("SELECT id, product_data, price, typ FROM relics WHERE (search REGEXP $search AND vendido = 0)");  
+
+  $numberOfLines = count($result); 
+
+  if ($numberOfLines === 0) throw new PDOException("A pesquisa não retornou resultados!");
+
+  for ($i = 0; $i < $numberOfLines; $i++) {
+
+    $cod = $result[$i]['id']; $nome = $result[$i]['product_data']; 
+    $price = $result[$i]['price'];
+    $type = $result[$i]['typ'];
+    if ($type === '11') $price = ''; else $price = "R$ " . number_format((float)$price, 2, ',', '.');
+   
+    $pathname = getMainImageFromCode($cod);
+
+    echo 
+    "<figure id=\"$cod\">\n" . 
+      "\t<a href=\"show-details.php?table=relics&type=$type&cod=$cod\">\n" .
+        "\t\t<img src=\"$pathname\" title=\"cód.:$cod\" alt=\"$cod\">\n" . 
+      "\t</a>\n" .
+      "\t<figcaption>\n" .
+        "\t\t<p>$nome</p><br>\n" . 
+        "\t\t<p>$price</p>\n" .
+      "\t</figcaption>\n" . 
+    "</figure>\n\n";
+
+  }//for
+
+}//searchRelics()
+
 class RelicsTableHandler {
 
   const SQL = [
@@ -44,16 +84,16 @@ class RelicsTableHandler {
   " vendido = :situacao, sale_nfe = :nfeVenda, sale_nfe_serie = :nfeVendaSerie, sale_date = :dataVenda," . 
   " dim_alt = :alt, dim_larg = :larg, dim_prof = :prof, dim_comp = :comp, dim_dia = :dia," . 
   " dimension_unity = :unity, vendor_name = :fornecedorNome, vendor_id = :cpfCnpj," . 
-  " vendor_locality = :local, product_desc = :desc" . 
+  " vendor_locality = :local, product_desc = :desc, search = :search" . 
   " WHERE id = :cod" 
   ,
   "INSERT INTO relics (" . 
   " typ, product_data, id, qt, mat, purchase_date, purchase_price, price, purchase_nfe, purchase_nfe_serie," . 
   " vendido, sale_nfe, sale_nfe_serie, sale_date, dim_alt, dim_larg, dim_prof, dim_comp, dim_dia," . 
-  " dimension_unity, vendor_name, vendor_id, vendor_locality, product_desc)" . 
+  " dimension_unity, vendor_name, vendor_id, vendor_locality, product_desc, search)" . 
   " VALUES(:tipo, :nome, :cod, :qtd, :mat, :dataCompra, :custo, :venda, :nfeCompra, :nfeCompraSerie," . 
   " :situacao, :nfeVenda, :nfeVendaSerie, :dataVenda, :alt, :larg, :prof, :comp, :dia, :unity," . 
-  " :fornecedorNome, :cpfCnpj, :local, :desc )"
+  " :fornecedorNome, :cpfCnpj, :local, :desc, :search )"
 
   ];  
 
@@ -89,6 +129,7 @@ class RelicsTableHandler {
   public $cpfCnpj;
   public $local;
   public $desc;
+  private $search;
 
   public $arrayTipo = ['', '', '', '', '', '', '', '', '', '', '', ''];
 
@@ -162,6 +203,8 @@ class RelicsTableHandler {
 
     $this->desc = $_POST['desc'];
 
+    $this->search = remove_accents($this->nome . ' ' . $this->desc);
+
   }//readFormFields()
 
   /*[04]--------------------------------------------------------------------------------------------
@@ -198,6 +241,7 @@ class RelicsTableHandler {
     $stmt->bindParam(':cpfCnpj', $this->cpfCnpj, PDO::PARAM_STR);
     $stmt->bindParam(':local', $this->local, PDO::PARAM_STR);
     $stmt->bindParam(':desc', $this->desc, PDO::PARAM_STR);
+    $stmt->bindParam(':search', $this->search, PDO::PARAM_STR);
 
     $stmt->execute();
 

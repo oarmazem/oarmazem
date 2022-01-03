@@ -7,6 +7,8 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/cofs-tools.inc.php';
 
+insertLog('Executando register-cof.php');
+
 try {
 
   if (!adminPasswordOk()) redirectTo('index.php');   
@@ -161,7 +163,11 @@ catch (PDOException $e) {
 
         $insert->writeOnDatabase();
 
+        insertLog("Inseriu item de cardapio $cod no banco de dados");
+
         $numOfSavedImages = saveResizedImages('c' . $cod);
+
+        insertLog("Subiu $numOfSavedImages imagens para este item de cardapio");
 
       }
       catch (PDOException $e) {

@@ -9,6 +9,8 @@
   define('H', 800);//altura da imagem
   define('IMAGE_FILE', '../images/photos/resized/stats.png');//A imagem gerada serah gravada neste arquivo
 
+  insertLog('Executando stats.php');
+
   if (!adminPasswordOk()) redirectTo('index.php');   
 
   /*----------------------------------------------------------------------------------------------
@@ -68,7 +70,7 @@
     $white = imageColorAllocate($image, 255, 255, 255);
     $gray = imageColorAllocate($image, 221, 221, 221);//Mesmo cinza do formulario
     $black = imageColorAllocate($image, 0, 0, 0);
-
+    //as cores do letreiro do armazem
     $blueO = imageColorAllocate($image, 44, 69, 156);//1
     $redA = imageColorAllocate($image, 238, 53, 57);//2
     $greenR = imageColorAllocate($image, 25, 176, 96);//3-14
@@ -153,7 +155,7 @@
 
       imageLine($image, $xi, y($yi), $xf, y($yf), $redA);
       imageLine($image, $xi, y($yf), $xf, y($yi), $redA);
-      imageTtfText($image, 10, 0, (($xf - $xi) / 2) - 20, y($yi + 40), $black, $heebo,  'NAO HÁ VISUALIZAÇÔES NO PERIODO');
+      imageTtfText($image, 10, 0, (($xf - $xi) / 2) - 20, y($yi + 40), $black, $heebo,  'NAO HÁ VISUALIZAÇÔES NO PERÍODO');
   
     }
     else { //Desenha o grafico de barras
@@ -203,7 +205,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="css/main.css" rel="stylesheet">
   <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon">  
-  <title>Excluir Item do Cardápio</title>
+  <title>Estatísticas</title>
 </head>
 
 <body>

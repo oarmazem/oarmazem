@@ -7,6 +7,8 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/relics-tools.inc.php';
 
+insertLog('Executando update-relic.php');
+
 try {
 
   if (!adminPasswordOk() || !isset($_POST['cod'])) redirectTo('index.php'); 
@@ -218,6 +220,8 @@ catch (PDOException $e) {
     <?php
 
     if (isset($_POST['update'])) { echoMsg('Cadastro atualizado com sucesso!'); }//if 
+
+    insertLog("Reliquia $cod atualizada");
 
     echo '<img style="margin: 0.5vw; width: 6vw; height: auto;" src="' . getMainImageFromCode($cod) . '">';   
 

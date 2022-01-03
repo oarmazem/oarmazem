@@ -7,6 +7,8 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/relics-tools.inc.php';
 
+insertLog('Executando upload-relic.php');
+
 try {
   
   if (!adminPasswordOk() || !isset($_POST['cod'])) redirectTo('index.php');  
@@ -70,6 +72,8 @@ catch (PDOException $e) {
     if (isset($_POST['upload'])) {
 
       $countResizedImages = saveMoreResizedImages($cod);
+
+      insertLog("Subiu $counResizedImages imagens para esta reliquia");
 
       if ($countResizedImages === 0) echoMsg('Falha. Não foi possível fazer o upload dos arquivos!');
       

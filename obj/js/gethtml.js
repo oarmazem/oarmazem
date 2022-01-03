@@ -17,7 +17,10 @@ function getHead() {
 function getHeader() {
 
   return `
-  <h1><img id="logo" onclick="nav('index.php')" src="images/logos/letters-logo.png" alt="logomarca"></h1>
+  <h1>
+    <img id="logo" onclick="nav('index.php')" src="images/logos/letters-logo.png" alt="logomarca">
+    <form method="POST" action="search.php"><input type="text" id="search" name="search" title=""></form>
+  </h1>
 
   <nav id="menu">
     <ul class="br" lang="pt-br">

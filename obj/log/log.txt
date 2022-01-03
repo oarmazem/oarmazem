@@ -1,0 +1,743 @@
+IP: 127.0.0.1
+2021/12/03 08:49:05pm
+Executando register-relic.php
+*
+IP: 127.0.0.1
+2021/12/03 08:49:05pm
+COOKIE IS SET
+
+*
+IP: 127.0.0.1
+2021/12/03 08:49:57pm
+Executando register-relic.php
+*
+IP: 127.0.0.1
+2021/12/03 08:49:57pm
+COOKIE IS SET
+
+*
+IP: 127.0.0.1
+2021/12/03 08:49:57pm
+Inseriu reliquia 55 no banco de dados
+*
+IP: 127.0.0.1
+2021/12/03 08:49:57pm
+Subiu 1 imagens para esta reliquia
+*
+IP: 127.0.0.1
+03/12/2021 08:55:04pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0
+Executando admim.php
+*
+IP: 127.0.0.1
+03/12/2021 08:55:04pm
+Encontrou cookie
+*
+IP: 127.0.0.1
+03/12/2021 08:55:06pm
+Executando search.php
+*
+IP: 127.0.0.1
+03/12/2021 08:55:06pm
+Encontrou cookie
+*
+IP: 127.0.0.1
+03/12/2021 08:58:31pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+03/12/2021 08:58:31pm
+Encontrou cookie
+
+IP: 127.0.0.1
+03/12/2021 08:59:02pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+03/12/2021 08:59:02pm
+Encontrou cookie
+
+IP: 127.0.0.1
+03/12/2021 08:59:02pm
+Deletou reliquia 55
+
+IP: 127.0.0.1
+03/12/2021 08:59:02pm
+ERRO: Não foi encontrada relíquia com código 56 !
+
+
+IP: 127.0.0.1
+03/12/2021 08:59:42pm
+Executando search.php
+
+IP: 127.0.0.1
+03/12/2021 08:59:42pm
+Encontrou cookie
+
+IP: 127.0.0.1
+03/12/2021 09:01:18pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:94.0) Gecko/20100101 Firefox/94.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/12/2021 09:01:18pm
+Encontrou cookie
+
+IP: 127.0.0.1
+03/12/2021 09:01:35pm
+Executando search.php
+
+IP: 127.0.0.1
+03/12/2021 09:01:35pm
+Encontrou cookie
+
+IP: 127.0.0.1
+03/12/2021 09:01:40pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+03/12/2021 09:01:40pm
+Encontrou cookie
+
+IP: 127.0.0.1
+03/12/2021 09:01:40pm
+ERRO: Não foi encontrada relíquia com código 55 !
+
+IP: 127.0.0.1
+03/12/2021 09:02:19pm
+Executando search.php
+
+IP: 127.0.0.1
+03/12/2021 09:02:19pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:25:13pm
+Executando index.php
+
+IP: 127.0.0.1
+02/01/2022 04:25:13pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:25:28pm
+Executando index.php
+
+IP: 127.0.0.1
+02/01/2022 04:25:28pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:25:28pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 04:25:28pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:25:50pm
+Executando search.php
+
+IP: 127.0.0.1
+02/01/2022 04:25:50pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:25:55pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+02/01/2022 04:25:55pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:26:00pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+02/01/2022 04:26:00pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:26:00pm
+Deletou reliquia 9
+
+IP: 127.0.0.1
+02/01/2022 04:26:04pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 04:26:04pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:27:00pm
+Executando search.php
+
+IP: 127.0.0.1
+02/01/2022 04:27:00pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:27:03pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+02/01/2022 04:27:03pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:27:05pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+02/01/2022 04:27:05pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:27:05pm
+Deletou reliquia 25
+
+IP: 127.0.0.1
+02/01/2022 04:28:07pm
+Executando search.php
+
+IP: 127.0.0.1
+02/01/2022 04:28:07pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:28:10pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+02/01/2022 04:28:10pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:28:14pm
+Executando del-relic.php
+
+IP: 127.0.0.1
+02/01/2022 04:28:14pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 04:28:14pm
+Deletou reliquia 10
+
+IP: 127.0.0.1
+02/01/2022 05:36:00pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 05:36:00pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 05:36:00pm
+Executando index.php
+
+IP: 127.0.0.1
+02/01/2022 05:36:00pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 05:36:09pm
+Executando index.php
+
+IP: 127.0.0.1
+02/01/2022 05:36:09pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 05:36:09pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 05:36:09pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 05:36:11pm
+Executando register-relic.php
+
+IP: 127.0.0.1
+02/01/2022 05:36:11pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 05:37:08pm
+Executando register-relic.php
+
+IP: 127.0.0.1
+02/01/2022 05:37:08pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 05:37:08pm
+Inseriu reliquia 100 no banco de dados
+
+IP: 127.0.0.1
+02/01/2022 05:37:08pm
+Subiu 1 imagens para esta reliquia
+
+IP: 127.0.0.1
+02/01/2022 09:31:02pm
+Executando index.php
+
+IP: 127.0.0.1
+02/01/2022 09:31:02pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:31:02pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 09:31:02pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:31:06pm
+Executando search.php
+
+IP: 127.0.0.1
+02/01/2022 09:31:06pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:31:11pm
+Executando update-relic.php
+
+IP: 127.0.0.1
+02/01/2022 09:31:11pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:31:11pm
+Reliquia 1 atualizada
+
+IP: 127.0.0.1
+02/01/2022 09:31:17pm
+Executando update-relic.php
+
+IP: 127.0.0.1
+02/01/2022 09:31:17pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:31:17pm
+Reliquia 1 atualizada
+
+IP: 127.0.0.1
+02/01/2022 09:31:53pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 09:31:53pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:31:53pm
+Executando index.php
+
+IP: 127.0.0.1
+02/01/2022 09:31:53pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:33:44pm
+Executando update-relic.php
+
+IP: 127.0.0.1
+02/01/2022 09:33:44pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:33:44pm
+Reliquia 1 atualizada
+
+IP: 127.0.0.1
+02/01/2022 09:38:26pm
+Executando update-relic.php
+
+IP: 127.0.0.1
+02/01/2022 09:38:26pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 09:38:26pm
+Reliquia 1 atualizada
+
+IP: 127.0.0.1
+02/01/2022 10:28:19pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 10:28:19pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 10:28:19pm
+Executando index.php
+
+IP: 127.0.0.1
+02/01/2022 10:28:19pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 10:28:28pm
+Executando index.php
+
+IP: 127.0.0.1
+02/01/2022 10:28:28pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 10:28:28pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 10:28:28pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 10:28:29pm
+Executando register-relic.php
+
+IP: 127.0.0.1
+02/01/2022 10:28:29pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 10:29:51pm
+Executando register-relic.php
+
+IP: 127.0.0.1
+02/01/2022 10:29:51pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 10:29:51pm
+ERRO: SQLSTATE[21S01]: Insert value list does not match column list: 1136 Column count doesn't match value count at row 1
+
+IP: 127.0.0.1
+02/01/2022 10:33:36pm
+Executando register-relic.php
+
+IP: 127.0.0.1
+02/01/2022 10:33:36pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 10:33:36pm
+Inseriu reliquia 101 no banco de dados
+
+IP: 127.0.0.1
+02/01/2022 10:33:36pm
+Subiu 1 imagens para esta reliquia
+
+IP: 127.0.0.1
+02/01/2022 10:33:45pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+02/01/2022 10:33:45pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 11:09:15pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:10:47pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:16:42pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:17:13pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:34:54pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:34:54pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 11:40:43pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:40:43pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 11:42:08pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:42:08pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 11:42:46pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:42:46pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 11:48:40pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:48:40pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 11:51:55pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:51:55pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 11:53:11pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:53:11pm
+Encontrou cookie
+
+IP: 127.0.0.1
+02/01/2022 11:58:39pm
+Executando list-relics.php
+
+IP: 127.0.0.1
+02/01/2022 11:58:39pm
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:00:57am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:00:57am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:01:54am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:01:54am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:20:15am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:20:15am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:20:19am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 12:20:19am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:22:13am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:22:13am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:22:14am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:22:14am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:22:40am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:22:40am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:23:20am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:23:20am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:27:45am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:27:45am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:27:52am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 12:27:52am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:29:26am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:29:26am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:29:38am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:29:38am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:29:50am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 12:29:50am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:30:48am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:30:48am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:35:27am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:35:27am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:35:58am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:35:58am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:36:33am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:36:33am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:39:31am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 12:39:31am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:39:35am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:39:35am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:39:38am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+03/01/2022 12:39:38am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:40:39am
+Executando list-relics.php
+
+IP: 127.0.0.1
+03/01/2022 12:40:39am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:43:18am
+Executando search.php
+
+IP: 127.0.0.1
+03/01/2022 12:43:18am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:43:33am
+Executando update-relic.php
+
+IP: 127.0.0.1
+03/01/2022 12:43:33am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:43:33am
+Reliquia 3 atualizada
+
+IP: 127.0.0.1
+03/01/2022 12:43:35am
+Executando update-relic.php
+
+IP: 127.0.0.1
+03/01/2022 12:43:35am
+Encontrou cookie
+
+IP: 127.0.0.1
+03/01/2022 12:43:35am
+Reliquia 3 atualizada
+

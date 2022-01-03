@@ -7,9 +7,11 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/relics-tools.inc.php';
 
+insertLog('Executando register-relic.php');
+
 try {
 
-  if (!adminPasswordOk()) redirectTo('index.php');   
+  if (!adminPasswordOk()) redirectTo('index.php');
 
 }
 catch (PDOException $e) {
@@ -256,7 +258,11 @@ catch (PDOException $e) {
 
         $insert->writeOnDatabase();
 
+        insertLog("Inseriu reliquia $cod no banco de dados");
+
         $numOfSavedImages = saveResizedImages($cod);
+
+        insertLog("Subiu $numOfSavedImages imagens para esta reliquia");
 
       }
       catch (PDOException $e) {

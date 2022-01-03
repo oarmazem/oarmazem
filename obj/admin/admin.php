@@ -5,6 +5,13 @@ require_once '../php/main.inc.php';
 require_once '../php/mysql.inc.php';
 require_once '../php/password-tools.inc.php';
 
+if (isset($_SERVER['HTTP_USER_AGENT'])) 
+  $user_agent = 'USER AGENT: ' . $_SERVER['HTTP_USER_AGENT'] . "\n";
+else 
+  $user_agent = "USER_AGENT:\n";
+
+insertLog("$user_agent" . 'Executando admim.php');
+
 try {
 
   if (!adminPasswordOk()) redirectTo('index.php'); 
@@ -54,6 +61,7 @@ catch (PDOException $e) {
       <li><a href="register-relic.php">Cadastro de Relíquias</a></li>
       <li><a href="search.php?target=del-relic">Excluir Relíquias</a></li> 
       <li><a href="search.php?target=update-relic">Atualização de Dados de Relíquias</a></li>
+      <li><a href="list-relics.php">Listagem das Relíquias</a></li>
       <li><a href="search.php?target=upload-relic">Upload de Imagens de Relíquias</a></li>
     </ul>
     <ul id="coffee">

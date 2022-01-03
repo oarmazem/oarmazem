@@ -2,4 +2,6 @@
 
 define('RESIZE_DIR', 'images/photos/resized/');
 
+define('LOG_DIR', 'log/');
+
 ?>

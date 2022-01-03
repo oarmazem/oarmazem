@@ -33,6 +33,37 @@ body {
 header {
   background-color: var(--body-background);
 }
+
+header h1 {
+  position: relative;
+}
+
+/*================================================================================================
+                                     Configura o search box
+================================================================================================*/
+
+#search {
+  position: absolute;
+  font-size: 1.8rem;
+  font-family: Arial, sans-serif;
+  top: 1rem;
+  right: 2rem;
+  width: 16rem;
+  height: 3rem;
+  border: 1px solid rgb(213, 213, 213);
+  border-radius: 32px;
+  background-color: var(--body-background);
+  background-image: url('../images/searchicon.png');
+  background-position: 1rem 0.75rem; 
+  background-size: 1.5rem; 
+  background-repeat: no-repeat;
+  padding: 0.2rem 1rem 0.2rem 1rem;
+}
+
+#search:focus {
+  background-color: rgb(230, 230, 230);
+  background-image: none;
+}
   
 /*================================================================================================
                         Configura o logo na parte superior da pagina

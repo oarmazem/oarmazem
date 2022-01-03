@@ -7,6 +7,8 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/relics-tools.inc.php';
 
+insertLog('Executando del-relic.php');
+
 try {
 
   if (!adminPasswordOk() || !isset($_POST['cod'])) redirectTo('index.php');   
@@ -18,6 +20,8 @@ try {
   if (isset($_POST['delete'])) {
    
     $delete->deleteRow($cod);
+
+    insertLog("Deletou reliquia $cod");
 
     $cod++;
 

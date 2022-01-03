@@ -7,6 +7,8 @@ require_once '../php/password-tools.inc.php';
 require_once '../php/images-tools.inc.php';
 require_once '../php/cofs-tools.inc.php';
 
+insertLog('Executando update-cof.php');
+
 try {
 
   if (!adminPasswordOk() || !isset($_POST['cod'])) redirectTo('index.php'); 
@@ -20,6 +22,8 @@ try {
     if (isset($_POST['delete'])) {
 
       $update->deleteRow($cod);
+
+      insertLog("Deletou o item de cardapio $cod");
 
       redirectTo('search.php?target=update-cof');
 
@@ -161,6 +165,8 @@ catch (PDOException $e) {
     <?php
 
     if (isset($_POST['update'])) { echoMsg('Cadastro atualizado com sucesso!'); }//if 
+
+    insertLog("Item $cod atualizado");
 
     echo '<img style="margin: 0.5vw; width: 6vw; height: auto;" src="' . getMainImageFromCode('c' . $cod) . '">';   
 

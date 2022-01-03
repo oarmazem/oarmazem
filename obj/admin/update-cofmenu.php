@@ -6,6 +6,8 @@ require_once '../php/mysql.inc.php';
 require_once '../php/password-tools.inc.php';
 require_once '../php/cofs-tools.inc.php';
 
+insertLog('Executando update-cofmenu.php');
+
 try {
 
   if (!adminPasswordOk()) redirectTo('index.php');   
@@ -32,6 +34,8 @@ if (isset($_POST['nome'])) {
     $stmt->execute();
 
     $result = 'Atualizado com sucesso!';
+
+    insertLog("Atualizou item $tipo para $nome");
 
   }
   catch (PDOException $e) {

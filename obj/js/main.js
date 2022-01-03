@@ -8,14 +8,17 @@ const PORTUGUESE = 0;
   Uma div, por exemplo, contendo todos os paragrafos em Portugues, teria class="br"                      
 */
 const LANGUAGES = [
-  { initials: "br", tooltips: "Traduzir para Português" },
-  { initials: "en", tooltips: "Translate to English" },
-  { initials: "es", tooltips: "Traducion para Español" },
-  { initials: "fr", tooltips: "Traduire en Français" }
+  { initials: "br", translate_tooltips: "Traduzir para Português", search_tooltips: "Pesquisar relíquias" },
+  { initials: "en", translate_tooltips: "Translate to English", search_tooltips: "Search relics" },
+  { initials: "es", translate_tooltips: "Traducion para Español", search_tooltips: "Buscar reliquias" },
+  { initials: "fr", translate_tooltips: "Traduire en Français", search_tooltips: "Rechercher des reliques" }
 ];
 
 //Referencia apontando para a tag img que carrega icone de traducao
 const FLAG = document.getElementById("flag");
+
+//Referencia apontando para a tag input do search box
+const SEARCH_BOX = document.getElementById("search");
 
 /*
 Cores das secoes associadas as cores do letreiro
@@ -47,6 +50,7 @@ const SECTIONS_COLORS = {
   "_reliquias.php?type=10" : "#19B060",
   "_reliquias.php?type=11" : "#19B060",
   "_reliquias.php?type=12" : "#19B060",
+  "search.php" : "#19B060",
   "show-details.php" : "#4F2C72"
 };
 
@@ -141,7 +145,8 @@ function setIcon() {
   let nextLanguage = getNextLanguage();
 
   FLAG.src = "images/flags/" + getLanguagesInitials(nextLanguage) + ".png";
-  FLAG.title = LANGUAGES[nextLanguage].tooltips;   
+  FLAG.title = LANGUAGES[nextLanguage].translate_tooltips;   
+  SEARCH_BOX.title = LANGUAGES[getLanguage()].search_tooltips;
 
 }//setIcon()
 

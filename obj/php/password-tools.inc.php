@@ -20,9 +20,13 @@ function adminPasswordOk() {
 
   if (isset($_COOKIE['login_armazem'])) {
 
+    insertLog("Encontrou cookie");
+
     return ($_COOKIE['login_armazem'] === getAdminPassword()); 
 
   }
+
+  insertLog("Nao encontrou cookie");
 
   return false;
 
