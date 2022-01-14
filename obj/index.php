@@ -26,91 +26,19 @@ trace('1');
 ------------------------------------------------------------------------------------------------>
 <main>
   
-  <section class="quadro-de-cortica" style="height: 250rem;">
+  <section class="quadro-de-cortica" style="height: 237rem;">
  
-    <figure style="width: 80%; left: 5%; top: 2rem;">
+    <figure style="width: 80%; left: 3%; top: 2rem;">
       <img class="foto" src="images/photos/fachada.jpg" alt="fachada">
       <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
     </figure>
 
-    <figure style="width: 30%; right: 5%; top: 4rem;">
+    <figure style="width: 30%; right: 3%; top: 4rem;">
       <img class="foto" src="images/photos/antigo-armazem2.jpg" alt="antigo armazém">
       <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
     </figure>
 
-    <div class="postit blue-postit" style="width: 25%; right: 5%; top: 20rem;">
-      <div class="br" lang="pt-br">
-        <p>Era assim quando alugamos.</p>
-        <p>Uma vendinha que foi fechada em 1998.</p>
-      </div>
-      <div class="en" lang="en-us">        
-        <p>It was like that when we rented it.</p>
-        <p>A small shop that had been closed in 1998.</p>
-      </div>
-      <div class="es" lang="es-es">        
-        <p>Estaba así cuando lo alquilamos.</p>
-        <p>Una pequeña tienda que había sido cerrada en 1998.</p>
-      </div>  
-      <div class="fr" lang="fr-fr">        
-        <p>C'était comme ça quand on l'a loué.</p>
-        <p>Une petite boutique qui avait été fermée en 1998.</p>
-      </div>   
-      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">                
-    </div>
-
-    <figure style="width: 35%; left: 5%; top: 55rem;" >
-      <img class="foto" src="images/photos/salao-oarmazem.jpg" alt="salão do armazém">
-      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
-    </figure>
-
-    <figure style="width: 30%; left: 40%; top: 53rem;">
-      <img class="foto" title="O CAFÉ" data-color="red-a" onclick="nav('cafes.php')" src="images/photos/cafe-com-bolo.jpg" alt="cafe com bolo">
-      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
-      <figcaption onclick="nav('cafes.php')">
-        <p class="br" lang="pt-br">Isso é café de verdade!</p>
-        <p class="en" lang="en-us">This is real coffee!</p>
-        <p class="es" lang="es-es">Este és café de verdad!</p>
-        <p class="fr" lang="fr-fr">C'est un vrai café!</p>
-      </figcaption>
-    </figure>
-
-    <div class="postit orange-postit" style="width: 30%; left: 69%; top: 53rem; transform: rotate(1deg);">
-      <div class="br" lang="pt-br">
-        <p>No fim de tarde...</p>
-        <p>Café feito na hora e bolo de vó para acompanhar uma boa prosa.</p>
-      </div>
-      <div class="en" lang="en-us">
-        <p>In the late afternoon...</p>
-        <p>Freshly brewed coffee and grandma's cake to accompany a good conversation.</p>
-      </div>
-      <div class="es" lang="es-es">
-        <p>Al final de la tarde...</p>
-        <p>Café recién hecho y pastel de la abuela para acompañar una buena prosa.</p>
-      </div>
-      <div class="fr" lang="fr-fr">
-        <p>En fin d'après-midi...</p>
-        <p>Café fraîchement préparé et gâteau de grand-mère pour accompagner une bonne conversation.</p>
-      </div>
-      <img class="left-pin" src="images/pins/lateral-black-pin.png" alt="pin">
-    </div><!--postit-->
-
-    <figure style="width: 30%; left: 6%; top: 83em;">
-      <img class="foto" title="AS RELÍQUIAS" data-color="green-r" onclick="nav('_reliquias.php?type=11')" src="images/photos/cha.jpg" alt="chá">
-      <img class="center-pin" src="images/pins/center-green-pin.png" alt="pin">
-    </figure>
-
-    <figure style="width: 30%; left: 40%; top: 89rem;">
-      <img class="foto" src="images/photos/carrinho.jpg" alt="porsche"> 
-      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
-      <figcaption>
-        <p class="br" lang="pt-br">É um porsche!</p>
-        <p class="en" lang="en-us">It's a porsche!</p>
-        <p class="es" lang="es-es">Es un porsche!</p>
-        <p class="fr" lang="fr-fr">C'est une Porsche!</p>
-      </figcaption>
-    </figure>
-
-    <div class="postit brown-postit" style="width: 30%; left: 69%; top: 66rem; transform: rotate(-2deg);">
+    <div class="postit brown-postit" style="width: 30%; right: 0; top: 21rem; transform: rotate(0deg);">
       <div class="br" lang="pt-br">
         <h2>Como tudo começou</h2>
         <p>Dois amigos: ele carioca, ela paulista.</p>
@@ -159,10 +87,57 @@ trace('1');
         <p>Et pour vous souhaiter la bienvenue.</p>
       </div>
       <img style="width: 60%; height: auto;" src="images/logos/brown-letters-logo.png" alt="logomarca">
-      <img class="right-pin" src="images/pins/lateral-black-pin.png" alt="pin">
+      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
     </div><!--postit-->   
 
-    <div class="postit blue-postit" style="width: 45%; left: 0; top: 115rem;">
+    <figure style="width: 40%; left: 8%; top: 54rem;" >
+      <img class="foto" src="images/photos/salao-oarmazem.jpg" alt="salão do armazém">
+      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">  
+    </figure>
+
+    <figure style="width: 40%; left: 55%; top: 63rem; transform: rotate(2deg);">
+      <img class="foto" src="images/photos/mesas.jpg" alt="mesas de refeição"> 
+      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      <figcaption>
+        <p class="br" lang="pt-br">No Armazém, sua memória afetiva experimenta uma viagem sensorial</p>
+        <p class="en" lang="en-us">At Armazém, your affective memory experiences a sensorial journey</p>
+        <p class="es" lang="es-es">En el Armazém, tu memoria afectiva experimenta un viaje sensorial</p>
+        <p class="fr" lang="fr-fr">Dans Armazém, votre mémoire affective fait l'expérience d'un voyage sensoriel</p>
+      </figcaption>          
+    </figure>    
+
+    <figure style="width: 30%; left: 6%; top: 86rem;">
+      <img class="foto" title="O CAFÉ" data-color="red-a" onclick="nav('cafes.php')" src="images/photos/cafe-com-bolo.jpg" alt="cafe com bolo">
+      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      <figcaption onclick="nav('cafes.php')">
+        <p class="br" lang="pt-br">Isso é café de verdade!</p>
+        <p class="en" lang="en-us">This is real coffee!</p>
+        <p class="es" lang="es-es">Este és café de verdad!</p>
+        <p class="fr" lang="fr-fr">C'est un vrai café!</p>
+      </figcaption>
+    </figure>
+
+    <div class="postit orange-postit" style="width: 30%; left: 5%; top: 118rem; transform: rotate(1deg);">
+      <div class="br" lang="pt-br">
+        <p>No fim de tarde...</p>
+        <p>Café feito na hora e bolo de vó para acompanhar uma boa prosa.</p>
+      </div>
+      <div class="en" lang="en-us">
+        <p>In the late afternoon...</p>
+        <p>Freshly brewed coffee and grandma's cake to accompany a good conversation.</p>
+      </div>
+      <div class="es" lang="es-es">
+        <p>Al final de la tarde...</p>
+        <p>Café recién hecho y pastel de la abuela para acompañar una buena prosa.</p>
+      </div>
+      <div class="fr" lang="fr-fr">
+        <p>En fin d'après-midi...</p>
+        <p>Café fraîchement préparé et gâteau de grand-mère pour accompagner une bonne conversation.</p>
+      </div>
+      <img class="left-pin" src="images/pins/lateral-black-pin.png" alt="pin">
+    </div><!--postit-->
+
+    <div class="postit blue-postit" style="width: 45%; left: 45%; top: 91rem;">
       <div lang="es">
         <h2>Reliquias</h2>
         <p>
@@ -190,18 +165,44 @@ trace('1');
       </div>
       <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
     </div><!--postit--> 
-  
-    <figure style="width: 30%; left: 55%; top: 117rem;">
-      <img class="foto" src="images/photos/fachada.jpg" alt="fachada">
-      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+
+    <figure style="width: 30%; left: 5%; top: 136rem;">
+      <img class="foto" title="AS RELÍQUIAS" data-color="green-r" onclick="nav('_reliquias.php?type=11')" src="images/photos/cha.jpg" alt="chá">
+      <img class="center-pin" src="images/pins/center-green-pin.png" alt="pin">
     </figure>
 
-    <figure style="width: 30%; left: 62%; top: 138rem;"> 
+    <figure style="width: 30%; left: 37%; top: 138rem;">
+      <img class="foto" title="CONTATO" data-color="green-a" class="foto" onclick="nav('contato.php')" src="images/photos/telefone.jpg" alt="telefone"> 
+      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+    </figure>   
+
+    <figure style="width: 30%; left: 69%; top: 138rem;">
+      <img class="foto" src="images/photos/carrinho.jpg" alt="porsche"> 
+      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+      <figcaption>
+        <p class="br" lang="pt-br">É um porsche!</p>
+        <p class="en" lang="en-us">It's a porsche!</p>
+        <p class="es" lang="es-es">Es un porsche!</p>
+        <p class="fr" lang="fr-fr">C'est une Porsche!</p>
+      </figcaption>
+    </figure>
+
+    <figure style="width: 30%; left: 69%; top: 158rem;">
+      <img class="foto" src="images/photos/triciclo.jpg" alt="triciclo"> 
+      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
+    </figure>   
+
+    <figure style="width: 49%; left: 8%; top: 172rem;">
+      <img class="foto" src="images/photos/vaso.jpg" alt="vaso"> 
+      <img class="center-pin" src="images/pins/center-green-pin.png" alt="pin">
+    </figure>    
+  
+    <figure style="width: 30%; left: 63%; top: 192rem;"> 
       <img class="foto" title="COMO CHEGAR" data-color="orange-m" onclick="nav('mapa.php')" src="images/photos/placa.jpg" alt="letreiro">
       <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
     </figure>
 
-    <div class="postit orange-postit" style="width: 30%; right: 5%; top: 160rem; transform: rotate(2deg);">
+    <div class="postit orange-postit" style="width: 30%; right: 7%; top: 224rem; transform: rotate(2deg);">
       <div class="br" lang="pt-br">
         <p>Aberto de 9hs às 18hs</p>
         <p>&#x260F; (11)98415 6248</p>
@@ -224,28 +225,8 @@ trace('1');
       </div>
       <img class="left-pin" src="images/pins/lateral-black-pin.png" alt="pin">
     </div><!--postii-->
- 
-    <figure style="width: 40%; right: 55%; top: 171rem;">
-      <img class="foto" src="images/photos/vaso.jpg" alt="vaso"> 
-      <img class="center-pin" src="images/pins/center-green-pin.png" alt="pin">
-    </figure>
 
-    <figure style="width: 30%; left: 55%; top: 182rem;">
-      <img class="foto" title="CONTATO" data-color="green-a" class="foto" onclick="nav('contato.php')" src="images/photos/telefone.jpg" alt="telefone"> 
-      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
-    </figure>
-
-    <figure style="width: 30%; left: 10%; top: 222rem;">
-      <img class="foto" src="images/photos/triciclo.jpg" alt="triciclo"> 
-      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
-    </figure>
-  
-    <figure style="width: 40%; left: 55%; top: 215rem; transform: rotate(2deg);">
-      <img class="foto" src="images/photos/mesas.jpg" alt="mesas de refeição"> 
-      <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
-    </figure>
- 
-  </section><!--quadro-de-cortica-->
+    </section><!--quadro-de-cortica-->
 
 </main>
 <!----------------------------------------------------------------------------------------------- 
@@ -254,9 +235,12 @@ trace('1');
 
 <img id="chest" src="images/close-chest.png" onclick="nav('_reliquias.php?type=11')"> 
 
+<a href="#logo"><img id="upward" title="" src="images/upward-arrow.png"></a> 
+
 <footer></footer>
 
 <script src="js/gethtml.js"></script>
+<script src="js/erase-banner.js"></script>
 <script src="js/main.js"></script>
 <script>initialize("index.php");</script>
 

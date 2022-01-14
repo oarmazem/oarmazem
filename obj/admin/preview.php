@@ -53,9 +53,16 @@ catch (PDOException $e) {
     <script src="js/main.js"></script>
     <script src="js/validation.js"></script>
 
-    <img style="display: block; margin: auto;" src="<?php echo RESIZE_DIR; ?>preview.jpg" alt="Ainda não há imagem no servidor">
+    <?php 
+      if (isset($_FILES['main_image']['name'])) {
 
-    <?php if (isset($_FILES['main_image']['name'])) preview(); ?>
+        $previewFilename = preview();
+
+        if ($previewFilename)
+          echo "<img style=\"display: block; margin: auto;\" src=\"$previewFilename\" alt=\"Prévia da imagem\">";
+      }
+
+    ?>
   </section>
 
 </body>

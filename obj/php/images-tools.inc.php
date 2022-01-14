@@ -143,7 +143,7 @@ function saveResizedImages(string $cod): int {
 /*[04]------------------------------------------------------------------------------------------
                                   Exibe uma previa da imagem
 -----------------------------------------------------------------------------------------------*/
-function preview() {
+function preview() : string {
 
   set_time_limit(0);
   
@@ -151,18 +151,20 @@ function preview() {
   if ($_FILES['main_image']['size'] > MAX_FILE_SIZE) {
 
     echoMsg('Desculṕe, arquivo grande demais.');
-    return;
+    return "";
 
   }
 
-  $targetFile = RESIZE_DIR . 'preview.jpg';
+  deleteImagesFromCode('preview');
+
+  $targetFile = RESIZE_DIR . 'preview-' . time() . '.jpg';
   $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));  
   
   // Apenas arquivo jpeg
   if($imageFileType != 'jpg' && $imageFileType != 'jpeg') {
 
     echoMsg('Apenas arquivos JPG e JPEG podem ser processados.');
-    return;
+    return "";
 
   }
 
@@ -170,7 +172,11 @@ function preview() {
   
     echoMsg('Falha no redimensionamento da imagem.');
 
+    return "";
+
   }
+
+  return $targetFile; //retorna o nome do arquivo que foi gerado com a previa da imagem
 
 }//preview()
 

@@ -4,10 +4,11 @@
   require_once '../php/main.inc.php';
   require_once '../php/mysql.inc.php';
   require_once '../php/password-tools.inc.php';
+  require_once '../php/images-tools.inc.php';
 
   define('W', 1100);//largura da imagem
   define('H', 800);//altura da imagem
-  define('IMAGE_FILE', '../images/photos/resized/stats.png');//A imagem gerada serah gravada neste arquivo
+  define('GRAPH_DIR', '../images/photos/resized/');//O diretorio onde serah gravado o arquivo com a imagem do grafico
 
   insertLog('Executando stats.php');
 
@@ -40,7 +41,16 @@
   }//formatNumber()
 
   /*----------------------------------------------------------------------------------------------
-                  Mostra um grafico com o num. de visuzlizacoes de cada pagina do site
+                       Cria um nome para o arquivo de imagem que serah gerado
+  ----------------------------------------------------------------------------------------------*/
+  function getGraphFileName() : string {
+
+    return GRAPH_DIR . 'stats-' . time() . ".png";
+
+  }
+
+  /*----------------------------------------------------------------------------------------------
+                  Mostra um grafico com o num. de visualizacoes de cada pagina do site
   ----------------------------------------------------------------------------------------------*/
   function showViews(string $startDate, string $endDate) {
 
@@ -100,6 +110,9 @@
     $chilanka = '../fonts/chilanka-regular.ttf';
 
     $heebo = '../fonts/heebo.ttf';
+
+    //deleta arquivos anteriores de imagem dos graficos que foram gerados
+    deleteImagesFromCode('stats');
  
     //As coordenadas que o grafico de barras tera na imagem
     $xi = 100; $yi = 100; $xf = 610; $yf = 700; $graphicHeight = $yf - $yi;
@@ -138,7 +151,7 @@
       imageFilledRectangle($image, $xf + 120, $yLabel , $xf + 140, $yLabel + 20, $colors[$i]);
 
       //Escreve o nome da pagina no label
-      imageTtfText($image, 10, 0, $xf + 160, $yLabel + 15, $black, $chilanka, $indexPage . " - " .$pages[$i]);
+      imageTtfText($image, 10, 0, $xf + 160, $yLabel + 15, $black, $chilanka, $indexPage . " - " . $pages[$i] . " * [" . number_format($views[$i], 0, ',', '.'). "]");
             
     }//for $i
  
@@ -175,21 +188,14 @@
 
         imageLine($image, $x2, y($yi), $x2, y($yi - 10), $black);
 
-        imageString($image, 5, $xi - 75, y($barsHeights[$i]), formatNumber($views[$i], 8), $black);
+        //imageString($image, 5, $xi - 75, y($barsHeights[$i]), formatNumber($views[$i], 8), $black);
         imageString($image, 3, $x1 + 10, y($yi - 10), formatNumber($i + 1, 2), $black);      
-        
-      }//for $i
-
-      //Linhas horizontais do grafico de barras
-      for ($i = 0; $i < 17; $i++) { 
-    
-        imageLine($image, $xi, y($barsHeights[$i]), $xf, y($barsHeights[$i]), $black);
         
       }//for $i
 
     }//if-else
 
-    imagePng($image, IMAGE_FILE);
+    imagePng($image, getGraphFileName());
     imageDestroy($image);
 
   }//showViews()
@@ -246,7 +252,7 @@
 
         showViews($_POST['data_inicial'], $_POST['data_final']);
 
-        echo " <img src=\"" . IMAGE_FILE . "\" alt=\"gráfico de visualizações do site\" style=\"width: 100%;\">";
+        echo " <img src=\"" . getGraphFileName() . "\" alt=\"gráfico de visualizações do site\" style=\"width: 100%;\">";
 
       }
       catch (PDOException $e) {

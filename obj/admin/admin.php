@@ -80,5 +80,7 @@ catch (PDOException $e) {
     </ul>
   </nav>
 
+  <script src="../js/erase-banner.js"></script>
+
 </body>
 </html>

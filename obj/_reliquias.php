@@ -70,9 +70,12 @@ catch (PDOException $e) {
 
 <img id="chest" src="images/close-chest.png" onclick="nav('_reliquias.php?type=11')"> 
 
+<a href="#logo"><img id="upward" title="" src="images/upward-arrow.png"></a> 
+
 <footer></footer>
 
 <script src="js/gethtml.js"></script>
+<script src="js/erase-banner.js"></script>
 <script src="js/main.js"></script>
 <script>initialize("_reliquias.php?type=<?php echo $type ?>");</script>
 

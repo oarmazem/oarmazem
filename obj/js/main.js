@@ -8,10 +8,26 @@ const PORTUGUESE = 0;
   Uma div, por exemplo, contendo todos os paragrafos em Portugues, teria class="br"                      
 */
 const LANGUAGES = [
-  { initials: "br", translate_tooltips: "Traduzir para Português", search_tooltips: "Pesquisar relíquias" },
-  { initials: "en", translate_tooltips: "Translate to English", search_tooltips: "Search relics" },
-  { initials: "es", translate_tooltips: "Traducion para Español", search_tooltips: "Buscar reliquias" },
-  { initials: "fr", translate_tooltips: "Traduire en Français", search_tooltips: "Rechercher des reliques" }
+  { initials: "br", 
+    translate_tooltips: "Traduzir para Português", 
+    search_tooltips: "Pesquisar relíquias",
+    upward_tooltips: "Vai para o topo" 
+  },
+  { initials: "en", 
+    translate_tooltips: "Translate to English",
+    search_tooltips: "Search relics", 
+    upward_tooltips: "Scroll to top" 
+  },
+  { initials: "es", 
+    translate_tooltips: "Traducion para Español",
+    search_tooltips: "Buscar reliquias",
+    upward_tooltips: "Inicio de la página" 
+  },
+  { initials: "fr", 
+    translate_tooltips: "Traduire en Français", 
+    search_tooltips: "Rechercher des reliques",
+    upward_tooltips: "Haut de la page"  
+  }
 ];
 
 //Referencia apontando para a tag img que carrega icone de traducao
@@ -19,6 +35,9 @@ const FLAG = document.getElementById("flag");
 
 //Referencia apontando para a tag input do search box
 const SEARCH_BOX = document.getElementById("search");
+
+//Referencia apontando para a sera para cima que eh o link que rola para o topo da pagina
+const UPWARD = document.getElementById("upward");
 
 /*
 Cores das secoes associadas as cores do letreiro
@@ -147,6 +166,7 @@ function setIcon() {
   FLAG.src = "images/flags/" + getLanguagesInitials(nextLanguage) + ".png";
   FLAG.title = LANGUAGES[nextLanguage].translate_tooltips;   
   SEARCH_BOX.title = LANGUAGES[getLanguage()].search_tooltips;
+  UPWARD.title = LANGUAGES[getLanguage()].upward_tooltips;
 
 }//setIcon()
 
@@ -270,29 +290,18 @@ function resizeListener() {
 }//resizeListener()
 
 /*----------------------------------------------------------------------------
-              Listener para ocultar o banner do FreeWHA
-----------------------------------------------------------------------------*/
-function eraseFreewhaBanner() {
-
-  document.querySelector("body > div").style.display = "none";
- 
-}//eraseFreewhaBanner()
-
-/*----------------------------------------------------------------------------
 Inicializa menu principal, registra listeners, obtem dados globais do DOM, 
 define o idioma corrente do site
 ----------------------------------------------------------------------------*/
 function initialize(newSection) {
-
-  document.addEventListener("DOMContentLoaded", eraseFreewhaBanner);
-
+  
   section = newSection;
 
   if (section ===  "_reliquias.php?type=11") {
 
     let chestImage = document.querySelector("#chest");
     chestImage.src = "images/open-chest.png";
-    chestImage.setAttribute( "onClick", "nav('index.html')" );
+    chestImage.setAttribute( "onClick", "nav('index.php')" );
 
   }
 

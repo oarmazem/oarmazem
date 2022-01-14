@@ -1445,3 +1445,287 @@ IP: 127.0.0.1
 03/01/2022 07:19:51am
 Encontrou cookie
 
+IP: 127.0.0.1
+06/01/2022 01:54:50am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+06/01/2022 01:54:50am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+06/01/2022 01:54:50am
+Executando index.php
+
+IP: 127.0.0.1
+06/01/2022 01:54:50am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+09/01/2022 08:58:32pm
+Executando index.php
+
+IP: 127.0.0.1
+09/01/2022 08:58:32pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+12/01/2022 02:05:25pm
+Executando index.php
+
+IP: 127.0.0.1
+12/01/2022 02:05:25pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:11:15am
+Executando index.php
+
+IP: 127.0.0.1
+13/01/2022 06:11:15am
+Nao encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 04:41:03pm
+Executando index.php
+
+IP: 127.0.0.1
+13/01/2022 04:41:03pm
+Nao encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 04:41:03pm
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+13/01/2022 04:41:03pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 04:41:06pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 04:41:06pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 04:41:21pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 04:41:21pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:21:52pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:21:52pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:22:52pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:22:52pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:26:16pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:26:16pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:28:09pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:28:09pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:29:07pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:29:07pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:45:48pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:45:48pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:46:40pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:46:40pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:47:29pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:47:29pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:47:59pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:47:59pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:50:29pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:50:29pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 06:51:31pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 06:51:31pm
+Encontrou cookie
+
+IP: 127.0.0.1
+13/01/2022 11:55:59pm
+Executando stats.php
+
+IP: 127.0.0.1
+13/01/2022 11:55:59pm
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:08:19am
+Executando stats.php
+
+IP: 127.0.0.1
+14/01/2022 12:08:19am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:11:48am
+Executando stats.php
+
+IP: 127.0.0.1
+14/01/2022 12:11:48am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:21:01am
+Executando stats.php
+
+IP: 127.0.0.1
+14/01/2022 12:21:01am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:21:36am
+Executando stats.php
+
+IP: 127.0.0.1
+14/01/2022 12:21:36am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:29:01am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+14/01/2022 12:29:01am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:29:03am
+Executando preview.php
+
+IP: 127.0.0.1
+14/01/2022 12:29:03am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:29:17am
+Executando preview.php
+
+IP: 127.0.0.1
+14/01/2022 12:29:17am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:50:11am
+Executando preview.php
+
+IP: 127.0.0.1
+14/01/2022 12:50:11am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:50:35am
+Executando preview.php
+
+IP: 127.0.0.1
+14/01/2022 12:50:35am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:51:10am
+USER AGENT: Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:95.0) Gecko/20100101 Firefox/95.0
+Executando admim.php
+
+IP: 127.0.0.1
+14/01/2022 12:51:10am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:51:12am
+Executando preview.php
+
+IP: 127.0.0.1
+14/01/2022 12:51:12am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:51:21am
+Executando preview.php
+
+IP: 127.0.0.1
+14/01/2022 12:51:21am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:52:29am
+Executando preview.php
+
+IP: 127.0.0.1
+14/01/2022 12:52:29am
+Encontrou cookie
+
+IP: 127.0.0.1
+14/01/2022 12:52:46am
+Executando preview.php
+
+IP: 127.0.0.1
+14/01/2022 12:52:46am
+Encontrou cookie
+
