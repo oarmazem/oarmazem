@@ -107,7 +107,7 @@ trace('1');
     </figure>    
 
     <figure style="width: 30%; left: 6%; top: 86rem;">
-      <img class="foto" title="O CAFÉ" data-color="red-a" onclick="nav('cafes.php')" src="images/photos/cafe-com-bolo.jpg" alt="cafe com bolo">
+      <img class="foto" title="O CAFÉ" data-color="red-a" onclick="nav('cafes.php')" src="images/photos/cafe-com-bolo.jpg" alt="café com bolo">
       <img class="center-pin" src="images/pins/center-black-pin.png" alt="pin">
       <figcaption onclick="nav('cafes.php')">
         <p class="br" lang="pt-br">Isso é café de verdade!</p>

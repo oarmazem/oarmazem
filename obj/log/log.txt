@@ -1729,3 +1729,11 @@ IP: 127.0.0.1
 14/01/2022 12:52:46am
 Encontrou cookie
 
+IP: 127.0.0.1
+22/01/2022 02:39:18am
+Executando preview.php
+
+IP: 127.0.0.1
+22/01/2022 02:39:18am
+Encontrou cookie
+
